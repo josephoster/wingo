@@ -1,0 +1,41 @@
+<link rel="stylesheet" href="style.css" type="text/css">
+
+<h3>var jt_.BodyZ = { <span>src: <a href="index.html">jt2_.js</a></span></h3>
+
+<div class="jtDoc">
+
+<table border="0" cellspacing="0" cellpadding="0" style="width:600px;">
+<tr>
+	<td class="secTitle">examples:</td>
+	<td class="secTxt">
+<pre>
+jt_.BodyZ.toTop(document.getElementById("anyId"));
+
+jt_.BodyZ.toTop(jt_.demoMB.box);
+jt_.BodyZ.toTop(elm);
+jt_.BodyZ.toTop(this.container);
+</pre>
+	</td>
+</tr>
+<tr>
+	<td class="secTitle">description:</td>
+	<td class="secTxt">
+Manages z-Index visibility among DOM elements that use the 'toTop()' method, explicitly when called and also implicitly on 'mouseDown' events; once used, touching that element again will bring it to the top.<br>
+<br>
+Can be used as a substitute for 'document.body.appendChild(elm)'<br>
+<br>
+26 lines of code, 0.75 KB, required by 'jt_.Veil', 'jt_DialogBox'
+	</td>
+</tr>
+<tr>
+	<td class="secTitle">main methods:</td>
+	<td class="secTxt">
+<pre>
+toTop: function(elm) // adds any 'elm' to top of z-Index
+</pre>
+	</td>
+</tr>
+</table>
+
+	<h3>}</h3>
+</div>

@@ -1,0 +1,92 @@
+<h3>'jt_utils' <span>src: <a href="index.html">jt_.js</a></span></h3>
+
+<div class="jtDoc">
+
+<table border="0" cellspacing="0" cellpadding="0" style="width:600px;">
+<tr>
+	<td class="secTitle">examples:</td>
+	<td class="secTxt">
+<pre>
+wingo.com is full of them...
+</pre>
+	</td>
+</tr>
+<tr>
+	<td class="secTitle">description:</td>
+	<td class="secTxt">
+basic utility functions, commonly used....
+	</td>
+</tr>
+<tr>
+	<td class="secTitle">main methods:</td>
+	<td class="secTxt">
+<pre>
+showHideElm: function(elm, showIt)
+showNoneElm: function(elm, showIt, showStyle)
+showHide: function(divName, showIt)
+showNone: function(divName, showIt, showStyle)
+
+strEmpty: function(st)
+zInt: function(val)
+zFloat: function(val)
+
+valPx: function(pixels)
+moveTo: function(obj, x, y)
+Point: function(x, y) // returns a "Point" object with '.x' and '.y' properties
+getOffsetXY: function(obj, findID, point)
+	// returns 'jt_Point' object with '.x' and '.y' offsets of 'obj' relative to page
+	// or relative to optional 'findID', if 'findID' is found as a parent
+
+addListener: function(obj, evType, fn)
+remListener: function(obj, evType, fn)
+fixE: function(ev)
+setOpacity: function(elm, opacity)
+currStyle: function(divToRead) // return current (derived) CSS style object
+width: function(divToRead, currStyle)
+height: function(divToRead, currStyle)
+
+winW: function()
+winH: function()
+scrollLeft: function()
+scrollTop: function()
+
+htmlEncode: function(st)
+htmlDecode: function(st)
+parseQuery: function(queryString) // converts name/value pairs in 'queryString' to JS object
+
+getKeycode: function(e)
+onEnter: function(e, callFunc) {
+
+delChildren: function(elm) // remove all child nodes of 'elm' from DOM and delete them
+objCount: function(obj)
+
+objJSON: function(obj)
+objClone: function(obj)
+hyphenCamel: function(cssName)
+cssApply: function(cssList, toDIV)
+jsonToHTML: function(parent, json, jsonMap, mapToID)
+
+tagCloud: function(options) { // options: numTags, showCount, list, addTo, addTag, fracs, title, valAttr
+
+alignCorner: function(elmToMove, elmAnchor, TlTrBlBr, xOffset, yOffset)
+divOnScrn: function(divOnScrn)
+appendRelative: function(dragDIV, newParentDIV, xOffset, yOffset)
+plural: function(qty, lbl)
+
+htmlVuSrc = function(src)
+AjaxToSrc = function(url, toDIV, req)
+
+boxOverlap = function(objectA, objectB, mode, xOffsetA, yOffsetA, xOffsetB, yOffsetB)
+
+isIE = (BrowserDetect.browser == 'Explorer');
+FixIE6 = jt_.isIE && (BrowserDetect.version < 7);
+
+SelectTags.hide: function()
+SelectTags.show: function()
+</pre>
+	</td>
+</tr>
+</table>
+
+	<h3>}</h3>
+</div>

@@ -1,0 +1,221 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+	<title>jt2_.js - "JavaScript Toolkit", DHTML, AJAX</title>
+
+<link rel="stylesheet" href="style.css" type="text/css">
+
+</head>
+<body>
+
+<div id="trGraphic">
+	<img src="sunset.jpg" alt="" width="395" height="117" border="0">
+</div>
+
+<h3>jt2_.js - "JavaScript Toolkit"</h3>
+
+<p>A personal collection of code bits originally called 'jt_utils.js', including '<a href="jt_Cookie_v2.js">jt_Cookie.js</a>' and '<a href="../dialogbox/index.html">jt_DialogBox</a>'.</p>
+
+<pre>
+/**
+ * jt2_.js - "JavaScript Toolkit", V.2 (re-factored Nov 1 2009 from 'jt_.js'; was 'jt_utils.js')
+ *
+ * Copyright (c) 2005-2012 by <a href="../services.html" target="_top">Joseph Oster</a>, wingo.com
+ * <b>download:</b> <a href="http://www.wingo.com/jt_/jt2_.js" target="_blank">http://www.wingo.com/jt_/jt2_.js</a>
+ * @license <a href="http://www.wingo.com/jt_/jt_license.html" target="_blank">http://www.wingo.com/jt_/jt_license.html</a>
+ */
+</pre>
+
+<table cellspacing="0" cellpadding="0" border="0" style="margin:20px 0 0 20px;">
+<tr>
+   <td>
+
+<h4>Documentation:</h4>
+
+<ul>
+	<li><a href="jt_utils.html" onClick="jt_AjaxVuPg.show('jt_utils.html', 'basic utility functions'); return false;">basic utility functions</a></li>
+	<li><a href="jt_Trace.html" onClick="jt_AjaxVuPg.show('jt_Trace.html', 'jt_.Trace'); return false;">jt_.Trace</a> and <a href="jt_TraceObj.html" onClick="jt_AjaxVuPg.show('jt_TraceObj.html', 'jt_.TraceObj'); return false;">jt_TraceObj</a></li>
+	<li><a href="jt_BodyZ.html" onClick="jt_AjaxVuPg.show('jt_BodyZ.html', 'jt_.BodyZ'); return false;">jt_.BodyZ</a> and <a href="jt_Veil.html" onClick="jt_AjaxVuPg.show('jt_Veil.html', 'jt_.Veil'); return false;">jt_.Veil</a></li>
+	<li><a href="cssClass.html" onClick="jt_AjaxVuPg.show('cssClass.html', 'cssClass'); return false;">jt_.cssClass</a></li>
+	<li><a href="jt_fo.html" onClick="jt_AjaxVuPg.show('jt_fo.html', 'jt_.fo'); return false;">jt_.fo</a> // Form Ops</li>
+	<li><a href="jt_FormValid.html" onClick="jt_AjaxVuPg.show('jt_FormValid.html', 'jt_.FormValid'); return false;">jt_.FormValid</a> // Form Validation</li>
+	<li><a href="jt_Cookie.html" onClick="jt_AjaxVuPg.show('jt_Cookie.html', 'jt_.Cookie'); return false;">jt_.Cookie</a></li>
+	<li><a href="jt_xhr.html" onClick="jt_AjaxVuPg.show('jt_xhr.html', 'jt_.xhr'); return false;">jt_.xhr</a> (AJAX)</li>
+	<li><a href="jt_AnimCalc.html" onClick="jt_AjaxVuPg.show('jt_AnimCalc.html', 'jt_.AnimCalc'); return false;">jt_.AnimCalc</a></li>
+	<li><a href="jt_AnimBox.html" onClick="jt_AjaxVuPg.show('jt_AnimBox.html', 'jt_.AnimBox'); return false;">jt_.AnimBox</a></li>
+	<li><a href="jt_Slider.html" onClick="jt_AjaxVuPg.show('jt_Slider.html', 'jt_.Slider'); return false;">jt_.Slider</a></li>
+	<li><a href="ProgressBar.html">jt_.ProgressBar</a></li>
+	<li>'BrowserDetect' <i>(quirksmode.org)</i></li>
+	<li>'jt_Flick'</li>
+	<li>'jt_Hex'</li>
+	<li>'jt_ColorSine'</li>
+	<li>'jt_AjaxThis', 'jt_AjaxCache' and 'jt_AjaxVuPg'</li>
+</ul>
+
+   </td>
+   <td valign="top">
+
+<h4>Source code:</h4>
+
+<table cellspacing="0" cellpadding="0" border="0" class="srcList">
+<tr>
+	<th></th>
+	<th></th>
+	<th>lines</th>
+	<th>size</th>
+</tr>
+<tr>
+   <td>'<a href="jt2_.js">jt2_.js</a>'</td>
+   <td><a href="jt2_.js" onClick="jt_AjaxVuSrc.show('jt2_.js'); return false;">view</a></td>
+   <td>733</td>
+   <td>26.0 KB</td>
+</tr>
+<tr>
+   <td>'<a href="jt_Cookie_v2.js">jt_Cookie.js</a>'</td>
+   <td><a href="jt_Cookie_v2.js" onClick="jt_AjaxVuSrc.show('jt_Cookie_v2.js'); return false;">view</a></td>
+   <td>56</td>
+   <td>1.98 KB</td>
+</tr>
+<tr>
+   <td>'<a href="xh_Request.js">xh_Request.js</a>'</td>
+   <td><a href="xh_Request.js" onClick="jt_AjaxVuSrc.show('xh_Request.js'); return false;">view</a></td>
+   <td>60</td>
+   <td>1.8 KB</td>
+</tr>
+<tr>
+   <td>'<a href="../dialogbox/jt_DialogBox.js">jt_DialogBox.js</a>'	<li>'<a href="../dialogbox/index.html">jt_DialogBox</a>'</li>
+</td>
+   <td><a href="../dialogbox/jt_DialogBox.js" onClick="jt_AjaxVuSrc.show('../dialogbox/jt_DialogBox.js'); return false;">view</a></td>
+   <td>196</td>
+   <td>5.9 KB</td>
+</tr>
+<tr>
+   <td>'<a href="../dialogbox/jt_DialogBox.css">jt_DialogBox.css</a>'</td>
+   <td><a href="../dialogbox/jt_DialogBox.css" onClick="jt_AjaxVuSrc.show('../dialogbox/jt_DialogBox.css'); return false;">view</a></td>
+   <td>44</td>
+   <td>1.2 KB</td>
+</tr>
+<tr>
+   <td>'<a href="jt_ProgressBar.js">jt_ProgressBar.js</a>'</td>
+   <td><a href="jt_ProgressBar.js" onClick="jt_AjaxVuSrc.show('jt_ProgressBar.js'); return false;">view</a></td>
+   <td>44</td>
+   <td>1.47 KB</td>
+</tr>
+<tr>
+   <td>'<a href="jt_boxOverlap.js">jt_boxOverlap.js</a>'</td>
+   <td><a href="jt_boxOverlap.js" onClick="jt_AjaxVuSrc.show('jt_boxOverlap.js'); return false;">view</a></td>
+   <td>74</td>
+   <td>2.4 KB</td>
+</tr>
+<tr>
+   <td>'<a href="jt_Slider.js">jt_Slider.js</a>'</td>
+   <td><a href="jt_Slider.js" onClick="jt_AjaxVuSrc.show('jt_Slider.js'); return false;">view</a></td>
+   <td>68</td>
+   <td>2.19 KB</td>
+</tr>
+</table>
+
+   </td>
+</tr>
+</table>
+
+<div style="float:right;margin:30px;">
+	<a href="../index.html?pg=services.html" target="_top"><img src="../wsb.gif" alt="wingo.com Web Site Design" width="111" height="40" border="0"></a>
+</div>
+
+<link rel="stylesheet" href="../dialogbox/jt_DialogBox.css" type="text/css">
+<script src="../incl/dom-drag.js" type="text/javascript"></script>
+<script src="jt2_.js" type="text/javascript"></script>
+<script src="../dialogbox/jt_DialogBox_v2.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+/**
+ * 'jt_AjaxCache' - bits of HTML fetched by AJAX, cached, displayed in 'jt_DialogBox'
+ *
+ * @version Aug 2007
+ * @author Joseph Oster, wingo.com, Copyright (c) 2005-2010
+ */
+
+var jt_AjaxCache = {
+	get: function(urlKey, callBack) {
+		var cacheFind;
+		for (var i=0; i<jt_AjaxCache.cache.length; i++) {
+			if (urlKey == jt_AjaxCache.cache[i].uKey) {
+				cacheFind = jt_AjaxCache.cache[i];
+				break;
+				}
+			}
+		if (cacheFind) callBack(cacheFind.src);
+		else {
+			if (!jt_AjaxCache.req) jt_AjaxCache.req = jt_.xhr.newRequest();
+			jt_.xhr.ajaxThis(urlKey, function(req) {
+				jt_.Trace.xml(req, "XML returned:");
+				jt_AjaxCache.cache.push({uKey:urlKey, src:req.responseText});
+				callBack(req.responseText);
+				},
+				jt_AjaxCache.req);
+			}
+		},
+	cache: []
+	}
+
+function makeTitle(urlKey) {
+	return "'" + urlKey + '\' from \'jt2_.js\' - "JavaScript Toolkit" - wingo.com';
+}
+
+function scrollZero(win) {
+	win.scrollTop = "0px";
+	win.scrollLeft = "0px";
+}
+
+var jt_AjaxVuPg = {
+	show: function(urlKey, pgTitle) {
+		if (!pgTitle) pgTitle = urlKey;
+		var newBox = false;
+		if (!jt_AjaxVuPg.box) {
+			jt_DialogBox.imagePath = "../images/";
+			jt_AjaxVuPg.box = new jt_DialogBox(false);
+			//jt_Flick.init(jt_AjaxVuPg.box.container);
+			jt_AjaxVuPg.box.getContentNode().className = "pgView";
+			jt_AjaxVuPg.newBox = true;
+			}
+		jt_AjaxVuPg.box.setTitle(makeTitle(pgTitle));
+		jt_AjaxCache.get(urlKey, function(src) {
+			jt_AjaxVuPg.box.setContent(src);
+			scrollZero(jt_AjaxVuPg.box.getContentNode());
+			jt_AjaxVuPg.box.show();
+			if (jt_AjaxVuPg.newBox) {
+				jt_AjaxVuPg.box.moveTo(-1, -1);
+				jt_AjaxVuPg.newBox = false;
+				}
+			});
+		}
+	}
+
+var jt_AjaxVuSrc = {
+	show: function(urlKey, pgTitle) {
+		if (!pgTitle) pgTitle = urlKey;
+		var newBox = false;
+		if (!jt_AjaxVuSrc.box) {
+			jt_DialogBox.imagePath = "../images/";
+			jt_AjaxVuSrc.box = new jt_DialogBox(false);
+			//jt_Flick.init(jt_AjaxVuSrc.box.container);
+			jt_AjaxVuSrc.box.getContentNode().className = "srcView";
+			jt_AjaxVuSrc.newBox = true;
+			}
+		jt_AjaxVuSrc.box.setTitle(makeTitle(pgTitle));
+		jt_AjaxCache.get(urlKey, function(src) {
+			jt_AjaxVuSrc.box.setContent(jt_.htmlVuSrc(src));
+			scrollZero(jt_AjaxVuSrc.box.getContentNode());
+			jt_AjaxVuSrc.box.show();
+			if (jt_AjaxVuSrc.newBox) {
+				jt_AjaxVuSrc.box.moveTo(-1, -1);
+				jt_AjaxVuSrc.newBox = false;
+				}
+			});
+		}
+	}
+</script>
+
+</body>
+</html>

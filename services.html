@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Web Application Programmer - JavaScript, AJAX, DHTML, CSS, jQuery Mobile, PHP, XML, JSP, JSTL, Java, XSL - Kauai, Hawaii and San Francisco Bay Area</title>
+	<meta name="description" content="Web Application Programmer - Site Design and remodeling, Javascript programming, HTML5, graphics, titles, buttons, photo scan / retouch.">
+	<meta name="keywords" content="Javascript, HTML5, CSS, jQuery, PHP, JSP, Java, web, application, programming, developer">
+	<meta name="google-site-verification" content="b0qXfYl7xPPFEwIkfDkLcRIzwkRw4s5wMT703QkXjbM" />
+
+<script src="jt_/jt2_.js?v=100" type="text/javascript"></script>
+<script src="incl/wingo2.js?v=100" type="text/javascript"></script>
+
+<link rel="Stylesheet" type="text/css" href="wingo_bg2.css?v=100">
+<link rel="Stylesheet" type="text/css" href="incl/services.css">
+
+<style type="text/css">
+BODY {background:#e8e8e8;}
+.fixMozLH {line-height:0px;}
+#portfolioBox,
+#portfolioBox .sb-inner {
+	background:red;
+	padding:12px;
+	background:#FFFFFF;
+}
+
+UL.listOf {
+	margin-top:0px;
+	margin-bottom:0px;
+	font-size:smaller;
+}
+
+A.imgLnk:hover {
+	text-decoration: none;
+	background-color: #b0e0e6;
+}
+</style>
+
+</head>
+<body class="wingo">
+
+<div id="wingoMenu" class="noClick">
+	<img src="images/wingobay.png" alt="" width="64" height="288" border="0" style="position:absolute;top:-4px;left:20px;z-index:-1;">
+
+	<a href="services.html" title="Services"><img src="images/menu-services-lo.png" width="88" height="24" border="0"></a>
+	<a href="resume.html" title="Resume"><img src="images/menu-resume-lo.png" width="88" height="24" border="0"></a>
+	<a href="portfolio.html" title="Portfolio"><img src="images/menu-portfolio-lo.png" width="88" height="24" border="0"></a>
+	<a href="weather/index.html" title="Weather"><img src="images/menu-weather-lo.png" width="88" height="24" border="0"></a>
+	<a href="sailing/index.html" title="Sailing"><img src="images/menu-sailing-lo.png" width="88" height="26" border="0"></a>
+	<a href="links.html?menu=true" title="Links"><img src="images/menu-links-lo.png" width="88" height="24" border="0"></a>
+	<a href="homepage.html" title="Home"><img src="images/menu-home-lo.png" width="88" height="24" border="0"></a>
+</div>
+
+<div class="navWingo" style="margin: 2px 0px 0px 40px;">
+	<ul>
+		<li><a href="resume.html" target="_self"><span>professional resume</span></a></li>
+		<li><a href="portfolio.html" target="_self"><span>portfolio</span></a></li>
+		<li class="current"><a href="services.html" target="_self"><span>services</span></a></li>
+		<li><a href="sketchup/index.html" target="_self"><span>3D CAD</span></a></li>
+		<li><a href="resume_sailing.html" target="_self"><span>sailing resume</span></a></li>
+		<li><a href="proa/about/index.html"><span>proa project</span></a></li>
+		<li><a href="homepage.html" target="_self"><span>home</span></a></li>
+	</ul>
+</div>
+
+<h1 class="titleBox"><a href="resume.html" target="_self" class="wingoLC">web application programmer</a></h1>
+
+<table border="0" cellspacing="0" cellpadding="0" align="center" style="margin:10px auto;">
+<tr>
+	<td valign="top" nowrap align="right">
+
+<b><font size="+2">Joseph Oster</font></b><br>
+web application programmer<br>
+<i><b><a href="resume.html" target="_self" onClick="myPersonal.show('resume.html');return false;">Resume</a></b></i> -
+<i><b><a href="portfolio.html" target="_self">Portfolio</a></b></i><br>
+<font size=-1>
+<b><a href="http://www.wingo.com" target="_top">www.wingo.com</a></b> -
+<b><script type="text/javascript">emLink("Email contact", "[wingo] Services contact")</script></b><br>
+Kauai, HI<br></font>
+
+<img src="sp.gif" width=1 height=10 border=0 alt=""><br>
+<a href="resume.html" target="_self" title="Resume"><img src="images/profile_joseph_4.jpg" alt="Resume" width="108" height="166" border="0"></a>
+	</td>
+	<td align="left" valign="top">
+<p style="margin:0px 0px 10px 20px;font-family: Verdana;" class="sm">DHTML and AJAX enhance the User Experience... <span id="traceInfo"></span></p>
+
+<div class="taMenu" id="tabBar">
+	<ul>
+		<li><a href="" onClick="boxShow();showView('progressbar', this);return false;" id="progressbarLink"><span>progress bar</span></a></li>
+		<li><a href="" onClick="boxShow();showView('slider', this);return false;" id="sliderLink"><span>slider controls</span></a></li>
+		<li><a href="" onClick="boxShow();showView('gmaps', this);return false;" id="gmapsLink"><span>google maps</span></a></li>
+		<li><a href="" onClick="boxShow();showView('mycl', this);return false;" id="myclLink"><span>my craigslist</span></a></li>
+	</ul>
+</div>
+
+<div style="position:absolute;padding-left:30px;font-size:smaller;"><a href="" onClick="boxShow();showView('tabViews', this);return false;" id="tabViewsLink">tabs</a></div>
+<br clear="all">
+
+<ul class="listOf">
+	<li>rapid functional prototyping of interactive apps, <a href="art/index.html" target="_blank" onclick="sliderDemo.show(); return false;">widgets</a></li>
+	<li>HTML5, <b><a href="" onClick="showView();viewContent('CSS'); return false;">CSS</a></b>, jQuery Mobile</li>
+	<li>expert level hand coded JavaScript, AJAX, DHTML</li>
+	<li><a href="" onClick="showView();viewContent('widgets');toggleWidth();return false;">DOM manipulation</a>, 
+		<a href="art/index.html" target="_blank" onclick="sliderDemo.show(); return false;">drag &amp; drop</a>, event handling
+	</li>
+	<li>pixel-perfect HTML layout, i18n (internationalization)</li>
+	<li><b><a href="" onClick="pageTour.show();return false;" id="browserTestLink">browser test</a></b> - ("page tour")</li>
+	<li><b><a href="mycl/" target="_blank" onclick="myPersonal.show('http://www.wingo.com/mycl/'); return false;">'my craigslist'</a></b> RSS feed aggregator</li>
+	<li><b><a href="dialogbox/index.html" target="_blank" onclick="winOpenPct('DialogBox', 0.8, 'dialogbox/index.html'); return false;">Dialog Box Widget</a></b>, modal, object oriented JavaScript w/ inheritance (<a href="dialogbox/index.html" target="_blank" onclick="vidBox.play('vidMOXIE');return false;">example</a>)</li>
+	<li><b><a href="jt_/index.html" target="_blank" onclick="myPersonal.show('jt_/index.html'); return false;">personal "JavaScript Toolkit"</a></b>, plus <b><a href="http://jquery.com/" target="_blank">jQuery</a></b> and other JavaScript frameworks</li>
+	<li><b><a href="" target="_blank" onclick="vidBox.play('vidMOXIE');return false;">media player</a></b> detection, object/embed tags, JS control</li>
+	<li><a href="imvu/screen.html?pg=3" target="_blank" onclick="winOpenPct('IMVU_screens', 0.8, 'imvu/screen.html?pg=3'); return false;">CSS Widgets</a>
+		<span style="font-size:0.9em;"><i>(<a href="imvu/index.html" target="_blank" onclick="winOpenPct('IMVU_screens', 0.8, 'imvu/index.html'); return false;">IMVU screens</a>)</i></span>, <b><a href="" onClick="jt_bgGame.start();return false;" id="gamingBGLink">gaming background</a></b>
+	</li>
+	<li><b><a href="tides/index.html" target="_blank" onclick="myPersonal.show('tides/index.html'); return false;">cookies</a></b>,
+		<b><a href="http://www.marinloans.com/prequalify.html" target="_blank" onclick="myPersonal.show('http://www.marinloans.com/loaninfo_private.html'); return false;">form validation</a></b>, frames / iframes</li>
+	<li>site design, branding ("skins"), SEO (search engine optimization)</li>
+</ul>
+
+	<div style="float:right; margin:5px 0 5px 10px; text-align: right; font-size:smaller; font-weight: bold;">
+		<a href="sketchup/index.html" target="_self" title="3D CAD, Google SketchUp" class="imgLnk">
+		<img src="sketchup/hanalei_pier/render_0722_1-s.jpg" alt="" width="160" height="115" border="0" style="margin:5px 0 5px 0;" /><br />
+		3D CAD, Google SketchUp</a><br />
+		<a href="sketchup/index.html#google_earth" target="_self">geo-modeling</a>
+	</div>
+
+<table border="0" cellspacing="0" cellpadding="0" style="margin:10px;">
+<tr class="fixMozLH">
+	<td><img src="images/shadow/shadow_tl.gif" alt="" width="6" height="6" border="0"></td>
+	<td background="images/shadow/shadow_t.gif"></td>
+	<td><img src="images/shadow/shadow_tr.gif" alt="" width="6" height="6" border="0"></td>
+</tr>
+<tr>
+	<td background="images/shadow/shadow_l.gif"><img src="sp.gif" alt="" width="1" height="1" border="0"><br></td>
+	<td bgcolor="#FFFFFF" style="padding:12px;" nowrap="nowrap"><font size="+2"><i><b><a href="portfolio.html" target="_self" onclick="myPersonal.show('portfolio.html'); return false;" class="cleanBlue">Sample work</a></b>
+		<a href="portfolio.html" target="_self" onclick="myPersonal.show('portfolio.html'); return false;" class="cleanBlue">(Portfolio)</a></i></font><br>
+	</td>
+	<td background="images/shadow/shadow_r.gif"><img src="sp.gif" alt="" width="1" height="1" border="0"><br></td>
+</tr>
+<tr class="fixMozLH">
+	<td><img src="images/shadow/shadow_bl.gif" alt="" width="6" height="6" border="0"></td>
+	<td background="images/shadow/shadow_b.gif"><img src="sp.gif" alt="" width="1" height="1" border="0"><br></td>
+	<td><img src="images/shadow/shadow_br.gif" alt="" width="6" height="6" border="0"></td>
+</tr>
+</table>
+
+<ul class="listOf">
+	<li><a href="http://www.alistapart.com/articles/responsive-web-design/" target="_blank">Responsive Web Design</a> <i>(A List Apart)</i></li>
+	<li><b><a href="http://www.php.net/" target="_blank">PHP</a></b></li>
+	<li><b><a href="http://java.sun.com/products/jsp/overview.html" target="_blank">JSP</a></b> (JavaServer Pages), Java classes and
+		<b><a href="http://java.sun.com/products/servlet/overview.html" target="_blank">servlets</a></b>,
+		<b><a href="http://java.sun.com/products/jsp/jstl/index.jsp" target="_blank">JSTL</a></b>
+		and <a href="http://java.sun.com/developer/technicalArticles/xml/WebAppDev3/" target="_blank">custom tags</a></li>
+	<li><a href="http://www.manning.com/husted/" target="_blank">Struts/Tiles</a>, <a href="http://www.springframework.org/" target="_blank">Spring</a></li>
+	<li><b><a href="http://tomcat.apache.org/" target="_blank">Tomcat</a></b>,
+		<b><a href="http://www.caucho.com/" target="_blank">Resin</a></b> and
+		<b><a href="http://www.oracle.com/us/products/middleware/application-server/index.htm" target="_blank">WebLogic</a></b> servers</li>
+	<li>XML parsing in <a href="http://java.sun.com/j2se/1.5.0/docs/api/javax/xml/parsers/DocumentBuilderFactory.html" target="_blank">Java</a>, <a href="http://java.sun.com/products/jsp/jstl/1.1/docs/tlddocs/x/tld-summary.html" target="_blank">JSTL</a>, <a href="http://us3.php.net/dom">PHP-5</a></li>
+	<li>Database connectivity via <b><a href="http://java.sun.com/products/jdbc/" target="_blank">JDBC</a></b> and
+	<b><a href="http://php.net/manual/en/function.mysql-connect.php" target="_blank">mysql_connect</a></b></li>
+</ul>
+
+	</td>
+</tr>
+</table>
+
+<p align="right"><a href="index.html" target="_top"><img src="images/wsb.gif" alt="Web site by wingo.com" width="111" height="40" hspace="40" border="0"></a></p>
+
+<br>
+
+
+
+<div id="tabViewsPanel">
+
+	<div class="panelTitle">
+		<b>&quot;<a href="" onClick="setTabVu();return false;">tab view panels</a>&quot;</b> may be dragged (&quot;un-docked&quot;) and re-sized to explore page layouts.
+			<ul>
+				<li><a href="" onClick="setTabVu(0);return false;">align with tabs</a> <i>(default)</i></li>
+				<li><a href="" onClick="setTabVu(2);return false;">align right</a></li>
+				<li><a href="" onClick="setTabVu(1);return false;">align left</a></li>
+				<li><a href="" onClick="setTabVu(3);return false;">arbitrary</a></li>
+			</ul>
+		When dropped, these panels retain momentum and bounce off the top and left sides.
+	</div>
+</div><!-- ***** END: tabViewsPanel ***** -->
+
+
+<div id="myclPanel">
+
+	<div class="panelTitle">
+		<b>&quot;<a href="mycl/" target="_blank" onclick="myPersonal.show('http://www.wingo.com/mycl/'); return false;">my craigslist</a>&quot;</b> - RSS feed aggregator;<br>
+		personal view of multiple RSS feeds that can be dragged between columns, individually sized and refreshed - AJAX / XMLHttpRequest / DHTML / DOM, object oriented JavaScript<br>
+		<div style="text-align:right;"><a href="http://www.wingo.com/mycl/index.html" target="_blank">open in separate window</a></div>
+	</div>
+</div><!-- ***** END: myclPanel ***** -->
+
+
+<div id="gmapsPanel">
+
+	<div class="panelTitle">
+		see <b><a href="gmaps/index.html" target="_blank" onclick="winOpenPct('gmapsWin', 0.8, 'gmaps/index.html'); return false;">Google Maps API demo page</a></b><br>
+		<font size="-1">or <i>drag and zoom this map</i></font>
+		<span id="gmapsInfo"></span>
+	</div>
+
+	<div id="map" class="noClick"><i style="font-size:2em; margin-left:10px;">initializing map...</i></div>
+</div><!-- ***** END: gmapsPanel ***** -->
+
+
+<div id="sliderPanel">
+
+	<div class="panelTitle">
+		<b><a href="art/index.html" target="_blank" onclick="sliderDemo.show(); return false;">DHTML slider controls</a></b><br>
+		Red, Green and Blue slider controls for Frequency, Phase and Bias of animated background color patterns.
+		<div style="text-align:right;"><a href="art/index.html" target="_blank">open in separate window</a></div>
+	</div>
+</div><!-- ***** END: sliderPanel ***** -->
+
+
+<div id="progressbarPanel">
+
+	<div class="panelTitle">
+		<font size="-1"><i><a href="" onClick="pBarDemo.begin();return false;">begin...</a></i></font>
+		<div id="barLoc"></div>
+
+		<b><a href="jt_/ProgressBar.html" target="_blank" onclick="winOpenPct('progressBarWin', 0.8, 'jt_/ProgressBar.html'); return false;">progress bar demo page</a></b>
+	</div>
+</div><!-- ***** END: progressbarPanel ***** -->
+
+<div id="gamingBG">
+	<div style="text-align:center;">
+		<i>Move mouse to affect speed and direction</i>
+	</div>
+
+	<div style="margin-top:0.8em;">
+		Testing at Kwajalein Atoll of the <b><a href="http://en.wikipedia.org/wiki/MX_missile" target="_blank">Peacekeeper</a></b> re-entry vehicles, all eight fired from only one missile. With live warheads, each line would represent the explosive power of twenty Hiroshima-sized (Little Boy) weapons.
+	</div>
+</div>
+<img src="images/btn_move.gif" id="scrollToolIcon" onClick="jt_bgGame.reset(true)" class="noClick" width="19" height="19" alt="" />
+
+<div class="tkDialogBox" id="dialogBox1">
+<table cellspacing='0' cellpadding='0' border='0' width='100'>
+<tr>
+	<td>
+
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+	<td class="tbLeft"></td>
+	<td class="Title" id="titleID" style="cursor:move"></td>
+	<td class="tbRight"><a href="" onclick="boxShow();return false;" class="noClick"><img src="window_close.gif" alt="Close" border="0"></a><br></td>
+</tr>
+</table>
+
+	</td>
+</tr>
+<tr>
+	<td class="MainPanel">
+		<div class="ContentArea" id="contentID"></div>
+	</td>
+</tr>
+</table>
+</div>
+
+
+<div style="display:none;">
+
+	<div id="BoxDHTML_title">DHTML / DOM</div>
+	<div id="BoxDHTML_content">
+		<div align="right"><i><a href="#" onClick="viewContent('wsd');return false;">..Web site design</a></i></div>
+
+		<p>Dynamic HTML (DHTML) uses cross browser properties and methods of the
+		<b><a href="http://www.w3.org/DOM/" target="_blank" class="offBox">DOM (Document Object Model)</a></b>,
+		often combined with <a href="#" onClick="viewContent('CSS');return false;">CSS layout</a> and object oriented <b>JavaScript</b>,
+		to construct, hide and reveal interactive "<a href="#" onClick="viewContent('widgets');return false;">views</a>".
+
+		<p>DHTML and JavaScript can carry a large burden of User interaction in the browser, exchanging data with the server by posting hidden FORMs, loading pages into IFRAMEs, using SOAP calls, etc.
+
+		<p><b>Example DHTML work:</b><br>
+		<a href="lscomposer/screens.html" class="offBox">drag &amp; drop Composer</a> -
+		(<a href="resume.html#LightSurf" class="offBox">LightSurf</a>)<br>
+		(<a href="resume.html#OLT" class="offBox">Outlook</a>)
+
+		<p>Still, an <a href="#" onClick="viewContent('appProg');return false;">application programming</a> layer connects these browser views with what some would call <i>"the model"</i>, as recorded in the database.
+	</div>
+
+
+	<div id="CSS_title">Cascading Style Sheets</div>
+	<div id="CSS_content">
+		<div align="right"><i><a href="#" onClick="viewContent('wsd');return false;">..Web site design</a></i></div>
+
+		<p>Cascading Style Sheets (CSS) ensure consistency across all pages for many HTML style attributes, including fonts, their sizes, colors, backgrounds, padding, margins, etc.
+
+		<p>Dimensions and positioning for page layout in the CSS affect column widths, headers, footers, sizes of <b><a href="#" onClick="viewContent('BoxDHTML');return false;">DHTML</a></b> widgets, etc.
+
+		<p>CSS is one of the primary methods of "application branding" and "themes", changing many visual elements without modifying any code.
+
+		<p><b>References:</b><br>
+		<a href="http://www.dezwozhere.com/links.html" target="_blank" class="offBox">CSS/Standards Links</a><br>
+		<a href="http://www.w3.org/Style/CSS/" target="_blank" class="offBox">W3C CSS Home Page</a><br>
+		<a href="http://www.w3.org/TR/CSS21/" target="_blank" class="offBox">W3C CSS Specification, level 2</a><br>
+	</div>
+
+
+	<div id="appProg_title">application programming</div>
+	<div id="appProg_content">
+		<div align="right"><i><a href="#" onClick="viewContent('wsd');return false;">..Web site design</a></i></div>
+
+		<p><i>"the model"</i> is reflected on the server by the <b>database</b> and "business logic" that determines who can see and modify
+		which parts; it may be implemented as a set of Java classes and 
+		<b><a href="http://java.sun.com/products/servlet/overview.html" target="_blank" class="offBox">servlets</a></b> or a collection of JSP, PHP or even ColdFusion pages.</p>
+
+		<p>Traditionally, <i>"the view"</i> in the browser may be pages formatted on the server using
+		a variety of tools evolved around
+		<b><a href="http://java.sun.com/products/jsp/overview.html" target="_blank" class="offBox">JSP</a></b>
+		<font size="-1">(JavaServer Pages) to uniquely display a User's content -
+		<b>Example work:</b>
+		<a href="resume.html#Shutterfly" class="offBox">Shutterfly</a>,
+		<a href="resume.html#LightSurf" class="offBox">LightSurf</a></font>.</p>
+
+		<p><b>JSP tools:</b>
+		<b><a href="http://java.sun.com/products/jsp/jstl/index.jsp" target="_blank" class="offBox">JSTL</a></b>
+		<font size="-1">(JSP Standard Tag Library with <a href="http://java.sun.com/products/jsp/jstl/1.1/docs/tlddocs/x/tld-summary.html" target="_blank" class="offBox">XML parsing</a>)</font>,
+		<a href="http://java.sun.com/developer/technicalArticles/xml/WebAppDev3/" target="_blank" class="offBox">custom tags</a>,
+		<a href="http://www.w3.org/International/" target="_blank" class="offBox">I18N Internationalization</a>,
+		<a href="http://husted.com/struts/" target="_blank" class="offBox">Struts/Tiles</a>.</p>
+
+		<p>A different approach uses little or no JSP, relying instead on <a href="#" onClick="viewContent('BoxDHTML');return false;">DHTML</a> in more powerful JavaScript applications, with greater burden on the browser (client) and less demand on the server.</p>
+	</div>
+
+
+	<div id="widgets_title">widgets or "views"</div>
+	<div id="widgets_content">
+		<div align="right"><i><a href="#" onClick="viewContent('wsd');return false;">..Web site design</a></i></div>
+
+		<p>This "tutorial box" is a "view" or widget; though modest in <b><a href="#" onClick="viewContent('BoxDHTML');return false;">DHTML</a></b> usage, it's a good candidate for becoming a <a href="dialogbox/index.html" target="_blank" onclick="winOpenPct('DialogBox', 0.8, 'dialogbox/index.html'); return false;">JavaScript class</a> supporting multiple instances.</p>
+
+		<p>Properties that make it useful, general purpose and re-useable:</p>
+
+		<ol>
+			<li>it can be dragged around</li>
+			<li>title and content can be replaced</li>
+			<li>content may contain HTML</li>
+			<li><a href="#" onClick="toggleWidth();return false;">width is adjustable</a></li>
+			<li>responds well to resizing of content or browser, re-positioning itself, if necessary</li>
+			<li><a href="#" onClick="viewContent('CSS');return false;">CSS</a> based</li>
+			<li>basis for more elaborate widgets with interactive features</li>
+		</ol>
+	</div>
+
+
+	<div id="wsd_title">Web site design</div>
+	<div id="wsd_content">
+		<p>Navigation among a collection of static pages is a visual art, often aided by well designed <a href="#" onClick="viewContent('CSS');return false;">CSS</a>.</p>
+
+		<p>When a web site is personalized by account login or other choices, "site navigation" becomes <b><a href="#" onClick="viewContent('appProg');return false;">web application programming</a></b>: conditional access to a dynamic collection of page views whose contents can be modified.</p>
+
+		<p>For production sites, interaction with a database is key to maintaining "state" and personalized content: <i>"<a href="#" onClick="viewContent('appProg');return false;">the model</a>"</i>.</p>
+
+		<p>With dynamic content (<b><a href="#" onClick="viewContent('BoxDHTML');return false;">DHTML</a></b>), pages have different "<a href="#" onClick="viewContent('widgets');return false;">views</a>" depending on "state". This can change the entire architecture of an application.</p>
+	</div>
+
+
+	<div id="browserTest_title"><b>browser test</b> - "page tour"</div>
+	<div id="browserTest_content">
+		These features, when used in combination, will test a browser's <b>performance</b>! (and the machine it runs on)
+		<ul>
+			<li>Open a <b><a href="" target="_blank" onclick="vidBox.play('vidMOXIE');return false;">media player</a></b>, start/stop the videos.</li>
+
+			<li><b><a href="" onClick="jt_demoMB.show();jt_demoMB.moveTo(20,20);return false;">click anywhere to move this box</a></b>, amusing at first, then annoying, &quot;<a href="" onClick="jt_demoMB.show();return false;">click</a>&quot; stops/starts color animation <i>(cpu drag!)</i> or &quot;<a href="" onClick="jt_demoMB.hide();return false;">disable</a>&quot; it completely</li>
+
+			<li>The <b><a href="" onClick="boxShow();showView('tabViews');return false;">tabs</a></b> reveal resizable <b>&quot;panels&quot;</b> that may be dragged and dropped, retaining momentum and bouncing off the top and left sides (&quot;tossed&quot;).</li>
+
+			<li><b><a href="" onClick="boxShow();showView('gmaps');return false;">map</a></b> can be dragged while the panel is still moving!</li>
+
+			<li><b><a href="" onClick="jt_bgGame.start();return false;">gaming background</a></b> link uses &quot;mousemove&quot; event to pan background image.</li>
+
+			<li><b><a href="art/index.html" target="_blank" onclick="sliderDemo.show(); return false;">slider demo</a></b>;
+				<span id="sliderDemoTxt">Red, Green and Blue controls for Frequency, Phase and Bias of animated background color patterns; try 32 f/s.</span>
+			</li>
+
+			<li><a href="jt_/index.html" target="_blank" onclick="myPersonal.show('jt_/index.html'); return false;">simple dev tools</a>: <b><a href="" target="_blank" onclick="jt_Trace.clr();jt_Trace.on();jt_BodyZ.trace=true;jt_TraceObj.show(pageTour.box);return false;">jt_TraceObj</a></b>, 'jt_Trace'</li>
+
+			<li>another iFrame; <b><a href="resume.html" target="_self" onclick="myPersonal.show('resume.html'); return false;">my resume</a> and
+			<a href="portfolio.html" target="_self" onclick="myPersonal.show('portfolio.html'); return false;">portfolio</a></b></li>
+		</ul>
+
+		<div align="center" style="font-size:0.9em;">
+			<i>iFrames may drag slowly... in part, because<br>when mouse enters iFrame, dragging stops</i>
+		</div>
+	</div>
+
+</div>
+
+
+<div id="vidPeas" style="display:none;" title="Black Eyed Peas - Where Is The Love?">
+	<object width="640" height="385"><param name="movie" value="http://www.youtube.com/v/WpYeekQkAdc&hl=en_US&fs=1&"></param><param name="allowFullScreen" value="true"></param><param name="allowscriptaccess" value="always"></param><embed src="http://www.youtube.com/v/WpYeekQkAdc&hl=en_US&fs=1&" type="application/x-shockwave-flash" allowscriptaccess="always" allowfullscreen="true" width="640" height="385"></embed></object>
+
+	<p>or: <a href="" onClick="vidBox.play('vidDylan');return false;">Bob Dylan - Things Have Changed</a><br />
+	<a href="" onClick="vidBox.play('vidNeil');return false;">Neil Young - Four Strong Winds, When God Made Me</a><br />
+	<a href="" onClick="vidBox.play('vidMOXIE');return false;">Splendid Day Sailing Newick trimaran MOXIE, Vineyard Sound</a></p>
+</div>
+
+<div id="vidMOXIE" style="display:none;" title="Splendid Day Sailing Newick trimaran MOXIE, Vineyard Sound">
+	<object width="480" height="385"><param name="movie" value="http://www.youtube.com/v/uHd2Ins3S8A&hl=en_US&fs=1&"></param><param name="allowFullScreen" value="true"></param><param name="allowscriptaccess" value="always"></param><embed src="http://www.youtube.com/v/uHd2Ins3S8A&hl=en_US&fs=1&" type="application/x-shockwave-flash" allowscriptaccess="always" allowfullscreen="true" width="480" height="385"></embed></object>
+
+	<p align="right">or: <a href="" onClick="vidBox.play('vidPeas');return false;">Where is the Love - Black Eyed Peas</a><br />
+	<a href="" onClick="vidBox.play('vidDylan');return false;">Bob Dylan - Things Have Changed</a><br />
+	<a href="" onClick="vidBox.play('vidNeil');return false;">Neil Young - Four Strong Winds, When God Made Me</a></p>
+</div>
+
+<div id="vidDylan" style="display:none;" title="Bob Dylan - Things Have Changed">
+	<object width="640" height="385"><param name="movie" value="http://www.youtube.com/v/L9EKqQWPjyo&hl=en_US&fs=1&"></param><param name="allowFullScreen" value="true"></param><param name="allowscriptaccess" value="always"></param><embed src="http://www.youtube.com/v/L9EKqQWPjyo&hl=en_US&fs=1&" type="application/x-shockwave-flash" allowscriptaccess="always" allowfullscreen="true" width="640" height="385"></embed></object>
+
+	<p align="right">or: <a href="" onClick="vidBox.play('vidPeas');return false;">Where is the Love - Black Eyed Peas</a><br />
+	<a href="" onClick="vidBox.play('vidNeil');return false;">Neil Young - Four Strong Winds, When God Made Me</a><br />
+	<a href="" onClick="vidBox.play('vidMOXIE');return false;">Splendid Day Sailing Newick trimaran MOXIE, Vineyard Sound</a></p>
+</div>
+
+<div id="vidNeil" style="display:none;" title="Neil Young - Four Strong Winds, When God Made Me">
+<object width="480" height="385"><param name="movie" value="http://www.youtube.com/v/4ATJcZxsFk0&hl=en_US&fs=1&"></param><param name="allowFullScreen" value="true"></param><param name="allowscriptaccess" value="always"></param><embed src="http://www.youtube.com/v/4ATJcZxsFk0&hl=en_US&fs=1&" type="application/x-shockwave-flash" allowscriptaccess="always" allowfullscreen="true" width="480" height="385"></embed></object>
+
+	<p align="right">or: <a href="" onClick="vidBox.play('vidPeas');return false;">Where is the Love - Black Eyed Peas</a><br />
+	<a href="" onClick="vidBox.play('vidDylan');return false;">Bob Dylan - Things Have Changed</a><br />
+	<a href="" onClick="vidBox.play('vidMOXIE');return false;">Splendid Day Sailing Newick trimaran MOXIE, Vineyard Sound</a></p>
+</div>
+
+<script src="incl/dom-drag.js" type="text/javascript"></script>
+<script src="dialogbox/dialogbox_v3/jt_DialogBox_v3.js" type="text/javascript"></script>
+<script src="incl/services2.js" type="text/javascript"></script>
+<script src="http://www.google.com/jsapi?key=ABQIAAAAu5LkZQhc-I8vaWnWFSTk-xQGkppPmawBUnMhkTiZVq7HOEIfpxTdVZ0F5LsuZkTlU_00IMhjj2S7RA" type="text/javascript"></script>
+
+<script type="text/javascript">
+contentLoaded(window,
+	function (e) {
+		menuWingo.init('Services');
+		jt_demoMB.init();
+		initPage();
+	}
+);
+
+google.load("maps", "2");
+</script>
+
+<a href="opinion/facebook_privacy.html" id="fbPrivacy">Facebook Privacy Warning</a>
+
+</body>
+</html>

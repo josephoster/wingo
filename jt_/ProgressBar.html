@@ -1,0 +1,182 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+		"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:v="urn:schemas-microsoft-com:vml">
+<html>
+<head>
+	<title>DHTML Progress Bar Widget using JavaScript and CSS</title>
+
+<style type="text/css">
+BODY {
+	background: #FFFFFF;
+	font-family: Arial, Helvetica, sans-serif;
+}
+
+.bgBar DIV {
+	background: #00008b url(../images/bg_bar.gif);
+	border: 1px solid #FFFFFF;
+	color: #FFFFFF;
+}
+
+.bgBarRed DIV {
+	background: #ff0000;
+	border: 1px solid #FFFFFF;
+	color: #FFFFFF;
+	font-weight : bold;
+}
+
+.bgBar2 DIV {
+	background: #00008b url(../images/bg_bar2.gif);
+	border: 1px solid #adff2f;
+	color: #ffff00;
+	font-style: italic;
+	font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
+}
+
+.bgBar3 DIV {
+	background: #00008b url(../images/bg_bar3.gif);
+	border: 1px solid #c0c0c0;
+	color: #000000;
+}
+
+#srcCode {
+	float:left;
+	position:relative;
+	margin-left:30px;
+	padding:10px;
+	font-size:0.75em;
+	border:1px solid #dcdcdc;
+}
+
+INPUT {font-size:0.75em;}
+</style>
+
+<script src="jt2_.js" type="text/javascript"></script>
+<script src="jt_ProgressBar_v2.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+/**
+ * ProgressBar.html - DHTML Progress Bar Widget demo
+ *
+ * @version 19 Apr 2005
+ * @author Joseph Oster, wingo.com
+ */
+
+var startTime;
+var pTimer;
+var doRows;
+
+var totPct = 0;
+var pctIncr = 0.05;
+
+var pb1;
+var pb2;
+var pb3;
+var pbList = new Array();
+
+function setProgress() {
+	clearTimeout(pTimer);
+	totPct += pctIncr;
+
+	pb1.setPercent(totPct);
+	pb2.setPercent(totPct);
+	pb3.setPercent(totPct);
+
+	if (doRows)
+		for (var i=0; i<pbList.length; i++) pbList[i].setPercent(totPct);
+
+	if (totPct < 1.0) pTimer = setTimeout(setProgress, Math.round(parseFloat(document.PAGEFORM.interval.value) * 1000));
+	else document.getElementById("elapsedMsg").innerHTML = (new Date()) - startTime;
+}
+
+function beginDemo() {
+	totPct = 0;
+	pctIncr = parseFloat(document.PAGEFORM.pctIncr.value);
+	document.getElementById("elapsedMsg").innerHTML = "...";
+	doRows = document.PAGEFORM.useRows.checked;
+	startTime = new Date();
+	setProgress();
+}
+
+function initPage() {
+	// create three widgets
+	pb1 = new jt_.ProgressBar(document.getElementById("widget1Here"), 250, 15, "bgBarRed");
+	pb2 = new jt_.ProgressBar(document.getElementById("widget2Here"), 200, 30, "bgBar");
+	pb3 = new jt_.ProgressBar(document.getElementById("widget3Here"), 400, 12, "bgBar2");
+
+	// create ProgessBar widgets for TABLE rows
+	for (var i=0; i<23; i++) pbList[i] = new jt_.ProgressBar(document.getElementById("pbRow" + i), 140, 11, (i % 2 == 0) ? "" : "bgBar3");
+
+	beginDemo(); // start timer
+}
+
+</script>
+
+</head>
+<body bgcolor="#FFFFFF" onLoad="initPage()">
+
+<form name="PAGEFORM">
+
+<p><font size="+2"><b>DHTML Progress Bar Widget</b> <i>using JavaScript and CSS</i></font></p>
+
+<table width="70%" border="0" cellspacing="0" cellpadding="10">
+<tr>
+	<td align="center" valign="top" width="30%" id="widget1Here"></td>
+	<td valign="top" width="20%" id="widget2Here"></td>
+</tr>
+<tr><td align="center" colspan="2" id="widget3Here"></td></tr>
+</table>
+
+<p style="font-size:0.75em;margin-left: 15px;">
+	<a href="../jt_/jt_ProgressBar.js">source</a> -
+	interval: <input type="text" name="interval" value="0.01" style="width:2.9em;">
+	+pct: <input type="text" name="pctIncr" value="0.05" style="width:2.9em;"> -
+	useRows: <input type="checkbox" name="useRows" value="" checked> -
+	<a href="" onClick="beginDemo(); return false;">re-start</a> -
+	elapsed: <span id="elapsedMsg"></span>
+</p>
+
+<table border="0" cellspacing="0" cellpadding="3" style="float:left;">
+<tr><td id="pbRow0"></td></tr>
+<tr><td id="pbRow1"></td></tr>
+<tr><td id="pbRow2"></td></tr>
+<tr><td id="pbRow3"></td></tr>
+<tr><td id="pbRow4"></td></tr>
+<tr><td id="pbRow5"></td></tr>
+<tr><td id="pbRow6"></td></tr>
+<tr><td id="pbRow7"></td></tr>
+<tr><td id="pbRow8"></td></tr>
+<tr><td id="pbRow9"></td></tr>
+<tr><td id="pbRow10"></td></tr>
+<tr><td id="pbRow11"></td></tr>
+<tr><td id="pbRow12"></td></tr>
+<tr><td id="pbRow13"></td></tr>
+<tr><td id="pbRow14"></td></tr>
+<tr><td id="pbRow15"></td></tr>
+<tr><td id="pbRow16"></td></tr>
+<tr><td id="pbRow17"></td></tr>
+<tr><td id="pbRow18"></td></tr>
+<tr><td id="pbRow19"></td></tr>
+<tr><td id="pbRow20"></td></tr>
+<tr><td id="pbRow21"></td></tr>
+<tr><td id="pbRow22"></td></tr>
+<tr><td id="pbRow23"></td></tr>
+</table>
+
+<div id="srcCode"></div>
+
+<br style="clear:both;line-height:0;">
+<i>This source code is loaded and displayed using a simple 'jt_AjaxToSrc()' function</i>
+
+<div style="float:right;"><a href="../index.html?pg=services.html" target="_top"><img src="../wsb.gif" alt="wingo.com Web Site Design" hspace=30 vspace=20 border=0 height=40 width=111></a></div>
+
+<p><a href="../jt_/index.html">jt2_.js - "JavaScript Toolkit"</a><br>
+<a href="http://www.wingo.com/jt_/jt_license.html">'jt_DialogBox' License</a></p>
+
+</form>
+
+<p>&nbsp;
+
+<script type="text/javascript">jt_.AjaxToSrc("jt_ProgressBar_v2.js", document.getElementById("srcCode"));</script>
+
+</body>
+</html>

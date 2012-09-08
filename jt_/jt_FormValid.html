@@ -1,0 +1,49 @@
+
+<h3>var jt_.FormValid = { <span>src: <a href="index.html">jt2_.js</a></span></h3>
+
+<div class="jtDoc">
+
+<table border="0" cellspacing="0" cellpadding="0" style="width:600px;">
+<tr>
+	<td class="secTitle">example:</td>
+	<td class="secTxt">
+<pre>
+jt_FormValid.reset();
+jt_.FormValid.reqField(document.FEEDBACK.FirstName, "First Name");
+jt_.FormValid.reqField(document.FEEDBACK.LastName, "Last Name");
+jt_.FormValid.reqEmail(document.FEEDBACK.Email);
+jt_.FormValid.reqSelect(document.FEEDBACK.Regarding, "Regarding");
+if (jt_FormValid.msg == "") {
+	// do AJAX...
+}
+else {alert(jt_FormValid.msg);}
+</pre>
+	</td>
+</tr>
+<tr>
+	<td class="secTitle">description:</td>
+	<td class="secTxt">
+Methods for form validation.
+<br />
+<br />
+73 lines of code, 2.37 KB
+	</td>
+</tr>
+<tr>
+	<td class="secTitle">main methods:</td>
+	<td class="secTxt">
+<pre>
+reset: function()
+reqField: function(formField, fldLabel)
+reqSelect: function(formField, fldLabel)
+reqEmail: function(formField)
+validEmail: function(emailStr)
+setFldGood: function(formField)
+setError: function(formField, addMsg)
+</pre>
+	</td>
+</tr>
+</table>
+
+	<h3>}</h3>
+</div>

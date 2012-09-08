@@ -1,0 +1,49 @@
+
+<h3>var jt_.AnimCalc = { <span>src: <a href="index.html">jt2_.js</a></span></h3>
+
+<div class="jtDoc">
+
+<table border="0" cellspacing="0" cellpadding="0" style="width:600px;">
+<tr>
+	<td class="secTitle">example:</td>
+	<td class="secTxt">
+<pre>
+var nfAnim = new jt_AnimCalc(function() {
+		jt_moveTo(cloneFrame, nfAnim.value('x'), nfAnim.value('y'));
+		jt_setOpacity(cloneFrame, nfAnim.value('opacity'));
+		}, {'numSteps':10, 'elapsed':500});
+nfAnim.setRange('opacity', 100, 0);
+nfAnim.setRange('x', locStart.x, locEnd.x + 20);
+nfAnim.setRange('y', locStart.y, locEnd.y + 20);
+nfAnim.start(callWhenDone);
+</pre>
+	</td>
+</tr>
+<tr>
+	<td class="secTitle">description:</td>
+	<td class="secTxt">
+Used by 'jt_.AnimBox' and other code for doing animation. Any number of values can be defined using 'setRange()', such as 'opacity', 'x' and 'y'. When 'start()' is called, an interval timer (defined by 'numSteps' and 'elapsed') is used to calculate a series of values, for each of which the function passed to the constructor is called.
+<br />
+<br />
+65 lines of code, 1.82 KB
+	</td>
+</tr>
+<tr>
+	<td class="secTitle">main methods:</td>
+	<td class="secTxt">
+<pre>
+jt_.AnimCalc = function(dummy, callFunc, specs) {
+jt_.AnimCalc.prototype.setRange = function(name, from, to) {
+jt_.AnimCalc.prototype.flipRange = function() {
+jt_.AnimCalc.prototype.start = function(callDone) {
+jt_.AnimCalc.prototype.stop = function() {
+jt_.AnimCalc.prototype.getVal = function(name) {
+jt_.AnimCalc.prototype.setSpecs = function(specs) {
+jt_.AnimCalc.defaultSpecs = {'numSteps':10, 'elapsed':333};
+</pre>
+	</td>
+</tr>
+</table>
+
+	<h3>}</h3>
+</div>

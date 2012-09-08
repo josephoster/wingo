@@ -1,0 +1,46 @@
+<link rel="stylesheet" href="style.css" type="text/css">
+
+<h3>var jt_TraceObj = { <span>src: <a href="index.html">jt2_.js</a></span></h3>
+
+<div class="jtDoc">
+
+<table border="0" cellspacing="0" cellpadding="0" style="width:600px;">
+<tr>
+	<td class="secTitle">examples:</td>
+	<td class="secTxt">
+<pre>
+jt_AddListener(window, "load", function() {
+	jt_.Trace.on();
+	<a href="" onClick="jt_.Trace.on();jt_.TraceObj.show(document.body);return false;">jt_.TraceObj.show(document.body);</a>
+	});
+
+jt_.TraceObj.show(document.getElementById("anyId"));
+
+var obj = {x:25, y:100, atDiv:document.getElementById("anyId")};
+jt_.TraceObj.show(obj);
+jt_.Trace.msg("anyId=" + jt_TraceObj.str(obj));
+</pre>
+	</td>
+</tr>
+<tr>
+	<td class="secTitle">description:</td>
+	<td class="secTxt">
+Began as simple 'objToString()' function, now a method called 'jt_.TraceObj.str()', was used frequently as 'jt_.Trace.msg(objToString())', evolved to 'jt_.TraceObj.show()', an object/DOM inspector tool with links to explore related objects, DOM nodes, 'childNodes', etc.<br>
+<br>
+130 lines of code, 4.7 KB, requires 'jt_.Trace'
+	</td>
+</tr>
+<tr>
+	<td class="secTitle">main methods:</td>
+	<td class="secTxt">
+<pre>
+show: function(obj) // full object/DOM inspector tool
+str: function(obj) // returns 'obj' as 'name:value' pairs
+</pre>
+	</td>
+</tr>
+</table>
+
+	<h3>}</h3>
+</div>
+<script src="jt2_.js" type="text/javascript"></script>

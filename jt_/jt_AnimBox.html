@@ -1,0 +1,44 @@
+
+<h3>var jt_.AnimBox = { <span>src: <a href="index.html">jt2_.js</a></span></h3>
+
+<div class="jtDoc">
+
+<table border="0" cellspacing="0" cellpadding="0" style="width:600px;">
+<tr>
+	<td class="secTitle">example:</td>
+	<td class="secTxt">
+<pre>
+this.animB = new jt_AnimBox(this.container, this.liner, {'numSteps':9, 'elapsed':180});
+this.animB.showHide(true);
+this.animB.showHide(false);
+this.animB.setStyle(onLeft ? 'TR' : 'TL');
+</pre>
+	</td>
+</tr>
+<tr>
+	<td class="secTitle">description:</td>
+	<td class="secTxt">
+Animates the show and hide of a DIV, using size and opacity.
+<br />
+<br />
+77 lines of code, 2.77 KB
+	</td>
+</tr>
+<tr>
+	<td class="secTitle">main methods:</td>
+	<td class="secTxt">
+<pre>
+jt_.AnimBox = function(boxDIV, opacityDIV, anim_Specs)
+jt_.AnimBox.prototype.getBoxPos = function()
+jt_.AnimBox.prototype.getBoxSize = function()
+jt_.AnimBox.prototype.setStyle = function(animStyle) { // currently supported: 'TL' and 'TR'
+jt_.AnimBox.prototype.showHide = function(showIt, callDone) {
+jt_.AnimBox.prototype.toggle = function(callDone) {
+jt_.AnimBox.boxList = [];
+</pre>
+	</td>
+</tr>
+</table>
+
+	<h3>}</h3>
+</div>

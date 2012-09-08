@@ -1,0 +1,61 @@
+
+<h3>var jt_.xhr = { <span>src: <a href="index.html">jt2_.js</a></span></h3>
+
+<div class="jtDoc">
+
+<table border="0" cellspacing="0" cellpadding="0" style="width:600px;">
+<tr>
+	<td class="secTitle">example:</td>
+	<td class="secTxt">
+<pre>
+var req = jt_.xhr.newRequest();
+if (req.readyState != 0) req.abort();
+req.open(method, proxy_url, true);
+req.setRequestHeader('Content-Type','application/x-www-form-urlencoded; charset=UTF-8');
+req.onreadystatechange = function () {
+	if (req.readyState == 4) {
+		if (callBack) {
+			var respObj;
+			if ((req.readyState == 4) && (req.status == 200) && req.responseXML && req.responseXML.hasChildNodes()) {
+				respObj = {"isXML":"true"};
+				var err = jt_.xhr.getNode(req.responseXML, 'error_response');
+				if (err) {
+					respObj.error_code = jt_.xhr.getNodeVal(err, 'error_code');
+					respObj.error_msg = jt_.xhr.getNodeVal(err, 'error_msg');
+				}
+			}
+			callBack(req, respObj);
+		}
+	}
+}
+req.send((method == 'GET') || (method == 'DELETE') ? null : query);
+</pre>
+	</td>
+</tr>
+<tr>
+	<td class="secTitle">description:</td>
+	<td class="secTxt">
+Ajax methods for managing XMLHttpRequest objects and navigating XML documents.
+<br />
+<br />
+60 lines of code, 1.72 KB
+	</td>
+</tr>
+<tr>
+	<td class="secTitle">main methods:</td>
+	<td class="secTxt">
+<pre>
+newRequest: function() // constructor; returns an XMLHttpRequest object
+statusMsg: function(state)
+getNode: function(atNode, nodeName) // returns XML DOM node of first 'nodeName' child of 'atNode' (typically unique!)
+nodeVal: function(atNode) // returns 'nodeValue' of 'atNode'
+getNodeVal: function(atNode, nodeName) // returns 'nodeValue' of first 'nodeName' child of 'atNode' (typically unique!)
+getNodeAttr: function(atNode, attrName)
+ajaxThis: function(url, func, req)
+</pre>
+	</td>
+</tr>
+</table>
+
+	<h3>}</h3>
+</div>

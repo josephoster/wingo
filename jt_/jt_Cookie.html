@@ -1,0 +1,52 @@
+
+<h3>var jt_.Cookie = { <span>src: <a href="index.html">jt2_.js</a></span></h3>
+
+<div class="jtDoc">
+
+<table border="0" cellspacing="0" cellpadding="0" style="width:600px;">
+<tr>
+	<td class="secTitle">example:</td>
+	<td class="secTxt">
+<pre>
+var myData = new jt_.Cookie(document, "testPrefs", 24);
+myData.load();
+
+function bumpSave() {
+	idx++;
+	myData.position = idx;
+	myData.foobar = 'hello_' + idx;
+	myData.splat = 'sqr_' + (idx * idx);
+	myData.what = idx * 3;
+	myData.store();
+	jt_.Trace.msg("myData=" + jt_.TraceObj.str(myData));
+	jt_.Trace.msg("document.cookie=" + document.cookie);
+}
+</pre>
+	</td>
+</tr>
+<tr>
+	<td class="secTitle">description:</td>
+	<td class="secTxt">
+jt_.Cookie is based largely on code originally from Netscape. The constructor returns a simple JavaScript object which consists of arbitrary name/value pairs.
+<br />
+<br />
+67 lines of code, 2.13 KB
+	</td>
+</tr>
+<tr>
+	<td class="secTitle">main methods:</td>
+	<td class="secTxt">
+<pre>
+jt_.Cookie = function(document, name, hours, path, domain, secure)
+jt_.Cookie.prototype.store = function()
+jt_.Cookie.prototype.load = function()
+jt_.Cookie.prototype.setAsObj = function(obj)
+jt_.Cookie.prototype.getAsObj = function()
+jt_.Cookie.prototype.remove = function()
+</pre>
+	</td>
+</tr>
+</table>
+
+	<h3>}</h3>
+</div>

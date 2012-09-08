@@ -1,0 +1,73 @@
+BODY {
+	background-color: #FFFFFF;
+	margin: 0px;
+	padding: 20px;
+	color: #000000;
+}
+BODY, P, DIV, SPAN, TD, TH, UL, LI, H1, H2, H3, H4 {font-family: Arial, Verdana, Geneva, Helvetica, sans-serif;}
+
+.dashLine {
+	border-top:1px dashed #a9a9a9;
+	margin:8px 0px;
+}
+
+PRE {
+	border-top:1px dashed #a9a9a9;
+	border-bottom:1px dashed #a9a9a9;
+	margin:4px 0;
+	padding:8px 0;
+}
+
+.jtDoc {margin:5px 0 0 30px;}
+
+H3 {margin:0;padding:0;}
+H3 SPAN {
+	font-size:0.85em;
+	font-weight:normal;
+}
+H4 {margin:0.4em 0 0 0;padding:0;}
+
+TD.secTitle {
+	padding-right:10px;
+	vertical-align:top;
+	white-space:nowrap;
+}
+TD.secTxt {
+	width:500px;
+}
+
+BR.clearFloat {
+	clear:both;
+	line-height:0px;
+}
+
+.srcList TD, .srcList TH {
+	text-align:right;
+	padding-right:20px;
+	white-space:nowrap;
+}
+
+.srcView {
+	width: 780px;
+	height: 400px;
+	overflow: auto;
+	background:#000000;
+	color:#00ff00;
+	padding:16px;
+	font-size:0.8em;
+}
+
+.pgView {
+	width: 780px;
+	height: 400px;
+	overflow: auto;
+	padding:16px;
+}
+
+#trGraphic {
+	float:right;
+	padding:4px;
+	margin-left:10px;
+	border:1px solid #dcdcdc;
+	background:#FFFFFF;
+}

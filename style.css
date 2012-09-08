@@ -1,0 +1,46 @@
+INPUT, TEXT, TEXTAREA, SELECT {
+  color: #333333; 
+  font-size: 11px; 
+  font-family: Arial, Verdana, Geneva, Helvetica, sans-serif;
+  }
+TD, TH, SPAN, DIV, P, A, UL, LI, H1, H2, H3, H4, blockquote {
+	font-family : Arial,Verdana,Helvetica,sans-serif;
+}
+.timesRom {font-family : Times New Roman,serif; }
+.bluTitle {
+  text-decoration:none; 
+  color:#000099; 
+  font-size: larger; 
+  font-weight : bold;
+  }
+.clean {text-decoration:none;}
+A.cleanBlue {text-decoration:none; color:#000099;}
+A.cleanRed {text-decoration:none; color:#FF0000;}
+.sm {font-size: smaller;}
+
+BR.clearFloat {
+	clear:both;
+	line-height:0px;
+	}
+
+.sideImg {
+	display:block;
+	position:relative;
+	text-align:center;
+	font-size:0.8em;
+	font-style: italic;
+	text-decoration:none;
+}
+.sideImgHide,
+.sideImgHideTL {
+	display:none;
+	position:absolute;
+	top:0;
+	z-index: 100;
+}
+.sideImgHide {
+	right:0;
+}
+.sideImgHideTL {
+	left:0;
+}

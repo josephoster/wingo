@@ -1,0 +1,310 @@
+/********** BEGIN: TA Menu styles **********/
+DIV.taMenu {
+	position:relative;
+	float: right;
+	text-align:right;
+	margin: 0 0 7px 0;
+	width: 95%;
+	background: url("../images/tabs/taMenuBorder.gif") repeat-x bottom;
+	}
+
+DIV.taMenu UL {
+	margin: 0px;
+	padding: 0px;
+	list-style: none;
+	}
+
+DIV.taMenu LI {
+	display: inline;
+	margin: 0px;
+	padding: 0px;
+	}
+
+DIV.taMenu A {
+	float: right;
+	background: url("../images/tabs/svcMenuRight.gif") no-repeat right top;
+	border-bottom: 1px solid #84B0C7;
+	text-decoration: none;
+	}
+
+DIV.taMenu A:hover {background-position: 100% -150px;}
+DIV.taMenu A:hover, DIV.taMenu A:link, DIV.taMenu A:visited, DIV.taMenu A:active {color: #000000;}
+
+DIV.taMenu SPAN {
+	float: right;
+	display: block;
+	background: url("../images/tabs/svcMenuLeft.gif") no-repeat left top;
+	padding: 1px 12px;
+	font-family: Verdana;
+	font-size: 0.75em;
+	white-space: nowrap;
+	}
+
+/* Commented Backslash Hack hides rule from IE5-Mac \*/
+DIV.taMenu SPAN {float : none;}
+/* End IE5-Mac hack */
+
+DIV.taMenu A:hover SPAN {
+	background-position: 0% -150px;
+	color:#FFFFFF;
+	}
+
+DIV.taMenu LI#tabCurrent A {
+	background-position: 100% -150px;
+	border-width: 0px;
+	}
+
+DIV.taMenu LI#tabCurrent SPAN {
+	background-position: 0% -150px;
+	color:#FFFFFF;
+	}
+/********** END: TA Menu styles **********/
+
+.bgBar3 DIV {
+	background: #d3d3d3 url("../images/bg_bar3.gif");
+	border: 1px solid #c0c0c0;
+	color: #000000;
+}
+
+H1.titleBox {
+	clear:both;
+	border: solid 1px #d3d3d3;
+	text-align: center;
+	margin: 0px 40px 0px 40px;
+	font-weight:normal;
+	font-size:1.5em;
+}
+
+/* Dialog Box */
+.tkDialogBox {position: absolute;}
+.tkDialogBox .tbLeft {
+	background: url(tkDbx2L.gif) no-repeat left top;
+	width: 10px;
+}
+
+.tkDialogBox .tbRight {
+	background: url(tkDbx2R.gif) no-repeat right top;
+	width: 10px;
+	padding: 08px 5px 3px 0px;
+	vertical-align: bottom;
+}
+
+.tkDialogBox .Title {
+	background: url(tkDbx2M.gif) top;
+	background-color: #0064EC;
+	font-size: 10pt;
+	font-weight: bold;
+	white-space: nowrap;
+	color: white;
+	padding: 4px 0px 2px 0px;
+}
+
+.tkDialogBox .tbRight A:visited,
+.tkDialogBox .tbRight A:hover {background: none;}
+
+.tkDialogBox .MainPanel {
+	background-color: #ffffff;
+	border-left  : 2px solid #0064EC;
+	border-bottom: 2px solid #0064EC;
+	border-top   : 2px solid #0057CD;
+	border-right : 2px solid #0049AB;
+	padding: 0px 5px 2px 5px;
+	/* border: thin solid yellow; */
+}
+
+.tkDialogBox .MainPanel .ContentArea {
+	width: 240px;
+	font-size: 0.8em;
+	padding: 8px 5px 5px 5px;
+	/* border: thin solid #48d1cc; */
+}
+.tkDialogBox .MainPanel .ContentArea P {margin: 10px 0px 10px 0px;}
+.tkDialogBox A:link {
+	color: #3300FF;
+	text-decoration: underline;
+}
+.tkDialogBox A:visited {
+	color: #3300FF;
+	text-decoration: underline;
+}
+.tkDialogBox A:active { color: #FF0000; text-decoration: none; }
+.tkDialogBox A:hover {
+	color: #3300FF;
+	text-decoration: none;
+	background-color: #e0ffff;
+}
+
+.tkDialogBox A.offBox,
+.tkDialogBox A.offBox:visited {
+	text-decoration: underline;
+	background-color: #F0EDDA;
+	color:#3300FF;
+}
+.tkDialogBox A.offBox:hover {
+	background-color: #FFD980;
+	color: #00008b;
+	text-decoration:none;
+}
+
+#tabViewsPanel,
+#myclPanel,
+#gmapsPanel,
+#progressbarPanel,
+#sliderPanel {
+	position:absolute;
+	top:-2000px;
+	left:-2000px;
+	width:320px;
+	clear:all;
+	visibility:hidden;
+	background: #ffffff;
+	border: 1px solid #94A5BD;
+	font-size:0.8em;
+	overflow:hidden;
+}
+#progressbarPanel {
+	width:200px;
+	height:6em;
+}
+#gmapsPanel {
+	width:360px;
+	height:440px;
+}
+
+.panelTitle {
+	position:relative;
+	padding: 15px 10px 5px 10px;
+	cursor:move;
+}
+
+A.jt_closeX,
+A.jt_dragSize {
+	display: block;
+	position: absolute;
+	top: 3px;
+	right: 3px;
+	width: 13px;
+	height: 13px;
+	background: url("../images/jt_close_drag.png") no-repeat left top;
+	overflow:hidden;
+}
+A.jt_closeX:hover {
+	background-position: 0 -13px;
+}
+A.jt_dragSize {
+	top: 4px;
+	right: 18px;
+	background-position: -13px 0;
+}
+A.jt_dragSize:hover {
+	background-position: -13px -13px;
+}
+ 
+#dialogBox1 {visibility:hidden;}
+
+A {cursor:pointer;}
+
+#gamingBG {
+	position:absolute;
+	display:none;
+	width:300px;
+	padding:5px;
+	font-size: 0.7em;
+	background:#FFFFFF;
+	border:1px solid #000000;
+	filter:alpha(opacity=70);
+	opacity:0.7;
+}
+
+#scrollToolIcon {
+	position:absolute;
+	display:none;
+	background:#ffffcc;
+}
+
+
+/***** jtDialogBox - BEGIN REQUIRED *********************************/
+DIV.jtDialogBox {
+	position: absolute;
+	display: none;
+}
+DIV.jtDialogBox .tbLeft {
+	background: #999999 url(../images/dialogTL2.gif) no-repeat left top;
+	width: 10px;
+}
+DIV.jtDialogBox .tbRight {
+	background: #999999 url(../images/dialogTR2.gif) no-repeat right top;
+	width: 16px;
+	padding: 8px 4px 3px 0;
+	vertical-align: top;
+}
+DIV.jtDialogBox .tbRight A {
+	display:block;
+	width: 12px;
+	height: 11px;
+	background: url(../images/window_close.gif) no-repeat;
+}
+DIV.jtDialogBox .Title {
+	background: #999999 url(../images/dialogTM2.gif) top;
+	font-family: Verdana, Arial, Geneva, Helvetica, sans-serif;
+	font-size: 0.9em;
+	white-space: nowrap;
+	color: #FFFFFF;
+	padding: 6px 0 4px 0;
+	cursor:move;
+}
+/***** jtDialogBox - END REQUIRED *********************************/
+
+
+/***** jtDialogBox - BEGIN SUGGESTED *********************************/
+DIV.jtDialogBox {
+	border-top: 1px solid #EDEDED;
+	border-right: 1px solid #ABABAB;
+	border-bottom: 1px solid #ABABAB;
+	border-left: 1px solid #EDEDED;
+}
+DIV.jtDialogBox .MainPanel {
+	border-top: 1px solid #898989;
+	border-right: 1px solid #4E4E4E;
+	border-bottom: 1px solid #4E4E4E;
+	border-left: 1px solid #898989;
+	background-color: #fffff8;
+}
+DIV.jtDialogBox .MainPanel .ContentArea {
+	margin: 16px;
+	font-size: 0.8em;
+}
+/***** jtDialogBox - END SUGGESTED *********************************/
+
+DIV.jtDialogBox .MainPanel UL {
+	margin: 5px 20px 10px 30px;
+	padding: 0;
+}
+DIV.jtDialogBox .MainPanel LI {padding: 0 0 5px 0;}
+
+DIV.jtDialogBox .MainPanel .ifDemo {
+	width:100%;
+	margin: 0;
+	padding:5px;
+	font-size:0.8em;
+	text-align:center;
+}
+
+DIV.jtDialogBox .MainPanel .vidDemo {
+	margin:0;
+	padding:0;
+	text-align:center;
+	background:#FFFFFF;
+}
+DIV.jtDialogBox .MainPanel .vidDemo P {
+	margin:0;
+	padding:10px 20px 10px 0;
+	font-size: 0.8em;
+	text-align:right;
+}
+
+#browserTestLink {font-size:1.75em;}
+
+#map {
+	position:relative;
+}
