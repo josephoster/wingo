@@ -25,6 +25,8 @@ var jt_ = {
 	},
 
 	showNone: function(divName, showIt, showStyle) {
+		//alert("showNone=" + divName + "][showIt=" + showIt);
+		//	jt_.Trace.msg("showNone=" + divName + "][showIt=" + showIt);
 		jt_.showNoneElm(document.getElementById(divName), showIt, showStyle);
 	},
 

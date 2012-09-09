@@ -5,16 +5,11 @@
 var menuWingo = {
 
 	init: function(lnkName) {
-		if (jt_.cssClass.asObj(document.body).wingo || (jt_.parseQuery().menu == 'true') ) {
-			var wingoMenu = document.getElementById('wingoMenu');
-			jt_.cssClass.add(document.body, 'wingo');
-			jt_.showNoneElm(wingoMenu, true);
-			var links = wingoMenu.getElementsByTagName('a');
-			for (var i=0; i<links.length; i++) {
-				if (links[i].title == lnkName) {
-					links[i].className = 'picked';
-					break;
-				}
+		var links = wingoMenu.getElementsByTagName('a');
+		for (var i=0; i<links.length; i++) {
+			if (links[i].title == lnkName) {
+				links[i].className = 'picked';
+				break;
 			}
 		}
 	}
@@ -60,13 +55,13 @@ function jt_CloseSize(toDIV, options) {
 			function(x, y) {
 				//jt_cssClass.add(toDIV._jt_CloseSize.btn_Size, 'dragging');
 				toDIV._jt_CloseSize.btn_Size.style.backgroundColor = "#ffff00";
-				var currStyle = jt_currStyle(toDIV);
+				var currStyle = jt_.currStyle(toDIV);
 				toDIV._jt_CloseSize.btnSizeWidth = jt_.width(toDIV, currStyle);
 				toDIV._jt_CloseSize.btnSizeHeight = jt_.height(toDIV, currStyle);
 				toDIV._jt_CloseSize.btnSizeLeft = toDIV._jt_CloseSize.btn_Size.offsetLeft;
 				toDIV._jt_CloseSize.divPos = jt_.getOffsetXY(toDIV);
 				//jt_Trace.msg("x=" + toDIV._jt_CloseSize.divPos.x + ", y=" + toDIV._jt_CloseSize.divPos.y + ", btnSizeLeft=" + toDIV._jt_CloseSize.btnSizeLeft + ", btnSizeTop=" + toDIV._jt_CloseSize.btnSizeTop + ", btnSizeWidth=" + toDIV._jt_CloseSize.btnSizeWidth + ", btnSizeHeight=" + toDIV._jt_CloseSize.btnSizeHeight);
-				jt_appendRelative(toDIV._jt_CloseSize.btn_Size, document.body);
+				jt_.appendRelative(toDIV._jt_CloseSize.btn_Size, document.body);
 				jt_.BodyZ.toTop(toDIV._jt_CloseSize.btn_Size);
 
 				if (options.dragStart && (typeof options.dragStart == 'function')) {

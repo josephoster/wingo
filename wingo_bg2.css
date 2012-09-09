@@ -158,26 +158,26 @@ DIV.navWingo SPAN {float: none;}
 
 DIV.navWingo A:hover {
 	text-decoration: none;
-	background: url(images/tab_wingo-right4.gif) no-repeat right top;
+	background: url(images/tabs/tab_wingo-right.gif) no-repeat right top;
 	background-position: 100% -150px;
 }
 
 DIV.navWingo A:hover SPAN {
-	background: url(images/tab_wingo-left4.gif) no-repeat left top;
+	background: url(images/tabs/tab_wingo-left.gif) no-repeat left top;
 	background-position: 0% -150px;
 	color: #191970;
 }
 
 DIV.navWingo .current A,
 DIV.navWingo .current A:hover {
-	background: url(images/tab_wingo-right4.gif) no-repeat right top;
+	background: url(images/tabs/tab_wingo-right.gif) no-repeat right top;
 	background-position: 100% 0px;
 	border-width: 0px;
 }
 
 DIV.navWingo .current SPAN,
 DIV.navWingo .current A:hover SPAN {
-	background: url(images/tab_wingo-left4.gif) no-repeat left top;
+	background: url(images/tabs/tab_wingo-left.gif) no-repeat left top;
 	background-position: 0% 0px;
 	color: white;
 }
