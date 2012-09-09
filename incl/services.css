@@ -6,26 +6,26 @@ DIV.taMenu {
 	margin: 0 0 7px 0;
 	width: 95%;
 	background: url("../images/tabs/taMenuBorder.gif") repeat-x bottom;
-	}
+}
 
 DIV.taMenu UL {
 	margin: 0px;
 	padding: 0px;
 	list-style: none;
-	}
+}
 
 DIV.taMenu LI {
 	display: inline;
 	margin: 0px;
 	padding: 0px;
-	}
+}
 
 DIV.taMenu A {
 	float: right;
 	background: url("../images/tabs/svcMenuRight.gif") no-repeat right top;
 	border-bottom: 1px solid #84B0C7;
 	text-decoration: none;
-	}
+}
 
 DIV.taMenu A:hover {background-position: 100% -150px;}
 DIV.taMenu A:hover, DIV.taMenu A:link, DIV.taMenu A:visited, DIV.taMenu A:active {color: #000000;}
@@ -38,7 +38,7 @@ DIV.taMenu SPAN {
 	font-family: Verdana;
 	font-size: 0.75em;
 	white-space: nowrap;
-	}
+}
 
 /* Commented Backslash Hack hides rule from IE5-Mac \*/
 DIV.taMenu SPAN {float : none;}
@@ -47,17 +47,17 @@ DIV.taMenu SPAN {float : none;}
 DIV.taMenu A:hover SPAN {
 	background-position: 0% -150px;
 	color:#FFFFFF;
-	}
+}
 
 DIV.taMenu LI#tabCurrent A {
 	background-position: 100% -150px;
 	border-width: 0px;
-	}
+}
 
 DIV.taMenu LI#tabCurrent SPAN {
 	background-position: 0% -150px;
 	color:#FFFFFF;
-	}
+}
 /********** END: TA Menu styles **********/
 
 .bgBar3 DIV {
@@ -86,7 +86,6 @@ H1.titleBox {
 	background: url(tkDbx2R.gif) no-repeat right top;
 	width: 10px;
 	padding: 08px 5px 3px 0px;
-	vertical-align: bottom;
 }
 
 .tkDialogBox .Title {
@@ -229,11 +228,11 @@ DIV.jtDialogBox {
 	display: none;
 }
 DIV.jtDialogBox .tbLeft {
-	background: #999999 url(../images/dialogTL2.gif) no-repeat left top;
+	background: #999999 url(dialogTL2.gif) no-repeat left top;
 	width: 10px;
 }
 DIV.jtDialogBox .tbRight {
-	background: #999999 url(../images/dialogTR2.gif) no-repeat right top;
+	background: #999999 url(dialogTR2.gif) no-repeat right top;
 	width: 16px;
 	padding: 8px 4px 3px 0;
 	vertical-align: top;
@@ -242,10 +241,10 @@ DIV.jtDialogBox .tbRight A {
 	display:block;
 	width: 12px;
 	height: 11px;
-	background: url(../images/window_close.gif) no-repeat;
+	background: url(../images/icons/window_close.gif) no-repeat;
 }
 DIV.jtDialogBox .Title {
-	background: #999999 url(../images/dialogTM2.gif) top;
+	background: #999999 url(dialogTM2.gif) top;
 	font-family: Verdana, Arial, Geneva, Helvetica, sans-serif;
 	font-size: 0.9em;
 	white-space: nowrap;

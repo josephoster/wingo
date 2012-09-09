@@ -617,12 +617,15 @@ jt_.Veil = { /***** cooperates w/ 'jt_.BodyZ', required by 'jt_DialogBox' */
 		if (typeof jt_.Veil.veil == "undefined") { // once per page
 			jt_.Veil.reqs = [];
 			jt_.Veil.veil = document.createElement('div');
-			for (var prop in jt_.Veil.css) jt_.Veil.veil.style[prop] = jt_.Veil.css[prop];
 			jt_.Veil.veil.innerHTML = "&nbsp;";
+			jt_.Veil.default_css();
 			if (jt_.BodyZ.que) jt_.BodyZ.que.insertBefore(jt_.Veil.veil, jt_.BodyZ.que.firstChild);
 			else jt_.BodyZ.toTop(jt_.Veil.veil);
 			jt_.addListener(window, "resize", jt_.Veil.fix);
 		}
+	},
+	default_css: function() {
+		for (var prop in jt_.Veil.css) jt_.Veil.veil.style[prop] = jt_.Veil.css[prop];
 	},
 	css: {position:"absolute", display:"none", top:0, left:0, cursor:"not-allowed", backgroundColor:"#000000", filter:"alpha(opacity=20)", opacity:0.2}
 }; /********* END: jt_.Veil *******/

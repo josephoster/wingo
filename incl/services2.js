@@ -38,23 +38,23 @@ function boxShow(isVisible) {
 
 function setWidth() {
 	tutorBoxCA.style.width = jt_.valPx(tutorBoxAW.getVal('width'));
-	}
+}
 
 function toggleWidth() {
 	tutorBoxAW.flipRange();
 	tutorBoxAW.start(checkDragBounds);
-	}
+}
 
 function viewContent(cid, cWidth) {
 	document.getElementById("titleID").innerHTML = document.getElementById(cid + "_title").innerHTML + " <i>(drag me)</i>";
 	tutorBoxCA.innerHTML = document.getElementById(cid + "_content").innerHTML;
 	boxShow(true);
-	}
+}
 
 function viewLayout() {
 	getWindowSize();
 	checkDragBounds();
-	}
+}
 
 jt_.addListener(window, 'resize', viewLayout);
 
@@ -64,14 +64,14 @@ var pBarDemo = {
 		if (!pBarDemo.pBar) {pBarDemo.pBar = new jt_.ProgressBar(document.getElementById("barLoc"), 140, 11, "bgBar3");}
 		pBarDemo.totPct = 0;
 		pBarDemo.setProgress();
-		},
+	},
 	setProgress: function() {
 		clearTimeout(pBarDemo.timerID);
 		pBarDemo.totPct += 0.05;
 		pBarDemo.pBar.setPercent(pBarDemo.totPct);
 		if (pBarDemo.totPct < 1.0) pBarDemo.timerID = setTimeout("pBarDemo.setProgress()", 30);
-		}
-	};
+	}
+};
 
 
 
@@ -509,7 +509,6 @@ var pageTour = {
 	show: function() {
 		if (pageTour.box) pageTour.box.show();
 		else {
-			jt_DialogBox.imagePath = "images/";
 			pageTour.box = new jt_DialogBox(false);
 			jt_Flick.init(pageTour.box.container);
 			var cN = pageTour.box.getContentNode();
@@ -524,7 +523,6 @@ var pageTour = {
 }
 
 var boxIFRAME = function(url, height) {
-	jt_DialogBox.imagePath = "images/";
 	var box = new jt_DialogBox(false);
 /*
 	jt_CloseSize(box.container, {
@@ -564,7 +562,7 @@ var myPersonal = {
 	set: function(url) {
 		myPersonal.box.setTitle(url + msgSlow);
 		myPersonal.box.setUrl(url);
-		myPersonal.box.setContent('<a href="" onClick="winOpenPct(\'myPersonal\', 0.8, myPersonal.box.getUrl()); return false;" >open in separate window</a>');
+		myPersonal.box.setContent('<a href="' + url + '" target="_blank">open in separate window</a>');
 		myPersonal.box.show();
 	}
 }

@@ -4,7 +4,7 @@
 	<title>Portfolio - Sample Web Work - Joseph Oster - wingo.com - JavaScript, AJAX, DHTML, CSS, jQuery Mobile, PHP, XML, JSP, JSTL, Java, XSL - Kauai, Hawaii and San Francisco Bay Area</title>
 	<meta name="description" content="Web site design and remodeling, graphics, titles, buttons, photo scan / retouch. CGI / Perl and Javascript programming, dynamic HTML, forms, frames, RealAudio, E-Commerce.">
 	<meta name="keywords" content="Javascript, HTML5, CSS, jQuery, PHP, JSP, Java, web, application, programming, developer">
-	<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+	<meta charset="utf-8" />
 	<base target="_top">
 
 <script src="jt_/jt2_.js?v=100" type="text/javascript"></script>
@@ -353,7 +353,7 @@ DIV.tLine {
 	<p style="clear:both; text-align: center;"><font size="+2"><a href="links.html" target="_self">recommended links</a></font></p>
 
 	<div style="margin: 0px 40px 5px 40px;">
-		<script>document.writeln(document.getElementById("pageNavTop").innerHTML);</script>
+		<script type="text/javascript">document.writeln(document.getElementById("pageNavTop").innerHTML);</script>
 		<div class='hLine'></div>
 	</div>
 
@@ -372,6 +372,8 @@ DIV.tLine {
 </footer>
 
 <script type="text/javascript">
+topLink();
+
 window.focus();
 contentLoaded(window,
 	function (e) {
@@ -386,16 +388,6 @@ contentLoaded(window,
 		jt_demoMB.init();
 	}
 );
-
-function separateWindow() {
-	var newWin = window.open(location.href, "_blank");
-	newWin.focus();
-}
-
-if (top !== self) {
-	document.writeln('<p align="center" class="sm"><b><a href="#" onClick="separateWindow();return false;">open in separate window</a></b><br />');
-	document.writeln('<i>to bookmark or print this page...</i></p>');
-}
 </script>
 
 </body>

@@ -16,6 +16,12 @@ var menuWingo = {
 
 };
 
+function topLink() {
+	if (top !== self) {
+		document.writeln('<p align="center" class="sm"><b><a href="' + location.href + '" target="_blank">open in separate window</a></b><br><i>to bookmark or print this page...</i></p>');
+	}
+}
+
 function jt_CloseSize(toDIV, options) {
 	toDIV._jt_CloseSize = {ops:options ? options : {}};
 	toDIV._jt_CloseSize.btn_Close = document.createElement("A");
@@ -539,7 +545,6 @@ var vidBox = {
 		var firstTime = false;
 		if (!vidBox.vu) {
 			firstTime = true;
-			jt_DialogBox.imagePath = "images/";
 			vidBox.vu = new jt_DialogBox(false);
 			jt_Flick.init(vidBox.vu.container);
 			vidBox.vu.getContentNode().className = "vidDemo";

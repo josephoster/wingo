@@ -1,0 +1,62 @@
+.VeilStyle1 {
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	cursor: "not-allowed";
+	background-color: white;
+	filter:alpha(opacity=50);
+	-moz-opacity:0.5;
+	opacity: 0.5;
+}
+
+.VeilStyle1b {
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	cursor: "not-allowed";
+	background-color: #99ccff;
+	filter:alpha(opacity=50);
+	-moz-opacity:0.3;
+	opacity: 0.3;
+}
+
+.VeilStyle1d { /* default prior to Aug 2007 */
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	cursor: "not-allowed";
+	background-color: #6a74cb;
+	filter:alpha(opacity=05);
+	-moz-opacity:0.05;
+	opacity: 0.05;
+}
+
+.VeilStyle2 {
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	cursor: "not-allowed";
+	background : url(maskimg_common.gif);
+}
+
+.VeilStyle2b {
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	cursor: "not-allowed";
+	background : url(maskimg_common.gif);
+	filter:alpha(opacity=75);
+	-moz-opacity:0.75;
+	opacity: 0.75;
+}
+
+.VeilStyle2c {
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	cursor: "not-allowed";
+	background : url(maskimg_common.gif);
+	filter:alpha(opacity=50);
+	-moz-opacity:0.5;
+	opacity:0.5;
+}
