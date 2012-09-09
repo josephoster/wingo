@@ -5,7 +5,7 @@
 var menuWingo = {
 
 	init: function(lnkName) {
-		var links = wingoMenu.getElementsByTagName('a');
+		var links = document.getElementById('wingoMenu').getElementsByTagName('a');
 		for (var i=0; i<links.length; i++) {
 			if (links[i].title == lnkName) {
 				links[i].className = 'picked';
