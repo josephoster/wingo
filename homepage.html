@@ -8,14 +8,22 @@
 	<meta name="google-site-verification" content="b0qXfYl7xPPFEwIkfDkLcRIzwkRw4s5wMT703QkXjbM" />
 	<base target="_top">
 
-<script src="jt_/jt2_.js?v=100" type="text/javascript"></script>
-<script src="incl/wingo2.js?v=103" type="text/javascript"></script>
+<script src="jt_/jt2_.js" type="text/javascript"></script>
+<script src="incl/wingo2.js" type="text/javascript"></script>
 
-<link rel="Stylesheet" type="text/css" href="wingo_bg2.css?v=100">
+<link rel="Stylesheet" type="text/css" href="wingo_bg2.css">
 <link rel="Stylesheet" type="text/css" href="incl/services.css">
 
 <style type="text/css">
 BODY {background:#e8e8e8;}
+
+.webDev {
+	clear:both;
+	float:left;
+	margin: 0 0px 0px 20px;
+	font-size: 2em;
+	font-weight: normal;
+}
 
 #qWrap {
 	position:relative;
@@ -66,36 +74,18 @@ BODY {background:#e8e8e8;}
 	<a href="homepage.html" title="Home"><img src="images/menu-home-lo.png" width="88" height="24" border="0"></a>
 </div>
 
-<form method="GET" action="http://www.google.com/search">
+<div style="max-width:1200px; padding-top:20px;">
 
-<div class="navWingo" style="margin: 2px 0px 0px 40px;">
-	<ul>
-		<li><a href="resume.html" target="_self"><span>professional resume</span></a></li>
-		<li><a href="portfolio.html" target="_self"><span>portfolio</span></a></li>
-		<li><a href="services.html" target="_self"><span>services</span></a></li>
-		<li><a href="sketchup/index.html" target="_self"><span>3D CAD</span></a></li>
-		<li><a href="resume_sailing.html" target="_self"><span>sailing resume</span></a></li>
-		<li><a href="proa/about/index.html"><span>proa project</span></a></li>
-	</ul>
-</div>
+	<h2 class="webDev"><a href="services.html" target="_self" class="wingoLC">web developer</a></h2>
 
-<div style="clear:both; max-width:1200px;">
+	<div style="float:right; margin: 0 10px 0 0;">
 
-	<div style="float:left; margin: 10px 0px 0px 20px;">
-		<span class="fs3"><a href="services.html" target="_self" class="wingoLC">web developer</a></span>
-
-		<div style="margin:40px 0 0 60px; text-align: right; font-size:0.8em; font-weight: bold;">
-			<a href="sketchup/index.html" target="_self" title="3D CAD, Google SketchUp" class="imgLnk">
-			<img src="images/hanalei_pier.jpg" alt="" width="160" height="115" border="0" style="margin:5px 0 5px 0;" /><br />
-			3D CAD, Google SketchUp</a><br />
-			<a href="sketchup/index.html#google_earth" target="_self">geo-modeling</a>
+		<div style="float:right; margin-left:10px;">
+			<a href="resume_sailing.html" target="_self"><img src="images/joseph_sailing2.jpg" alt="" width="300" height="120" border="0"></a><br>
+			<span class="fs-1"><i>sailing resume</i><br></span>
 		</div>
 
-		<p style="margin:50px 0 0 50px;"><a href="services.html" target="_self"><img src="images/wsb.gif" alt="Web site by wingo.com" width="111" height="40" border="0"></a></p>
-	</div>
-
-	<div style="float:right; margin: 0 10px 0 0; text-align:right;">
-		<div style="float:left; margin: 20px 10px 0 0;">
+		<div style="float:right; text-align:right;">
 			<b><span class="fs2">Joseph Oster</span></b><br>
 			<a href="services.html" target="_self">web application programmer</a><br>
 			<i><b><a href="resume.html" target="_self">Resume</a></b></i> -
@@ -106,11 +96,22 @@ BODY {background:#e8e8e8;}
 				Kauai, HI<br>
 			</span>
 		</div>
+	</div>
 
-		<a href="resume_sailing.html" target="_self"><img src="images/joseph_sailing2.jpg" alt="" width="300" height="120" border="0"></a><br>
-		<span class="fs-1"><i>sailing resume</i><br></span>
-		<p>
-			<a href="proa/index.html" target="_top" title="Pacific Proa"><img src="proa/v2/proa0212_1.gif" width="344" height="146" border="0" alt="Pacific Proa"></a><br>
+	<div style="clear:left; float:left; padding: 40px 10px 0px 60px;">
+
+		<div class="fs-1" style="text-align: right; font-weight: bold;">
+			<a href="sketchup/index.html" target="_self" title="3D CAD, Google SketchUp" class="imgLnk">
+			<img src="images/hanalei_pier.jpg" alt="" width="160" height="115" border="0" style="margin:5px 0 5px 0;" /><br />
+			3D CAD, Google SketchUp</a><br />
+			<a href="sketchup/index.html#google_earth" target="_self">geo-modeling</a>
+		</div>
+
+		<p style="margin-top:50px; text-align: center;"><a href="services.html" target="_self"><img src="images/wsb.gif" alt="Web site by wingo.com" width="111" height="40" border="0"></a></p>
+	</div>
+
+	<div style="clear: right; float:right; margin: 10px 10px 0 0; text-align:right;">
+			<a href="proa/index.html" target="_top" title="Pacific Proa"><img src="images/proa0212_1.gif" width="344" height="146" border="0" alt="Pacific Proa"></a><br>
 			<span class="fs1"><b><a href="proa/index.html" target="_top">Pacific Proa</a></b></span> Large modern versions of<br>
 			<span class="fs-1">Micronesian style sailing yachts; design and<br>
 			<b><a href="" onClick="proaWin();return false;" target="_self">rendering</a></b> of performance multihull cruisers<br>
@@ -118,21 +119,20 @@ BODY {background:#e8e8e8;}
 			<i>(<b><a href="proa/links.html" target="_self">proa links</a></b>)</i></span>
 		</p>
 	</div>
+
 </div>
 
-<table border="0" cellspacing="0" cellpadding="0" style="clear:both; float:left; margin:10px 0 0 20px;">
-<tr>
-	<td><a href="sailing/index.html" target="_self"><img src="images/sailboat.gif" alt="Sailing Links" width="37" height="57" border="0"></a></td>
-	<td><b><span class="fs3"><a href="sailing/index.html" target="_self" class="cleanBlue">Sailing!</a></span></b></td>
-</tr>
-</table>
-
-<table border="0" cellspacing="0" cellpadding="0" style="float:right; margin:10px 20px 0 0;">
-<tr>
-	<td><b><span class="fs3"><a href="weather/index.html" target="_self" class="cleanBlue">Weather!</a></span></b></td>
-	<td><a href="weather/index.html" target="_self"><img src="images/weather4.gif" alt="Weather Links" width="44" height="57" border="0"></a></td>
-</tr>
-</table>
+<div style="clear:both; padding:10px 20px;">
+	<table border="0" cellspacing="0" cellpadding="0" style="width: 100%;">
+	<tr>
+		<td><a href="sailing/index.html" target="_self"><img src="images/sailboat.gif" alt="Sailing Links" width="37" height="57" border="0"></a></td>
+		<td><b><span class="fs3"><a href="sailing/index.html" target="_self" class="cleanBlue">Sailing!</a></span></b></td>
+		<td style="width: 100%; text-align: center;"><b><span class="fs3"><a href="links.html" target="_self" class="cleanBlue">links</a></span></b></td>
+		<td><b><span class="fs3"><a href="weather/index.html" target="_self" class="cleanBlue">Weather!</a></span></b></td>
+		<td><a href="weather/index.html" target="_self"><img src="images/weather4.gif" alt="Weather Links" width="44" height="57" border="0"></a></td>
+	</tr>
+	</table>
+</div>
 
 <div style="text-align:center; clear:both;">
 

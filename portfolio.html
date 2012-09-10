@@ -7,13 +7,31 @@
 	<meta charset="utf-8" />
 	<base target="_top">
 
-<script src="jt_/jt2_.js?v=100" type="text/javascript"></script>
-<script src="incl/wingo2.js?v=103" type="text/javascript"></script>
+<script src="jt_/jt2_.js" type="text/javascript"></script>
+<script src="incl/wingo2.js" type="text/javascript"></script>
 
 <link rel="Stylesheet" type="text/css" href="wingo_bg2.css">
 <style type="text/css">
 BODY.wingo {
 	background-color: #FFFFFF;
+}
+
+.leftCol {
+	width:70%;
+	float:left;
+}
+.rightCol {
+	width:30%;
+	float:left;
+}
+@media screen and (max-width: 760px) {
+
+	.leftCol,
+	.rightCol {
+		width:100%;
+		float: none;
+	}
+
 }
 
 DIV.tLine {
@@ -65,7 +83,7 @@ DIV.tLine {
 
 <h1 class="wingoHeading2">Portfolio</h1>
 
-<div style="width:70%;float:left;">
+<div class="leftCol">
 	<div class="iconLinks">
 
 		<span class="timesRom"><i><font size="+2">employers...</font></i></span>
@@ -242,7 +260,7 @@ DIV.tLine {
 	</div>
 </div>
 
-<div style="width:30%;float:left;">
+<div class="rightCol">
 	<div style="padding:10px 16px;">
 
 		<font size="+2"><span class="timesRom"><i>former clients:</i></span></font>

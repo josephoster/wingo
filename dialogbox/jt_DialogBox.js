@@ -7,11 +7,11 @@
  */
 /************ REQUIRES: 'jt_.BodyZ' and 'jt_.Veil' from 'jt2_.js' ************/
 
-jt_DialogBox = function(isModal, draggable) {
+jt_DialogBox = function(isModal, dragable) {
 	// CONSTRUCTOR for 'jt_DialogBox' object
 	if (arguments.length == 0) return;
 	this.isModal = isModal;
-	draggable = (arguments.length == 2) ? draggable : true;
+	dragable = (arguments.length == 2) ? dragable : true;
 
 	this.container = document.createElement('div');
 	this.container.className = jt_DialogBox.className;
@@ -76,7 +76,7 @@ jt_DialogBox = function(isModal, draggable) {
 	this.container.appendChild(mainTable);
 	jt_.BodyZ.toTop(this.container);
 
-	if (draggable) {
+	if (dragable) {
 		Drag.init(this.titleCell, this.container, 0, null, 0);
 		this.titleCell.style.cursor = "move";
 	}

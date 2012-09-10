@@ -551,7 +551,7 @@ var myPersonal = {
 		}
 		else {
 			myPersonal.box = boxIFRAME(url, jt_.valPx(540));
-			myPersonal.box.setWidth(760);
+			myPersonal.box.setWidth(740);
 			myPersonal.box.setCallCancel(function() {
 				myPersonal.box.setUrl('');
 			});

@@ -38,6 +38,36 @@ BODY.wingo #wingoMenu {
 #wingoMenu a.picked,
 #wingoMenu a:hover {background: transparent url(images/bg_nav_links.png) no-repeat left top;}
 
+H1.wingoHeading,
+H1.wingoHeading2 {
+	clear:both;
+	text-align: center;
+	background-color:#ffffcc;
+	border: 1px solid #778899;
+	margin: 0px 40px;
+	font-style: italic;
+}
+H1.wingoHeading2 {
+	background-color:#eeeeee;
+	font-weight: normal;
+}
+
+@media screen and (max-width: 760px) {
+
+	BODY.wingo {
+		background-image:none;
+		margin-left:0;
+	}
+	BODY.wingo #wingoMenu {
+		display:none;
+	}
+	h1.wingoHeading,
+	h1.wingoHeading2 {
+		margin: 0 10px;
+	}
+
+}
+
 
 INPUT, TEXT, TEXTAREA, SELECT {color: #2b2b2b;}
 
@@ -180,20 +210,6 @@ DIV.navWingo .current A:hover SPAN {
 	background: url(images/tabs/tab_wingo-left.gif) no-repeat left top;
 	background-position: 0% 0px;
 	color: white;
-}
-
-H1.wingoHeading,
-H1.wingoHeading2 {
-	clear:both;
-	text-align: center;
-	background-color:#ffffcc;
-	border: 1px solid #778899;
-	margin: 0px 40px;
-	font-style: italic;
-}
-H1.wingoHeading2 {
-	background-color:#eeeeee;
-	font-weight: normal;
 }
 
 DIV.dotItems {padding: 0px;}

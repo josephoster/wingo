@@ -66,13 +66,11 @@ DIV.taMenu LI#tabCurrent SPAN {
 	color: #000000;
 }
 
-H1.titleBox {
-	clear:both;
+H1.wingoHeading2 {
+	background-color: transparent;
 	border: solid 1px #d3d3d3;
-	text-align: center;
-	margin: 0px 40px 0px 40px;
-	font-weight:normal;
 	font-size:1.5em;
+	font-style: normal;
 }
 
 /* Dialog Box */
