@@ -1,0 +1,42 @@
+BODY {
+	font-family: "MS Sans Serif", Geneva, sans-serif;
+	background: #ffffff;
+	color: #363636;
+	padding:0;
+	margin:20px;
+}
+H1, H2 {
+	margin:0;
+	padding:0;
+}
+H1 {
+	color: #708090;
+	
+}
+A {
+	color: #363636;
+}
+
+.historyBar {
+	float:right;
+	width:300px;
+	border-left: 2px solid #a9a9a9;
+	margin-left:20px;
+	padding-left:20px;
+}
+
+.padLine {
+	border: 1px solid #a9a9a9;
+	padding:0;
+	margin:5px 340px 5px 0;
+}
+.padLine P {
+	padding:10px 20px 0 20px;
+}
+
+br.clearFloat {
+	clear:both;
+	display:block;
+	line-height:0;
+	height:0;
+}

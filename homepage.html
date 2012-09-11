@@ -4,6 +4,7 @@
 	<title>Web Application Programming - Site Design - DHTML, AJAX, JavaScript, CSS, JSP, JSTL, Java, PHP, XML - San Francisco Bay Area (Kauai, HI)</title>
 	<meta name="description" content="Web site design and remodeling, graphics, titles, buttons, photo scan / retouch. CGI / Perl and Javascript programming, dynamic HTML, forms, frames, RealAudio, E-Commerce.">
 	<meta name="keywords" content="web, site, design, developer, CGI, Perl, DHTML, AJAX, JavaScript, CSS, JSP, JSTL, Java, PHP, XML, programming, HTML, ECommerce, E-Commerce">
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
 	<meta charset="utf-8" />
 	<meta name="google-site-verification" content="b0qXfYl7xPPFEwIkfDkLcRIzwkRw4s5wMT703QkXjbM" />
 	<base target="_top">
@@ -26,6 +27,7 @@ BODY {background:#e8e8e8;}
 }
 
 #qWrap {
+	clear: both;;
 	position:relative;
 	max-width:620px;
 	font-weight:normal;
@@ -74,7 +76,7 @@ BODY {background:#e8e8e8;}
 	<a href="homepage.html" title="Home"><img src="images/menu-home-lo.png" width="88" height="24" border="0"></a>
 </div>
 
-<div style="max-width:1200px; padding-top:20px;">
+<div style="max-width:1200px; padding-top:10px;">
 
 	<h2 class="webDev"><a href="services.html" target="_self" class="wingoLC">web developer</a></h2>
 
@@ -110,31 +112,26 @@ BODY {background:#e8e8e8;}
 		<p style="margin-top:50px; text-align: center;"><a href="services.html" target="_self"><img src="images/wsb.gif" alt="Web site by wingo.com" width="111" height="40" border="0"></a></p>
 	</div>
 
-	<div style="clear: right; float:right; margin: 10px 10px 0 0; text-align:right;">
-			<a href="proa/index.html" target="_top" title="Pacific Proa"><img src="images/proa0212_1.gif" width="344" height="146" border="0" alt="Pacific Proa"></a><br>
-			<span class="fs1"><b><a href="proa/index.html" target="_top">Pacific Proa</a></b></span> Large modern versions of<br>
-			<span class="fs-1">Micronesian style sailing yachts; design and<br>
-			<b><a href="" onClick="proaWin();return false;" target="_self">rendering</a></b> of performance multihull cruisers<br>
-			in the range of 70' to 90'.
-			<i>(<b><a href="proa/links.html" target="_self">proa links</a></b>)</i></span>
-		</p>
+	<div style="clear: right; float:right; margin: 10px 10px 10px 0; text-align:right;">
+		<a href="proa/index.html" target="_top" title="Pacific Proa"><img src="images/proa0212_1.gif" width="344" height="146" border="0" alt="Pacific Proa"></a><br>
+		<span class="fs1"><b><a href="proa/index.html" target="_top">Pacific Proa</a></b></span> Large modern versions of<br>
+		<span class="fs-1">Micronesian style sailing yachts; design and<br>
+		<b><a href="" onClick="proaWin();return false;" target="_self">rendering</a></b> of performance multihull cruisers<br>
+		in the range of 70' to 90'.
+		<i>(<b><a href="proa/links.html" target="_self">proa links</a></b>)</i></span>
 	</div>
 
-</div>
-
-<div style="clear:both; padding:10px 20px;">
 	<table border="0" cellspacing="0" cellpadding="0" style="width: 100%;">
 	<tr>
-		<td><a href="sailing/index.html" target="_self"><img src="images/sailboat.gif" alt="Sailing Links" width="37" height="57" border="0"></a></td>
-		<td><b><span class="fs3"><a href="sailing/index.html" target="_self" class="cleanBlue">Sailing!</a></span></b></td>
-		<td style="width: 100%; text-align: center;"><b><span class="fs3"><a href="links.html" target="_self" class="cleanBlue">links</a></span></b></td>
-		<td><b><span class="fs3"><a href="weather/index.html" target="_self" class="cleanBlue">Weather!</a></span></b></td>
-		<td><a href="weather/index.html" target="_self"><img src="images/weather4.gif" alt="Weather Links" width="44" height="57" border="0"></a></td>
+		<td style="padding-left:10px;"><a href="weather/index.html" target="_self"><img src="images/weather4.gif" alt="Weather Links" width="44" height="57" border="0"></a></td>
+		<td style="width:50%;"><b><span class="fs3"><a href="weather/index.html" target="_self" class="cleanBlue">Weather!</a></span></b></td>
+
+		<td style="width:50%; text-align: right;"><b><span class="fs3"><a href="sailing/index.html" target="_self" class="cleanBlue">Sailing!</a></span></b></td>
+		<td style="padding-right:10px;"><a href="sailing/index.html" target="_self"><img src="images/sailboat.gif" alt="Sailing Links" width="37" height="57" border="0"></a></td>
 	</tr>
 	</table>
-</div>
 
-<div style="text-align:center; clear:both;">
+	<div class="fs2" style="text-align: center;"><b><a href="links.html" target="_self" class="cleanBlue">links</a></b></div>
 
 	<div id="qWrap">
 

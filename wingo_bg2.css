@@ -33,10 +33,19 @@ BODY.wingo #wingoMenu {
 #wingoMenu a {
 	display:block;
 	height:40px;
-	
+/*
+	color:white;
+	font-size:1.2em;
+	font-weight:bold;
+	text-shadow: black 0.1em 0.1em 0.2em;
+	padding-left:5px;
+*/
 }
 #wingoMenu a.picked,
-#wingoMenu a:hover {background: transparent url(images/bg_nav_links.png) no-repeat left top;}
+#wingoMenu a:hover {
+	background: transparent url(images/bg_nav_links.png) no-repeat left top;
+	text-decoration: none;
+}
 
 H1.wingoHeading,
 H1.wingoHeading2 {
@@ -52,7 +61,79 @@ H1.wingoHeading2 {
 	font-weight: normal;
 }
 
-@media screen and (max-width: 760px) {
+DIV.navWingo {
+	margin: 2px 40px 0 40px;
+}
+
+DIV.navWingo UL {
+	margin: 0px;
+	padding: 0px;
+	list-style: none;
+}
+
+DIV.navWingo LI {display: inline;}
+
+DIV.navWingo A {
+	float: left;
+	text-decoration: none;
+}
+
+DIV.navWingo SPAN {
+	float: left;
+	display: block;
+	padding: 2px 8px 1px 8px;
+	color: #191970;
+	font-size: 9pt;
+	white-space: nowrap;
+}
+
+/* Commented Backslash Hack hides rule from IE5-Mac \*/
+DIV.navWingo SPAN {float: none;}
+/* End IE5-Mac hack */
+
+DIV.navWingo A:hover {
+	text-decoration: none;
+	background: url(images/tabs/tab_wingo-right.gif) no-repeat right top;
+	background-position: 100% -150px;
+}
+
+DIV.navWingo A:hover SPAN {
+	background: url(images/tabs/tab_wingo-left.gif) no-repeat left top;
+	background-position: 0% -150px;
+	color: #191970;
+}
+
+DIV.navWingo .current A,
+DIV.navWingo .current A:hover {
+	background: url(images/tabs/tab_wingo-right.gif) no-repeat right top;
+	background-position: 100% 0px;
+	border-width: 0px;
+}
+
+DIV.navWingo .current SPAN,
+DIV.navWingo .current A:hover SPAN {
+	background: url(images/tabs/tab_wingo-left.gif) no-repeat left top;
+	background-position: 0% 0px;
+	color: white;
+}
+
+#fbPrivacy {
+	display:block;
+	position:fixed;
+	left:100px;
+	bottom:5px;
+	font-family:'Lucida Grande',Tahoma,Verdana,Arial,sans-serif;
+	font-weight:bold;
+	font-size:13px;
+	padding:2px 6px;
+	color:#FFFFFF;
+	background-color:#5B74A8;
+	border:1px solid;
+	border-color:#29447E #29447E #1A356E;
+	text-decoration:none;
+}
+
+@media screen and (max-width: 800px) {
 
 	BODY.wingo {
 		background-image:none;
@@ -64,6 +145,12 @@ H1.wingoHeading2 {
 	h1.wingoHeading,
 	h1.wingoHeading2 {
 		margin: 0 10px;
+	}
+	DIV.navWingo {
+		margin: 2px 10px 0 10px;
+	}
+	#fbPrivacy {
+		left:5px;
 	}
 
 }
@@ -156,62 +243,6 @@ DIV.hLinePad {
 	margin: 10px 0px;
 }
 
-#pageNavTop {
-	margin: 2px 40px 0 40px;
-}
-
-DIV.navWingo UL {
-	margin: 0px;
-	padding: 0px;
-	list-style: none;
-}
-
-DIV.navWingo LI {display: inline;}
-
-DIV.navWingo A {
-	float: left;
-	text-decoration: none;
-}
-
-DIV.navWingo SPAN {
-	float: left;
-	display: block;
-	padding: 2px 8px 1px 8px;
-	color: #191970;
-	font-size: 9pt;
-	white-space: nowrap;
-}
-
-/* Commented Backslash Hack hides rule from IE5-Mac \*/
-DIV.navWingo SPAN {float: none;}
-/* End IE5-Mac hack */
-
-DIV.navWingo A:hover {
-	text-decoration: none;
-	background: url(images/tabs/tab_wingo-right.gif) no-repeat right top;
-	background-position: 100% -150px;
-}
-
-DIV.navWingo A:hover SPAN {
-	background: url(images/tabs/tab_wingo-left.gif) no-repeat left top;
-	background-position: 0% -150px;
-	color: #191970;
-}
-
-DIV.navWingo .current A,
-DIV.navWingo .current A:hover {
-	background: url(images/tabs/tab_wingo-right.gif) no-repeat right top;
-	background-position: 100% 0px;
-	border-width: 0px;
-}
-
-DIV.navWingo .current SPAN,
-DIV.navWingo .current A:hover SPAN {
-	background: url(images/tabs/tab_wingo-left.gif) no-repeat left top;
-	background-position: 0% 0px;
-	color: white;
-}
-
 DIV.dotItems {padding: 0px;}
 DIV.dotItems DIV {
 	padding: 1px 1px 1px 22px;
@@ -267,19 +298,3 @@ A.iLinkSm {
 .myBox A {color: #ffffff;}
 .myBox A {color: inherit;}
 .myBox A:hover {color: #ffffff;}
-
-#fbPrivacy {
-	display:block;
-	position:fixed;
-	left:100px;
-	bottom:5px;
-	font-family:'Lucida Grande',Tahoma,Verdana,Arial,sans-serif;
-	font-weight:bold;
-	font-size:13px;
-	padding:2px 6px;
-	color:#FFFFFF;
-	background-color:#5B74A8;
-	border:1px solid;
-	border-color:#29447E #29447E #1A356E;
-	text-decoration:none;
-}

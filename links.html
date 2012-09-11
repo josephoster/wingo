@@ -2,6 +2,7 @@
 <html>
 <head>
 	<title>Wingo Bay - Recommended Links</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
 	<meta charset="utf-8" />
 	<base target="_blank">
 
@@ -26,13 +27,14 @@ BODY {background:#e8e8e8;}
 <div id="wingoMenu" class="noClick">
 	<img src="images/wingobay.png" alt="" width="64" height="288" border="0" style="position:absolute;top:-4px;left:20px;z-index:-1;">
 
-	<a href="services.html" title="Services"><img src="images/menu-services-lo.png" width="88" height="24" border="0"></a>
-	<a href="resume.html" title="Resume"><img src="images/menu-resume-lo.png" width="88" height="24" border="0"></a>
-	<a href="portfolio.html" title="Portfolio"><img src="images/menu-portfolio-lo.png" width="88" height="24" border="0"></a>
-	<a href="weather/index.html" title="Weather"><img src="images/menu-weather-lo.png" width="88" height="24" border="0"></a>
-	<a href="sailing/index.html" title="Sailing"><img src="images/menu-sailing-lo.png" width="88" height="26" border="0"></a>
-	<a href="links.html" title="Links"><img src="images/menu-links-lo.png" width="88" height="24" border="0"></a>
-	<a href="homepage.html" title="Home"><img src="images/menu-home-lo.png" width="88" height="24" border="0"></a>
+	<a href="services.html" title="Services" target="_self"><img src="images/menu-services-lo.png" width="88" height="24" border="0"></a>
+	<a href="resume.html" title="Resume" target="_self"><img src="images/menu-resume-lo.png" width="88" height="24" border="0"></a>
+	<a href="portfolio.html" title="Portfolio" target="_self"><img src="images/menu-portfolio-lo.png" width="88" height="24" border="0"></a>
+	<a href="weather/index.html" title="Weather" target="_self"><img src="images/menu-weather-lo.png" width="88" height="24" border="0"></a>
+	<a href="sailing/index.html" title="Sailing" target="_self"><img src="images/menu-sailing-lo.png" width="88" height="26" border="0"></a>
+	<a href="links.html" title="Links" target="_self"><img src="images/menu-links-lo.png" width="88" height="24" border="0"></a>
+	<a href="homepage.html" title="Home" target="_self"><img src="images/menu-home-lo.png" width="88" height="24" border="0"></a>
+	<!-- <a href="homepage.html" title="Home" target="_self">Home</a> -->
 </div>
 
 <div id="pageNavTop">
@@ -75,16 +77,15 @@ BODY {background:#e8e8e8;}
 	</div>
 
 	<div><a href="http://maps.google.com/" class="ballFlash">Google Maps</a> (<b>Draggable maps!</b>) and
-	    <font size="+1"><a href="http://www.mapquest.com/">MapQuest</a></font>
-    	online mapping and driving directions
+		<font size="+1"><a href="http://www.mapquest.com/">MapQuest</a></font>
+		online mapping and driving directions
 	</div>
 
 	<div><a href="http://nist.time.gov/timezone.cgi?Pacific/d/-8/java" class="ballFlash">Official US Time</a> <b>Pacific time zone</b>,
 		<font size="+1"><a href="http://www.timeanddate.com/worldclock/">World Clock – Time Zones</a></font>
 	</div>
 
-	<div><a href="http://www.fourmilab.ch/cgi-bin/uncgi/Earth/action?opt=-m&img=Moon.evif" class="ballFlash">Phase
-		of the Moon</a>
+	<div><a href="http://www.fourmilab.ch/cgi-bin/uncgi/Earth/action?opt=-m&img=Moon.evif" class="ballFlash">Phase of the Moon</a>
 		<font size=-1>from <a href="http://www.fourmilab.ch/earthview/vplanet.html">Earth and Moon Viewer</a> by <a href="http://www.fourmilab.ch/">John Walker</a>
 		(or <a href="http://www.googol.com/moon/">try this</a>)</font>
 	</div>
@@ -266,36 +267,20 @@ Johnny Cash &amp; Carl Perkins<br />
 </tr>
 </table>
 
-<div style="margin: 15px 40px 5px 40px;">
-	<script type="text/javascript">document.writeln(document.getElementById("pageNavTop").innerHTML);</script>
-	<div class='hLine'></div>
-</div>
+<script type="text/javascript">document.writeln(document.getElementById("pageNavTop").innerHTML);</script>
+<div class='hLine'></div>
 
-<div align=center>
-<table cellspacing=0 cellpadding=0 width="95%" border=0>
+<table cellspacing="0" cellpadding="0" border="0" style="width:100%; padding:5px 10px;">
 <tr>
-	<td nowrap>
-    <a href="sailing/index.html" target="_self" class=cleanBlue><font size=+3><b>Sailing!</b></font></a>
-	</td>
-	<td>
-    <a href="sailing/index.html" target="_self" class=cleanBlue><img src="images/sailboat.gif" alt="Sailing Links" width="37" height="57" border="0" align="middle"></a>
-	</td>
-	<td nowrap width="33%" align=right>
-      <a href="weather/index.html" target="_self" class=cleanBlue><font size=+3><b>Weather!</b></font></a>
-	</td>
-	<td nowrap>
-      <a href="weather/index.html" target="_self" class=cleanBlue><img src="images/weather4.gif" alt="Weather Links" width="44" height="57" border="0" align="middle"></a>
-	</td>
-	<td align=right nowrap width="34%"><font size=+3><b><a href="proa/links.html" target="_self" class="cleanBlue">Proa links</a></b></font></td>
-	<td align=center nowrap width="33%">
-    <font size=+2>
-    <a href="opinion/index.html" target="_self" class="wingoLC">Opinions</a>
-    </font><br />
-	</td>
+	<td nowrap><a href="weather/index.html" target="_self" class=cleanBlue><img src="images/weather4.gif" alt="Weather Links" width="44" height="57" border="0" align="middle"></a></td>
+	<td nowrap width="20%" class="fs3"><b><a href="weather/index.html" target="_self" class=cleanBlue>Weather!</a></b></td>
+	<td nowrap width="20%" align=right class="fs3"><b><a href="sailing/index.html" target="_self" class=cleanBlue>Sailing!</a></b></td>
+	<td><a href="sailing/index.html" target="_self" class=cleanBlue><img src="images/sailboat.gif" alt="Sailing Links" width="37" height="57" border="0" align="middle"></a></td>
+	<td align=right nowrap width="30%" class="fs3"><b><a href="proa/links.html" target="_self" class="cleanBlue">Proa links</a></b></td>
+	<td align=center nowrap width="30%" class="fs2"><a href="opinion/index.html" target="_self" class="wingoLC">Opinions</a></td>
 	<td align=right><a href="index.html" target="_self"><img src="images/wsb.gif" alt="wingo.com Web Site Design" border=0 height=40 width=111></a></td>
 </tr>
 </table>
-</div>
 
 <script type="text/javascript">
 topLink();
