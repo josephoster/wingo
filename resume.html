@@ -59,32 +59,27 @@ article hgroup * {
 	margin:0;
 	padding:0;
 }
+article .aContent {
+	float:right;
+	width:85%;
+	padding:0;
+	font-size:0.75em;
+}
 article p,
 article ul {
-	float:right;
 	position:relative;
-	width:85%;
 	margin:10px 0 0 0;
-	padding:0;
-}
-article ul {
-	width:84%;
 }
 article ul ul {
 	margin:4px 0;
-	width:96%;
-}
-article p {
-	font-size:0.75em;
 }
 article li {
 	margin-top:4px;
-	font-size:0.75em;
 }
 article img {
 	float:right;
 	margin:0 0 0 10px;
-	border: none;;
+	border: none;
 }
 
 .date-ranges {
@@ -134,7 +129,7 @@ article img {
 		display:none;
 		content: "";
 	}
-	article p {
+	article .aContent {
 		float:left;
 		width:100%;
 	}
@@ -170,7 +165,7 @@ document.createElement('hgroup');
 
 <div class="pageWrap">
 
-	<img src="images/profile_joseph_3.jpg" alt="Joseph Oster" width="108" height="120" border="0" style="float: right;">
+	<img src="images/profile_joseph_3.jpg" alt="Joseph Oster" width="108" height="120" style="float: right;">
 	<div style="float:right; margin:15px 10px 0 0; text-align: right;">
 		<b class="fs2">Joseph Oster</b><br>
 		<b><a href="services.html">Web Application Programmer<br>
@@ -184,47 +179,51 @@ document.createElement('hgroup');
 
 
 <div class='hLinePad'></div>
-<a name="Curriki"></a>
+<a id="Curriki"></a>
 <article>
 	<div class="date-ranges">
 		 <span class="job-start">Jul 2009</span>
 		 <span class="job-end">Sep 2009</span>
 	</div>						
 	<hgroup>
-		<h1><a href="http://www.curriki.org/" target="_blank" title="Curriki.org"><img src="images/logos/curriki-logo.jpg" alt="Curriki.org" width="145" height="64" border="0">Curriki.org</a></h1>														
+		<h1><a href="http://www.curriki.org/" target="_blank" title="Curriki.org"><img src="images/logos/curriki-logo.jpg" alt="Curriki.org" width="145" height="64">Curriki.org</a></h1>														
 		<h2>Virtual Organization</h2>
 		<h3>Senior Front End Engineer, JavaScript / DHTML / CSS / Velocity Templates / XWiki</h3>
 	</hgroup>
 
-	<p>Curriki is an online environment created to support the development and free distribution of world-class educational materials for grades K-12. Did maintenance, repairs and enhancements on legacy code, including CSS, ExtJS and Velocity Templates on the <a href="http://www.xwiki.com/xwiki/bin/view/Home/WebHome" target="_blank">XWiki platform</a>.</p>
+	<div class="aContent">
+		<p>Curriki is an online environment created to support the development and free distribution of world-class educational materials for grades K-12. Did maintenance, repairs and enhancements on legacy code, including CSS, ExtJS and Velocity Templates on the <a href="http://www.xwiki.com/xwiki/bin/view/Home/WebHome" target="_blank">XWiki platform</a>.</p>
 
-	<p><b>Commonly used tools:</b>
-<b><a href="http://www.macromedia.com/software/homesite/" target="_blank">HomeSite</a></b> editor, <b><a href="http://extjs.com/" target="_blank">ExtJS</a></b>, <b><a href="http://jquery.com/" target="_blank">jQuery</a></b></p>
+		<p><b>Commonly used tools:</b>
+	<b><a href="http://www.macromedia.com/software/homesite/" target="_blank">HomeSite</a></b> editor, <b><a href="http://extjs.com/" target="_blank">ExtJS</a></b>, <b><a href="http://jquery.com/" target="_blank">jQuery</a></b></p>
+	</div>
 </article>
 
 
 <div class='hLinePad'></div>
-<a name="BDLicense"></a>
+<a id="BDLicense"></a>
 <article>
 	<div class="date-ranges">
 		 <span class="job-start">Aug 2008</span>
 		 <span class="job-end">Jun 2009</span>
 	</div>						
 	<hgroup>
-		<h1><a href="http://www.syapse.com/" target="_blank" title="BDLicense.com"><img src="images/logos/bdlicense_small.gif" alt="BDLicense.com" width="112" height="22" border="0">BDLicense.com</a> <em>(now <b>Syapse</b>)</em></h1>
+		<h1><a href="http://www.syapse.com/" target="_blank" title="BDLicense.com"><img src="images/logos/bdlicense_small.gif" alt="BDLicense.com" width="112" height="22">BDLicense.com</a> <em>(now <b>Syapse</b>)</em></h1>
 		<h2>Menlo Park, CA</h2>
 		<h3>Senior Front End Engineer, JavaScript / DHTML / Ajax / CSS / Django</h3>
 	</hgroup>
 
-	<p>Converted static HTML design to functional web application in a Django/Python environment. The goal: to "make it easy to find partners by creating a unique web-based application that expertly matches potential licensees of drugs and medical devices with new technology based on scientific compatibility". Interactive features include a create/edit process for describing technologies, a search/alert process for creating queries, a browse process to sort through technology listings; multi-row DHTML forms, AJAX, auto-suggest/complete, term validation, ranking, favorites, introductions and profile pages.</p>
+	<div class="aContent">
+		<p>Converted static HTML design to functional web application in a Django/Python environment. The goal: to "make it easy to find partners by creating a unique web-based application that expertly matches potential licensees of drugs and medical devices with new technology based on scientific compatibility". Interactive features include a create/edit process for describing technologies, a search/alert process for creating queries, a browse process to sort through technology listings; multi-row DHTML forms, AJAX, auto-suggest/complete, term validation, ranking, favorites, introductions and profile pages.</p>
 
-	<p><b>Commonly used tools:</b>
-	<b><a href="http://www.macromedia.com/software/homesite/" target="_blank">HomeSite</a></b> editor, <b><a href="http://jquery.com/" target="_blank">jQuery</a></b> JavaScript library</p>
+		<p><b>Commonly used tools:</b>
+		<b><a href="http://www.macromedia.com/software/homesite/" target="_blank">HomeSite</a></b> editor, <b><a href="http://jquery.com/" target="_blank">jQuery</a></b> JavaScript library</p>
+	</div>
 </article>
 
 
 <div class='hLinePad'></div>
-<a name="StealthCo"></a>
+<a id="StealthCo"></a>
 <article>
 	<div class="date-ranges">
 		 <span class="job-start">Sep 2007</span>
@@ -236,167 +235,180 @@ document.createElement('hgroup');
 		<h3>Senior Front End Engineer, JavaScript / DHTML / Ajax / CSS / PHP / SQL</h3>
 	</hgroup>
 
-	<p>Created a JavaScript DHTML widget for a <strong><a href="http://www.videolan.org/vlc/" target="_blank">VLC media player</a></strong> plugin and a <b>video account management web site</b> to support it. The widget could be embedded anywhere (private web pages, blogs), so it used dynamic SCRIPT tags instead of AJAX to communicate with the server. It could be "skinned" using CSS and configured w/ options (auto-start, channel to play, controls, etc.); the viewing area could be re-sized and the width/height ratio changed for each video. Sidebar of widget showed other channels, mouse-over "tooltip" for channel status and schedule of videos to follow.</p> 
+	<div class="aContent">
+		<p>Created a JavaScript DHTML widget for a <strong><a href="http://www.videolan.org/vlc/" target="_blank">VLC media player</a></strong> plugin and a <b>video account management web site</b> to support it. The widget could be embedded anywhere (private web pages, blogs), so it used dynamic SCRIPT tags instead of AJAX to communicate with the server. It could be "skinned" using CSS and configured w/ options (auto-start, channel to play, controls, etc.); the viewing area could be re-sized and the width/height ratio changed for each video. Sidebar of widget showed other channels, mouse-over "tooltip" for channel status and schedule of videos to follow.</p> 
 
-	<p>Web site included AJAX sign-up/login w/ email verification and approval for private alpha, captcha image verification, feedback, video upload page with AJAX progress bar, extensive "My Channels" editing page w/ drag/drop for arranging videos in sequence, ranking and comments, profile page, fixed width or "liquid" layout. Implemented image server scripts to create and cache different size jpeg images from original source, for both video "covers" and profile images. Users could change channels but not start them "on demand", so multiple progress bars were used to display each channel's current position. Created a series of PHP-5 classes for major server-side components and a 'ViewerEmulate' utility to act as a typical User, unit testing all features and logging results.</p>
+		<p>Web site included AJAX sign-up/login w/ email verification and approval for private alpha, captcha image verification, feedback, video upload page with AJAX progress bar, extensive "My Channels" editing page w/ drag/drop for arranging videos in sequence, ranking and comments, profile page, fixed width or "liquid" layout. Implemented image server scripts to create and cache different size jpeg images from original source, for both video "covers" and profile images. Users could change channels but not start them "on demand", so multiple progress bars were used to display each channel's current position. Created a series of PHP-5 classes for major server-side components and a 'ViewerEmulate' utility to act as a typical User, unit testing all features and logging results.</p>
 
-	<p><b>Commonly used tools:</b>
-	<b><a href="http://www.macromedia.com/software/homesite/" target="_blank">HomeSite</a></b> editor</p>
-
+		<p><b>Commonly used tools:</b>
+		<b><a href="http://www.macromedia.com/software/homesite/" target="_blank">HomeSite</a></b> editor</p>
+	</div>
 </article>
 
 
 <div class='hLinePad'></div>
-<a name="Engage"></a>
+<a id="Engage"></a>
 <article>
 	<div class="date-ranges">
 		 <span class="job-start">Feb 2007</span>
 		 <span class="job-end">Jun 2007</span>
 	</div>						
 	<hgroup>
-		<h1><img src="images/logos/engage_logo2.gif" alt="Engage.com" width="157" height="31" border="0">Engage.com</h1>														
+		<h1><img src="images/logos/engage_logo2.gif" alt="Engage.com" width="157" height="31">Engage.com</h1>														
 		<h2>San Mateo, CA</h2>
 		<h3>Senior Software Engineer, Ajax / JavaScript / DHTML / CSS / JSP/JSTL and custom tags</h3>
 	</hgroup>
 
-	<p>Worked with UX team and <a href="http://www.angrylittledog.com/" target="_blank">visual designer</a> on total re-model of Engage.com - Extensively revised 300+ JSP pages (HTML, CSS, JavaScript, JSTL and custom tags) to new design and style guide, added AJAX and DHTML features including animated actions, "hover profiles", dynamic menus and "tooltip" dialogs (variable size boxes that appear and disappear as needed with PNG-24 drop shadows, style and behavior differences), new "front door" AJAX sign-up / sign-in process and related edit profile pages, chopped designer's Photoshop graphics for "pixel perfect" page layout, site navigation, some aspects of Spring framework.</p>
+	<div class="aContent">
+		<p>Worked with UX team and <a href="http://www.angrylittledog.com/" target="_blank">visual designer</a> on total re-model of Engage.com - Extensively revised 300+ JSP pages (HTML, CSS, JavaScript, JSTL and custom tags) to new design and style guide, added AJAX and DHTML features including animated actions, "hover profiles", dynamic menus and "tooltip" dialogs (variable size boxes that appear and disappear as needed with PNG-24 drop shadows, style and behavior differences), new "front door" AJAX sign-up / sign-in process and related edit profile pages, chopped designer's Photoshop graphics for "pixel perfect" page layout, site navigation, some aspects of Spring framework.</p>
 
-	<p><b>Commonly used tools:</b>
-	<b><a href="http://www.macromedia.com/software/homesite/" target="_blank">HomeSite</a></b> editor,
-	<b><a href="http://www.eclipse.org/" target="_blank">Eclipse</a></b> editor w/
-	<b><a href="http://www.nongnu.org/cvs/" target="_blank">CVS</a></b> and Tomcat plugin
-	<b><a href="http://www.eclipse.org/jdt/overview.php" target="_blank">Java Development Tools</a></b>, Photoshop</p>
+		<p><b>Commonly used tools:</b>
+		<b><a href="http://www.macromedia.com/software/homesite/" target="_blank">HomeSite</a></b> editor,
+		<b><a href="http://www.eclipse.org/" target="_blank">Eclipse</a></b> editor w/
+		<b><a href="http://www.nongnu.org/cvs/" target="_blank">CVS</a></b> and Tomcat plugin
+		<b><a href="http://www.eclipse.org/jdt/overview.php" target="_blank">Java Development Tools</a></b>, Photoshop</p>
+	</div>
 </article>
 
 
 <div class='hLinePad'></div>
-<a name="Zannel"></a>
+<a id="Zannel"></a>
 <article>
 	<div class="date-ranges">
 		 <span class="job-start">Aug 2006</span>
 		 <span class="job-end">Oct 2006</span>
 	</div>						
 	<hgroup>
-		<h1><a href="http://www.crunchbase.com/company/zannel" target="_blank"><img src="images/logos/zannel_logo.gif" alt="" width="72" height="71" border="0">Zannel.com</a></h1>														
+		<h1><a href="http://www.crunchbase.com/company/zannel" target="_blank"><img src="images/logos/zannel_logo.gif" alt="" width="72" height="71">Zannel.com</a></h1>														
 		<h2>Palo Alto, CA</h2>
 		<h3>Senior Software Engineer, DHTML / Ajax / JavaScript / CSS / JSP</h3>
 	</hgroup>
 
-	<p>Created a fully functional DHTML/AJAX-based prototype for photo and video sharing. Features include: thumbnail browsing with filtering ("Most Popular", "Most Recent", etc.), tag cloud, DHTML 'Viewer' for full size photos and playing videos without leaving thumbnails page, Ranking, "Pass It On", "Add to Favorites", folders ("collections"), drag &amp; drop to arrange sequence of thumbnails, edit title description tags, single and multi-file uploads with progress bar and text, "My Channel" and view/edit profile, personalized CSS, AJAX login, sign-up (registration).</p>
+	<div class="aContent">
+		<p>Created a fully functional DHTML/AJAX-based prototype for photo and video sharing. Features include: thumbnail browsing with filtering ("Most Popular", "Most Recent", etc.), tag cloud, DHTML 'Viewer' for full size photos and playing videos without leaving thumbnails page, Ranking, "Pass It On", "Add to Favorites", folders ("collections"), drag &amp; drop to arrange sequence of thumbnails, edit title description tags, single and multi-file uploads with progress bar and text, "My Channel" and view/edit profile, personalized CSS, AJAX login, sign-up (registration).</p>
 
-	<p><b>Commonly used tools:</b>
-	<b><a href="http://www.macromedia.com/software/homesite/" target="_blank">HomeSite</a></b> editor,
-	<b><a href="http://subversion.tigris.org/" target="_blank">Subversion</a></b> source control</p>
+		<p><b>Commonly used tools:</b>
+		<b><a href="http://www.macromedia.com/software/homesite/" target="_blank">HomeSite</a></b> editor,
+		<b><a href="http://subversion.tigris.org/" target="_blank">Subversion</a></b> source control</p>
+	</div>
 </article>
 
 
 <div class='hLinePad'></div>
-<a name="edgeio"></a>
+<a id="edgeio"></a>
 <article>
 	<div class="date-ranges">
 		 <span class="job-start">Jan 2006</span>
 		 <span class="job-end">Aug 2006</span>
 	</div>						
 	<hgroup>
-		<h1><a href="http://www.edgeio.com/" target="_blank"><img src="images/logos/edgeio_logo.gif" alt="" width="184" height="75" border="0">edgeio.com</a></h1>														
+		<h1><a href="http://www.edgeio.com/" target="_blank"><img src="images/logos/edgeio_logo.gif" alt="" width="184" height="75">edgeio.com</a></h1>														
 		<h2>Palo Alto, CA</h2>
 		<h3>Senior Software Engineer, DHTML / Ajax / JavaScript / XSL / XPath / CSS / PHP</h3>
 	</hgroup>
 
-	<p>Implemented a DHTML / Ajax "geography slider" to select one's locale and then widen or narrow search results by moving the slider. Implemented Ajax update of search results by adding or removing "tags" from the search. Implemented "Edit Item Flow", a multi-page process that allows Users to create their own HTML content using a Rich Text Editor (<i>WysiwygPro</i>), to upload images for their content, to add rich media "attachments" with video and audio players, to assign tags from an Ajax updated "tag cloud", and to edit other meta data related to each item.</p>
+	<div class="aContent">
+		<p>Implemented a DHTML / Ajax "geography slider" to select one's locale and then widen or narrow search results by moving the slider. Implemented Ajax update of search results by adding or removing "tags" from the search. Implemented "Edit Item Flow", a multi-page process that allows Users to create their own HTML content using a Rich Text Editor (<i>WysiwygPro</i>), to upload images for their content, to add rich media "attachments" with video and audio players, to assign tags from an Ajax updated "tag cloud", and to edit other meta data related to each item.</p>
 
-	<p><b>Commonly used tools:</b>
-	<b><a href="http://www.macromedia.com/software/homesite/" target="_blank">HomeSite</a></b> editor,
-	<b><a href="http://subversion.tigris.org/" target="_blank">Subversion</a></b> source control</p>
+		<p><b>Commonly used tools:</b>
+		<b><a href="http://www.macromedia.com/software/homesite/" target="_blank">HomeSite</a></b> editor,
+		<b><a href="http://subversion.tigris.org/" target="_blank">Subversion</a></b> source control</p>
+	</div>
 </article>
 
 
 <div class='hLinePad'></div>
-<a name="iMemoryBook"></a>
+<a id="iMemoryBook"></a>
 <article>
 	<div class="date-ranges">
 		 <span class="job-start">Jan 2006</span>
 		 <span class="job-end">Mar 2006</span>
 	</div>						
 	<hgroup>
-		<h1><a href="http://memorypress.familylearn.com/" target="_blank"><img src="images/logos/iMemoryBookLogo-s.gif" alt="" border="0">iMemoryBook.com</a> <em>(memorypress.com)</em></h1>														
+		<h1><a href="http://memorypress.familylearn.com/" target="_blank"><img src="images/logos/iMemoryBookLogo-s.gif" alt="">iMemoryBook.com</a> <em>(memorypress.com)</em></h1>														
 		<h2>Provo, Utah</h2>
 		<h3>Senior Software Engineer, DHTML / Ajax / JavaScript / CSS / PHP</h3>
 	</hgroup>
 
-	<p><i>"The Internet Memory Book - Collaborate with family and friends to turn photos and memories into a beautiful hardbound book."</i></p>
+	<div class="aContent">
+		<p><i>"The Internet Memory Book - Collaborate with family and friends to turn photos and memories into a beautiful hardbound book."</i></p>
 
-	<p>Developed a DHTML / Ajax based editing system that shows the User exactly what the finished book will look like at all times. Graphic views generated with LaTeX show two pages side by side, precisely as they will appear when printed.	Moving the mouse shows "hot spots" that can be edited by clicking to invoke "widgets" for titles, captions, text and photos.	Photos are placed and repositioned using drag and drop from a "tray" of uploaded images.	Powerful and intuitive crop, zoom and rotate features are available.	A book can be re-organized by dragging and dropping whole sections of the Table of Contents, including moving sections between different levels in an arbitrary hierarchy. Patent granted: <a href="http://www.google.com.tw/patents/about?id=3vNgAQAAEBAJ" target="_blank">US 2007/0291297 Al</a>.</p>
+		<p>Developed a DHTML / Ajax based editing system that shows the User exactly what the finished book will look like at all times. Graphic views generated with LaTeX show two pages side by side, precisely as they will appear when printed.	Moving the mouse shows "hot spots" that can be edited by clicking to invoke "widgets" for titles, captions, text and photos.	Photos are placed and repositioned using drag and drop from a "tray" of uploaded images.	Powerful and intuitive crop, zoom and rotate features are available.	A book can be re-organized by dragging and dropping whole sections of the Table of Contents, including moving sections between different levels in an arbitrary hierarchy. Patent granted: <a href="http://www.google.com.tw/patents/about?id=3vNgAQAAEBAJ" target="_blank">US 2007/0291297 Al</a>.</p>
 
-	<p><b>Commonly used tools:</b>
-	<b><a href="http://www.macromedia.com/software/homesite/" target="_blank">HomeSite</a></b> editor</p>
+		<p><b>Commonly used tools:</b>
+		<b><a href="http://www.macromedia.com/software/homesite/" target="_blank">HomeSite</a></b> editor</p>
+	</div>
 </article>
 
 
 <div class='hLinePad'></div>
-<a name="theAstrologer"></a>
+<a id="theAstrologer"></a>
 <article>
 	<div class="date-ranges">
 		 <span class="job-start">Nov 2005</span>
 		 <span class="job-end">Jan 2006</span>
 	</div>						
 	<hgroup>
-		<h1><a href="http://www.theAstrologer.com" target="_blank"><img src="images/logos/The_Astrologer_Logo.jpg" alt="" width="137" height="69" border="0">theAstrologer.com</a></h1>														
+		<h1><a href="http://www.theAstrologer.com" target="_blank"><img src="images/logos/The_Astrologer_Logo.jpg" alt="" width="137" height="69">theAstrologer.com</a></h1>														
 		<h2>San Francisco, CA</h2>
 		<h3>Senior Software Engineer, DHTML / JavaScript / CSS / PHP</h3>
 	</hgroup>
 
-	<p>Implemented and heavily customized a Yahoo! Store to deliver personalized digital content in the form of astrology reports, including real time export of orders and delivery of "product".	A link on the confirmation page leads the User to immediately and securely view the customized reports using birth date info entered before the sale was completed.	A "tiny URL" system was used to hide the personal information and prevent hacking.	Developed a report template system to transform XML versions of the reports to HTML with graphic elements.</p>
+	<div class="aContent">
+		<p>Implemented and heavily customized a Yahoo! Store to deliver personalized digital content in the form of astrology reports, including real time export of orders and delivery of "product".	A link on the confirmation page leads the User to immediately and securely view the customized reports using birth date info entered before the sale was completed.	A "tiny URL" system was used to hide the personal information and prevent hacking.	Developed a report template system to transform XML versions of the reports to HTML with graphic elements.</p>
 
-	<p><b>Commonly used tools:</b>
-	<b><a href="http://www.macromedia.com/software/homesite/" target="_blank">HomeSite</a></b> editor,
-	<b><a href="http://subversion.tigris.org/" target="_blank">Subversion</a></b> source control</p>
+		<p><b>Commonly used tools:</b>
+		<b><a href="http://www.macromedia.com/software/homesite/" target="_blank">HomeSite</a></b> editor,
+		<b><a href="http://subversion.tigris.org/" target="_blank">Subversion</a></b> source control</p>
+	</div>
 </article>
 
 
 <div class='hLinePad'></div>
-<a name="IMVU"></a>
+<a id="IMVU"></a>
 <article>
 	<div class="date-ranges">
 		 <span class="job-start">Aug 2005</span>
 		 <span class="job-end">Nov 2005</span>
 	</div>						
 	<hgroup>
-		<h1><a href="http://www.imvu.com/" target="_blank"><img src="images/logos/imvu_logo.png" alt="" width="223" height="61" border="0">IMVU.com</a> <em>(<a href="imvu/index.html" target="_top">screen snapshots</a>)</em></h1>														
+		<h1><a href="http://www.imvu.com/" target="_blank"><img src="images/logos/imvu_logo.png" alt="" width="223" height="61">IMVU.com</a> <em>(<a href="imvu/index.html" target="_top">screen snapshots</a>)</em></h1>														
 		<h2>Palo Alto, CA</h2>
 		<h3>Senior Software Engineer, DHTML / AJAX / JavaScript / CSS / PHP</h3>
 	</hgroup>
 
-	<p>IMVU offers a 3D chat client using animated characters called avatars. A developer community of members creates and sells enhancements that allow avatars to be highly personalized.</p>
+	<div class="aContent">
+		<p>IMVU offers a 3D chat client using animated characters called avatars. A developer community of members creates and sells enhancements that allow avatars to be highly personalized.</p>
 
-	<p>
-		Implemented <a href="imvu/index.html" target="_top">AJAX editing features</a> to personalize the <b><a href="http://avatars.imvu.com/Guest_ProaSailor" target="_blank">public profile pages</a></b> of each registered user.
-		Created widgets for setting 
-		<a href="imvu/screen.html?pg=2" target="_top">text</a>,
-		<a href="imvu/screen.html?pg=3" target="_top">background colors and images</a>, 
-		<a href="imvu/screen.html?pg=4" target="_top">panel borders</a>
-		for each panel header, panel body and the page itself,
-		<a href="imvu/screen.html?pg=0" target="_top">custom HTML / CSS</a> content in each panel body.
-		Drag &amp; drop to <a href="imvu/screen.html?pg=1" target="_top">re-arrange panels</a> within and between columns.
-		Graphic "<a href="imvu/screen.html?pg=5" target="_top">stickers</a>" attached to panels (with paginated "<a href="imvu/screen.html?pg=5" target="_top">find lost stickers</a>" feature) were exchanged between users, along with gifts for use by one's 3D avatar, and developed into a major micro-transaction business.
+		<p>
+			Implemented <a href="imvu/index.html" target="_top">AJAX editing features</a> to personalize the <b><a href="http://avatars.imvu.com/Guest_ProaSailor" target="_blank">public profile pages</a></b> of each registered user.
+			Created widgets for setting 
+			<a href="imvu/screen.html?pg=2" target="_top">text</a>,
+			<a href="imvu/screen.html?pg=3" target="_top">background colors and images</a>, 
+			<a href="imvu/screen.html?pg=4" target="_top">panel borders</a>
+			for each panel header, panel body and the page itself,
+			<a href="imvu/screen.html?pg=0" target="_top">custom HTML / CSS</a> content in each panel body.
+			Drag &amp; drop to <a href="imvu/screen.html?pg=1" target="_top">re-arrange panels</a> within and between columns.
+			Graphic "<a href="imvu/screen.html?pg=5" target="_top">stickers</a>" attached to panels (with paginated "<a href="imvu/screen.html?pg=5" target="_top">find lost stickers</a>" feature) were exchanged between users, along with gifts for use by one's 3D avatar, and developed into a major micro-transaction business.
 
-		<a href="imvu/screen.html?pg=6" target="_top">Import profile from 'myspace.com'</a>,
-		"<a href="imvu/screen.html?pg=7" target="_top">safe mode</a>" to disable custom content for debugging,
-		inline <a href="imvu/screen.html?pg=8" target="_top">help</a> and <a href="imvu/screen.html?pg=9" target="_top">gallery upload</a> features.
-	</p>
+			<a href="imvu/screen.html?pg=6" target="_top">Import profile from 'myspace.com'</a>,
+			"<a href="imvu/screen.html?pg=7" target="_top">safe mode</a>" to disable custom content for debugging,
+			inline <a href="imvu/screen.html?pg=8" target="_top">help</a> and <a href="imvu/screen.html?pg=9" target="_top">gallery upload</a> features.
+		</p>
 
-	<p>Hand coded DHTML, CSS, JavaScript classes for a variety of AJAX "<a href="imvu/screen.html?pg=3" target="_top">widgets</a>", including <a href="imvu/screen.html?pg=0" target="_top">drop down menus</a> for each panel, PHP integration to personalize each page using IMVU's SQL API (MySQL database), implemented a page using AJAX to <a href="imvu/screen.html?pg=10" target="_top">edit the contents of a 'My music' panel</a> using search results from Amazon.com and enhanced a <a href="imvu/screen.html?pg=11" target="_top">Google map</a> showing the location of avatars currently online at IMVU.</p>
+		<p>Hand coded DHTML, CSS, JavaScript classes for a variety of AJAX "<a href="imvu/screen.html?pg=3" target="_top">widgets</a>", including <a href="imvu/screen.html?pg=0" target="_top">drop down menus</a> for each panel, PHP integration to personalize each page using IMVU's SQL API (MySQL database), implemented a page using AJAX to <a href="imvu/screen.html?pg=10" target="_top">edit the contents of a 'My music' panel</a> using search results from Amazon.com and enhanced a <a href="imvu/screen.html?pg=11" target="_top">Google map</a> showing the location of avatars currently online at IMVU.</p>
 
-	<p><b>Commonly used tools:</b>
-	<b><a href="http://www.macromedia.com/software/homesite/" target="_blank">HomeSite</a></b> editor,
-	<b><a href="http://www.nongnu.org/cvs/" target="_blank">CVS</a></b> source control,
-	<b><a href="http://www.reactorserver.com/" target="_blank">Reactor Server</a></b>,
-	<b><a href="http://www.phpmyadmin.net/home_page/" target="_blank">phpMyAdmin</a></b></p>
+		<p><b>Commonly used tools:</b>
+		<b><a href="http://www.macromedia.com/software/homesite/" target="_blank">HomeSite</a></b> editor,
+		<b><a href="http://www.nongnu.org/cvs/" target="_blank">CVS</a></b> source control,
+		<b><a href="http://www.reactorserver.com/" target="_blank">Reactor Server</a></b>,
+		<b><a href="http://www.phpmyadmin.net/home_page/" target="_blank">phpMyAdmin</a></b></p>
+	</div>
 </article>
 
 
 <div class='hLinePad'></div>
-<a name="SnapJot"></a>
+<a id="SnapJot"></a>
 <article>
 	<div class="date-ranges">
 		 <span class="job-start">Jul 2005</span>
@@ -408,12 +420,14 @@ document.createElement('hgroup');
 		<h3>Senior Software Engineer, DHTML / AJAX / JavaScript / CSS / JSP</h3>
 	</hgroup>
 
-	<p>Extensive functional prototyping in JSP, DHTML and AJAX; site design and navigation, creating "jots" and "stories" using a Rich-Text-Editor, uploading media - none of it appears on their current web site...</p>
+	<div class="aContent">
+		<p>Extensive functional prototyping in JSP, DHTML and AJAX; site design and navigation, creating "jots" and "stories" using a Rich-Text-Editor, uploading media - none of it appears on their current web site...</p>
+	</div>
 </article>
 
 
 <div class='hLinePad'></div>
-<a name="Opsware"></a>
+<a id="Opsware"></a>
 <article>
 	<div class="date-ranges">
 		 <span class="job-start">Oct 2004</span>
@@ -421,198 +435,189 @@ document.createElement('hgroup');
 	</div>						
 	<hgroup>
 		<h1>
-			<a href="http://www8.hp.com/us/en/hp-news/press-release.html?id=170105&jumpid=reg_r1002_usen#.T7NQREVYvBs" target="_blank"><img src="images/logos/opswaremainlogo.jpg" alt="" width="140" height="43" border="0">Opsware</a>
+			<a href="http://www8.hp.com/us/en/hp-news/press-release.html?id=170105&jumpid=reg_r1002_usen#.T7NQREVYvBs" target="_blank"><img src="images/logos/opswaremainlogo.jpg" alt="" width="140" height="43">Opsware</a>
 			<em>(formerly <b>Loudcloud</b>, now '<a href="https://h10078.www1.hp.com/cda/hpms/display/main/hpms_content.jsp?zn=bto&cp=1-11-271-273_4000_20__" target="_blank">HP Data Center Automation Center</a>')</em>
 		</h1>														
 		<h2>Sunnyvale, CA</h2>
 		<h3>Senior Software Engineer, DHTML / JavaScript / CSS / JSP</h3>
 	</hgroup>
 
-	<p>Hired by the <i>UI Design Lead</i> to do rapid prototyping of DHTML features and pages related to a major new "Server Groups" component of the <b><i>Opsware Command Center</i></b> (<b><i>OCC</i></b>).	Also worked in production code to implement many of the prototype pages for the "<b><a href="http://www.serverwatch.com/news/article.php/3505606" target="_blank">Darwin</a></b>" release of <b><i>OCC</i></b> in Spring 2005.	Advanced JavaScript and JSP programming, DHTML, XML processing in both JavaScript and Java; 4.5 months.</p>
+	<div class="aContent">
+		<p>Hired by the <i>UI Design Lead</i> to do rapid prototyping of DHTML features and pages related to a major new "Server Groups" component of the <b><i>Opsware Command Center</i></b> (<b><i>OCC</i></b>).	Also worked in production code to implement many of the prototype pages for the "<b><a href="http://www.serverwatch.com/news/article.php/3505606" target="_blank">Darwin</a></b>" release of <b><i>OCC</i></b> in Spring 2005.	Advanced JavaScript and JSP programming, DHTML, XML processing in both JavaScript and Java; 4.5 months.</p>
 
-	<p>For the prototyping phase, I created dozens of XML files to represent navigable views of a hierarchical structure of nested groups (each with certain properties) containing servers (each with many "columns" of data to display). Then, first with JavaScript and pure DHTML and later with JSP on Tomcat, parsed those XML files and presented increasingly refined and detailed versions of display and navigation, row selection, menu toolbar and popup modal dialog features as defined in a very elaborate written spec (which itself was evolving along with the work).	Did benchmarking and JavaScript optimization at this point to test performance with "thousands" of rows.</p>
+		<p>For the prototyping phase, I created dozens of XML files to represent navigable views of a hierarchical structure of nested groups (each with certain properties) containing servers (each with many "columns" of data to display). Then, first with JavaScript and pure DHTML and later with JSP on Tomcat, parsed those XML files and presented increasingly refined and detailed versions of display and navigation, row selection, menu toolbar and popup modal dialog features as defined in a very elaborate written spec (which itself was evolving along with the work).	Did benchmarking and JavaScript optimization at this point to test performance with "thousands" of rows.</p>
 
-	<p>In the production phase, I spent another two months working with others to translate the prototypes I had created into working pages in the <b><i>Opsware Command Center</i></b> (<b><i>OCC</i></b>).	Replaced XML sample data with calls to Java APIs, implemented reliable "transactions" for "New / Copy / Move" and other modal dialogs, converted all text to i18N resources, enhanced DHTML and JavaScript functionality.	Besides my primary focus on new pages for creating and managing groups of servers, I also contributed significant JavaScript/DHTML and JSP programming to enhancing two existing pages for groups: the "Install Wizard Confirmation Screen" and "Attached Nodes Tab".
+		<p>In the production phase, I spent another two months working with others to translate the prototypes I had created into working pages in the <b><i>Opsware Command Center</i></b> (<b><i>OCC</i></b>).	Replaced XML sample data with calls to Java APIs, implemented reliable "transactions" for "New / Copy / Move" and other modal dialogs, converted all text to i18N resources, enhanced DHTML and JavaScript functionality.	Besides my primary focus on new pages for creating and managing groups of servers, I also contributed significant JavaScript/DHTML and JSP programming to enhancing two existing pages for groups: the "Install Wizard Confirmation Screen" and "Attached Nodes Tab".</p>
 
-	<p><b>Commonly used tools:</b>
-	<b><a href="http://www.macromedia.com/software/homesite/" target="_blank">HomeSite</a></b> editor,
-	<b><a href="http://www-306.ibm.com/software/awdtools/clearcase/" target="_blank">ClearCase</a></b> source control,
-	<b><a href="http://sourceforge.net/projects/jboss/" target="_blank">JBoss/Server</a></b>,
-	<b><a href="http://xmljs.sourceforge.net/" target="_blank">XML for &lt;SCRIPT&gt;</a></b>,
-	<b><a href="http://java.sun.com/j2se/1.4.2/docs/api/javax/xml/parsers/package-summary.html" target="_blank">javax.xml.parsers</a></b>,
-	Photoshop, ClearQuest</p>
+		<p><b>Commonly used tools:</b>
+		<b><a href="http://www.macromedia.com/software/homesite/" target="_blank">HomeSite</a></b> editor,
+		<b><a href="http://www-306.ibm.com/software/awdtools/clearcase/" target="_blank">ClearCase</a></b> source control,
+		<b><a href="http://sourceforge.net/projects/jboss/" target="_blank">JBoss/Server</a></b>,
+		<b><a href="http://xmljs.sourceforge.net/" target="_blank">XML for &lt;SCRIPT&gt;</a></b>,
+		<b><a href="http://java.sun.com/j2se/1.4.2/docs/api/javax/xml/parsers/package-summary.html" target="_blank">javax.xml.parsers</a></b>,
+		Photoshop, ClearQuest</p>
+	</div>
 </article>
 
 
 <div class='hLinePad'></div>
-<a name="LightSurf"></a>
+<a id="LightSurf"></a>
 <article>
 	<div class="date-ranges">
 		 <span class="job-start">Aug 2003</span>
 		 <span class="job-end">May 2004</span>
 	</div>						
 	<hgroup>
-		<h1><a href="http://en.wikipedia.org/wiki/LightSurf" target="_blank"><img src="images/logos/lightsurf_logo.gif" alt="" width="163" height="69" border="0">LightSurf Technologies Inc.</a></h1>														
+		<h1><a href="http://en.wikipedia.org/wiki/LightSurf" target="_blank"><img src="images/logos/lightsurf_logo.gif" alt="" width="163" height="69">LightSurf Technologies Inc.</a></h1>														
 		<h2>Santa Cruz, CA</h2>
 		<h3>Web Engineer, JSP / Java &quot;Front End&quot; Application Developer</h3>
 	</hgroup>
 
-	<p>Application programming on the 
-	<b><a href="https://pictures.sprintpcs.com/login.do" target="_blank">Sprint PCS Vision Picture Mail<span class="sup">SM</span></a></b> web site <font size="-1">(<b><a href="http://news.com.com/2100-1037_3-5112902.html?tag=nefd_top" target="_blank">and here</a></b>)</font>, primarily "front end" features using JSP, Java and JavaScript programming, custom and
-	<b><a href="http://java.sun.com/products/jsp/jstl/index.jsp" target="_blank">JSTL</a></b> tags, XML documents,
-	<b><a href="http://husted.com/struts/index.html" target="_blank">Struts/Tiles</a></b> coding, CSS and HTML layout.</p>
+	<div class="aContent">
+		<p>Application programming on the <b><a href="https://pictures.sprintpcs.com/login.do" target="_blank">Sprint PCS Vision Picture Mail<span class="sup">SM</span></a></b> web site (<b><a href="http://news.com.com/2100-1037_3-5112902.html?tag=nefd_top" target="_blank">and here</a></b>), primarily "front end" features using JSP, Java and JavaScript programming, custom and <b><a href="http://java.sun.com/products/jsp/jstl/index.jsp" target="_blank">JSTL</a></b> tags, XML documents, <b><a href="http://husted.com/struts/index.html" target="_blank">Struts/Tiles</a></b> coding, CSS and HTML layout.</p>
 
-	<script type="text/javascript">
-	function showPhilippe() {
-		var qtFrame = document.getElementById("lsqtdemo");
-		jt_.showNoneElm(qtFrame, true);
-		qtFrame.src = "http://www.wingo.com/images/philippe_0.mp4v-es.mov";
-	}
-	</script>
+		<script type="text/javascript">
+		function showPhilippe() {
+			var qtFrame = document.getElementById("lsqtdemo");
+			jt_.showNoneElm(qtFrame, true);
+			qtFrame.src = "http://www.wingo.com/images/philippe_0.mp4v-es.mov";
+		}
+		</script>
 
-	<p>Specific projects included:</p>
-
-	<ul>
+		<p>Specific projects included:</p>
 
 		<div style="float:right; position:relative; width:217px; margin: 0px 0px 5px 5px; text-align:center;">
 			<iframe id="lsqtdemo" src="" width="128" height="112" style="position:absolute;display:none;left:45px;top:61px;"></iframe>
 
-			<a href="http://www.wingo.com/images/philippe_0.mp4v-es.mov" onClick="showPhilippe(); return false;" target="lsqtdemo"><img src="images/logos/videomail_scrn-s.gif" alt="click to see VideoMail example" width="215" height="254" border="0"></a><br>
-			<font size="-1"><i>click to see VideoMail example</i></font><br>
-			<!-- http://pictures.sprintpcs.com/share.jsp?invite=uETrYe8pz8hvka1aa8Ax&amp;shareName=Video -->
+			<a href="http://www.wingo.com/images/philippe_0.mp4v-es.mov" onClick="showPhilippe(); return false;" target="lsqtdemo"><img src="images/logos/videomail_scrn-s.gif" alt="click to see VideoMail example" width="215" height="254"></a><br>
+			<i>click to see VideoMail example</i>
 		</div>
 
-		<li>video player detection and display for QuickTime and Windows Media Player formats with JavaScript controls (<b><a href="http://pictures.sprintpcs.com/share.jsp?invite=uETrYe8pz8hvka1aa8Ax&amp;shareName=Video" target="_blank">see VideoMail example</a></b>).</li>
-		<li>filter albums by "Calendar View" and "Media Type" ('Pictures', 'Video' or 'All').</li>
-		<li>modifiable "From" email address with email verification link for Shares created on phones.</li>
-		<li>embedded audio player with JavaScript controls.</li>
-		<li>enhanced slideshow pages, consolidated common code, wait for videos to finish, repaired Share creation and preview pages, Address Book enhancements to support Groups and Share creation.</li>
-		<li>functional prototype of "Universal Personal Organizer" using internal <b><a href="http://www.truesync.com" target="_blank">TrueSync Server</a></b> (<b><a href="http://www.starfish.com/press_releases/110303.html" target="_blank">and here</a></b>); two way exchange of data (backup and restore) between a cellular handheld device (Palm Treo) and web application for phone numbers, contact lists and a wide range of data related to features found in Personal Organizers (events, notes, etc.), which were then available in a web based version of a PIM ("Personal Information Manager"), merged and synchronized with the wireless phone data, available to be downloaded to a new cell phone when the old one is replaced or upgraded.</li>
-		<li>participated in conversion of core LightSurf PictureMail technologies to Struts/Tiles for application branding by other wireless carriers; created master default CSS stylesheet and customized for each retailer.
-		<span id="dragDropSpot" style="float:left; position:relative; width:198px; height:152px; margin:5px 20px 0 0;"><br></span></li>
-		<li>DHTML drag &amp; drop <b><a href="http://www.lightsurf.com/solutions/mmsapps.html" target="_blank">MMS Composer</a></b> combines pictures, text, audio and videos for web-based multimedia messages to phones or email addresses; access to media in all Albums and Gallerys, slideshow and single "slide" previews, session persistence, etc. For Verizon field trial and <b><a href="http://www.shoprogers.com/store/wireless/services/voice/picturemessaging.asp?shopperID=WUC66TRM123V8KP0XL0TRWC758D1E501" target="_blank">Rogers Wireless</a></b> of Canada (<b><a href="http://www.lightsurf.com/news/releases/pr_051304.html" target="_blank">LightSurf Press Release</a></b>).<br>
-			&nbsp;<br>
-			<i>Hold mouse down to drag this animated series of screen shots.</i></li>
-	</ul>
+		<ul>
+			<li>video player detection and display for QuickTime and Windows Media Player formats with JavaScript controls (<b><a href="http://pictures.sprintpcs.com/share.jsp?invite=uETrYe8pz8hvka1aa8Ax&amp;shareName=Video" target="_blank">see VideoMail example</a></b>).</li>
+			<li>filter albums by "Calendar View" and "Media Type" ('Pictures', 'Video' or 'All').</li>
+			<li>modifiable "From" email address with email verification link for Shares created on phones.</li>
+			<li>embedded audio player with JavaScript controls.</li>
+			<li>enhanced slideshow pages, consolidated common code, wait for videos to finish, repaired Share creation and preview pages, Address Book enhancements to support Groups and Share creation.</li>
+			<li>functional prototype of "Universal Personal Organizer" using internal <b><a href="http://www.truesync.com" target="_blank">TrueSync Server</a></b> (<b><a href="http://www.starfish.com/press_releases/110303.html" target="_blank">and here</a></b>); two way exchange of data (backup and restore) between a cellular handheld device (Palm Treo) and web application for phone numbers, contact lists and a wide range of data related to features found in Personal Organizers (events, notes, etc.), which were then available in a web based version of a PIM ("Personal Information Manager"), merged and synchronized with the wireless phone data, available to be downloaded to a new cell phone when the old one is replaced or upgraded.</li>
+			<li>participated in conversion of core LightSurf PictureMail technologies to Struts/Tiles for application branding by other wireless carriers; created master default CSS stylesheet and customized for each retailer.
+			<span id="dragDropSpot" style="float:left; position:relative; width:198px; height:152px; margin:5px 20px 0 0;"><br></span></li>
+			<li>DHTML drag &amp; drop <b><a href="http://www.lightsurf.com/solutions/mmsapps.html" target="_blank">MMS Composer</a></b> combines pictures, text, audio and videos for web-based multimedia messages to phones or email addresses; access to media in all Albums and Gallerys, slideshow and single "slide" previews, session persistence, etc. For Verizon field trial and <b><a href="http://www.shoprogers.com/store/wireless/services/voice/picturemessaging.asp?shopperID=WUC66TRM123V8KP0XL0TRWC758D1E501" target="_blank">Rogers Wireless</a></b> of Canada (<b><a href="http://www.lightsurf.com/news/releases/pr_051304.html" target="_blank">LightSurf Press Release</a></b>).<br>
+				&nbsp;<br>
+				<i>Hold mouse down to drag this animated series of screen shots.</i></li>
+		</ul>
  
-	<div id="dragDrop" style="position:absolute; visibility:hidden; text-align:center; background: White;"> 
-		<img src="images/logos/rogers_screens-s.gif" alt="MMS Composer" width="198" height="152" border="0" style="margin:0;"><br> 
-		<font size="-1"><i>drag me!</i></font><br> 
-	</div> 
+		<div id="dragDrop" style="position:absolute; visibility:hidden; text-align:center; background: White; z-index: 100;"> 
+			<img src="images/logos/rogers_screens-s.gif" alt="MMS Composer" width="198" height="152" style="margin:0;"><br> 
+			<i>drag me!</i>
+		</div> 
 
-	<p><br clear="all"><br>
-	<font size="-1"><b>Commonly used tools:</b>
-	<b><a href="http://www.macromedia.com/software/homesite/" target="_blank">HomeSite</a></b> and
-	<b><a href="http://www.eclipse.org/" target="_blank">Eclipse</a></b> editors,
-	<b><a href="http://www.perforce.com/perforce/products.html" target="_blank">Perforce</a></b>,
-	<b><a href="http://www.caucho.com/" target="_blank">Resin server</a></b>,
-	Ant, Photoshop,
-	<b><a href="http://www.htmlvalidator.com/" target="_blank">CSE HTML(XML) Validator</a></b>,
-	ClearQuest</font></p>
+		<p><br><br>
+		<b>Commonly used tools:</b>
+		<b><a href="http://www.macromedia.com/software/homesite/" target="_blank">HomeSite</a></b> and
+		<b><a href="http://www.eclipse.org/" target="_blank">Eclipse</a></b> editors,
+		<b><a href="http://www.perforce.com/perforce/products.html" target="_blank">Perforce</a></b>,
+		<b><a href="http://www.caucho.com/" target="_blank">Resin server</a></b>,
+		Ant, Photoshop,
+		<b><a href="http://www.htmlvalidator.com/" target="_blank">CSE HTML(XML) Validator</a></b>,
+		ClearQuest</p>
+	</div>
 </article>
 
 
 <div class='hLinePad'></div>
-<a name="OLT"></a>
+<a id="OLT"></a>
 <article>
 	<div class="date-ranges">
 		 <span class="job-start">Nov 2002</span>
 		 <span class="job-end">Apr 2003</span>
 	</div>						
 	<hgroup>
-		<h1><a href="http://www.outlook.net/" target="_blank"><img src="images/logos/outlook_logo.gif" alt="" width="162" height="62" border="0">Outlook Technologies, Inc.</a></h1>														
+		<h1><a href="http://www.outlook.net/" target="_blank"><img src="images/logos/outlook_logo.gif" alt="" width="162" height="62">Outlook Technologies, Inc.</a></h1>														
 		<h2>San Francisco, CA</h2>
 		<h3>Web Engineer, JSP / Java &quot;Front End&quot; Application Developer</h3>
 	</hgroup>
 
-	<p>Responsible for creation and maintenance of <b>around 80 JSP pages</b>, doing JSP / Java and JavaScript programming, <b>advanced DHTML</b> including insert, delete and re-sequencing of TABLE rows in the browser, alternate screen layouts of FORM fields based on User input (all without refreshing the page from the server), <b>fixed column headings with scrolling TABLE rows</b>, advanced CSS using positioned content, browser validation of FORM data, User interface design, minor modifications to servlets.</p>
+	<div class="aContent">
+		<p>Responsible for creation and maintenance of <b>around 80 JSP pages</b>, doing JSP / Java and JavaScript programming, <b>advanced DHTML</b> including insert, delete and re-sequencing of TABLE rows in the browser, alternate screen layouts of FORM fields based on User input (all without refreshing the page from the server), <b>fixed column headings with scrolling TABLE rows</b>, advanced CSS using positioned content, browser validation of FORM data, User interface design, minor modifications to servlets.</p>
 
-	<p>JSP application programming on a
-	<a href="http://www.ebreviate.com/solutions/spend.html" target="_blank"><b>Spend Management system</b></a> for
-	<a href="http://www.ebreviate.com/about/" target="_blank"><b><i>eBreviate</i></b></a>,
-	part of the <b><i>A. T. Kearney</i></b> Procurement Solutions unit.	
-	<a href="http://www.ebreviate.com/solutions/spend.html" target="_blank"><b>Spend Management Technology</b></a>
-	is a database that accepts and consolidates data feeds from multiple historical accounts payable systems to track spend across the enterprise by division, business unit, supplier, and category/commodity. It allows companies to identify and monitor compliance of negotiated agreements, provides comprehensive spend information on company/subsidiary relationships to fully aggregate and leverage spend, and facilitates the management of T&amp;E and P-card (Procard) spending.</p>
+		<p>JSP application programming on a <a href="http://www.ebreviate.com/solutions/spend.html" target="_blank"><b>Spend Management system</b></a> for <a href="http://www.ebreviate.com/about/" target="_blank"><b><i>eBreviate</i></b></a>, part of the <b><i>A. T. Kearney</i></b> Procurement Solutions unit. <a href="http://www.ebreviate.com/solutions/spend.html" target="_blank"><b>Spend Management Technology</b></a> is a database that accepts and consolidates data feeds from multiple historical accounts payable systems to track spend across the enterprise by division, business unit, supplier, and category/commodity. It allows companies to identify and monitor compliance of negotiated agreements, provides comprehensive spend information on company/subsidiary relationships to fully aggregate and leverage spend, and facilitates the management of T&amp;E and P-card (Procard) spending.</p>
 
-	<p><b>Commonly used tools:</b>
-		<b><a href="http://www.macromedia.com/software/homesite/" target="_blank">HomeSite</a></b> editor,
-		<b><a href="http://www.perforce.com/perforce/products.html" target="_blank">Perforce</a></b>,
-		<b><a href="http://www.bea.com/framework.jsp?CNT=index.htm&FP=/content/products/server" target="_blank">WebLogic server</a></b>,
-		<b><a href="http://www.bugzilla.org/" target="_blank">Bugzilla</a></b>,
-		IntelliJ, Photoshop, Ant,
-		<b><a href="http://www.cygwin.com/" target="_blank">Cygwin</a></b>,
-		<b><a href="http://winscp.sourceforge.net/eng/download.php" target="_blank">WinSCP</a></b>
-	</p>
+		<p><b>Commonly used tools:</b>
+			<b><a href="http://www.macromedia.com/software/homesite/" target="_blank">HomeSite</a></b> editor,
+			<b><a href="http://www.perforce.com/perforce/products.html" target="_blank">Perforce</a></b>,
+			<b><a href="http://www.bea.com/framework.jsp?CNT=index.htm&FP=/content/products/server" target="_blank">WebLogic server</a></b>,
+			<b><a href="http://www.bugzilla.org/" target="_blank">Bugzilla</a></b>,
+			IntelliJ, Photoshop, Ant,
+			<b><a href="http://www.cygwin.com/" target="_blank">Cygwin</a></b>,
+			<b><a href="http://winscp.sourceforge.net/eng/download.php" target="_blank">WinSCP</a></b>
+		</p>
+	</div>
 </article>
 
 
 <div class='hLinePad'></div>
-<a name="Shutterfly"></a>
+<a id="Shutterfly"></a>
 <article>
 	<div class="date-ranges">
 		 <span class="job-start">Apr 2000</span>
 		 <span class="job-end">Nov 2001</span>
 	</div>						
 	<hgroup>
-		<h1><a href="http://www.shutterfly.com" target="_blank"><img src="images/logos/nu40sfly.gif" alt="" width="150" height="70" border="0">Shutterfly.com</a></h1>														
+		<h1><a href="http://www.shutterfly.com" target="_blank"><img src="images/logos/nu40sfly.gif" alt="" width="150" height="70">Shutterfly.com</a></h1>														
 		<h2>Redwood Shores, CA</h2>
 		<h3>Web Engineer, JSP / Java &quot;Front End&quot; Application Developer</h3>
 	</hgroup>
 
-	<p>Photography-oriented web site, <i>"film quality prints from your digital camera"</i>,
-	<a href="http://www.shutterfly.com/cards/start.jsp" target="_blank"><b>personalized photo greeting cards</b></a>,
-	<a href="http://www.shutterfly.com/frames/start.jsp" target="_blank"><b>framed prints</b></a> and other products, manipulation of images, borders, cropping, address book, shopping cart, etc.</p>
+	<div class="aContent">
+		<p>Photography-oriented web site, <i>"film quality prints from your digital camera"</i>,
+		<a href="http://www.shutterfly.com/cards/start.jsp" target="_blank"><b>personalized photo greeting cards</b></a>,
+		<a href="http://www.shutterfly.com/frames/start.jsp" target="_blank"><b>framed prints</b></a> and other products, manipulation of images, borders, cropping, address book, shopping cart, etc.</p>
 
-	<p>Participated in two major revisions of the Shutterfly web site over a period of 19 months.</p>
+		<p>Participated in two major revisions of the Shutterfly web site over a period of 19 months.</p>
 
-	<p>As member of small &quot;front end&quot; team, focused primarily on <b><i>JSP</i></b>
-	("<a href="http://java.sun.com/products/jsp/" target="_blank"><b><i>Java Server Pages</i></b></a>")
-	and JavaScript programming in a
-	<a href="http://www.bea.com/products/weblogic/server/index.shtml" target="_blank"><i><b>BEA WebLogic</b></i></a>
-	environment. Produced &quot;rapid functional prototype&quot; and final production web pages on a regular, short schedule (2..4 weeks). HTML page layout, style sheets, PhotoShop work, JavaScript and Java application programming were used to accomplish 
-	the following tasks:</p>
+		<p>As member of small &quot;front end&quot; team, focused primarily on <b><i>JSP</i></b> ("<a href="http://java.sun.com/products/jsp/" target="_blank"><b><i>Java Server Pages</i></b></a>") and JavaScript programming in a <a href="http://www.bea.com/products/weblogic/server/index.shtml" target="_blank"><i><b>BEA WebLogic</b></i></a> environment. Produced &quot;rapid functional prototype&quot; and final production web pages on a regular, short schedule (2..4 weeks). HTML page layout, style sheets, PhotoShop work, JavaScript and Java application programming were used to accomplish the following tasks:</p>
 
-	<ul>
+		<ul>
+			<li>Did the <b>majority of front end application programming</b> for the
+			<a href="http://www.shutterfly.com/cards/start.jsp" target="_blank"><b>photo greeting cards</b></a>, 
+			<a href="http://www.shutterfly.com/frames/start.jsp" target="_blank"><b>framed prints</b></a>,
+			<a href="http://www.shutterfly.com/learn/share_pix.jsp" target="_blank"><b>share</b></a> and
+			<a href="http://www.shutterfly.com/support/form6.jsp" target="_blank"><b>support</b></a>
+			sections; page layout, navigation and interactive functionality.</li>
 
-		<li>Did the <b>majority of front end application programming</b> for the
-		<a href="http://www.shutterfly.com/cards/start.jsp" target="_blank"><b>photo greeting cards</b></a>, 
-		<a href="http://www.shutterfly.com/frames/start.jsp" target="_blank"><b>framed prints</b></a>,
-		<a href="http://www.shutterfly.com/learn/share_pix.jsp" target="_blank"><b>share</b></a> and
-		<a href="http://www.shutterfly.com/support/form6.jsp" target="_blank"><b>support</b></a>
-		sections; page layout, navigation and interactive functionality.</li>
+			<li>Developed a simple Java based system of maintaining state and providing extensive functionality among a collection of pages, independent of &quot;back end&quot; support (database, image server, etc.), yet easily connected to same (via Java). Used browser cookie and image replacement tricks to make sure no text typed by User into forms is ever lost <i>(no matter what button is pushed!)</i>.</li>
 
-		<li>Developed a simple Java based system of maintaining state and providing extensive functionality
-		among a collection of pages, independent of &quot;back end&quot; support (database, image server, etc.), yet easily connected to same (via Java). Used browser cookie and image replacement tricks to make sure no text typed by User into forms is ever lost <i>(no matter what button is pushed!)</i>.</li>
+			<li>Validation of all data entry forms throughout the site, protection against cross site scripting.</li>
 
-		<li>Validation of all data entry forms throughout the site, protection against cross site scripting.</li>
+			<li>Contributed programming to most functional pages throughout the site, especially those related to order review, summary, confirmation, history, address book. Also, many "hidden" features such as:
 
-		<li>Contributed programming to most functional pages throughout the site, especially those related to order review, 
-		summary, confirmation, history, address book. Also, many "hidden" features such as:</li>
+				<ul>
+					<li>"<a href="http://www.shutterfly.com/index.jsp?tag=ADBE" target="sflyWin"><b>skins</b></a>" for
+						<a href="http://www.shutterfly.com/index.jsp?tag=BEST" target="sflyWin">different partners</a> besides
+						<a href="http://www.shutterfly.com/index.jsp?tag=SFLY" target="sflyWin">Shutterfly</a>.</li>
+					<li>a <a href="javascript:sflyWarn()"><b>pop-up warning window</b></a> that appears with increasing frequency, starting six hours prior to a planned shutdown (for web site upgrades).</li>
+					<li>saved user preferences, available centrally and scattered individually on appropriate pages.</li>
+				</ul>
+			</li>
 
-			<ul>
-				<li>"<a href="http://www.shutterfly.com/index.jsp?tag=ADBE" target="sflyWin"><b>skins</b></a>" for
-					<a href="http://www.shutterfly.com/index.jsp?tag=BEST" target="sflyWin">different partners</a> besides
-					<a href="http://www.shutterfly.com/index.jsp?tag=SFLY" target="sflyWin">Shutterfly</a>.</li>
-				<li>a <a href="javascript:sflyWarn()"><b>pop-up warning window</b></a> that appears with increasing frequency, starting six hours prior to a planned shutdown (for web site upgrades).</li>
-				<li>saved user preferences, available centrally and scattered individually on appropriate pages.</li>
-			</ul>
+			<li style="clear: both;">Developed in JSP and Java the interactive portion of a content management system that allows marketing people to schedule in advance the dynamic content of "promo wells" (small graphics scattered over dozens of web pages, each with a link to a promotional page). Included support for promo well content specific to each partner (see "<b><a href="http://www.shutterfly.com/index.jsp?tag=ADBE" target="sflyWin">skins</a></b>" above).</li>
 
-		<li style="clear: both;">Developed in JSP and Java the interactive portion of a content management system that allows marketing people to schedule in advance the dynamic content of "promo wells" (small graphics scattered over dozens of web pages, each with a link to a promotional page). Included support for promo well content specific to each partner (see "<b><a href="http://www.shutterfly.com/index.jsp?tag=ADBE" target="sflyWin">skins</a></b>" above).</li>
+		</ul>
 
-	</ul>
-
-	<p><b>Commonly used tools:</b>
-	<b><a href="http://www.macromedia.com/software/homesite/" target="_blank">HomeSite</a></b> editor,
-	<b><a href="http://www.perforce.com/perforce/products.html" target="_blank">Perforce</a></b>,
-	<b><a href="http://www.bea.com/framework.jsp?CNT=index.htm&FP=/content/products/server" target="_blank">WebLogic server</a></b>,
-	<b><a href="http://www.bugzilla.org/" target="_blank">Bugzilla</a></b>,
-	<b><a href="http://www.ipswitch.com/products/WS_FTP/" target="_blank">WS_FTP Pro</a></b>, Photoshop
-	</p>
+		<p><b>Commonly used tools:</b>
+			<b><a href="http://www.macromedia.com/software/homesite/" target="_blank">HomeSite</a></b> editor,
+			<b><a href="http://www.perforce.com/perforce/products.html" target="_blank">Perforce</a></b>,
+			<b><a href="http://www.bea.com/framework.jsp?CNT=index.htm&FP=/content/products/server" target="_blank">WebLogic server</a></b>,
+			<b><a href="http://www.bugzilla.org/" target="_blank">Bugzilla</a></b>,
+			<b><a href="http://www.ipswitch.com/products/WS_FTP/" target="_blank">WS_FTP Pro</a></b>, Photoshop
+		</p>
+	</div>
 </article>
 
 
 <div class='hLinePad'></div>
-<a name="netSyndicate"></a>
+<a id="netSyndicate"></a>
 <article>
 	<div class="date-ranges">
 		 <span class="job-start">Jan 2000</span>
@@ -624,12 +629,14 @@ document.createElement('hgroup');
 		<h3>Senior Web Architect</h3>
 	</hgroup>
 
-	<p>Produced two new courseware modules from scratch using dynamic HTML in JavaScript functions, positioned LAYERs and Drag&amp;Drop features. JavaScript programming, HTML layout, maintenance of existing code including ASP pages in administrative tracking system. Re-architected the way online courseware modules communicate with back-end tracking system. Eliminated all but one ASP page per module and integrated stand-alone and &quot;tracking&quot; versions of existing modules into single versions working with or without custom content and tracking (tremendous reduction in maintenance!). Introduced text scripted multiple choice quiz builder using JavaScript DHTML layout and scoring. Updated many old courseware pages with clean simple FRAMESET-based JavaScript code. Contributed to new company web site including Perl scripts.</p>
+	<div class="aContent">
+		<p>Produced two new courseware modules from scratch using dynamic HTML in JavaScript functions, positioned LAYERs and Drag&amp;Drop features. JavaScript programming, HTML layout, maintenance of existing code including ASP pages in administrative tracking system. Re-architected the way online courseware modules communicate with back-end tracking system. Eliminated all but one ASP page per module and integrated stand-alone and &quot;tracking&quot; versions of existing modules into single versions working with or without custom content and tracking (tremendous reduction in maintenance!). Introduced text scripted multiple choice quiz builder using JavaScript DHTML layout and scoring. Updated many old courseware pages with clean simple FRAMESET-based JavaScript code. Contributed to new company web site including Perl scripts.</p>
+	</div>
 </article>
 
 
 <div class='hLinePad'></div>
-<a name="CharitableWay"></a>
+<a id="CharitableWay"></a>
 <article>
 	<div class="date-ranges">
 		 <span class="job-start">Sep 1999</span>
@@ -640,7 +647,9 @@ document.createElement('hgroup');
 		<h3>Consultant</h3>
 	</hgroup>
 
-	<p>Contact forms and Perl scripts, frames based prototyping, "URL masking" project to provide each charity with unique URL (involved configuring Netscape Enterprise Server to run a custom Perl script instead of "File not found" message; the script parsed the URL, did a database lookup of the "directory" name to obtain a numeric ID, then called the BroadVision .jsp engine with appropriate query to generate unique page for each charity). <i>Three weeks consulting.</i></p>
+	<div class="aContent">
+		<p>Contact forms and Perl scripts, frames based prototyping, "URL masking" project to provide each charity with unique URL (involved configuring Netscape Enterprise Server to run a custom Perl script instead of "File not found" message; the script parsed the URL, did a database lookup of the "directory" name to obtain a numeric ID, then called the BroadVision .jsp engine with appropriate query to generate unique page for each charity). <i>Three weeks consulting.</i></p>
+	</div>
 </article>
 
 
@@ -656,26 +665,29 @@ document.createElement('hgroup');
 		<h3>Independent Consultant</h3>
 	</hgroup>
 
-	<ul>
-		<li>Web site design, programming, remodeling and repairs.
-		<li><b>JavaScript programming</b>, <b>dynamic HTML</b>, <b>frames</b>, <b><a href="tides/index.html" target="_blank">cookies</a></b>, CGI <b><a href="http://www.shutterfly.com/support/form1.jsp">forms</a></b>, <b>Perl</b> and <b><a href="http://www.teamrudiger.com/transpac99/">RealAudio</a></b></li>
-		<li>Graphics, titles, buttons, site navigation, photo scan / retouch, CSS Stylesheets, positioned content (layers).</li>
-		<li>Domain name registration, search engine placement, meta-tags</li>
-		<li><b>e-Commerce:</b></li>
+	<div class="aContent">
+		<ul>
+			<li>Web site design, programming, remodeling and repairs.
+			<li><b>JavaScript programming</b>, <b>dynamic HTML</b>, <b>frames</b>, <b><a href="tides/index.html" target="_blank">cookies</a></b>, CGI <b><a href="http://www.shutterfly.com/support/form1.jsp">forms</a></b>, <b>Perl</b> and <b><a href="http://www.teamrudiger.com/transpac99/">RealAudio</a></b></li>
+			<li>Graphics, titles, buttons, site navigation, photo scan / retouch, CSS Stylesheets, positioned content (layers).</li>
+			<li>Domain name registration, search engine placement, meta-tags</li>
+			<li><b>e-Commerce:</b>
 
-			<ul>
-				<li><b><a href="resume.html#Shutterfly" target="_self">Shutterfly.com</a></b> (JSP and JavaScript applications)</li>
-				<li><b><a href="http://www.ketubotbynaomi.com/">Ketubot by Naomi</a></b> (custom JavaScript and Perl, cookie-based)</li>
-				<li><b>ArmchairSailorBooks.com</b> (custom JavaScript and Perl, since acquired by West Marine)</li>
-			</ul>
+				<ul>
+					<li><b><a href="resume.html#Shutterfly" target="_self">Shutterfly.com</a></b> (JSP and JavaScript applications)</li>
+					<li><b><a href="http://www.ketubotbynaomi.com/">Ketubot by Naomi</a></b> (custom JavaScript and Perl, cookie-based)</li>
+					<li><b>ArmchairSailorBooks.com</b> (custom JavaScript and Perl, since acquired by West Marine)</li>
+				</ul>
 
-		<li style="clear: both;"><b><a href="services.html" target="_self">Services</a></b>, <b><a href="portfolio.html" target="_self">Portfolio</a></b></li>
-	</ul>
+			</li>
+			<li style="clear: both;"><b><a href="services.html" target="_self">Services</a></b>, <b><a href="portfolio.html" target="_self">Portfolio</a></b></li>
+		</ul>
+	</div>
 </article>
 
 
 <div class='hLinePad'></div>
-<a name="CAMdata"></a>
+<a id="CAMdata"></a>
 <article>
 	<div class="date-ranges">
 		 <span class="job-start">1990</span>
@@ -687,14 +699,16 @@ document.createElement('hgroup');
 		<h3>Software Development Manager for <i>PROFIT$</i> (Senior Lead Programmer, <i>AKA Jai Gopal Singh</i>)</h3>
 	</hgroup>
 
-	<p>After being acquired by this former competitor, I continued to lead development of the <b><i><a href="http://www.camcommerce.com/profits/index.html" target="_blank">PROFIT$ Merchandising System</a></i></b> described below. Implemented reliable unattended document handling between remote store locations for Purchase Orders, Receivers and Transfers. Developed automated client-server utilities using existing "<b><i><a href="#pMail">pMail</a></i></b>" wide area network (<a href="#pMail">see below</a>) for continuous upgrading of large installed User base (thousands of stores), enhanced reporting features for large multi-store operations (30..50, 255 max), and other major functional improvements throughout the application.</p>
+	<div class="aContent">
+		<p>After being acquired by this former competitor, I continued to lead development of the <b><i><a href="http://www.camcommerce.com/profits/index.html" target="_blank">PROFIT$ Merchandising System</a></i></b> described below. Implemented reliable unattended document handling between remote store locations for Purchase Orders, Receivers and Transfers. Developed automated client-server utilities using existing "<b><i><a href="#pMail">pMail</a></i></b>" wide area network (<a href="#pMail">see below</a>) for continuous upgrading of large installed User base (thousands of stores), enhanced reporting features for large multi-store operations (30..50, 255 max), and other major functional improvements throughout the application.</p>
 
-	<p>Software and computer hardware sales related to the <b><i>PROFIT$</i></b> product grew from four to seven million dollars <b><i>per year</i></b> during this period.</p>
+		<p>Software and computer hardware sales related to the <b><i>PROFIT$</i></b> product grew from four to seven million dollars <b><i>per year</i></b> during this period.</p>
+	</div>
 </article>
 
 
 <div class='hLinePad'></div>
-<a name="MicroStrategies"></a>
+<a id="MicroStrategies"></a>
 <article>
 	<div class="date-ranges">
 		 <span class="job-start">1981</span>
@@ -706,27 +720,27 @@ document.createElement('hgroup');
 		<h3>Co-founder, VP of Software Development (Senior Lead Programmer, <i>AKA Jai Gopal Singh</i>)</h3>
 	</hgroup>
 
-	<p>Created the
-	<b><i><a href="http://www.camcommerce.com/profits/index.html" target="_blank">PROFIT$ Merchandising System</a></i></b>,
-	a proprietary Point-Of-Sale Inventory and Reporting system for single or multi-store retail shoe and clothing outlets. Systems sold widely in the U.S., Canada, Mexico, and the Caribbean (with international currency exchange and display issues!). Was software architect and chief among a team that grew to five programmers. The <b><i>PROFIT$</i></b> product eventually supported dozens of software and hardware support technicians, sales people, assorted executives and generated 20+ million dollars in gross sales. (see <a href="#CAMdata">CAM Data</a> above)</p>
+	<div class="aContent">
+		<p>Created the <b><i><a href="http://www.camcommerce.com/profits/index.html" target="_blank">PROFIT$ Merchandising System</a></i></b>, a proprietary Point-Of-Sale Inventory and Reporting system for single or multi-store retail shoe and clothing outlets. Systems sold widely in the U.S., Canada, Mexico, and the Caribbean (with international currency exchange and display issues!). Was software architect and chief among a team that grew to five programmers. The <b><i>PROFIT$</i></b> product eventually supported dozens of software and hardware support technicians, sales people, assorted executives and generated 20+ million dollars in gross sales. (see <a href="#CAMdata">CAM Data</a> above)</p>
 
-	<p>Among other things, two key features made <b><i>PROFIT$</i></b> unique at the time:</p>
+		<p>Among other things, two key features made <b><i>PROFIT$</i></b> unique at the time:</p>
 
-	<ul>
-		<li><b><i>Report Generator</i></b> - From the beginning, a powerful custom report generator was key; it offered the ability to produce reports at any level of detail from vendor, department, class, subclass, color and material down to individual SKUs (Stock Keeping Units). A "Group-by" feature with associated search criteria, user-defined column headings (choose up to 80 from list, arrange sequence), ability to save pre-defined reports and other features made the Report Generator a centerpiece of any sales demo.<br>
-		&nbsp;<br>
-		Very unusual for the time, any arbitrary date range could be used. All original documents (sales, receivers and transfers) were saved, then re-examined and summarized whenever the date range changed. This allowed many different reports to be produced quickly for a given date range, passing though the original data only once.</li>
+		<ul>
+			<li><b><i>Report Generator</i></b> - From the beginning, a powerful custom report generator was key; it offered the ability to produce reports at any level of detail from vendor, department, class, subclass, color and material down to individual SKUs (Stock Keeping Units). A "Group-by" feature with associated search criteria, user-defined column headings (choose up to 80 from list, arrange sequence), ability to save pre-defined reports and other features made the Report Generator a centerpiece of any sales demo.<br>
+			&nbsp;<br>
+			Very unusual for the time, any arbitrary date range could be used. All original documents (sales, receivers and transfers) were saved, then re-examined and summarized whenever the date range changed. This allowed many different reports to be produced quickly for a given date range, passing though the original data only once.</li>
 
-		<li><b><i>Two-dimensional size / width grids</i></b>.	Until then, inventory systems universally assigned a different SKU to each size and width of a shoe (for example). We allowed hundreds of user defined grids with column and row headings for shoe and clothing sizes. Each SKU was assigned an appropriate grid which was used as a template when ordering, receiving, and optionally, reporting on that SKU.</li>
-	</ul>
+			<li><b><i>Two-dimensional size / width grids</i></b>.	Until then, inventory systems universally assigned a different SKU to each size and width of a shoe (for example). We allowed hundreds of user defined grids with column and row headings for shoe and clothing sizes. Each SKU was assigned an appropriate grid which was used as a template when ordering, receiving, and optionally, reporting on that SKU.</li>
+		</ul>
 
-	<p><a name="pSystem"></a><b><a href="http://www.threedee.com/jcm/psystem/" target="_blank">UCSD Pascal</a></b>, an academic leap of the mid '70s similar in portability to today's Java, was used to achieve a powerful multi-user, multi-store application that could be distributed without re-compiling(!) across a variety of hardware (Intel, Motorola) and operating systems including single and multi-user DOS, Atari machines, Novell Networks and large UNIX networks.</p>
+		<p><a id="pSystem"></a><b><a href="http://www.threedee.com/jcm/psystem/" target="_blank">UCSD Pascal</a></b>, an academic leap of the mid '70s similar in portability to today's Java, was used to achieve a powerful multi-user, multi-store application that could be distributed without re-compiling(!) across a variety of hardware (Intel, Motorola) and operating systems including single and multi-user DOS, Atari machines, Novell Networks and large UNIX networks.</p>
 
-	<p>A massive library of general purpose programming tools including database, list and screen handling features was created to support the <b><i>PROFIT$</i></b> application (and others), many using object-oriented techniques pioneered in Smalltalk and Modula-2, translated to Pascal.</p>
+		<p>A massive library of general purpose programming tools including database, list and screen handling features was created to support the <b><i>PROFIT$</i></b> application (and others), many using object-oriented techniques pioneered in Smalltalk and Modula-2, translated to Pascal.</p>
 
-	<p>Implemented first on early "super-micro" computers using an SQL relational database, performance and data integrity demands eventually dictated a proprietary variable size record file system ("VSDO"), optimized for highest performance on UNIX systems. Complete with appropriate file maintenance utilities and supporting multi-partition files far larger than the limits imposed by the UCSD pSystem, this key development allowed <b><i>PROFIT$</i></b> to grow with the demands of customers having 30..50 stores (255 max) and from 100 to 4000+ receipts <b><i>per store</i></b> in a single day.</p>
+		<p>Implemented first on early "super-micro" computers using an SQL relational database, performance and data integrity demands eventually dictated a proprietary variable size record file system ("VSDO"), optimized for highest performance on UNIX systems. Complete with appropriate file maintenance utilities and supporting multi-partition files far larger than the limits imposed by the UCSD pSystem, this key development allowed <b><i>PROFIT$</i></b> to grow with the demands of customers having 30..50 stores (255 max) and from 100 to 4000+ receipts <b><i>per store</i></b> in a single day.</p>
 
-	<p><a name="pMail"></a>With <b><i><a href="http://www.jonbondy.com/" target="_blank">Jon Bondy</a></i></b>, designed and implemented "<b><i>pMail</i></b>", a peer to peer Wide-Area-Network for unattended file and data (message) transfers between remote stores, including object code updates of all software. Logical messaging between applications on machines in remote locations supported easy, reliable, distributed database updates.&nbsp; Implemented in 1986 using the portable <b><a href="#pSystem">pSystem</a></b> and direct dial, point to point modems, prior to development of the commercial Internet as we know it today.</p>
+		<p><a id="pMail"></a>With <b><i><a href="http://www.jonbondy.com/" target="_blank">Jon Bondy</a></i></b>, designed and implemented "<b><i>pMail</i></b>", a peer to peer Wide-Area-Network for unattended file and data (message) transfers between remote stores, including object code updates of all software. Logical messaging between applications on machines in remote locations supported easy, reliable, distributed database updates.&nbsp; Implemented in 1986 using the portable <b><a href="#pSystem">pSystem</a></b> and direct dial, point to point modems, prior to development of the commercial Internet as we know it today.</p>
+	</div>
 </article>
 
 
@@ -742,12 +756,14 @@ document.createElement('hgroup');
 		<h3>Analyst (<i>AKA Jai Gopal Singh</i>)</h3>
 	</hgroup>
 
-	<ul>
-		<li>Participated in writing and presenting a study for AT&amp;T regarding the potential impact in seven key technology areas of the break-up of the Bell System.</li>
-		<li>Study on minimal spacing of geosynchronous satellites in preparation for the WARC (World Administrative Radio Conference).</li>
-		<li>Study of early "teletext" systems (Canadian Telidon, French Antelope, British Postal system, etc.) in connection with potential offering by a cable TV company.</li>
-		<li>Feasibility study to change frequency of existing microwave systems, eliminating interference to direct broadcast satellite television for a subsidiary of Comsat General.</li>
-	</ul>
+	<div class="aContent">
+		<ul>
+			<li>Participated in writing and presenting a study for AT&amp;T regarding the potential impact in seven key technology areas of the break-up of the Bell System.</li>
+			<li>Study on minimal spacing of geosynchronous satellites in preparation for the WARC (World Administrative Radio Conference).</li>
+			<li>Study of early "teletext" systems (Canadian Telidon, French Antelope, British Postal system, etc.) in connection with potential offering by a cable TV company.</li>
+			<li>Feasibility study to change frequency of existing microwave systems, eliminating interference to direct broadcast satellite television for a subsidiary of Comsat General.</li>
+		</ul>
+	</div>
 </article>
 
 
@@ -762,8 +778,10 @@ document.createElement('hgroup');
 		<h2>Washington, D.C.</h2>
 		<h3>Project Director - U.S. Postal Service contract (<i>AKA Jai Gopal Singh</i>)</h3>
 	</hgroup>
-	
-	<p>Extensive re-write of "<b><a href="javascript:popZMT()">ZMT Tape</a></b>" mail analysis software (Fortran and BASIC) 	used by regional mail sorting centers of the <b>U.S. Postal Service</b> ("ADPT" for <b>MPLSM - <a href="javascript:popZMT()">Multi-position Letter Sorting Machine</a></b>). Did entire job myself; no need for additional budgeted staff. Then ported these applications and data for all offices from one main-frame system (SBS) to another (Tymeshare, Inc.)</p>
+
+	<div class="aContent">
+		<p>Extensive re-write of "<b><a href="javascript:popZMT()">ZMT Tape</a></b>" mail analysis software (Fortran and BASIC) used by regional mail sorting centers of the <b>U.S. Postal Service</b> ("ADPT" for <b>MPLSM - <a href="javascript:popZMT()">Multi-position Letter Sorting Machine</a></b>). Did entire job myself; no need for additional budgeted staff. Then ported these applications and data for all offices from one main-frame system (SBS) to another (Tymeshare, Inc.)</p>
+	</div>
 </article>
 
 </div>
@@ -774,11 +792,11 @@ document.createElement('hgroup');
 <div class="pageWrap">
 	<div class='hLine'></div>
 
-	<table border="0" cellspacing="0" cellpadding="0" style="clear: both;">
+	<table style="clear: both;">
 	<tr>
 		<td><a href="homepage.html" class="fs2">Home</a></td>
-		<td align=center width="100%"><script type="text/javascript">topLink();</script></td>
-		<td align=right><a href="services.html" target="_top"><img src="images/wsb.gif" alt="wingo.com Web Site Design" border=0 height=40 width=111></a></td>
+		<td style="text-align:center; width:100%"><script type="text/javascript">topLink();</script></td>
+		<td  style="text-align:right;"><a href="services.html" target="_top"><img src="images/wsb.gif" alt="wingo.com Web Site Design" height=40 width=111></a></td>
 	</tr>
 	</table>
 </div>
@@ -787,7 +805,7 @@ document.createElement('hgroup');
 <p style="text-align:center;"><i>Please <a href="http://windows.microsoft.com/en-US/internet-explorer/products/ie/home" title="upgrade to IE9" target="_blank">upgrade your browser to IE9</a>!</i></p>
 <![endif]-->
 
-<p>&nbsp;
+<p>&nbsp;</p>
 
 <script type="text/javascript">
 var jt_FlingScroll = {
