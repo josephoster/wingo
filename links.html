@@ -19,7 +19,69 @@ BODY {background:#e8e8e8;}
 	margin:2px 2px 2px 0;
 	border:0;
 }
+
+DIV.dashBox {
+	width:100%;
+}
+
+.leftCol {
+	width:76%;
+	float:left;
+	margin-top:5px;
+	overflow: hidden;
+}
+.rightCol {
+	width:22%;
+	float:right;
+	margin:5px 10px 0 0;
+	overflow: hidden;
+}
+
+@media screen and (max-width: 640px) {
+
+	.leftCol {
+		float: none;
+		width:98%;
+	}
+	.rightCol {
+		float: none;
+		width:100%;
+		margin-right:none;
+	}
+
+}
+@media screen and (max-width: 520px) {
+
+	footer td img {
+		display:none;
+	}
+
+}
+@media screen and (max-width: 440px) {
+	footer td {
+		font-size:1.5em !important;
+	}
+}
+
+.floatLogo {
+	clear:right;
+	float:right;
+}
+
+.videoBox {
+	float:left;
+	width: 130px;
+	font-size:0.75em;
+	text-align: center;
+	margin:10px 10px 10px 0;
+}
 </style>
+
+<!--[if lte IE 8]>
+<script type="text/javascript">
+document.createElement('footer');
+</script>
+<![endif]-->
 
 </head>
 <body class="wingo">
@@ -52,21 +114,20 @@ BODY {background:#e8e8e8;}
 
 <h1 class="wingoHeading">Recommended Links!</h1>
 
-<table border="0" cellspacing="0" cellpadding="0" style="margin-top:5px;">
-<tr>
-	<td width="100%" valign="top">
+<div class="leftCol dotItems">
 
-<div class="dotItems">
+	<a href="http://www.youtube.com/" class="floatLogo"><img src="images/you_tube.gif" alt="" width="120" height="48" border="0"></a><br />
+	<a href="http://video.google.com/" class="floatLogo"><img src="images/google-video.gif" alt="" width="152" height="59" border="0"><br />
 
 	<div><a href="http://www.ted.com/" class="ballFlash" target="_blank"><img src="images/ted_logo-s.gif" alt="TED" width="146" height="33"></a>
 		Inspired talks by the world's greatest thinkers and doers
 	</div>
 
-	<div class="clearFloat"><a href="http://www.skype.com/" class="ballFlash" target="_blank"><img src="images/skype_logo.gif" alt="Skype" width="105" height="47"></a>
+	<div><a href="http://www.skype.com/" class="ballFlash" target="_blank"><img src="images/skype_logo.gif" alt="Skype" width="105" height="47"></a>
 		<font size="+1">free!</font> - internet voice calls, conference calls, instant message, file transfer, video!
 	</div>
 
-	<div class="clearFloat"><a href="http://www.m-w.com/netdict.htm" class="ballFlash"><img src="images/hdr_dictionary_results.gif" alt="Merriam-Webster's Online Dictionary" width="325" height="22" border="0" align="middle"></a></div>
+	<div><a href="http://www.m-w.com/netdict.htm" class="ballFlash"><img src="images/hdr_dictionary_results.gif" alt="Merriam-Webster's Online Dictionary" width="325" height="22" border="0" align="middle"></a></div>
 
 	<div><a href="http://us.imdb.com" class="ballFlash">IMDB: Internet Movie Database</a> Super extensive movie trivia!</div>
 
@@ -91,7 +152,7 @@ BODY {background:#e8e8e8;}
 	</div>
 
 	<div>
-		<a href="http://www.ctiinfo.com/SatControl/ComTrack/InclinedOrbitTutorial/satgeom2.htm" class="ballFlash"><img src="weather/images/geosat.gif" alt="Geostationary Orbits Part 2: ORBITAL GEOMETRY" width="325" height="106" border="0" align="left"> Geostationary Orbits Part 2: ORBITAL GEOMETRY</a><br />
+		<a href="http://www.ctiinfo.com/SatControl/ComTrack/InclinedOrbitTutorial/satgeom2.htm" class="ballFlash"><img src="weather/images/geosat.gif" alt="Geostationary Orbits Part 2: ORBITAL GEOMETRY" width="325" height="106" border="0" style="float:left; margin-right:5px;"> Geostationary Orbits Part 2: ORBITAL GEOMETRY</a><br />
 		<em>One sidereal day, or about 23 hours 56 minutes 4 seconds.</em>
 	</div>
 
@@ -128,14 +189,14 @@ BODY {background:#e8e8e8;}
 
 	<div><a href="http://www.darkroastedblend.com/" class="ballFlash">Dark Roasted Blend</a> all kinds of weird and wonderful things, posted daily</div>
 
-<table border="0" cellspacing="0" cellpadding="0" align="center">
-<tr>
-	<td bgcolor="#CCCCCC"><a href="http://www.circleoflifefoundation.org/"><img src="lunalogo.gif" border=0 height=71 width=105 align=left></a><font size=+2><a href="http://www.circleoflifefoundation.org/">The Luna Tree Sit</a></font><br />
-		Julia Butterfly Hill 180 feet up an ancient redwood.
-	</td>
-	<td><a href="http://www.circleoflifefoundation.org/"><img src="lunacc.jpg" border=0 height=71 width=150></a></td>
-</tr>
-</table>
+	<table border="0" cellspacing="0" cellpadding="0" align="center">
+	<tr>
+		<td bgcolor="#CCCCCC"><a href="http://www.circleoflifefoundation.org/"><img src="lunalogo.gif" border=0 height=71 width=105 align=left></a><font size=+2><a href="http://www.circleoflifefoundation.org/">The Luna Tree Sit</a></font><br />
+			Julia Butterfly Hill 180 feet up an ancient redwood.
+		</td>
+		<td><a href="http://www.circleoflifefoundation.org/"><img src="lunacc.jpg" border=0 height=71 width=150></a></td>
+	</tr>
+	</table>
 
 	<div><a href="http://www.carlkingcreative.com/10-myths-about-introverts" class="ballFlash">10 Myths About Introverts</a></div>
 	<div><a href="http://home.att.net/~geoclock/" class="ballFlash">GEOCLOCK</a>
@@ -155,132 +216,135 @@ BODY {background:#e8e8e8;}
 	    <font size="+1"><a href="http://lifeboat.com/ex/space.habitats"><img src="images/lifeboat.jpg" alt="" width="80" height="64" border="0" align="middle"> The Lifeboat Foundation</a></font><br />
 		(also: <font size="+1"><a href="http://www.nss.org/">National Space Society</a></font>)</div>
 
+	<table border="0" cellspacing="0" cellpadding="0" align="right">
+	<tr>
+		<td valign=top align=right><a href="http://www.eff.org/"><img src="opinion/ribbon.gif" border="0" height="47" width="30" alt="Electronic Frontier Foundation"></a></td>
+		<td valign=top nowrap><font size="-1"><a href="http://www.eff.org/">Free Speech<br />Online</a></font><br /></td>
+	</tr>
+	</table>
 </div>
 
-<table border="0" cellspacing="0" cellpadding="0" align="right">
-<tr>
-	<td valign=top align=right><a href="http://www.eff.org/"><img src="opinion/ribbon.gif" border="0" height="47" width="30" alt="Electronic Frontier Foundation"></a></td>
-	<td valign=top nowrap><font size="-1"><a href="http://www.eff.org/">Free Speech<br />Online</a></font><br /></td>
-</tr>
-</table>
+<div class="rightCol">
 
-	</td>
-	<td align="center" valign="top"><!-- BEGIN: videos -->
+	<div class="dashBox"><font size="+1">California</font></div>
 
-<a href="http://www.youtube.com/"><img src="images/you_tube.gif" alt="" width="120" height="48" border="0"></a><br />
-<font size="-1">
-<a href="http://video.google.com/"><img src="images/google-video.gif" alt="" width="152" height="59" border="0"><br />
-<br />
-<a href="http://www.youtube.com/watch?v=cmlsvDj6yhY"><img src="images/surfer.jpg" alt="" width="113" height="84" border="0"></a><br />
-awesome big wave ride!<br />
-<br />
-<a href="http://www.youtube.com/watch?v=VyzVtTiax80" target="_blank"><img src="images/robots.jpg" alt="" width="130" height="97" border="0"></a><br />
-Self-Replicating Robots,<br />
-<b><a href="http://www.news.cornell.edu/stories/May05/selfrep.ws.html" target="_blank">Cornell University</a></b><br />
-<br />
-<a href="http://www.youtube.com/watch?v=nzhzCF77GDo"><img src="images/johnny_cash.jpg" alt="" width="130" height="101" border="0"></a><br />
-Johnny Cash and<br />
-June Carter sing 'Jackson'<br />
-<br />
-<a href="http://www.youtube.com/watch?v=Q1fXhLVaBBY"><img src="images/dominoes.jpg" alt="" width="130" height="99" border="0"></a><br />
-Derek and the Dominoes<br />
-Eric Clapton with<br />
-Johnny Cash &amp; Carl Perkins<br />
-</font>
+	<div class="dotItems">
+		<div><a href="http://www.craigslist.org/" class="ballFlash" style="font-family: Times New Roman,serif;font-size:18pt;font-weight:normal;">craigslist</a>
+	    	giving each other a break</div>
+		<div><a href="http://www.californiacoastline.org/" class="ballFlash">California Coastal Records Project</a>
+	    	an aerial photographic survey of the California Coastline (<b><a href="delmar/index.html">Del Mar, CA</a></b>)</div>
+		<div><a href="http://www.sanfranciscobay.com/live/baycams.htm" class="ballFlash">Bay Area Live Cams</a></div>
+		<div><a href="http://www.samscafe.com/cam.html" class="ballFlash">Sam's Cam</a>
+	    	Sam's Anchor Cafe, Tiburon</div>
+		<div><a href="http://www.thinker.org/" class="ballFlash">Fine Arts Museums of San Francisco</a>
+	    	60,000 works of art</div>
+		<div><a href="http://www.sfgate.com/gate/special/pages/2003/citylights/index.shtml" class="ballFlash">City Lights: A Four Part Oral History</a>
+	    	<font size=-1> - <a href="http://www.citylights.com/">City Lights Bookstore</a> turns 50</font></div>
+		<div><a href="http://www.transitinfo.org/GGT/" class="ballFlash">Golden Gate Transit</a>
+	    	Bus and ferry schedules north of San Francisco</div>
+		<div><a href="http://cad.chp.ca.gov/" class="ballFlash">CHP Traffic Incidents</a></div>
+		<div><a href="http://www.sleepyguitar.com/" class="ballFlash">Sleepy Guitar Johnson</a>
+	    	<i>SLO County Report - where the cowboys drink red wine</i></div>
+	</div>
 
-	</td><!-- END: videos -->
-	<td class="rightCol" class="sm">
 
-<div class="dashBox"><font size="+1">California</font></div>
+	<div class="dashBox"><font size="+1">Technology</font></div>
 
-<div class="dotItems">
-	<div><a href="http://www.craigslist.org/" class="ballFlash" style="font-family: Times New Roman,serif;font-size:18pt;font-weight:normal;">craigslist</a>
-	    giving each other a break</div>
-	<div><a href="http://www.californiacoastline.org/" class="ballFlash">California Coastal Records Project</a>
-	    an aerial photographic survey of the California Coastline (<b><a href="delmar/index.html">Del Mar, CA</a></b>)</div>
-	<div><a href="http://www.sanfranciscobay.com/live/baycams.htm" class="ballFlash">Bay Area Live Cams</a></div>
-	<div><a href="http://www.samscafe.com/cam.html" class="ballFlash">Sam's Cam</a>
-	    Sam's Anchor Cafe, Tiburon</div>
-	<div><a href="http://www.thinker.org/" class="ballFlash">Fine Arts Museums of San Francisco</a>
-	    60,000 works of art</div>
-	<div><a href="http://www.sfgate.com/gate/special/pages/2003/citylights/index.shtml" class="ballFlash">City Lights: A Four Part Oral History</a>
-	    <font size=-1> - <a href="http://www.citylights.com/">City Lights Bookstore</a> turns 50</font></div>
-	<div><a href="http://www.transitinfo.org/GGT/" class="ballFlash">Golden Gate Transit</a>
-	    Bus and ferry schedules north of San Francisco</div>
-	<div><a href="http://cad.chp.ca.gov/" class="ballFlash">CHP Traffic Incidents</a></div>
-	<div><a href="http://www.sleepyguitar.com/" class="ballFlash">Sleepy Guitar Johnson</a>
-	    <i>SLO County Report - where the cowboys drink red wine</i></div>
+	<div class="dotItems">
+		<div><a href="http://www.techcrunch.com/" class="ballFlash" title="Techcrunch blog"><img src="images/techcrunch.gif" alt="" width="141" height="24" border="0"></a><br />
+		profiling and reviewing new Internet products and companies</div>
+		<div><a href="http://www.kurzweilai.net/" class="ballFlash">Kurzweil Accelerating Intelligence</a> KurzweilAI explores the forecasts and insights on accelerating change articulated in Ray Kurzweil’s landmark books</div>
+		<div><a href="http://en.wikipedia.org/wiki/DARPA_Grand_Challenge" class="ballFlash">DARPA Grand Challenge</a> autonomous robotic vehicles competition, winner: <b><a href="http://www.stanfordracing.org/">Stanford Racing Team</a></b></div>
+	</div>
+
+
+	<div class="dashBox"><font size="+1">Magazines</font></div>
+
+	<div class="dotItems">
+		<div><a href="http://www.huffingtonpost.com/world/" class="ballFlash" style="font-weight:normal;" title="The Huffington Post"><img src="images/logo_world_hp.gif" alt="" width="200" height="67" border="0"></a></div>
+		<div><a href="http://nymag.com/" class="ballFlash" style="font-weight:normal;" title="New York Magazine"><img src="images/nym_logo.gif" alt="" width="194" height="47" border="0"></a></div>
+		<div><a href="http://www.scientificamerican.com/" class="ballFlash" style="font-weight:normal;" title="Scientific American Magazine"><img src="images/scientific_american.gif" alt="" width="98" height="42" border="0"></a></div>
+		<div><a href="http://spectrum.ieee.org" class="ballFlash" style="font-weight:normal;" title="IEEE Spectrum magazine"><img src="images/ieee_spectrum_logo_200.png" alt="" width="200" height="64" border="0"></a></div>
+		<div><a href="http://www.slate.com/" class="ballFlash" style="font-weight:normal;" title="Slate Magazine"><img src="images/slate_magazine.gif" alt="" width="106" height="39" border="0"></a></div>
+		<div><a href="http://www.salon.com/" class="ballFlash" style="font-weight:normal;" title="Salon Magazine"><img src="images/salonlogo_p.gif" alt="" width="206" height="70" border="0"></a></div>
+		<div><a href="http://www.cjr.org/" class="ballFlash" style="font-weight:normal;" title="Columbia Journalism Review"><img src="images/cjr_logo.png" alt="" width="207" height="103" border="0"></a></div>
+		<div><a href="http://www.allvoices.com/" class="ballFlash" style="font-weight:normal;" title="allvoices.com"><img src="images/all_voices_logo.png" alt="" width="221" height="31" border="0"></a></div>
+	</div>
+
+
+	<div style="border:1px solid;background:#FFFFFF;padding:10px;font-size:smaller;margin-top:10px;">
+		"The world is in chaos. Honorable dealing is 
+		deteriorating, good friends are few, truth is 
+		held in disrepute, good service is underpaid, 
+		poor service is overpaid. Whole nations are 
+		committed to evil dealings: With one you fear 
+		insecurity, with another, inconsistency, with 
+		a third, betrayal. This being what it is, let the 
+		bad faith of others serve not as an example, 
+		but as warning. The real danger of the situation 
+		lies in the unhinging of your own integrity: 
+		accepting less than your best, being overly 
+		tolerant of stupidity, forgiving incompetence, 
+		fraternizing with the nonspiritual. The man of 
+		principle never forgets what he is, because 
+		he clearly sees what the others are."<br />
+		<b><a href="opinion/baltasar.html" target="_self">Baltasar Gracian</a></b><i>, Spanish Jesuit scholar, 1601-1658</i>
+	</div>
+
+
+	<div style="border:1px solid;background:#FFFFFF;padding:10px;font-size:smaller;margin-top:10px;">
+		"How ridiculous and what a stranger he is who is surprised at anything which happens in life."<br />
+		<b><a href="http://en.wikipedia.org/wiki/Meditations">Marcus Aurelius</a></b><i>,
+		<i><a href="http://classics.mit.edu/Antoninus/meditations.html">The Meditations</a></i>, Roman Emperor, 121-180</i>
+	</div>
+
 </div>
 
-
-<div class="dashBox"><font size="+1">Technology</font></div>
-
-<div class="dotItems">
-	<div><a href="http://www.techcrunch.com/" class="ballFlash" title="Techcrunch blog"><img src="images/techcrunch.gif" alt="" width="141" height="24" border="0"></a><br />
-	profiling and reviewing new Internet products and companies</div>
-	<div><a href="http://www.kurzweilai.net/" class="ballFlash">Kurzweil Accelerating Intelligence</a> KurzweilAI explores the forecasts and insights on accelerating change articulated in Ray Kurzweil’s landmark books</div>
-	<div><a href="http://en.wikipedia.org/wiki/DARPA_Grand_Challenge" class="ballFlash">DARPA Grand Challenge</a> autonomous robotic vehicles competition, winner: <b><a href="http://www.stanfordracing.org/">Stanford Racing Team</a></b></div>
+<!-- BEGIN: videos -->
+<div class="videoBox">
+	<a href="http://www.youtube.com/watch?v=cmlsvDj6yhY"><img src="images/surfer.jpg" alt="" width="113" height="84" border="0"></a><br />
+	big wave ride!
 </div>
 
-
-<div class="dashBox"><font size="+1">Magazines</font></div>
-
-<div class="dotItems">
-	<div><a href="http://www.huffingtonpost.com/world/" class="ballFlash" style="font-weight:normal;" title="The Huffington Post"><img src="images/logo_world_hp.gif" alt="" width="200" height="67" border="0"></a></div>
-	<div><a href="http://nymag.com/" class="ballFlash" style="font-weight:normal;" title="New York Magazine"><img src="images/nym_logo.gif" alt="" width="194" height="47" border="0"></a></div>
-	<div><a href="http://www.scientificamerican.com/" class="ballFlash" style="font-weight:normal;" title="Scientific American Magazine"><img src="images/scientific_american.gif" alt="" width="98" height="42" border="0"></a></div>
-	<div><a href="http://spectrum.ieee.org" class="ballFlash" style="font-weight:normal;" title="IEEE Spectrum magazine"><img src="images/ieee_spectrum_logo_200.png" alt="" width="200" height="64" border="0"></a></div>
-	<div><a href="http://www.slate.com/" class="ballFlash" style="font-weight:normal;" title="Slate Magazine"><img src="images/slate_magazine.gif" alt="" width="106" height="39" border="0"></a></div>
-	<div><a href="http://www.salon.com/" class="ballFlash" style="font-weight:normal;" title="Salon Magazine"><img src="images/salonlogo_p.gif" alt="" width="206" height="70" border="0"></a></div>
-	<div><a href="http://www.cjr.org/" class="ballFlash" style="font-weight:normal;" title="Columbia Journalism Review"><img src="images/cjr_logo.png" alt="" width="207" height="103" border="0"></a></div>
-	<div><a href="http://www.allvoices.com/" class="ballFlash" style="font-weight:normal;" title="allvoices.com"><img src="images/all_voices_logo.png" alt="" width="221" height="31" border="0"></a></div>
+<div class="videoBox">
+	<a href="http://www.youtube.com/watch?v=VyzVtTiax80" target="_blank"><img src="images/robots.jpg" alt="" width="130" height="97" border="0"></a><br />
+	Self-Replicating Robots,
+	<b><a href="http://www.news.cornell.edu/stories/May05/selfrep.ws.html" target="_blank">Cornell University</a></b>
 </div>
 
-
-<div style="border:1px solid;background:#FFFFFF;padding:10px;font-size:smaller;margin-top:10px;">
-	"The world is in chaos. Honorable dealing is 
-	deteriorating, good friends are few, truth is 
-	held in disrepute, good service is underpaid, 
-	poor service is overpaid. Whole nations are 
-	committed to evil dealings: With one you fear 
-	insecurity, with another, inconsistency, with 
-	a third, betrayal. This being what it is, let the 
-	bad faith of others serve not as an example, 
-	but as warning. The real danger of the situation 
-	lies in the unhinging of your own integrity: 
-	accepting less than your best, being overly 
-	tolerant of stupidity, forgiving incompetence, 
-	fraternizing with the nonspiritual. The man of 
-	principle never forgets what he is, because 
-	he clearly sees what the others are."<br />
-	<b><a href="opinion/baltasar.html" target="_self">Baltasar Gracian</a></b><i>, Spanish Jesuit scholar, 1601-1658</i>
+<div class="videoBox">
+	<a href="http://www.youtube.com/watch?v=nzhzCF77GDo"><img src="images/johnny_cash.jpg" alt="" width="130" height="101" border="0"></a><br />
+	Johnny Cash and June Carter sing 'Jackson'
 </div>
 
-
-<div style="border:1px solid;background:#FFFFFF;padding:10px;font-size:smaller;margin-top:10px;">
-	"How ridiculous and what a stranger he is who is surprised at anything which happens in life."<br />
-	<b><a href="http://en.wikipedia.org/wiki/Meditations">Marcus Aurelius</a></b><i>,
-	<i><a href="http://classics.mit.edu/Antoninus/meditations.html">The Meditations</a></i>, Roman Emperor, 121-180</i>
+<div class="videoBox">
+	<a href="http://www.youtube.com/watch?v=Q1fXhLVaBBY"><img src="images/dominoes.jpg" alt="" width="130" height="99" border="0"></a><br />
+	Derek and the Dominoes
+	Eric Clapton with
+	Johnny Cash &amp; Carl Perkins
 </div>
+<!-- END: videos -->
 
-	</td>
-</tr>
-</table>
+
+<p class="fs2" style="clear: both; text-align: center;"><a href="proa/links.html" target="_self">proa links</a></p>
 
 <script type="text/javascript">document.writeln(document.getElementById("pageNavTop").innerHTML);</script>
-<div class='hLine'></div>
 
-<table cellspacing="0" cellpadding="0" border="0" style="width:100%; padding:5px 10px;">
-<tr>
-	<td nowrap><a href="weather/index.html" target="_self" class=cleanBlue><img src="images/weather4.gif" alt="Weather Links" width="44" height="57" border="0" align="middle"></a></td>
-	<td nowrap width="20%" class="fs3"><b><a href="weather/index.html" target="_self" class=cleanBlue>Weather!</a></b></td>
-	<td nowrap width="20%" align=right class="fs3"><b><a href="sailing/index.html" target="_self" class=cleanBlue>Sailing!</a></b></td>
-	<td><a href="sailing/index.html" target="_self" class=cleanBlue><img src="images/sailboat.gif" alt="Sailing Links" width="37" height="57" border="0" align="middle"></a></td>
-	<td align=right nowrap width="30%" class="fs3"><b><a href="proa/links.html" target="_self" class="cleanBlue">Proa links</a></b></td>
-	<td align=center nowrap width="30%" class="fs2"><a href="opinion/index.html" target="_self" class="wingoLC">Opinions</a></td>
-	<td align=right><a href="index.html" target="_self"><img src="images/wsb.gif" alt="wingo.com Web Site Design" border=0 height=40 width=111></a></td>
-</tr>
-</table>
+<footer class="pageWrap">
+	<div class='hLine'></div>
+
+	<table cellspacing="0" cellpadding="0" border="0" style="width:100%; padding:5px 0;">
+	<tr>
+		<td style="width:1%;"><a href="sailing/index.html" target="_self" title="Sailing Links"><img src="images/sailboat.gif" width="37" height="57" border="0"></a></td>
+		<td class="fs3"><b><a href="sailing/index.html" target="_self" class="cleanBlue">Sailing!</a></b></td>
+		<td style="text-align:center;" style="width:98%;" class="fs2"><a href="opinion/index.html" target="_self" class="wingoLC">Opinions</a></td>
+		<td class="fs3" style="text-align:right;"><b><a href="weather/index.html" target="_self" class=cleanBlue>Weather!</a></b></td>
+		<td style="width:1%;"><a href="weather/index.html" target="_self" title="Weather Links"><img src="images/weather4.gif" width="44" height="57" border="0"></a></td>
+	</tr>
+	</table>
+
+	<p style="text-align:right;"><a href="services.html" title="wingo.com Web Site Design" target="_top"><img src="images/wsb.gif" alt="wingo.com Web Site Design" width="111" height="40" border="0"></a></p>
+</footer>
 
 <script type="text/javascript">
 topLink();

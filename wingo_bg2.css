@@ -121,6 +121,10 @@ DIV.navWingo .current A:hover SPAN {
 	margin: 0 40px;
 }
 
+#footer {
+	clear: both;
+}
+
 #fbPrivacy {
 	display:block;
 	position:fixed;
