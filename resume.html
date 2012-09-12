@@ -27,6 +27,8 @@ function popZMT() {
 <link rel="Stylesheet" type="text/css" href="wingo_bg2.css">
 
 <style type="text/css">
+img {border: none;}
+
 article {
 	clear:both;
 	float:left;
@@ -67,7 +69,6 @@ article .aContent {
 }
 article p,
 article ul {
-	position:relative;
 	margin:10px 0 0 0;
 }
 article ul ul {
@@ -76,7 +77,7 @@ article ul ul {
 article li {
 	margin-top:4px;
 }
-article img {
+article h1 img {
 	float:right;
 	margin:0 0 0 10px;
 	border: none;
@@ -486,8 +487,8 @@ document.createElement('hgroup');
 
 		<p>Specific projects included:</p>
 
-		<div style="float:right; position:relative; width:217px; margin: 0px 0px 5px 5px; text-align:center;">
-			<iframe id="lsqtdemo" src="" width="128" height="112" style="position:absolute;display:none;left:45px;top:61px;"></iframe>
+		<div class="noClick" style="float:right; position:relative; width:217px; margin: 0 0 5px 10px; text-align:center;">
+			<iframe id="lsqtdemo" src="" width="128" height="112" style="position:absolute;display:none;left:45px;top:61px; border: none;"></iframe>
 
 			<a href="http://www.wingo.com/images/philippe_0.mp4v-es.mov" onClick="showPhilippe(); return false;" target="lsqtdemo"><img src="images/logos/videomail_scrn-s.gif" alt="click to see VideoMail example" width="215" height="254"></a><br>
 			<i>click to see VideoMail example</i>
@@ -507,12 +508,12 @@ document.createElement('hgroup');
 				<i>Hold mouse down to drag this animated series of screen shots.</i></li>
 		</ul>
  
-		<div id="dragDrop" style="position:absolute; visibility:hidden; text-align:center; background: White; z-index: 100;"> 
+		<div id="dragDrop" class="noClick" style="position:absolute; visibility:hidden; text-align:center; background: White; z-index: 100;"> 
 			<img src="images/logos/rogers_screens-s.gif" alt="MMS Composer" width="198" height="152" style="margin:0;"><br> 
 			<i>drag me!</i>
 		</div> 
 
-		<p><br><br>
+		<p style="clear: left; padding-top:20px;">
 		<b>Commonly used tools:</b>
 		<b><a href="http://www.macromedia.com/software/homesite/" target="_blank">HomeSite</a></b> and
 		<b><a href="http://www.eclipse.org/" target="_blank">Eclipse</a></b> editors,
@@ -680,7 +681,7 @@ document.createElement('hgroup');
 				</ul>
 
 			</li>
-			<li style="clear: both;"><b><a href="services.html" target="_self">Services</a></b>, <b><a href="portfolio.html" target="_self">Portfolio</a></b></li>
+			<li><b><a href="services.html" target="_self">Services</a></b>, <b><a href="portfolio.html" target="_self">Portfolio</a></b></li>
 		</ul>
 	</div>
 </article>
@@ -833,7 +834,6 @@ var jt_FlingScroll = {
 		var now = new Date();
 		jt_FlingScroll.history[jt_FlingScroll.idx].t = now - jt_FlingScroll.ld;
 		jt_FlingScroll.ld = now;
-		//jt_.Trace.msg("x=" + jt_FlingScroll.history[jt_FlingScroll.idx].x + ", y=" + jt_FlingScroll.history[jt_FlingScroll.idx].y + ", idx=" + jt_FlingScroll.idx);
 		jt_FlingScroll.idx++;
 		if (jt_FlingScroll.idx >= jt_FlingScroll.maxH) {
 			jt_FlingScroll.idx = 0;
@@ -843,8 +843,6 @@ var jt_FlingScroll = {
 	up: function(ev) {
 		var targ = ev.srcElement ? ev.srcElement : ((ev.type == "scroll") ? ev.currentTarget : ev.target); // fix for FF 2.0 event bug
 		if (targ.nodeName != 'A') {
-			//jt_.Trace.msg("up");
-			//jt_.Trace.msg("jt_FlingScroll.a=" + jt_FlingScroll.a);
 			if (jt_FlingScroll.a) jt_FlingScroll.fling();
 			jt_FlingScroll.a = false;
 			}
@@ -918,12 +916,18 @@ var jt_FlingScroll = {
 
 contentLoaded(window,
 	function (e) {
+
+			function alignDrag() {
+				jt_.alignCorner(dragDiv, document.getElementById("dragDropSpot"), 'TL');
+			}
+
 		var dragDiv = document.getElementById("dragDrop");
 		Drag.init(dragDiv);
 		jt_Flick.init(dragDiv);
-		jt_.alignCorner(dragDiv, document.getElementById("dragDropSpot"), 'TL');
+		jt_.addListener(window, 'resize', alignDrag);
+		alignDrag();
 		jt_.showHideElm(dragDiv, true);
-		if (BrowserDetect.browser != 'Explorer') jt_FlingScroll.init();
+		jt_FlingScroll.init();
 		jt_demoMB.init();
 	}
 );
