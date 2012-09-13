@@ -42,7 +42,7 @@ BODY.wingo #wingoMenu {
 	margin-bottom: 7px;
 }
 #wingoMenu a span {
-	padding:0 7px 0 3px;
+	padding:0 7px 0 2px;
 	font-family: inherit;
 }
 #wingoMenu a.picked,
@@ -67,7 +67,7 @@ BODY.wingo #wingoMenu {
 }
 #wingoMenu a.picked span,
 #wingoMenu a:hover span {
-	padding:0 4px 0 3px;
+	padding:0 4px 0 2px;
 }
 
 H1.wingoHeading,

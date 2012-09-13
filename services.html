@@ -18,6 +18,61 @@
 <style type="text/css">
 BODY {background:#e8e8e8;}
 
+.wrapMaxW {
+	max-width:720px;
+	margin:10px auto;
+}
+
+.leftCol {
+	width:29%;
+	float:left;
+}
+.rightCol {
+	width:71%;
+	float:left;
+}
+
+.subLeft,
+.subRight {
+	float:left;
+	text-align: right;
+	margin-bottom: 10px;
+	width:100%;
+}
+.subRight img {
+	margin-left:20px;
+}
+
+UL.listOf {
+	clear:left;
+	margin-top:0px;
+	margin-bottom:0px;
+	font-size:smaller;
+}
+
+@media screen and (max-width: 800px) {
+
+	.leftCol {
+		width:auto;
+		float:right;
+		margin-right: 10px;		
+	}
+	.rightCol {
+		width:100%;
+		float: none;
+	}
+	.subLeft {
+		width:auto;
+	}
+	.subRight {
+		width:auto;
+	}
+	UL.listOf {
+		clear: both;
+	}
+
+}
+
 #portfolioBox {
 	float:left;;
 	margin:20px;
@@ -25,13 +80,6 @@ BODY {background:#e8e8e8;}
 	background:#FFFFFF;
 	border-radius: 10px;
 	box-shadow: 4px 4px 6px #959595, 3px 3px 3px #959595 inset;
-}
-
-UL.listOf {
-	clear: left;
-	margin-top:0px;
-	margin-bottom:0px;
-	font-size:smaller;
 }
 
 A.imgLnk:hover {
@@ -43,14 +91,14 @@ A.imgLnk:hover {
 <!--[if IE]>
 <style type="text/css">
 #wingoMenu a {
-	padding:5px 0 4px 3px;
+	padding:6px 0 5px 2px;
 }
 
 #wingoMenu a.picked,
 #wingoMenu a:hover {
 	background: url(images/bg_nav_wingo_ie.gif);
 	background-size: 100% 100%;
-	padding:3px 0 2px 3px;
+	padding:4px 0 3px 2px;
 }
 </style>
 <![endif]-->
@@ -61,7 +109,7 @@ A.imgLnk:hover {
 	display:none;
 }
 .wrapMaxW {
-	width:1200px;
+	width:720px;
 }
 #fbPrivacy {
 	width:14em;
@@ -98,28 +146,35 @@ A.imgLnk:hover {
 
 <h1 class="wingoHeading2"><a href="resume.html" target="_self" class="wingoLC">web application programmer</a></h1>
 
-<table border="0" cellspacing="0" cellpadding="0" align="center" style="max-width:720px; margin:10px auto;">
-<tr>
-	<td valign="top" nowrap align="right">
+<div class="wrapMaxW">
 
-		<b><font size="+2">Joseph Oster</font></b><br>
-		web application programmer<br>
-		<i><b><a href="resume.html" target="_self" onClick="myPersonal.show('resume.html');return false;">Resume</a></b></i> -
-		<i><b><a href="portfolio.html" target="_self" onClick="myPersonal.show('portfolio.html');return false;">Portfolio</a></b></i><br>
-		<font size=-1>
-		<b><a href="http://www.wingo.com" target="_top">www.wingo.com</a></b> -
-		<b><script type="text/javascript">emLink("Email contact", "[wingo] Services contact")</script></b><br>
-		Kauai, HI<br></font>
+	<div style="text-align:center; margin-bottom:10px;font-family: Verdana;" class="fs-1">DHTML and AJAX enhance the User Experience...</div>
 
-		<img src="sp.gif" width=1 height=10 border=0 alt=""><br>
-		<a href="resume.html" target="_self" title="Resume"><img src="images/profile_joseph_4.jpg" alt="Resume" width="108" height="166" border="0"></a>
+	<div class="leftCol">
 
-	</td>
-	<td align="left" valign="top">
+		<div class="subLeft">
+			<b><span class="fs2">Joseph Oster</span></b><br>
+			web application programmer<br>
+			<i><b><a href="resume.html" target="_self" onClick="myPersonal.show('resume.html');return false;">Resume</a></b></i> -
+			<i><b><a href="portfolio.html" target="_self" onClick="myPersonal.show('portfolio.html');return false;">Portfolio</a></b></i><br>
+			<span class=fs-1>
+			<b><a href="http://www.wingo.com" target="_top">www.wingo.com</a></b> -
+			<b><script type="text/javascript">emLink("Email contact", "[wingo] Services contact")</script></b><br>
+			Kauai, HI<br></span>
+		</div>
 
-		<p style="margin:0px 0px 10px 20px;font-family: Verdana;" class="sm">DHTML and AJAX enhance the User Experience... <span id="traceInfo"></span></p>
+		<div class="subRight">
+			<a href="resume.html" target="_self" title="Resume"><img src="images/profile_joseph_4.jpg" alt="Resume" width="108" height="166"></a>
+		</div>
+
+	</div>
+
+	<div class="rightCol">
 
 		<div class="taMenu" id="tabBar">
+		
+			<div style="position:absolute; font-size:smaller;"><a href="" onClick="boxShow();showView('tabViews', this);return false;" id="tabViewsLink">tabs</a></div>
+
 			<ul>
 				<li><a href="" onClick="boxShow();showView('progressbar', this);return false;" id="progressbarLink"><span>progress bar</span></a></li>
 				<li><a href="" onClick="boxShow();showView('slider', this);return false;" id="sliderLink"><span>slider controls</span></a></li>
@@ -127,9 +182,6 @@ A.imgLnk:hover {
 				<li><a href="" onClick="boxShow();showView('mycl', this);return false;" id="myclLink"><span>my craigslist</span></a></li>
 			</ul>
 		</div>
-
-		<div style="position:absolute;padding-left:30px;font-size:smaller;"><a href="" onClick="boxShow();showView('tabViews', this);return false;" id="tabViewsLink">tabs</a></div>
-		<br clear="all">
 
 		<ul class="listOf">
 			<li>rapid functional prototyping of interactive apps, <a href="art/index.html" target="_blank" onclick="sliderDemo.show(); return false;">widgets</a></li>
@@ -154,7 +206,7 @@ A.imgLnk:hover {
 
 		<div style="float:right; margin:5px 0 5px 10px; text-align: right; font-size:smaller; font-weight: bold;">
 			<a href="sketchup/index.html" target="_self" title="3D CAD, Google SketchUp" class="imgLnk">
-			<img src="images/hanalei_pier.jpg" alt="" width="160" height="115" border="0" style="margin:5px 0 5px 0;" /><br />
+			<img src="images/hanalei_pier.jpg" alt="" width="160" height="115" style="margin:5px 0 5px 0;" /><br />
 			3D CAD, Google SketchUp</a><br />
 			<a href="sketchup/index.html#google_earth" target="_self">geo-modeling</a>
 		</div>
@@ -180,11 +232,11 @@ A.imgLnk:hover {
 			<b><a href="http://php.net/manual/en/function.mysql-connect.php" target="_blank">mysql_connect</a></b></li>
 		</ul>
 
-	</td>
-</tr>
-</table>
+	</div>
 
-<p align="right"><a href="services.html" target="_top"><img src="images/wsb.gif" alt="Web site by wingo.com" width="111" height="40" hspace="40" border="0"></a></p>
+</div>
+
+<p style="clear:both; text-align: right;"><a href="services.html" target="_top"><img src="images/wsb.gif" alt="Web site by wingo.com" width="111" height="40" hspace="40"></a></p>
 
 <br>
 
@@ -263,11 +315,11 @@ A.imgLnk:hover {
 <tr>
 	<td>
 
-<table width="100%" border="0" cellspacing="0" cellpadding="0">
+<table width="100%" cellspacing="0" cellpadding="0">
 <tr>
 	<td class="tbLeft"></td>
 	<td class="Title" id="titleID" style="cursor:move"></td>
-	<td class="tbRight"><a href="" onclick="boxShow();return false;" class="noClick"><img src="images/icons/window_close.gif" alt="Close" border="0"></a><br></td>
+	<td class="tbRight"><a href="" onclick="boxShow();return false;" class="noClick"><img src="images/icons/window_close.gif" alt="Close"></a><br></td>
 </tr>
 </table>
 
