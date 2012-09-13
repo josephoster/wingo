@@ -7,8 +7,8 @@ BODY {
 	color: #000000;
 }
 BODY.wingo {
-	background:#e8e8e8 url(images/bg_left_nav.jpg) repeat-y -5px top;
-	margin-left:95px;
+	background:#e8e8e8 url(images/bg_left_nav.jpg) repeat-y -2px top;
+	margin-left:98px;
 }
 
 BODY.wingoGame {
@@ -23,7 +23,6 @@ img {
 	position:absolute;
 	top:24px;
 	left:0;
-	width:95px;
 	display:none;
 }
 BODY.wingo #wingoMenu {
@@ -32,19 +31,33 @@ BODY.wingo #wingoMenu {
 
 #wingoMenu a {
 	display:block;
-	height:40px;
-/*
-	color:white;
-	font-size:1.2em;
+	color: white;
+	font-size:1.25em;
 	font-weight:bold;
-	text-shadow: black 0.1em 0.1em 0.2em;
-	padding-left:5px;
-*/
+	text-shadow: 3px 3px 3px #021124;
+	padding:4px 0 3px 3px;
+	margin-bottom: 7px;
 }
 #wingoMenu a.picked,
 #wingoMenu a:hover {
-	background: transparent url(images/bg_nav_links.png) no-repeat left top;
+	width:88px;
+	padding:2px 0 1px 3px;
+	border-top: 2px solid #ccffcc;
+	border-right: 3px solid #E6FFCC;
+	border-bottom: 2px solid #ffffcc;
+	border-top-right-radius: 8px ;
+	border-bottom-right-radius: 8px ;
+	box-shadow: 4px 4px 4px #191970;
 	text-decoration: none;
+
+	background: rgb(35,83,138); /* Old browsers */
+	background: -moz-linear-gradient(top,  rgba(35,83,138,1) 0%, rgba(167,207,223,1) 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(35,83,138,1)), color-stop(100%,rgba(167,207,223,1))); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top, rgba(35,83,138,1) 0%,rgba(167,207,223,1) 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top, rgba(35,83,138,1) 0%,rgba(167,207,223,1) 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top, rgba(35,83,138,1) 0%,rgba(167,207,223,1) 100%); /* IE10+ */
+	background: linear-gradient(to bottom, rgba(35,83,138,1) 0%,rgba(167,207,223,1) 100%); /* W3C */
+	/*filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#23538a', endColorstr='#a7cfdf',GradientType=0 );*/ /* IE6-9 */
 }
 
 H1.wingoHeading,
@@ -164,6 +177,18 @@ DIV.navWingo .current A:hover SPAN {
 		left:5px;
 	}
 
+}
+@media screen and (max-width: 520px) {
+
+	footer img.ifWide {
+		display:none;
+	}
+
+}
+@media screen and (max-width: 440px) {
+	footer td {
+		font-size:1.5em !important;
+	}
 }
 
 

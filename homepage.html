@@ -61,19 +61,39 @@ BODY {background:#e8e8e8;}
 #qWrap_btns IMG {border:none;}
 </style>
 
+<!--[if IE]>
+<style type="text/css">
+#wingoMenu a {
+	padding:5px 0 4px 3px;
+}
+
+#wingoMenu a.picked,
+#wingoMenu a:hover {
+	background: url(images/bg_nav_wingo_ie.gif) repeat-x;
+	padding:3px 0 2px 3px;
+}
+</style>
+<![endif]-->
+
+<!--[if lte IE 8]>
+<script type="text/javascript">
+document.createElement('footer');
+</script>
+<![endif]-->
+
 </head>
 <body class="wingo">
 
 <div id="wingoMenu" class="noClick">
 	<img src="images/wingobay.png" alt="" width="64" height="288" border="0" style="position:absolute;top:-4px;left:20px;z-index:-1;">
 
-	<a href="services.html" title="Services"><img src="images/menu-services-lo.png" width="88" height="24" border="0"></a>
-	<a href="resume.html" title="Resume"><img src="images/menu-resume-lo.png" width="88" height="24" border="0"></a>
-	<a href="portfolio.html" title="Portfolio"><img src="images/menu-portfolio-lo.png" width="88" height="24" border="0"></a>
-	<a href="weather/index.html" title="Weather"><img src="images/menu-weather-lo.png" width="88" height="24" border="0"></a>
-	<a href="sailing/index.html" title="Sailing"><img src="images/menu-sailing-lo.png" width="88" height="26" border="0"></a>
-	<a href="links.html" title="Links"><img src="images/menu-links-lo.png" width="88" height="24" border="0"></a>
-	<a href="homepage.html" title="Home"><img src="images/menu-home-lo.png" width="88" height="24" border="0"></a>
+	<a href="services.html" title="Services" target="_self">Services</a>
+	<a href="resume.html" title="Resume" target="_self">Resume</a>
+	<a href="portfolio.html" title="Portfolio" target="_self">Portfolio</a>
+	<a href="weather/index.html" title="Weather" target="_self">Weather</a>
+	<a href="sailing/index.html" title="Sailing" target="_self">Sailing</a>
+	<a href="links.html" title="Links" target="_self">Links</a>
+	<a href="homepage.html" title="Home" target="_self" class="picked">Home</a>
 </div>
 
 <div style="max-width:1200px; padding-top:10px;">
@@ -121,17 +141,19 @@ BODY {background:#e8e8e8;}
 		<i>(<b><a href="proa/links.html" target="_self">proa links</a></b>)</i></span>
 	</div>
 
-	<table border="0" cellspacing="0" cellpadding="0" style="width: 100%;">
-	<tr>
-		<td style="padding-left:10px;"><a href="weather/index.html" target="_self"><img src="images/weather4.gif" alt="Weather Links" width="44" height="57" border="0"></a></td>
-		<td style="width:50%;"><b><span class="fs3"><a href="weather/index.html" target="_self" class="cleanBlue">Weather!</a></span></b></td>
+	<footer style="margin:0 10px;">
+		<table border="0" cellspacing="0" cellpadding="0" style="width: 100%;">
+		<tr>
+			<td style="width:1%;"><a href="weather/index.html" target="_self"><img src="images/weather4.gif" alt="Weather Links" width="44" height="57" border="0" class="ifWide"></a></td>
+			<td class="fs3"><b><a href="weather/index.html" target="_self" class="cleanBlue">Weather!</a></b></td>
 
-		<td style="width:50%; text-align: right;"><b><span class="fs3"><a href="sailing/index.html" target="_self" class="cleanBlue">Sailing!</a></span></b></td>
-		<td style="padding-right:10px;"><a href="sailing/index.html" target="_self"><img src="images/sailboat.gif" alt="Sailing Links" width="37" height="57" border="0"></a></td>
-	</tr>
-	</table>
+			<td class="fs3" style="width:98%; text-align: center;"><b><a href="links.html" target="_self" class="cleanBlue">links</a></b></td>
+			<td class="fs3" style="text-align: right;"><b><a href="sailing/index.html" target="_self" class="cleanBlue">Sailing!</a></b></td>
+			<td style="width:1%;"><a href="sailing/index.html" target="_self"><img src="images/sailboat.gif" alt="Sailing Links" width="37" height="57" border="0" class="ifWide"></a></td>
+		</tr>
+		</table>
+	</footer>
 
-	<div class="fs2" style="text-align: center;"><b><a href="links.html" target="_self" class="cleanBlue">links</a></b></div>
 
 	<div id="qWrap">
 

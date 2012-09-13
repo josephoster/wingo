@@ -39,19 +39,33 @@ A.imgLnk:hover {
 }
 </style>
 
+<!--[if IE]>
+<style type="text/css">
+#wingoMenu a {
+	padding:5px 0 4px 3px;
+}
+
+#wingoMenu a.picked,
+#wingoMenu a:hover {
+	background: url(images/bg_nav_wingo_ie.gif) repeat-x;
+	padding:3px 0 2px 3px;
+}
+</style>
+<![endif]-->
+
 </head>
 <body class="wingo">
 
 <div id="wingoMenu" class="noClick">
 	<img src="images/wingobay.png" alt="" width="64" height="288" border="0" style="position:absolute;top:-4px;left:20px;z-index:-1;">
 
-	<a href="services.html" title="Services"><img src="images/menu-services-lo.png" width="88" height="24" border="0"></a>
-	<a href="resume.html" title="Resume"><img src="images/menu-resume-lo.png" width="88" height="24" border="0"></a>
-	<a href="portfolio.html" title="Portfolio"><img src="images/menu-portfolio-lo.png" width="88" height="24" border="0"></a>
-	<a href="weather/index.html" title="Weather"><img src="images/menu-weather-lo.png" width="88" height="24" border="0"></a>
-	<a href="sailing/index.html" title="Sailing"><img src="images/menu-sailing-lo.png" width="88" height="26" border="0"></a>
-	<a href="links.html" title="Links"><img src="images/menu-links-lo.png" width="88" height="24" border="0"></a>
-	<a href="homepage.html" title="Home"><img src="images/menu-home-lo.png" width="88" height="24" border="0"></a>
+	<a href="services.html" title="Services" target="_self" class="picked">Services</a>
+	<a href="resume.html" title="Resume" target="_self">Resume</a>
+	<a href="portfolio.html" title="Portfolio" target="_self">Portfolio</a>
+	<a href="weather/index.html" title="Weather" target="_self">Weather</a>
+	<a href="sailing/index.html" title="Sailing" target="_self">Sailing</a>
+	<a href="links.html" title="Links" target="_self">Links</a>
+	<a href="homepage.html" title="Home" target="_self">Home</a>
 </div>
 
 <div class="navWingo">
