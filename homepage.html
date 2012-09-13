@@ -18,6 +18,11 @@
 <style type="text/css">
 BODY {background:#e8e8e8;}
 
+.wrapMaxW {
+	max-width:1200px;
+	padding-top:10px;
+}
+ 
 .webDev {
 	clear:both;
 	float:left;
@@ -69,7 +74,8 @@ BODY {background:#e8e8e8;}
 
 #wingoMenu a.picked,
 #wingoMenu a:hover {
-	background: url(images/bg_nav_wingo_ie.gif) repeat-x;
+	background: url(images/bg_nav_wingo_ie.gif);
+	background-size: 100% 100%;
 	padding:3px 0 2px 3px;
 }
 </style>
@@ -81,29 +87,43 @@ document.createElement('footer');
 </script>
 <![endif]-->
 
+<!--[if lte IE 6]>
+<style type="text/css">
+.wingoBay {
+	display:none;
+}
+.wrapMaxW {
+	width:1200px;
+}
+#fbPrivacy {
+	width:14em;
+}
+</style>
+<![endif]-->
+
 </head>
 <body class="wingo">
 
 <div id="wingoMenu" class="noClick">
-	<img src="images/wingobay.png" alt="" width="64" height="288" border="0" style="position:absolute;top:-4px;left:20px;z-index:-1;">
+	<img src="images/wingobay.png" alt="" width="64" height="288" class="wingoBay">
 
-	<a href="services.html" title="Services" target="_self">Services</a>
-	<a href="resume.html" title="Resume" target="_self">Resume</a>
-	<a href="portfolio.html" title="Portfolio" target="_self">Portfolio</a>
-	<a href="weather/index.html" title="Weather" target="_self">Weather</a>
-	<a href="sailing/index.html" title="Sailing" target="_self">Sailing</a>
-	<a href="links.html" title="Links" target="_self">Links</a>
-	<a href="homepage.html" title="Home" target="_self" class="picked">Home</a>
+	<a href="services.html" title="Services" target="_self"><span>Services</span></a>
+	<a href="resume.html" title="Resume" target="_self"><span>Resume</span></a>
+	<a href="portfolio.html" title="Portfolio" target="_self"><span>Portfolio</span></a>
+	<a href="weather/index.html" title="Weather" target="_self"><span>Weather</span></a>
+	<a href="sailing/index.html" title="Sailing" target="_self"><span>Sailing</span></a>
+	<a href="links.html" title="Links" target="_self"><span>Links</span></a>
+	<a href="homepage.html" title="Home" target="_self" class="picked"><span>Home</span></a>
 </div>
 
-<div style="max-width:1200px; padding-top:10px;">
+<div class="wrapMaxW">
 
 	<h2 class="webDev"><a href="services.html" target="_self" class="wingoLC">web developer</a></h2>
 
 	<div style="float:right; margin: 0 10px 0 0;">
 
 		<div style="float:right; margin-left:10px;">
-			<a href="resume_sailing.html" target="_self"><img src="images/joseph_sailing2.jpg" alt="" width="300" height="120" border="0"></a><br>
+			<a href="resume_sailing.html" target="_self"><img src="images/joseph_sailing2.jpg" alt="" width="300" height="120"></a><br>
 			<span class="fs-1"><i>sailing resume</i><br></span>
 		</div>
 
@@ -120,20 +140,22 @@ document.createElement('footer');
 		</div>
 	</div>
 
-	<div style="clear:left; float:left; padding: 40px 10px 0px 60px;">
+	<div style="clear: left;"></div>
+	<div style="float:left; padding: 40px 10px 0px 60px;">
 
 		<div class="fs-1" style="text-align: right; font-weight: bold;">
 			<a href="sketchup/index.html" target="_self" title="3D CAD, Google SketchUp" class="imgLnk">
-			<img src="images/hanalei_pier.jpg" alt="" width="160" height="115" border="0" style="margin:5px 0 5px 0;" /><br />
+			<img src="images/hanalei_pier.jpg" alt="" width="160" height="115" style="margin:5px 0 5px 0;" /><br />
 			3D CAD, Google SketchUp</a><br />
 			<a href="sketchup/index.html#google_earth" target="_self">geo-modeling</a>
 		</div>
 
-		<p style="margin-top:50px; text-align: center;"><a href="services.html" target="_self"><img src="images/wsb.gif" alt="Web site by wingo.com" width="111" height="40" border="0"></a></p>
+		<p style="margin-top:50px; text-align: center;"><a href="services.html" target="_self"><img src="images/wsb.gif" alt="Web site by wingo.com" width="111" height="40"></a></p>
 	</div>
 
-	<div style="clear: right; float:right; margin: 10px 10px 10px 0; text-align:right;">
-		<a href="proa/index.html" target="_top" title="Pacific Proa"><img src="images/proa0212_1.gif" width="344" height="146" border="0" alt="Pacific Proa"></a><br>
+	<div style="clear: right;"></div>
+	<div style="float:right; margin: 10px 10px 10px 0; text-align:right;">
+		<a href="proa/index.html" target="_top" title="Pacific Proa"><img src="images/proa0212_1.gif" width="344" height="146" alt="Pacific Proa"></a><br>
 		<span class="fs1"><b><a href="proa/index.html" target="_top">Pacific Proa</a></b></span> Large modern versions of<br>
 		<span class="fs-1">Micronesian style sailing yachts; design and<br>
 		<b><a href="" onClick="proaWin();return false;" target="_self">rendering</a></b> of performance multihull cruisers<br>
@@ -142,14 +164,14 @@ document.createElement('footer');
 	</div>
 
 	<footer style="margin:0 10px;">
-		<table border="0" cellspacing="0" cellpadding="0" style="width: 100%;">
+		<table cellspacing="0" cellpadding="0" style="width: 100%;">
 		<tr>
-			<td style="width:1%;"><a href="weather/index.html" target="_self"><img src="images/weather4.gif" alt="Weather Links" width="44" height="57" border="0" class="ifWide"></a></td>
+			<td style="width:1%;"><a href="weather/index.html" target="_self"><img src="images/weather4.gif" alt="Weather Links" width="44" height="57" class="ifWide"></a></td>
 			<td class="fs3"><b><a href="weather/index.html" target="_self" class="cleanBlue">Weather!</a></b></td>
 
 			<td class="fs3" style="width:98%; text-align: center;"><b><a href="links.html" target="_self" class="cleanBlue">links</a></b></td>
 			<td class="fs3" style="text-align: right;"><b><a href="sailing/index.html" target="_self" class="cleanBlue">Sailing!</a></b></td>
-			<td style="width:1%;"><a href="sailing/index.html" target="_self"><img src="images/sailboat.gif" alt="Sailing Links" width="37" height="57" border="0" class="ifWide"></a></td>
+			<td style="width:1%;"><a href="sailing/index.html" target="_self"><img src="images/sailboat.gif" alt="Sailing Links" width="37" height="57" class="ifWide"></a></td>
 		</tr>
 		</table>
 	</footer>
@@ -207,7 +229,7 @@ document.createElement('footer');
 			<div>
 				<p style="float:left;" class="sm"><b><a href="http://www.huffingtonpost.com/catherine-crier/a-degree-in-citizenship_b_21404.html" target="_blank">A Degree in Citizenship</a></b> by Catherine Crier</p>
 
-				<a href="http://www.sonyclassics.com/whywefight/" target="_blank" style="float:right;"><img src="opinion/wwf.gif" alt="" width="123" height="35" border="0" style="opacity:0.75;filter:alpha(opacity=75);"></a>
+				<a href="http://www.sonyclassics.com/whywefight/" target="_blank" style="float:right;"><img src="opinion/wwf.gif" alt="" width="123" height="35" style="opacity:0.75;filter:alpha(opacity=75);"></a>
 				<div class="clearFloat"></div>
 
 				<p class="sm">&quot;The invasion of Iraq, I believe, will turn out to be the greatest strategic disaster in U.S. history.&quot;<br />
