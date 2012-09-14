@@ -74,7 +74,8 @@ UL.listOf {
 }
 
 #portfolioBox {
-	float:left;;
+	float:left;
+	font-size: 1.5em;
 	margin:20px;
 	padding:13px 15px;
 	background:#FFFFFF;
@@ -91,14 +92,14 @@ A.imgLnk:hover {
 <!--[if IE]>
 <style type="text/css">
 #wingoMenu a {
-	padding:6px 0 5px 2px;
+	padding:5px 0 5px 2px;
 }
 
 #wingoMenu a.picked,
 #wingoMenu a:hover {
 	background: url(images/bg_nav_wingo_ie.gif);
 	background-size: 100% 100%;
-	padding:4px 0 3px 2px;
+	padding:4px 0 4px 2px;
 }
 </style>
 <![endif]-->
@@ -121,7 +122,7 @@ A.imgLnk:hover {
 <body class="wingo">
 
 <div id="wingoMenu" class="noClick">
-	<img src="images/wingobay.png" alt="" width="64" height="288" class="wingoBay">
+	<img src="images/wingobay.png" width="64" height="288" class="wingoBay">
 
 	<a href="services.html" title="Services" target="_self" class="picked"><span>Services</span></a>
 	<a href="resume.html" title="Resume" target="_self"><span>Resume</span></a>
@@ -164,7 +165,7 @@ A.imgLnk:hover {
 		</div>
 
 		<div class="subRight">
-			<a href="resume.html" target="_self" title="Resume"><img src="images/profile_joseph_4.jpg" alt="Resume" width="108" height="166"></a>
+			<a href="resume.html" target="_self" title="Resume"><img src="images/profile_joseph_4.jpg" width="108" height="166"></a>
 		</div>
 
 	</div>
@@ -206,14 +207,14 @@ A.imgLnk:hover {
 
 		<div style="float:right; margin:5px 0 5px 10px; text-align: right; font-size:smaller; font-weight: bold;">
 			<a href="sketchup/index.html" target="_self" title="3D CAD, Google SketchUp" class="imgLnk">
-			<img src="images/hanalei_pier.jpg" alt="" width="160" height="115" style="margin:5px 0 5px 0;" /><br />
+			<img src="images/hanalei_pier.jpg" width="160" height="115" style="margin:5px 0 5px 0;" /><br />
 			3D CAD, Google SketchUp</a><br />
 			<a href="sketchup/index.html#google_earth" target="_self">geo-modeling</a>
 		</div>
 
 		<div id="portfolioBox">
-			<font size="+2"><i><b><a href="portfolio.html" target="_self" onclick="myPersonal.show('portfolio.html'); return false;" class="cleanBlue">Sample work</a></b>
-			<a href="portfolio.html" target="_self" onclick="myPersonal.show('portfolio.html'); return false;" class="cleanBlue">(Portfolio)</a></i></font>
+			<i><b><a href="portfolio.html" target="_self" onclick="myPersonal.show('portfolio.html'); return false;" class="cleanBlue">Sample work</a></b>
+			<a href="portfolio.html" target="_self" onclick="myPersonal.show('portfolio.html'); return false;" class="cleanBlue">(Portfolio)</a></i>
 		</div>
 
 		<ul class="listOf">
@@ -236,7 +237,7 @@ A.imgLnk:hover {
 
 </div>
 
-<p style="clear:both; text-align: right;"><a href="services.html" target="_top"><img src="images/wsb.gif" alt="Web site by wingo.com" width="111" height="40" hspace="40"></a></p>
+<p style="clear:both; text-align: right; margin: 0 40px;"><a href="services.html" target="_top" title="Web site by wingo.com"><img src="images/wsb.gif" width="111" height="40"></a></p>
 
 <br>
 
@@ -271,7 +272,7 @@ A.imgLnk:hover {
 
 	<div class="panelTitle">
 		see <b><a href="gmaps/index.html" target="_blank" onclick="winOpenPct('gmapsWin', 0.8, 'gmaps/index.html'); return false;">Google Maps API demo page</a></b><br>
-		<font size="-1">or <i>drag and zoom this map</i></font>
+		or <i>drag and zoom this map</i>
 		<span id="gmapsInfo"></span>
 	</div>
 
@@ -292,7 +293,7 @@ A.imgLnk:hover {
 <div id="progressbarPanel">
 
 	<div class="panelTitle">
-		<font size="-1"><i><a href="" onClick="pBarDemo.begin();return false;">begin...</a></i></font>
+		<i><a href="" onClick="pBarDemo.begin();return false;">begin...</a></i>
 		<div id="barLoc"></div>
 
 		<b><a href="jt_/ProgressBar.html" target="_blank" onclick="winOpenPct('progressBarWin', 0.8, 'jt_/ProgressBar.html'); return false;">progress bar demo page</a></b>
@@ -308,7 +309,7 @@ A.imgLnk:hover {
 		Testing at Kwajalein Atoll of the <b><a href="http://en.wikipedia.org/wiki/MX_missile" target="_blank">Peacekeeper</a></b> re-entry vehicles, all eight fired from only one missile. With live warheads, each line would represent the explosive power of twenty Hiroshima-sized (Little Boy) weapons.
 	</div>
 </div>
-<img src="images/btn_move.gif" id="scrollToolIcon" onClick="jt_bgGame.reset(true)" class="noClick" width="19" height="19" alt="" />
+<img src="images/btn_move.gif" id="scrollToolIcon" onClick="jt_bgGame.reset(true)" class="noClick" width="19" height="19" />
 
 <div class="tkDialogBox" id="dialogBox1">
 <table cellspacing='0' cellpadding='0' border='0' width='100'>
@@ -319,7 +320,7 @@ A.imgLnk:hover {
 <tr>
 	<td class="tbLeft"></td>
 	<td class="Title" id="titleID" style="cursor:move"></td>
-	<td class="tbRight"><a href="" onclick="boxShow();return false;" class="noClick"><img src="images/icons/window_close.gif" alt="Close"></a><br></td>
+	<td class="tbRight"><a href="" onclick="boxShow();return false;" class="noClick" title="Close"><img src="images/icons/window_close.gif"></a><br></td>
 </tr>
 </table>
 
@@ -338,7 +339,7 @@ A.imgLnk:hover {
 
 	<div id="BoxDHTML_title">DHTML / DOM</div>
 	<div id="BoxDHTML_content">
-		<div align="right"><i><a href="#" onClick="viewContent('wsd');return false;">..Web site design</a></i></div>
+		<div style="text-align:right;"><i><a href="#" onClick="viewContent('wsd');return false;">..Web site design</a></i></div>
 
 		<p>Dynamic HTML (DHTML) uses cross browser properties and methods of the
 		<b><a href="http://www.w3.org/DOM/" target="_blank" class="offBox">DOM (Document Object Model)</a></b>,
@@ -358,7 +359,7 @@ A.imgLnk:hover {
 
 	<div id="CSS_title">Cascading Style Sheets</div>
 	<div id="CSS_content">
-		<div align="right"><i><a href="#" onClick="viewContent('wsd');return false;">..Web site design</a></i></div>
+		<div style="text-align:right;"><i><a href="#" onClick="viewContent('wsd');return false;">..Web site design</a></i></div>
 
 		<p>Cascading Style Sheets (CSS) ensure consistency across all pages for many HTML style attributes, including fonts, their sizes, colors, backgrounds, padding, margins, etc.
 
@@ -375,7 +376,7 @@ A.imgLnk:hover {
 
 	<div id="appProg_title">application programming</div>
 	<div id="appProg_content">
-		<div align="right"><i><a href="#" onClick="viewContent('wsd');return false;">..Web site design</a></i></div>
+		<div style="text-align:right;"><i><a href="#" onClick="viewContent('wsd');return false;">..Web site design</a></i></div>
 
 		<p><i>"the model"</i> is reflected on the server by the <b>database</b> and "business logic" that determines who can see and modify
 		which parts; it may be implemented as a set of Java classes and 
@@ -384,14 +385,14 @@ A.imgLnk:hover {
 		<p>Traditionally, <i>"the view"</i> in the browser may be pages formatted on the server using
 		a variety of tools evolved around
 		<b><a href="http://java.sun.com/products/jsp/overview.html" target="_blank" class="offBox">JSP</a></b>
-		<font size="-1">(JavaServer Pages) to uniquely display a User's content -
+		(JavaServer Pages) to uniquely display a User's content -
 		<b>Example work:</b>
 		<a href="resume.html#Shutterfly" class="offBox">Shutterfly</a>,
-		<a href="resume.html#LightSurf" class="offBox">LightSurf</a></font>.</p>
+		<a href="resume.html#LightSurf" class="offBox">LightSurf</a>.</p>
 
 		<p><b>JSP tools:</b>
 		<b><a href="http://java.sun.com/products/jsp/jstl/index.jsp" target="_blank" class="offBox">JSTL</a></b>
-		<font size="-1">(JSP Standard Tag Library with <a href="http://java.sun.com/products/jsp/jstl/1.1/docs/tlddocs/x/tld-summary.html" target="_blank" class="offBox">XML parsing</a>)</font>,
+		(JSP Standard Tag Library with <a href="http://java.sun.com/products/jsp/jstl/1.1/docs/tlddocs/x/tld-summary.html" target="_blank" class="offBox">XML parsing</a>),
 		<a href="http://java.sun.com/developer/technicalArticles/xml/WebAppDev3/" target="_blank" class="offBox">custom tags</a>,
 		<a href="http://www.w3.org/International/" target="_blank" class="offBox">I18N Internationalization</a>,
 		<a href="http://husted.com/struts/" target="_blank" class="offBox">Struts/Tiles</a>.</p>
@@ -402,7 +403,7 @@ A.imgLnk:hover {
 
 	<div id="widgets_title">widgets or "views"</div>
 	<div id="widgets_content">
-		<div align="right"><i><a href="#" onClick="viewContent('wsd');return false;">..Web site design</a></i></div>
+		<div style="text-align:right;"><i><a href="#" onClick="viewContent('wsd');return false;">..Web site design</a></i></div>
 
 		<p>This "tutorial box" is a "view" or widget; though modest in <b><a href="#" onClick="viewContent('BoxDHTML');return false;">DHTML</a></b> usage, it's a good candidate for becoming a <a href="dialogbox/index.html" target="_blank" onclick="winOpenPct('DialogBox', 0.8, 'dialogbox/index.html'); return false;">JavaScript class</a> supporting multiple instances.</p>
 
@@ -456,7 +457,7 @@ A.imgLnk:hover {
 			<a href="portfolio.html" target="_self" onclick="myPersonal.show('portfolio.html'); return false;">portfolio</a></b></li>
 		</ul>
 
-		<div align="center" style="font-size:0.9em;">
+		<div style="text-align:center; font-size:0.9em;">
 			<i>iFrames may drag slowly... in part, because<br>when mouse enters iFrame, dragging stops</i>
 		</div>
 	</div>
@@ -475,7 +476,7 @@ A.imgLnk:hover {
 <div id="vidMOXIE" style="display:none;" title="Splendid Day Sailing Newick trimaran MOXIE, Vineyard Sound">
 	<object width="480" height="385"><param name="movie" value="http://www.youtube.com/v/uHd2Ins3S8A&hl=en_US&fs=1&"></param><param name="allowFullScreen" value="true"></param><param name="allowscriptaccess" value="always"></param><embed src="http://www.youtube.com/v/uHd2Ins3S8A&hl=en_US&fs=1&" type="application/x-shockwave-flash" allowscriptaccess="always" allowfullscreen="true" width="480" height="385"></embed></object>
 
-	<p align="right">or: <a href="" onClick="vidBox.play('vidPeas');return false;">Where is the Love - Black Eyed Peas</a><br />
+	<p style="text-align:right;">or: <a href="" onClick="vidBox.play('vidPeas');return false;">Where is the Love - Black Eyed Peas</a><br />
 	<a href="" onClick="vidBox.play('vidDylan');return false;">Bob Dylan - Things Have Changed</a><br />
 	<a href="" onClick="vidBox.play('vidNeil');return false;">Neil Young - Four Strong Winds, When God Made Me</a></p>
 </div>
@@ -483,7 +484,7 @@ A.imgLnk:hover {
 <div id="vidDylan" style="display:none;" title="Bob Dylan - Things Have Changed">
 	<object width="640" height="385"><param name="movie" value="http://www.youtube.com/v/L9EKqQWPjyo&hl=en_US&fs=1&"></param><param name="allowFullScreen" value="true"></param><param name="allowscriptaccess" value="always"></param><embed src="http://www.youtube.com/v/L9EKqQWPjyo&hl=en_US&fs=1&" type="application/x-shockwave-flash" allowscriptaccess="always" allowfullscreen="true" width="640" height="385"></embed></object>
 
-	<p align="right">or: <a href="" onClick="vidBox.play('vidPeas');return false;">Where is the Love - Black Eyed Peas</a><br />
+	<p style="text-align:right;">or: <a href="" onClick="vidBox.play('vidPeas');return false;">Where is the Love - Black Eyed Peas</a><br />
 	<a href="" onClick="vidBox.play('vidNeil');return false;">Neil Young - Four Strong Winds, When God Made Me</a><br />
 	<a href="" onClick="vidBox.play('vidMOXIE');return false;">Splendid Day Sailing Newick trimaran MOXIE, Vineyard Sound</a></p>
 </div>
@@ -491,7 +492,7 @@ A.imgLnk:hover {
 <div id="vidNeil" style="display:none;" title="Neil Young - Four Strong Winds, When God Made Me">
 <object width="480" height="385"><param name="movie" value="http://www.youtube.com/v/4ATJcZxsFk0&hl=en_US&fs=1&"></param><param name="allowFullScreen" value="true"></param><param name="allowscriptaccess" value="always"></param><embed src="http://www.youtube.com/v/4ATJcZxsFk0&hl=en_US&fs=1&" type="application/x-shockwave-flash" allowscriptaccess="always" allowfullscreen="true" width="480" height="385"></embed></object>
 
-	<p align="right">or: <a href="" onClick="vidBox.play('vidPeas');return false;">Where is the Love - Black Eyed Peas</a><br />
+	<p style="text-align:right;">or: <a href="" onClick="vidBox.play('vidPeas');return false;">Where is the Love - Black Eyed Peas</a><br />
 	<a href="" onClick="vidBox.play('vidDylan');return false;">Bob Dylan - Things Have Changed</a><br />
 	<a href="" onClick="vidBox.play('vidMOXIE');return false;">Splendid Day Sailing Newick trimaran MOXIE, Vineyard Sound</a></p>
 </div>
