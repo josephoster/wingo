@@ -121,11 +121,11 @@ var xGap = 80;
 function setBgMain(hexColor) {
 	document.body.style.backgroundColor = hexColor;
 	tileDIV.style.color = hexColor;
-	}
+}
 
 function setBgTile(hexColor) {
 	tileDIV.style.backgroundColor = hexColor;
-	}
+}
 
 var redSine = new jt_ColorSine(0.1, 0);
 var grnSine = new jt_ColorSine(0.11, 0);
@@ -146,18 +146,18 @@ function setColors() {
 	var b = bluSine.color(timeElapsed);
 	setBgMain(jt_Hex.rgbHex(r, g, b));
 	setBgTile(jt_Hex.rgbHexInvert(r, g, b));
-	}
+}
 
 function tickTock() {
 	now = new Date();
 	setColors();
 	totFrames++;
-	}
+}
 
 function startClock() {
 	timer = setInterval("tickTock()", Interval);
 	timerIsOn = true;
-	}
+}
 
 function stopStart() {
 	clearInterval(timer);
@@ -169,20 +169,20 @@ function stopStart() {
 		totFrames = 0;
 		benchTime = now;
 		rateSlider.setTitle(numToString(FrameRate) + "	f/s");
-		}
+	}
 	else {
 		timeAtPause = now;
 		var elapsed = (now - benchTime) / 1000;
 		if (elapsed > 10) rateSlider.setTitle(numToString(FrameRate) + " f/s (" + numToString(totFrames / elapsed, 4) + ")");
-		}
 	}
+}
 
 function zeroTime() {
 	now = new Date();
 	startTime = now;
 	timeAtPause = startTime;
 	if (!timerIsOn) setColors();
-	}
+}
 
 var prevTileX = 0;
 var prevTileY = 1;
@@ -191,7 +191,7 @@ function showTile(showIt, xTile, yTile) {
 	tileDIV.style.display = (showIt) ? "block" : "none";
 	prevTileX = xTile;
 	prevTileY = yTile;
-	}
+}
 
 var sliders = new Array();
 
@@ -199,60 +199,60 @@ function numToString(val, maxLen) {
 	var st = val + "";
 	if (st.length > maxLen) st = st.substring(0,maxLen);
 	return st;
-	}
+}
 
 function titleFrequency(val) {
 	return numToString(val / TwoPi, 5) + " Hz.";
-	}
+}
 
 function titlePhase(val) {
 	return numToString(val, 4) + " radians";
-	}
+}
 
 function titleBias(val) {
 	return "Bias: " + val;
-	}
+}
 
 function setSliderTitle(sliderNum) {
 	switch (sliderNum) {
 		case 0: {
 			sliders[sliderNum].setTitle(titleFrequency(redSine.Frequency));
 			break;
-			}
+		}
 		case 1: {
 			sliders[sliderNum].setTitle(titleFrequency(grnSine.Frequency));
 			break;
-			}
+		}
 		case 2: {
 			sliders[sliderNum].setTitle(titleFrequency(bluSine.Frequency));
 			break;
-			}
+		}
 		case 3: {
 			sliders[sliderNum].setTitle(titlePhase(redSine.Phase));
 			break;
-			}
+		}
 		case 4: {
 			sliders[sliderNum].setTitle(titlePhase(grnSine.Phase));
 			break;
-			}
+		}
 		case 5: {
 			sliders[sliderNum].setTitle(titlePhase(bluSine.Phase));
 			break;
-			}
+		}
 		case 6: {
 			sliders[sliderNum].setTitle(titleBias(redSine.Bias));
 			break;
-			}
+		}
 		case 7: {
 			sliders[sliderNum].setTitle(titleBias(grnSine.Bias));
 			break;
-			}
+		}
 		case 8: {
 			sliders[sliderNum].setTitle(titleBias(bluSine.Bias));
 			break;
-			}
 		}
 	}
+}
 
 function dragSlider(x, y) {
 	var sliderNum = Math.floor((x - slidersLeft) / xGap);
@@ -261,43 +261,43 @@ function dragSlider(x, y) {
 		case 0: {
 			redSine.setFrequency((Math.exp(sliderPos * 2) - 1.0) * MaxFrequency);
 			break;
-			}
+		}
 		case 1: {
 			grnSine.setFrequency((Math.exp(sliderPos * 2) - 1.0) * MaxFrequency);
 			break;
-			}
+		}
 		case 2: {
 			bluSine.setFrequency((Math.exp(sliderPos * 2) - 1.0) * MaxFrequency);
 			break;
-			}
+		}
 		case 3: {
 			redSine.setPhase(sliderPos * TwoPi);
 			break;
-			}
+		}
 		case 4: {
 			grnSine.setPhase(sliderPos * TwoPi);
 			break;
-			}
+		}
 		case 5: {
 			bluSine.setPhase(sliderPos * TwoPi);
 			break;
-			}
+		}
 		case 6: {
 			redSine.setBias(Math.round((1-sliderPos) * 255));
 			break;
-			}
+		}
 		case 7: {
 			grnSine.setBias(Math.round((1-sliderPos) * 255));
 			break;
-			}
+		}
 		case 8: {
 			bluSine.setBias(Math.round((1-sliderPos) * 255));
 			break;
-			}
 		}
+	}
 	setSliderTitle(sliderNum);
 	setColors();
-	}
+}
 
 function dragRate() {
 	var newFrameRate = 1 + Math.round(rateSlider.getPosition() * 31);
@@ -310,16 +310,16 @@ function dragRate() {
 			totFrames = 0;
 			benchTime = new Date();
 			startClock();
-			}
 		}
 	}
+}
 
 var controlsDIV;
 var controlsAreOn = false;
-var clueless = 0;
 var ctrlLinkDIV;
 var ctrlLinkTimer;
-var ctrlLinkDelay = 3000;
+var ctrlLinkDelayInit = 2000;
+var ctrlLinkDelay = ctrlLinkDelayInit;
 
 var cmdMode_Tile = 1;
 var cmdMode_Text = 2;
@@ -335,58 +335,52 @@ function cmdModeShow() {
 	jt_ShowNoneElm(cmdMode_TileCon, cmdMode == cmdMode_Tile);
 	jt_ShowNoneElm(cmdMode_TextCon, cmdMode == cmdMode_Text);
 	jt_ShowNoneElm(cmdMode_TileLnk, cmdMode == cmdMode_Text, "inline");
-	}
+}
 
 function cmdModeNext() {
 	cmdMode = (cmdMode == cmdMode_Tile) ? cmdMode_Text : cmdMode_Tile;
 	cmdModeShow();
 	return false;
-	}
+}
 
 function onCtrlLink() {
 	clearTimeout(ctrlLinkTimer);
-	if (clueless < 2) {
-		ctrlLinkDIV.style.display = "block";
-		ctrlLinkTimer = setTimeout("offCtrlLink()", 2500);
-		}
-	}
+	ctrlLinkDIV.style.display = "block";
+	ctrlLinkTimer = setTimeout("offCtrlLink()", 2500);
+}
 
 function offCtrlLink() {
 	clearTimeout(ctrlLinkTimer);
-	if (clueless < 2) {
-		ctrlLinkDIV.style.display = "none";
-		ctrlLinkTimer = setTimeout("onCtrlLink()", ctrlLinkDelay);
-		if (ctrlLinkDelay < 60000) ctrlLinkDelay += 500;
-		}
-	}
+	ctrlLinkDIV.style.display = "none";
+	ctrlLinkTimer = setTimeout("onCtrlLink()", ctrlLinkDelay);
+	if (ctrlLinkDelay < 15000) ctrlLinkDelay += 1000;
+}
 
 function controlsOn() {
 	clearTimeout(ctrlLinkTimer);
+	ctrlLinkDIV.style.display = "none";
 	controlsAreOn = true;
 	cmdModeShow();
 	controlsDIV.style.display = "block";
-	if (clueless > 0) logoDIV.style.display = "block";
-	ctrlLinkDIV.style.display = "none";
 	rateSlider.show(true);
 	for (var i=0; i<9; i++) sliders[i].show(true);
-	}
+}
 
 function controlsOff() {
 	controlsAreOn = false;
 	controlsDIV.style.display = "none";
 	rateSlider.show(false);
 	for (var i=0; i<9; i++) sliders[i].show(false);
-	clueless++;
-	ctrlLinkTimer = setTimeout("onCtrlLink()", ctrlLinkDelay);
-	}
+	ctrlLinkDelay = ctrlLinkDelayInit;
+	onCtrlLink();
+}
 
 function handleClick(e) {
 	if (!e) e = window.event;
 	var targ = e.target ? e.target : e.srcElement;
 	if ((e.clientX < 200) && (e.clientY < 200) && !controlsAreOn) {
 		controlsOn();
-		ctrlLinkDelay = Math.round(ctrlLinkDelay * 1.5);
-		}
+	}
 	else if ((targ.offsetParent == null) || (targ.offsetParent == tileDIV) || (targ == wholePageDIV)) {
 		var xTarget = Math.floor(e.clientX / tileSize);
 		var yTarget = Math.floor(e.clientY / tileSize);
@@ -394,10 +388,10 @@ function handleClick(e) {
 			tileDIV.style.left = xTarget * tileSize;
 			tileDIV.style.top = yTarget * tileSize;
 			showTile(true, xTarget, yTarget);
-			}
-		else showTile(false, -1, -1);
 		}
+		else showTile(false, -1, -1);
 	}
+}
 
 
 /*
@@ -416,7 +410,7 @@ function setSliders() {
 	sliders[6].setPosition((255 - redSine.Bias) / 255);
 	sliders[7].setPosition((255 - grnSine.Bias) / 255);
 	sliders[8].setPosition((255 - bluSine.Bias) / 255);
-	}
+}
 
 function preset(pNum) {
 	//clearInterval(timer);
@@ -430,7 +424,7 @@ function preset(pNum) {
 		redSine.setPhase(2.042);
 		grnSine.setPhase(4.571);
 		bluSine.setPhase(2.089);
-		}
+	}
 	else {
 		redSine.setFrequency(0.1);
 		grnSine.setFrequency(0.11);
@@ -441,32 +435,32 @@ function preset(pNum) {
 		if ((pNum == 2) || (pNum == 3) || (pNum == 5)) {
 			grnSine.setPhase(TwoPi/3);
 			bluSine.setPhase(TwoPi/3 * 2);
-			}
+		}
 		if (pNum == 2) {
 			redSine.setFrequency(0.31);
 			bluSine.setFrequency(0.22);
-			}
+		}
 		else if (pNum == 3) {
 			redSine.setFrequency(0.3);
 			grnSine.setFrequency(1);
 			bluSine.setFrequency(0.55);
 			grnSine.setBias(40);
 			bluSine.setBias(94);
-			}
+		}
 		else if (pNum == 5) {
 			redSine.setFrequency(6.28);
 			grnSine.setFrequency(6.786);
 			bluSine.setFrequency(5.81);
 			rateSlider.setPosition(1);
 			dragRate();
-			}
 		}
+	}
 
 	setSliders();
 	for (var i=0; i<9; i++) setSliderTitle(i);
 	zeroTime();
 	if (!timerIsOn) stopStart();
-	}
+}
 
 var rateSlider;
 
@@ -490,7 +484,7 @@ function initPage() {
 	for (var i=0; i<9; i++) {
 		sliders[i] = new Slider(xPos, sliderTop, sliderLength, true, dragSlider, txtColors[i % 3], bgColors[i % 3]);
 		xPos += xGap;
-		}
+	}
 	for (var i=0; i<3; i++) sliders[i].setTitle("Frequency");
 	for (var i=3; i<6; i++) sliders[i].setTitle("Phase");
 	for (var i=6; i<9; i++) sliders[i].setTitle("Bias");
@@ -499,8 +493,7 @@ function initPage() {
 	stopStart();
 	jt_AddListener(document, 'mousedown', handleClick);
 	controlsOn();
-	//onCtrlLink();
-	}
+}
 
 window.focus();
 </script>
@@ -534,7 +527,7 @@ window.focus();
 
 <div id="linkControls"><a href="javascript:handleClick()">controls</a></div>
 
-<div id="logo"><a href="../services.html" target="_top"><img src="../images/wsb.gif" alt="Web site by wingo.com" width="111" height="40" border="0"></a></div>
+<div id="logo"><a href="../services.html" target="_top" title="Web site by wingo.com"><img src="../images/wsb.gif" width="111" height="40" border="0"></a></div>
 
 </body>
 </html>
