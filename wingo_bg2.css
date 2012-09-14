@@ -21,7 +21,7 @@ img {
 }
 
 #wingoMenu {
-	position:absolute;
+	position:fixed;
 	top:24px;
 	left:0;
 	display:none;
@@ -35,11 +35,10 @@ BODY.wingo #wingoMenu {
 	padding:5px 0 5px 0;
 	color: white;
 	font-family: Lucida Sans Unicode, Lucida Grande, sans-serif;
-	font-size:1.25em;
-	font-weight: bold;
+	font-size:1.4em;
 	line-height: 1.1em;
 	text-shadow: 3px 3px 3px #021124;
-	margin-bottom: 6px;
+	margin-bottom: 5px;
 }
 #wingoMenu a span {
 	display: inline-block;
@@ -143,7 +142,7 @@ DIV.navWingo .current A:hover SPAN {
 	margin: 0 40px;
 }
 
-#footer {
+footer, #footer {
 	clear: both;
 }
 

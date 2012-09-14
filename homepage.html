@@ -74,7 +74,7 @@ BODY {background:#e8e8e8;}
 
 #wingoMenu a.picked,
 #wingoMenu a:hover {
-	background: url(images/bg_nav_wingo_ie.gif);
+	background-image: url(images/bg_nav_wingo_ie.gif);
 	background-size: 100% 100%;
 	padding:4px 0 4px 2px;
 }
@@ -89,6 +89,9 @@ document.createElement('footer');
 
 <!--[if lte IE 6]>
 <style type="text/css">
+#wingoMenu {
+	position:absolute;
+}
 .wingoBay {
 	display:none;
 }
