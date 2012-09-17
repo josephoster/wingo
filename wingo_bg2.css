@@ -218,16 +218,9 @@ DIV.dashBox {
 	border-bottom: dashed 1px #dddddd;
 	background-color : #FFFFFF;
 	text-align : center;
-	padding : 2px 0px 2px 0px;
+	padding : 2px 0;
 	font-style : italic;
 	font-weight : bold;
-	width:270px;
-}
-
-TD.rightCol {
-	width: 270px;
-	vertical-align: top;
-	padding:0 7px;
 }
 
 .timesRom {font-family : Times New Roman,serif; }
@@ -288,13 +281,13 @@ DIV.dotItems DIV {
 
 DIV.dotItems A.ballFlash {
 	padding-left: 22px;
-	background: url(images/b.gif) no-repeat left top;
+	background: url(images/icon_link_lo.gif) no-repeat left top;
 	background-position: 0px 1px;
 	font-size: medium;
 	font-weight : bold;
 }
 
-DIV.dotItems A.ballFlash:hover {background: url(images/b-hi.gif) no-repeat left top;}
+DIV.dotItems A.ballFlash:hover {background: url(images/icon_link_hi.gif) no-repeat left top;}
 
 A.iLink,
 A.iLinkSm {
