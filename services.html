@@ -19,8 +19,21 @@
 BODY {background:#e8e8e8;}
 
 .wrapMaxW {
-	max-width:720px;
+	max-width:980px;
 	margin:10px auto;
+}
+
+UL.listOf {
+	clear:left;
+	margin-top:0px;
+	margin-bottom:0px;
+	font-size:0.8em;
+}
+
+.mainContent {
+	width:77%;
+	float:left;
+	margin-right:10px;
 }
 
 .leftCol {
@@ -43,14 +56,18 @@ BODY {background:#e8e8e8;}
 	margin-left:20px;
 }
 
-UL.listOf {
-	clear:left;
-	margin-top:0px;
-	margin-bottom:0px;
-	font-size:smaller;
+@media screen and (max-width: 1000px) {
+
+	BODY.wingo {
+		background-image:none;
+		margin-left:0;
+	}
+	BODY.wingo #wingoMenu {
+		display:none;
+	}
 }
 
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 900px) {
 
 	.leftCol {
 		width:auto;
@@ -70,17 +87,34 @@ UL.listOf {
 	UL.listOf {
 		clear: both;
 	}
+}
 
+@media screen and (max-width: 640px) {
+	.mainContent {
+		width:100%;
+	}
+	.webSkills {
+		clear:both;
+		float:none;
+		width:auto;
+		margin:10px 15%;
+	}
+}
+@media screen and (max-width: 480px) {
+	.webSkills {
+		margin:10px 10%;
+	}
 }
 
 #portfolioBox {
 	float:left;
 	font-size: 1.5em;
-	margin:20px;
+	margin:20px 10px;
 	padding:13px 15px;
 	background:#FFFFFF;
+	text-align: center;
 	border-radius: 10px;
-	box-shadow: 4px 4px 6px #959595, 3px 3px 3px #959595 inset;
+	box-shadow: 3px 3px 3px #959595, 2px 2px 3px #959595 inset;
 }
 
 A.imgLnk:hover {
@@ -104,6 +138,15 @@ A.imgLnk:hover {
 </style>
 <![endif]-->
 
+<!--[if lte IE 8]>
+<style type="text/css">
+.webSkills {
+	border-top:1px solid #778899;
+	border-bottom:1px solid #778899;
+}
+</style>
+<![endif]-->
+
 <!--[if lte IE 6]>
 <style type="text/css">
 #wingoMenu {
@@ -113,9 +156,10 @@ A.imgLnk:hover {
 	display:none;
 }
 .wrapMaxW {
-	width:720px;
+	width:980px;
 }
 #fbPrivacy {
+	position: absolute;
 	width:14em;
 }
 </style>
@@ -136,113 +180,138 @@ A.imgLnk:hover {
 	<a href="homepage.html" title="Home" target="_self"><span>Home</span></a>
 </div>
 
-<div class="navWingo">
-	<ul>
-		<li><a href="resume.html" target="_self"><span>professional resume</span></a></li>
-		<li><a href="portfolio.html" target="_self"><span>portfolio</span></a></li>
-		<li class="current"><a href="services.html" target="_self"><span>services</span></a></li>
-		<li><a href="sketchup/index.html" target="_self"><span>3D CAD</span></a></li>
-		<li><a href="resume_sailing.html" target="_self"><span>sailing resume</span></a></li>
-		<li><a href="proa/about/index.html"><span>proa project</span></a></li>
-		<li><a href="homepage.html" target="_self"><span>home</span></a></li>
-	</ul>
-</div>
+<div class="pageWrap">
 
-<h1 class="wingoHeading2"><a href="resume.html" target="_self" class="wingoLC">web application programmer</a></h1>
+	<div class="navWingo">
+		<ul>
+			<li><a href="resume.html" target="_self"><span>professional resume</span></a></li>
+			<li><a href="portfolio.html" target="_self"><span>portfolio</span></a></li>
+			<li class="current"><a href="services.html" target="_self"><span>services</span></a></li>
+			<li><a href="sketchup/index.html" target="_self"><span>3D CAD</span></a></li>
+			<li><a href="resume_sailing.html" target="_self"><span>sailing resume</span></a></li>
+			<li><a href="proa/about/index.html"><span>proa project</span></a></li>
+			<li><a href="homepage.html" target="_self"><span>home</span></a></li>
+		</ul>
+	</div>
+
+	<h1 class="wingoHeading2"><a href="resume.html" target="_self" class="wingoLC">web application programmer</a></h1>
+
+</div>
 
 <div class="wrapMaxW">
 
-	<div style="text-align:center; margin-bottom:10px;font-family: Verdana;" class="fs-1">DHTML and AJAX enhance the User Experience...</div>
+	<div class="mainContent">
 
-	<div class="leftCol">
+		<div style="text-align:center; margin-bottom:10px;font-family: Verdana;" class="fs-1">DHTML and AJAX enhance the User Experience...</div>
 
-		<div class="subLeft">
-			<b><span class="fs2">Joseph Oster</span></b><br>
-			web application programmer<br>
-			<i><b><a href="resume.html" target="_self" onClick="myPersonal.show('resume.html');return false;">Resume</a></b></i> -
-			<i><b><a href="portfolio.html" target="_self" onClick="myPersonal.show('portfolio.html');return false;">Portfolio</a></b></i><br>
-			<span class=fs-1>
-			<b><a href="http://www.wingo.com" target="_top">www.wingo.com</a></b> -
-			<b><script type="text/javascript">emLink("Email contact", "[wingo] Services contact")</script></b><br>
-			Kauai, HI<br></span>
+		<div class="leftCol">
+
+			<div class="subLeft">
+				<b><span class="fs2">Joseph Oster</span></b><br>
+				web application programmer<br>
+				<i><b><a href="resume.html" target="_self" onClick="myPersonal.show('resume.html');return false;">Resume</a></b></i> -
+				<i><b><a href="portfolio.html" target="_self" onClick="myPersonal.show('portfolio.html');return false;">Portfolio</a></b></i><br>
+				<span class=fs-1>
+				<b><a href="http://www.wingo.com" target="_top">www.wingo.com</a></b> -
+				<b><script type="text/javascript">emLink("Email contact", "[wingo] Services contact")</script></b><br>
+				Kauai, HI<br></span>
+			</div>
+
+			<div class="subRight">
+				<a href="resume.html" target="_self" title="Resume"><img src="images/profile_joseph_4.jpg" width="108" height="166"></a>
+			</div>
+
 		</div>
 
-		<div class="subRight">
-			<a href="resume.html" target="_self" title="Resume"><img src="images/profile_joseph_4.jpg" width="108" height="166"></a>
-		</div>
+		<div class="rightCol">
 
+			<div class="taMenu" id="tabBar">
+		
+				<div style="position:absolute; font-size:smaller;"><a href="" onClick="boxShow();showView('tabViews', this);return false;" id="tabViewsLink">tabs</a></div>
+
+				<ul>
+					<li><a href="" onClick="boxShow();showView('progressbar', this);return false;" id="progressbarLink"><span>progress bar</span></a></li>
+					<li><a href="" onClick="boxShow();showView('slider', this);return false;" id="sliderLink"><span>slider controls</span></a></li>
+					<li><a href="" onClick="boxShow();showView('gmaps', this);return false;" id="gmapsLink"><span>google maps</span></a></li>
+					<li><a href="" onClick="boxShow();showView('mycl', this);return false;" id="myclLink"><span>my craigslist</span></a></li>
+				</ul>
+			</div>
+
+			<ul class="listOf">
+				<li>expert level hand coded JavaScript, AJAX, DHTML</li>
+				<li>rapid functional prototyping of interactive apps, <a href="art/index.html" target="_blank" onclick="sliderDemo.show(); return false;">widgets</a></li>
+				<li>HTML5, <b><a href="" onClick="showView();viewContent('CSS'); return false;">CSS3</a></b></li>
+				<li><a href="" onClick="showView();viewContent('widgets');toggleWidth();return false;">DOM manipulation</a>, 
+					<a href="art/index.html" target="_blank" onclick="sliderDemo.show(); return false;">drag &amp; drop</a>, event handling
+				</li>
+				<li>pixel-perfect HTML layout, i18n (internationalization)</li>
+				<li><b><a href="" onClick="pageTour.show();return false;" id="browserTestLink">browser test</a></b> - ("page tour")</li>
+				<li><b><a href="mycl/" target="_blank" onclick="myPersonal.show('http://www.wingo.com/mycl/'); return false;">'my craigslist'</a></b> RSS feed aggregator</li>
+				<li><b><a href="dialogbox/index.html" target="_blank" onclick="winOpenPct('DialogBox', 0.8, 'dialogbox/index.html'); return false;">Dialog Box Widget</a></b>, modal, object oriented JavaScript w/ inheritance (<a href="dialogbox/index.html" target="_blank" onclick="vidBox.play('vidMOXIE');return false;">example</a>)</li>
+				<li><b><a href="jt_/index.html" target="_blank" onclick="myPersonal.show('jt_/index.html'); return false;">personal "JavaScript Toolkit"</a></b></li>
+				<li><b><a href="" target="_blank" onclick="vidBox.play('vidMOXIE');return false;">media player</a></b> detection, object/embed tags, JS control</li>
+				<li><a href="imvu/screen.html?pg=3" target="_blank" onclick="winOpenPct('IMVU_screens', 0.8, 'imvu/screen.html?pg=3'); return false;">CSS Widgets</a>
+					<span style="font-size:0.9em;"><i>(<a href="imvu/index.html" target="_blank" onclick="winOpenPct('IMVU_screens', 0.8, 'imvu/index.html'); return false;">IMVU screens</a>)</i></span>, <b><a href="" onClick="jt_bgGame.start();return false;" id="gamingBGLink">gaming background</a></b>
+				</li>
+				<li><b><a href="tides/index.html" target="_blank" onclick="myPersonal.show('tides/index.html'); return false;">cookies</a></b>,
+					<b><a href="http://www.marinloans.com/prequalify.html" target="_blank" onclick="myPersonal.show('http://www.marinloans.com/loaninfo_private.html'); return false;">form validation</a></b>, frames / iframes</li>
+				<li>site design, branding ("skins"), SEO (search engine optimization)</li>
+			</ul>
+
+			<div id="portfolioBox">
+				<i><b><a href="portfolio.html" target="_self" onclick="myPersonal.show('portfolio.html'); return false;" class="cleanBlue">Sample work</a></b>
+				<a href="portfolio.html" target="_self" onclick="myPersonal.show('portfolio.html'); return false;" class="cleanBlue">(Portfolio)</a></i>
+			</div>
+
+			<div style="float:right; margin:5px 0 5px 0; text-align: right; font-size:smaller; font-weight: bold;">
+				<a href="sketchup/index.html" target="_self" title="3D CAD, Google SketchUp" class="imgLnk">
+				<img src="images/hanalei_pier.jpg" width="160" height="115" style="margin:5px 0 5px 0;" /><br />
+				3D CAD, Google SketchUp</a><br />
+				<a href="sketchup/index.html#google_earth" target="_self">geo-modeling</a>
+			</div>
+
+		</div>
 	</div>
 
-	<div class="rightCol">
+	<div class="webSkills">
 
-		<div class="taMenu" id="tabBar">
-		
-			<div style="position:absolute; font-size:smaller;"><a href="" onClick="boxShow();showView('tabViews', this);return false;" id="tabViewsLink">tabs</a></div>
+		<h3>web skills</h3>
 
-			<ul>
-				<li><a href="" onClick="boxShow();showView('progressbar', this);return false;" id="progressbarLink"><span>progress bar</span></a></li>
-				<li><a href="" onClick="boxShow();showView('slider', this);return false;" id="sliderLink"><span>slider controls</span></a></li>
-				<li><a href="" onClick="boxShow();showView('gmaps', this);return false;" id="gmapsLink"><span>google maps</span></a></li>
-				<li><a href="" onClick="boxShow();showView('mycl', this);return false;" id="myclLink"><span>my craigslist</span></a></li>
-			</ul>
-		</div>
-
-		<ul class="listOf">
-			<li>rapid functional prototyping of interactive apps, <a href="art/index.html" target="_blank" onclick="sliderDemo.show(); return false;">widgets</a></li>
-			<li>HTML5, <b><a href="" onClick="showView();viewContent('CSS'); return false;">CSS</a></b>, jQuery Mobile</li>
-			<li>expert level hand coded JavaScript, AJAX, DHTML</li>
-			<li><a href="" onClick="showView();viewContent('widgets');toggleWidth();return false;">DOM manipulation</a>, 
-				<a href="art/index.html" target="_blank" onclick="sliderDemo.show(); return false;">drag &amp; drop</a>, event handling
-			</li>
-			<li>pixel-perfect HTML layout, i18n (internationalization)</li>
-			<li><b><a href="" onClick="pageTour.show();return false;" id="browserTestLink">browser test</a></b> - ("page tour")</li>
-			<li><b><a href="mycl/" target="_blank" onclick="myPersonal.show('http://www.wingo.com/mycl/'); return false;">'my craigslist'</a></b> RSS feed aggregator</li>
-			<li><b><a href="dialogbox/index.html" target="_blank" onclick="winOpenPct('DialogBox', 0.8, 'dialogbox/index.html'); return false;">Dialog Box Widget</a></b>, modal, object oriented JavaScript w/ inheritance (<a href="dialogbox/index.html" target="_blank" onclick="vidBox.play('vidMOXIE');return false;">example</a>)</li>
-			<li><b><a href="jt_/index.html" target="_blank" onclick="myPersonal.show('jt_/index.html'); return false;">personal "JavaScript Toolkit"</a></b>, plus <b><a href="http://jquery.com/" target="_blank">jQuery</a></b> and other JavaScript frameworks</li>
-			<li><b><a href="" target="_blank" onclick="vidBox.play('vidMOXIE');return false;">media player</a></b> detection, object/embed tags, JS control</li>
-			<li><a href="imvu/screen.html?pg=3" target="_blank" onclick="winOpenPct('IMVU_screens', 0.8, 'imvu/screen.html?pg=3'); return false;">CSS Widgets</a>
-				<span style="font-size:0.9em;"><i>(<a href="imvu/index.html" target="_blank" onclick="winOpenPct('IMVU_screens', 0.8, 'imvu/index.html'); return false;">IMVU screens</a>)</i></span>, <b><a href="" onClick="jt_bgGame.start();return false;" id="gamingBGLink">gaming background</a></b>
-			</li>
-			<li><b><a href="tides/index.html" target="_blank" onclick="myPersonal.show('tides/index.html'); return false;">cookies</a></b>,
-				<b><a href="http://www.marinloans.com/prequalify.html" target="_blank" onclick="myPersonal.show('http://www.marinloans.com/loaninfo_private.html'); return false;">form validation</a></b>, frames / iframes</li>
-			<li>site design, branding ("skins"), SEO (search engine optimization)</li>
-		</ul>
-
-		<div style="float:right; margin:5px 0 5px 10px; text-align: right; font-size:smaller; font-weight: bold;">
-			<a href="sketchup/index.html" target="_self" title="3D CAD, Google SketchUp" class="imgLnk">
-			<img src="images/hanalei_pier.jpg" width="160" height="115" style="margin:5px 0 5px 0;" /><br />
-			3D CAD, Google SketchUp</a><br />
-			<a href="sketchup/index.html#google_earth" target="_self">geo-modeling</a>
-		</div>
-
-		<div id="portfolioBox">
-			<i><b><a href="portfolio.html" target="_self" onclick="myPersonal.show('portfolio.html'); return false;" class="cleanBlue">Sample work</a></b>
-			<a href="portfolio.html" target="_self" onclick="myPersonal.show('portfolio.html'); return false;" class="cleanBlue">(Portfolio)</a></i>
-		</div>
-
-		<ul class="listOf">
-			<li><a href="http://www.alistapart.com/articles/responsive-web-design/" target="_blank">Responsive Web Design</a> <i>(A List Apart)</i></li>
+		<ul>
+			<li><a href="http://www.alistapart.com/articles/responsive-web-design/" target="_blank">Responsive Web Design</a></li>
+			<li><b><a href="http://jquery.com/" target="_blank">jQuery</a></b>, <b><a href="http://jquerymobile.com/" target="_blank">jQuery Mobile</a></b> and other JavaScript frameworks</li>
 			<li><b><a href="http://www.php.net/" target="_blank">PHP</a></b></li>
 			<li><b><a href="http://java.sun.com/products/jsp/overview.html" target="_blank">JSP</a></b> (JavaServer Pages), Java classes and
 				<b><a href="http://java.sun.com/products/servlet/overview.html" target="_blank">servlets</a></b>,
 				<b><a href="http://java.sun.com/products/jsp/jstl/index.jsp" target="_blank">JSTL</a></b>
 				and <a href="http://java.sun.com/developer/technicalArticles/xml/WebAppDev3/" target="_blank">custom tags</a></li>
+			<li>XML parsing in <a href="http://java.sun.com/j2se/1.5.0/docs/api/javax/xml/parsers/DocumentBuilderFactory.html" target="_blank">Java</a>, <a href="http://java.sun.com/products/jsp/jstl/1.1/docs/tlddocs/x/tld-summary.html" target="_blank">JSTL</a>, <a href="http://us3.php.net/dom">PHP-5</a></li>
+			<li>version control: <b><a href="http://git-scm.com/" target="_blank">git</a></b> (<a href="http://code.google.com/p/tortoisegit/" target="_blank">TortoiseGit</a>), <b><a href="http://subversion.apache.org/" target="_blank">Subversion</a></b>, <b><a href="http://www.perforce.com/products/perforce" target="_blank">Perforce</a></b>, <b><a href="http://www.nongnu.org/cvs/" target="_blank">CVS</a></b></li>
 			<li><a href="http://www.manning.com/husted/" target="_blank">Struts/Tiles</a>, <a href="http://www.springframework.org/" target="_blank">Spring</a></li>
 			<li><b><a href="http://tomcat.apache.org/" target="_blank">Tomcat</a></b>,
 				<b><a href="http://www.caucho.com/" target="_blank">Resin</a></b> and
 				<b><a href="http://www.oracle.com/us/products/middleware/application-server/index.htm" target="_blank">WebLogic</a></b> servers</li>
-			<li>XML parsing in <a href="http://java.sun.com/j2se/1.5.0/docs/api/javax/xml/parsers/DocumentBuilderFactory.html" target="_blank">Java</a>, <a href="http://java.sun.com/products/jsp/jstl/1.1/docs/tlddocs/x/tld-summary.html" target="_blank">JSTL</a>, <a href="http://us3.php.net/dom">PHP-5</a></li>
-			<li>Database connectivity via <b><a href="http://java.sun.com/products/jdbc/" target="_blank">JDBC</a></b> and
-			<b><a href="http://php.net/manual/en/function.mysql-connect.php" target="_blank">mysql_connect</a></b></li>
+			<li>Database connectivity via <b><a href="http://www.php.net/manual/en/book.mysqli.php" target="_blank">MySQL</a></b> and <b><a href="http://java.sun.com/products/jdbc/" target="_blank">JDBC</a></b></li>
+		</ul>
+
+		<h3>interests</h3>
+
+		<ul>
+			<li><b><a href="http://knockoutjs.com/" target="_blank">KnockoutJS</a></b>, <b><a href="http://angularjs.org/" target="_blank">AngularJS</a></b></li>
+			<li><b><a href="http://nodejs.org/" target="_blank">Node.js</a></b></li>
 		</ul>
 
 	</div>
-
+	<div style="clear: both;"></div>
 </div>
 
-<p style="clear:both; text-align: right; margin: 0 40px;"><a href="services.html" target="_top" title="Web site by wingo.com"><img src="images/wsb.gif" width="111" height="40"></a></p>
+<p style="clear:both; text-align: right; padding: 20px 40px;"><a href="services.html" target="_top" title="Web site by wingo.com"><img src="images/wsb.gif" width="111" height="40"></a></p>
 
-<br>
+
+<!--[if lte IE 8]>
+<p class="ieUpgrade"><a href="http://windows.microsoft.com/en-US/internet-explorer/products/ie/home" title="upgrade to IE9" target="_blank">Please upgrade your browser to IE9!</a></p>
+<![endif]-->
+
 
 
 

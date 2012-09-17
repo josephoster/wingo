@@ -39,7 +39,6 @@ DIV.dashBox {
 }
 
 @media screen and (max-width: 640px) {
-
 	.leftCol {
 		float: none;
 		width:98%;
@@ -49,7 +48,6 @@ DIV.dashBox {
 		width:100%;
 		margin-right:none;
 	}
-
 }
 
 .floatLogo {
@@ -79,6 +77,7 @@ DIV.dashBox {
 	padding:4px 0 4px 2px;
 }
 #fbPrivacy {
+	position: absolute;
 	width:14em;
 }
 </style>
@@ -119,20 +118,23 @@ document.createElement('footer');
 	<a href="homepage.html" title="Home" target="_self"><span>Home</span></a>
 </div>
 
-<div id="pageNavTop">
-	<div class="navWingo">
-		<ul>
-			<li><a href="resume.html" target="_self"><span>professional resume</span></a></li>
-			<li><a href="portfolio.html" target="_self"><span>portfolio</span></a></li>
-			<li><a href="services.html" target="_self"><span>services</span></a></li>
-			<li><a href="sketchup/index.html" target="_self"><span>3D CAD</span></a></li>
-			<li><a href="resume_sailing.html" target="_self"><span>sailing resume</span></a></li>
-			<li><a href="homepage.html" target="_self"><span>home</span></a></li>
-		</ul>
-	</div>
-</div>
+<div class="pageWrap">
 
-<h1 class="wingoHeading">Recommended Links!</h1>
+	<div id="pageNavTop">
+		<div class="navWingo">
+			<ul>
+				<li><a href="resume.html" target="_self"><span>professional resume</span></a></li>
+				<li><a href="portfolio.html" target="_self"><span>portfolio</span></a></li>
+				<li><a href="services.html" target="_self"><span>services</span></a></li>
+				<li><a href="sketchup/index.html" target="_self"><span>3D CAD</span></a></li>
+				<li><a href="resume_sailing.html" target="_self"><span>sailing resume</span></a></li>
+				<li><a href="homepage.html" target="_self"><span>home</span></a></li>
+			</ul>
+		</div>
+	</div>
+
+	<h1 class="wingoHeading">Recommended Links!</h1>
+</div>
 
 <div class="leftCol dotItems">
 
@@ -348,9 +350,8 @@ document.createElement('footer');
 
 <p class="fs2" style="clear: both; text-align: center;"><a href="proa/links.html" target="_self">proa links</a></p>
 
-<script type="text/javascript">document.writeln(document.getElementById("pageNavTop").innerHTML);</script>
-
 <footer class="pageWrap">
+	<script type="text/javascript">document.writeln(document.getElementById("pageNavTop").innerHTML);</script>
 	<div class='hLine'></div>
 
 	<table cellspacing="0" cellpadding="0" border="0" style="width:100%; margin-top: 5px;">
@@ -379,7 +380,7 @@ contentLoaded(window,
 </script>
 
 <!--[if lte IE 8]>
-<p style="text-align:center;"><i>Please <a href="http://windows.microsoft.com/en-US/internet-explorer/products/ie/home" title="upgrade to IE9" target="_blank">upgrade your browser to IE9</a>!</i></p>
+<p class="ieUpgrade"><a href="http://windows.microsoft.com/en-US/internet-explorer/products/ie/home" title="upgrade to IE9" target="_blank">Please upgrade your browser to IE9!</a></p>
 <![endif]-->
 
 <p>&nbsp;

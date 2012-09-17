@@ -19,21 +19,19 @@ BODY.wingo {
 }
 
 .leftCol {
-	width:70%;
+	width:69%;
 	float:left;
 }
 .rightCol {
-	width:30%;
-	float:left;
+	width:28%;
+	float:right;
 }
 @media screen and (max-width: 800px) {
-
 	.leftCol,
 	.rightCol {
 		width:100%;
 		float: none;
 	}
-
 }
 
 DIV.tLine {
@@ -51,6 +49,16 @@ DIV.tLine {
 .box_RB {
 	background: #CCFFFF;
 	margin:3px 25px;
+}
+
+DIV.iconLinks {
+	padding:10px 0 10px 16px;
+}
+DIV.iconLinks P {
+	text-indent:-25px;
+	font-size:0.8em;
+	padding:2px 0 2px 25px;
+	margin:0;
 }
 </style>
 
@@ -87,6 +95,7 @@ document.createElement('footer');
 	width:1200px;
 }
 #fbPrivacy {
+	position: absolute;
 	width:14em;
 }
 </style>
@@ -107,21 +116,24 @@ document.createElement('footer');
 	<a href="homepage.html" title="Home" target="_self"><span>Home</span></a>
 </div>
 
-<div id="pageNavTop">
-	<div class="navWingo">
-		<ul>
-			<li><a href="resume.html" target="_self"><span>professional resume</span></a></li>
-			<li class="current"><a href="portfolio.html" target="_self"><span>portfolio</span></a></li>
-			<li><a href="services.html" target="_self"><span>services</span></a></li>
-			<li><a href="sketchup/index.html" target="_self"><span>3D CAD</span></a></li>
-			<li><a href="resume_sailing.html" target="_self"><span>sailing resume</span></a></li>
-			<li><a href="proa/about/index.html"><span>proa project</span></a></li>
-			<li><a href="homepage.html"><span>home</span></a></li>
-		</ul>
-	</div>
-</div>
+<div class="pageWrap">
 
-<h1 class="wingoHeading2">Portfolio</h1>
+	<div id="pageNavTop">
+		<div class="navWingo">
+			<ul>
+				<li><a href="resume.html" target="_self"><span>professional resume</span></a></li>
+				<li class="current"><a href="portfolio.html" target="_self"><span>portfolio</span></a></li>
+				<li><a href="services.html" target="_self"><span>services</span></a></li>
+				<li><a href="sketchup/index.html" target="_self"><span>3D CAD</span></a></li>
+				<li><a href="resume_sailing.html" target="_self"><span>sailing resume</span></a></li>
+				<li><a href="proa/about/index.html"><span>proa project</span></a></li>
+				<li><a href="homepage.html"><span>home</span></a></li>
+			</ul>
+		</div>
+	</div>
+
+	<h1 class="wingoHeading2">Portfolio</h1>
+</div>
 
 <div class="leftCol">
 	<div class="iconLinks">
@@ -301,7 +313,7 @@ document.createElement('footer');
 </div>
 
 <div class="rightCol">
-	<div style="padding:10px 16px;">
+	<div style="padding:10px 16px 10px 0;">
 
 		<font size="+2"><span class="timesRom"><i>former clients:</i></span></font>
 		<div class="tLine"></div>
@@ -409,12 +421,12 @@ document.createElement('footer');
 
 <p class="fs2" style="clear:both; text-align:center;"><a href="links.html" target="_self">recommended links</a></p>
 
-<footer id="footer">
+<footer id="footer" class="pageWrap">
 
 	<script type="text/javascript">document.writeln(document.getElementById("pageNavTop").innerHTML);</script>
-	<div class='hLine pageWrap'></div>
+	<div class='hLine'></div>
 
-	<table border="0" cellspacing="0" cellpadding="0" style="margin-top: 5px;" class="pageWrap">
+	<table border="0" cellspacing="0" cellpadding="0" style="margin-top: 5px;">
 	<tr>
 		<td><a href="weather/index.html" target="_self"><img src="images/weather4.gif" alt="Weather Links" width="44" height="57" border="0" class="ifWide"></a><br></td>
 		<td class="fs3"><b><a href="weather/index.html" target="_self" class="cleanBlue">Weather!</a></b></td>
@@ -427,6 +439,10 @@ document.createElement('footer');
 	<p>&nbsp;</p>
 	<a href="opinion/facebook_privacy.html" id="fbPrivacy">Facebook Privacy Warning</a>
 </footer>
+
+<!--[if lte IE 8]>
+<p class="ieUpgrade"><a href="http://windows.microsoft.com/en-US/internet-explorer/products/ie/home" title="upgrade to IE9" target="_blank">Please upgrade your browser to IE9!</a></p>
+<![endif]-->
 
 <script type="text/javascript">
 topLink();

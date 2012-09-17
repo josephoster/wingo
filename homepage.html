@@ -22,6 +22,12 @@ BODY {background:#e8e8e8;}
 	max-width:1200px;
 	padding-top:10px;
 }
+
+DIV.hLinePad {
+	clear: both;
+	border-bottom: 1px solid #d3d3d3;
+	margin: 0 0 10px 0;
+}
  
 .webDev {
 	clear:both;
@@ -99,6 +105,7 @@ document.createElement('footer');
 	width:1200px;
 }
 #fbPrivacy {
+	position: absolute;
 	width:14em;
 }
 </style>
@@ -119,9 +126,26 @@ document.createElement('footer');
 	<a href="homepage.html" title="Home" target="_self" class="picked"><span>Home</span></a>
 </div>
 
-<div class="wrapMaxW">
+<div class="pageWrap">
+
+	<div class="navWingo">
+		<ul>
+			<li><a href="resume.html" target="_self"><span>professional resume</span></a></li>
+			<li><a href="portfolio.html" target="_self"><span>portfolio</span></a></li>
+			<li><a href="services.html" target="_self"><span>services</span></a></li>
+			<li><a href="sketchup/index.html" target="_self"><span>3D CAD</span></a></li>
+			<li><a href="resume_sailing.html" target="_self"><span>sailing resume</span></a></li>
+			<li><a href="proa/about/index.html"><span>proa project</span></a></li>
+			<li class="current"><a href="homepage.html" target="_self"><span>home</span></a></li>
+		</ul>
+	</div>
+	<div class='hLinePad'></div>
 
 	<h2 class="webDev"><a href="services.html" target="_self" class="wingoLC">web developer</a></h2>
+
+</div>
+
+<div class="wrapMaxW">
 
 	<div style="float:right; margin: 0 10px 0 0;">
 
