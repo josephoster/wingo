@@ -172,24 +172,9 @@ jt_ColorSine.prototype.color = function(timeElapsed) {
 /**
  * was 'move_box.js' - DHTML animation demo
  *
- * @version Aug 2007, created 16 Jan 2006
+ * @version Sep 2012, created 16 Jan 2006
  * @author	Joseph Oster, wingo.com
  */
-function parentClass(node, classNames, maxDepth) {
-	maxDepth = maxDepth ? maxDepth : 5;
-	var count = 0;
-	while ((node != null) && (count < maxDepth)) {
-		for (var i=0; i<classNames.length; i++) {
-			if (node.className == classNames[i]) {
-				return true;
-			}
-		}
-		node = node.parentNode;
-		count++;
-	}
-	return false;
-}
-
 var jt_demoMB = {
 	init: function() {
 		//jt_Trace.msg('jt_demoMB.init');
@@ -316,12 +301,33 @@ var jt_demoMB = {
 		jt_demoMB.anim.start(jt_demoMB.moveDone);
 	},
 	moveBox: function(ev) {
+
+			function okToClick() {
+				// ignore clicks on links, input tags, scrollbar, wingo navigation
+				var classNames = ["navWingo", "taMenu", "jt_closeX", "noClick"];
+				var count = 0;
+				while ((node != null) && (count < 5)) {
+					if ( (node.nodeName == "A") || (node.nodeName == "INPUT") ) {
+						return false;
+					}
+					for (var i=0; i<classNames.length; i++) {
+						if (node.className == classNames[i]) {
+							return false;
+						}
+					}
+					node = node.parentNode;
+					count++;
+				}
+				return true;
+			}
+
 		var e = jt_.fixE(ev);
 		var node = e.target ? e.target : e.srcElement;
 		if (node.id == "jt_demoMBidDisable") jt_demoMB.hide();
 		else if (node.id == "jt_demoMBidClick") jt_demoMB.show();
-		else // ignore clicks on scrollbar and wingo navigation
-			if (jt_demoMB.okToShow && (e.clientX < document.body.clientWidth) && (node.nodeName != "A") && (node.nodeName != "INPUT") && !parentClass(node, ["navWingo", "taMenu", "jt_closeX", "noClick"])) jt_demoMB.moveTo(e.clientX, e.clientY);
+		else if ( jt_demoMB.okToShow && (e.clientX < document.body.clientWidth) && okToClick() ) {
+			jt_demoMB.moveTo(e.clientX, e.clientY);
+		}
 	}
 }
 
