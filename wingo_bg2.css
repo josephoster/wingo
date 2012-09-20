@@ -108,7 +108,7 @@ DIV.navWingo SPAN {
 	display: block;
 	padding: 2px 8px 1px 8px;
 	color: #191970;
-	font-size: 9pt;
+	font-size: 0.8em;
 	white-space: nowrap;
 }
 
@@ -149,12 +149,36 @@ footer, #footer {
 	clear: both;
 }
 
+.leftCol {
+	width:69%;
+	float:left;
+	padding:10px 0;
+	overflow: hidden;
+}
+.rightCol {
+	width:28%;
+	float:right;
+	padding:10px 0;
+	overflow: hidden;
+}
+@media screen and (max-width: 800px) {
+	.leftCol {
+		width:100%;
+		float: none;
+	}
+	.rightCol {
+		width:100%;
+		float: none;
+		margin-top:20px;
+	}
+}
+
 #fbPrivacy {
 	display:block;
 	position:fixed;
 	right:5px;
 	bottom:5px;
-	font-family:'Lucida Grande',Tahoma,Verdana,Arial,sans-serif;
+	font-family: Lucida Sans Unicode, Lucida Grande, sans-serif;
 	font-weight:bold;
 	font-size:13px;
 	padding:2px 6px;
@@ -216,6 +240,7 @@ TABLE.dashBox {
 	background-color : #FFFFFF;
 }
 DIV.dashBox {
+	clear: both;
 	border-top: dashed 1px #dddddd;
 	border-bottom: dashed 1px #dddddd;
 	background-color : #FFFFFF;
@@ -223,6 +248,7 @@ DIV.dashBox {
 	padding : 2px 0;
 	font-style : italic;
 	font-weight : bold;
+	margin-bottom: 5px;
 }
 
 .timesRom {font-family : Times New Roman,serif; }
@@ -274,23 +300,29 @@ DIV.hLinePad {
 	margin: 10px 0px;
 }
 
-DIV.dotItems {padding: 0px;}
-DIV.dotItems DIV {
+.hiLoList {
+	padding: 0;
+	margin: 5px 0 10px 0;
+	list-style: none;
+}
+.hiLoList li {
 	clear:left;
 	padding: 1px 1px 1px 22px;
 	text-indent: -22px;
 	font-size: 0.85em;
 }
-
-DIV.dotItems A.ballFlash {
+.hiLoList A.hiFlash {
 	padding-left: 22px;
 	background: url(images/icon_link_lo.gif) no-repeat left top;
 	background-position: 0px 1px;
-	font-size: medium;
-	font-weight : bold;
+	font-size: 1.4em;
 }
-
-DIV.dotItems A.ballFlash:hover {background: url(images/icon_link_hi.gif) no-repeat left top;}
+.hiLoList A.hiFlash:hover {background: url(images/icon_link_hi.gif) no-repeat left top;}
+.hiLoList A.hiFlash img {
+	float:left;
+	margin:0 27px 4px -22px;
+	vertical-align: top;
+}
 
 A.iLink,
 A.iLinkSm {
