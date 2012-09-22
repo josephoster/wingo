@@ -87,7 +87,6 @@ H1.wingoHeading2 {
 
 DIV.navWingo {
 	margin-top: 2px;
-	border-collapse: collapse;
 }
 
 DIV.navWingo UL {
@@ -161,15 +160,11 @@ footer, #footer {
 	padding:10px 0;
 	overflow: hidden;
 }
-@media screen and (max-width: 800px) {
-	.leftCol {
-		width:100%;
-		float: none;
-	}
+@media screen and (max-width: 640px) {
+	.leftCol,
 	.rightCol {
 		width:100%;
 		float: none;
-		margin-top:20px;
 	}
 }
 
@@ -234,11 +229,6 @@ INPUT, TEXT, TEXTAREA, SELECT {color: #2b2b2b;}
 	z-index:-1;
 }
  
-TABLE.dashBox {
-	border-top: dashed 1px #dddddd;
-	border-bottom: dashed 1px #dddddd;
-	background-color : #FFFFFF;
-}
 DIV.dashBox {
 	clear: both;
 	border-top: dashed 1px #dddddd;
@@ -283,16 +273,11 @@ A.wingoLC:hover {
 	clear:both;
 }
 
-/* vertical space used throughout the site */
-DIV.vSpace {
-	margin-bottom: 10px;
-	margin-top: 10px;
-}
-
 /* horizontal lines */
 DIV.hLine {
 	clear: both;
 	border-bottom: 1px solid #778899;
+	background: yellow;
 }
 DIV.hLinePad {
 	clear: both;
@@ -324,20 +309,6 @@ DIV.hLinePad {
 	vertical-align: top;
 }
 
-A.iLink,
-A.iLinkSm {
-	background: url(images/icon_link_lo.gif) no-repeat left 2px;
-	padding-left:25px;
-	font-size:1.5em;
-}
-A.iLink:hover,
-A.iLinkSm:hover {
-	background-image: url(images/icon_link_hi.gif);
-}
-A.iLinkSm {
-	font-size:1.4em;
-}
-
 .myBox {
 	display:none;
 	position:absolute;
@@ -362,6 +333,13 @@ A.iLinkSm {
 	padding:2px 5px;
 	background:#ffffcc;
 	border: 1px solid #d3d3d3;
+}
+
+.ieUpgrade a:hover {
+	background: #ff3300;
+	color:white;
+	border: 1px solid yellow;
+	text-decoration: none;
 }
 
 @media screen and (max-width: 800px) {

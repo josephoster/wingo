@@ -25,21 +25,13 @@ function popZMT() {
 <script src="jt_/jt2_.js" type="text/javascript"></script>
 <script src="incl/wingo2.js" type="text/javascript"></script>
 
-<link rel="Stylesheet" type="text/css" href="wingo_bg2.css">
+<link rel="Stylesheet" type="text/css" href="wingo_site.css">
 
 <style type="text/css">
-.pageWrap {
-	max-width:1280px;
-	margin:auto;
-}
-@media screen and (max-width: 1360px) {
+@media screen and (min-width: 1360px) {
 	.pageWrap {
-		margin:0 40px;
-	}
-}
-@media screen and (max-width: 800px) {
-	.pageWrap {
-		margin: 0 10px;
+		max-width:1280px;
+		margin:auto;
 	}
 }
 
@@ -224,6 +216,11 @@ document.createElement('hgroup');
 </script>
 
 <style type="text/css">
+.pageWrap {
+	max-width:1280px;
+	margin:auto;
+}
+
 .webSkills {
 	border-top:1px solid #778899;
 	border-bottom:1px solid #778899;
@@ -234,7 +231,8 @@ document.createElement('hgroup');
 <!--[if lte IE 6]>
 <style type="text/css">
 .pageWrap {
-	width:1280px;
+	width:1024px;
+	margin:0 10px;
 }
 </style>
 <![endif]-->

@@ -12,51 +12,12 @@
 <script src="jt_/jt2_.js" type="text/javascript"></script>
 <script src="incl/wingo2.js" type="text/javascript"></script>
 
-<link rel="Stylesheet" type="text/css" href="wingo_bg2.css">
+<link rel="Stylesheet" type="text/css" href="wingo_site.css">
 <link rel="Stylesheet" type="text/css" href="incl/services.css">
 
 <style type="text/css">
 BODY {background:#e8e8e8;}
-
-.wrapMaxW {
-	max-width:980px;
-	margin:10px auto;
-}
-
-UL.listOf {
-	clear:left;
-	margin-top:0px;
-	margin-bottom:0px;
-	font-size:0.8em;
-}
-
-.mainContent {
-	width:77%;
-	float:left;
-	margin-right:10px;
-}
-
-.leftCol {
-	width:29%;
-	float:left;
-}
-.rightCol {
-	width:71%;
-	float:left;
-}
-
-.subLeft,
-.subRight {
-	float:left;
-	text-align: right;
-	margin-bottom: 10px;
-	width:100%;
-}
-.subRight img {
-	margin-left:20px;
-}
-
-@media screen and (max-width: 1000px) {
+@media screen and (max-width: 1024px) {
 
 	BODY.wingo {
 		background-image:none;
@@ -65,24 +26,56 @@ UL.listOf {
 	BODY.wingo #wingoMenu {
 		display:none;
 	}
+
+}
+
+.pageWrap {
+	margin: 0 10px;
+}
+@media screen and (min-width: 1142px) { /* 1024 + 98 + 20 */
+	.pageWrap {
+		max-width:1024px;
+		margin:auto;
+	}
+}
+
+.leftCol {
+	width:26%;
+	text-align: right;
+}
+.rightCol {
+	width:72%;
+}
+
+UL.listOf {
+	clear:left;
+	margin:0;
+	padding:0 0 0 25px;
+	font-size:0.8em;
+}
+
+.mainContent {
+	width:77%;
+	float:left;
+}
+
+.my_name {
+	float:right;
+	text-align: right;
+}
+.my_photo {
+	float:right;
+	margin-left:20px;
 }
 
 @media screen and (max-width: 900px) {
-
 	.leftCol {
-		width:auto;
-		float:right;
-		margin-right: 10px;		
+		width:100%;
+		float: none;
 	}
 	.rightCol {
 		width:100%;
 		float: none;
-	}
-	.subLeft {
-		width:auto;
-	}
-	.subRight {
-		width:auto;
 	}
 	UL.listOf {
 		clear: both;
@@ -140,10 +133,21 @@ A.imgLnk:hover {
 
 <!--[if lte IE 8]>
 <style type="text/css">
+.leftCol,
+.rightCol {
+	overflow: visible;
+}
+
 .webSkills {
 	border-top:1px solid #778899;
 	border-bottom:1px solid #778899;
 }
+
+.pageWrap {
+	max-width:1024px;
+	margin:auto;
+}
+
 </style>
 <![endif]-->
 
@@ -155,12 +159,10 @@ A.imgLnk:hover {
 .wingoBay {
 	display:none;
 }
-.wrapMaxW {
-	width:980px;
-}
-#fbPrivacy {
-	position: absolute;
-	width:14em;
+
+.pageWrap {
+	width:1024px;
+	margin:0 10px;
 }
 </style>
 <![endif]-->
@@ -196,19 +198,16 @@ A.imgLnk:hover {
 
 	<h1 class="wingoHeading2"><a href="resume.html" target="_self" class="wingoLC">web application programmer</a></h1>
 
-</div>
-
-<div class="wrapMaxW">
+	<div style="text-align:center;margin:5px 0; font-family: Verdana;" class="fs-1">DHTML and AJAX enhance the User Experience...</div>
 
 	<div class="mainContent">
 
-		<div style="text-align:center; margin-bottom:10px;font-family: Verdana;" class="fs-1">DHTML and AJAX enhance the User Experience...</div>
-
 		<div class="leftCol">
 
-			<div class="subLeft">
+			<a href="resume.html" target="_self" title="Resume" class="my_photo"><img src="images/profile_joseph_4.jpg" width="108" height="166"></a>
+
+			<div class="my_name">
 				<b><span class="fs2">Joseph Oster</span></b><br>
-				web application programmer<br>
 				<i><b><a href="resume.html" target="_self" onClick="myPersonal.show('resume.html');return false;">Resume</a></b></i> -
 				<i><b><a href="portfolio.html" target="_self" onClick="myPersonal.show('portfolio.html');return false;">Portfolio</a></b></i><br>
 				<span class=fs-1>
@@ -217,17 +216,13 @@ A.imgLnk:hover {
 				Kauai, HI<br></span>
 			</div>
 
-			<div class="subRight">
-				<a href="resume.html" target="_self" title="Resume"><img src="images/profile_joseph_4.jpg" width="108" height="166"></a>
-			</div>
-
 		</div>
 
 		<div class="rightCol">
 
 			<div class="taMenu" id="tabBar">
 		
-				<div style="position:absolute; font-size:smaller;"><a href="" onClick="boxShow();showView('tabViews', this);return false;" id="tabViewsLink">tabs</a></div>
+				<div style="float:left;" class="fs-1"><a href="" onClick="boxShow();showView('tabViews', this);return false;" id="tabViewsLink">tabs</a></div>
 
 				<ul>
 					<li><a href="" onClick="boxShow();showView('progressbar', this);return false;" id="progressbarLink"><span>progress bar</span></a></li>
@@ -302,7 +297,6 @@ A.imgLnk:hover {
 		</ul>
 
 	</div>
-	<div style="clear: both;"></div>
 </div>
 
 <p style="clear:both; text-align: right; padding: 20px 40px;"><a href="services.html" target="_top" title="Web site by wingo.com"><img src="images/wsb.gif" width="111" height="40"></a></p>
@@ -587,7 +581,6 @@ google.load("maps", "2");
 </script>
 
 <p>&nbsp;</p>
-<a href="opinion/facebook_privacy.html" id="fbPrivacy">Facebook Privacy Warning</a>
 
 </body>
 </html>

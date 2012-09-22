@@ -162,8 +162,8 @@ var menuPos;
 
 function panelsAlign() {
 
-	function alignPanel(panelDIV, alignLNK, TlTrBlBr, xOffset, yOffset) {
-		jt_.alignCorner(panelDIV, alignLNK, TlTrBlBr, xOffset, yOffset);
+	function alignPanel(panelDIV, alignLNK, TlTrBlBr, yOffset) {
+		jt_.alignCorner(panelDIV, alignLNK, TlTrBlBr, xFine, yOffset+yFine);
 		panelDIV.animB.setStyle(TlTrBlBr);
 		panelDIV.animB.getBoxPos();
 		//jt_.Trace.msg("alignPanelMode=" + alignPanelMode + ", panelDIV=" + panelDIV.id);
@@ -175,26 +175,28 @@ function panelsAlign() {
 		panelDIV.animB.getBoxPos();
 	}
 
+	var xFine = -1;
+	var yFine = (jt_.isIE && (BrowserDetect.version > 8) ) ? -2 : -1;
 	if (alignPanelMode == 0) {
-		alignPanel(tabViewsPanelDIV, tabBarDIV, "TL", 0, jt_.height(tabBarDIV)-1);
-		alignPanel(myclPanelDIV, myclPanelLNK, "TL", 0, jt_.height(myclPanelLNK)-1);
-		alignPanel(gmapsPanelDIV, gmapsPanelLNK, "TR", 0, jt_.height(gmapsPanelLNK)-1);
-		alignPanel(sliderPanelDIV, sliderPanelLNK, "TR", 0, jt_.height(sliderPanelLNK)-1);
-		alignPanel(progressbarPanelDIV, progressbarPanelLNK, "TR", 0, jt_.height(progressbarPanelLNK)-1);
+		alignPanel(tabViewsPanelDIV, tabBarDIV, "TL", jt_.height(tabBarDIV));
+		alignPanel(myclPanelDIV, myclPanelLNK, "TL", jt_.height(myclPanelLNK));
+		alignPanel(gmapsPanelDIV, gmapsPanelLNK, "TR", jt_.height(gmapsPanelLNK));
+		alignPanel(sliderPanelDIV, sliderPanelLNK, "TR", jt_.height(sliderPanelLNK));
+		alignPanel(progressbarPanelDIV, progressbarPanelLNK, "TR", jt_.height(progressbarPanelLNK));
 	}
 	else if (alignPanelMode == 1) {
-		alignPanel(tabViewsPanelDIV, tabBarDIV, "TL", 0, jt_.height(tabBarDIV)-1);
-		alignPanel(myclPanelDIV, tabBarDIV, "TL", 0, jt_.height(tabBarDIV)-1);
-		alignPanel(gmapsPanelDIV, tabBarDIV, "TL", 0, jt_.height(tabBarDIV)-1);
-		alignPanel(sliderPanelDIV, tabBarDIV, "TL", 0, jt_.height(tabBarDIV)-1);
-		alignPanel(progressbarPanelDIV, tabBarDIV, "TL", 0, jt_.height(tabBarDIV)-1);
+		alignPanel(tabViewsPanelDIV, tabBarDIV, "TL", jt_.height(tabBarDIV));
+		alignPanel(myclPanelDIV, tabBarDIV, "TL", jt_.height(tabBarDIV));
+		alignPanel(gmapsPanelDIV, tabBarDIV, "TL", jt_.height(tabBarDIV));
+		alignPanel(sliderPanelDIV, tabBarDIV, "TL", jt_.height(tabBarDIV));
+		alignPanel(progressbarPanelDIV, tabBarDIV, "TL", jt_.height(tabBarDIV));
 	}
 	else if (alignPanelMode == 2) {
-		alignPanel(tabViewsPanelDIV, progressbarPanelLNK, "TR", 0, jt_.height(progressbarPanelLNK)-1);
-		alignPanel(myclPanelDIV, progressbarPanelLNK, "TR", 0, jt_.height(progressbarPanelLNK)-1);
-		alignPanel(gmapsPanelDIV, progressbarPanelLNK, "TR", 0, jt_.height(progressbarPanelLNK)-1);
-		alignPanel(sliderPanelDIV, progressbarPanelLNK, "TR", 0, jt_.height(progressbarPanelLNK)-1);
-		alignPanel(progressbarPanelDIV, progressbarPanelLNK, "TR", 0, jt_.height(progressbarPanelLNK)-1);
+		alignPanel(tabViewsPanelDIV, progressbarPanelLNK, "TR", jt_.height(progressbarPanelLNK));
+		alignPanel(myclPanelDIV, progressbarPanelLNK, "TR", jt_.height(progressbarPanelLNK));
+		alignPanel(gmapsPanelDIV, progressbarPanelLNK, "TR", jt_.height(progressbarPanelLNK));
+		alignPanel(sliderPanelDIV, progressbarPanelLNK, "TR", jt_.height(progressbarPanelLNK));
+		alignPanel(progressbarPanelDIV, progressbarPanelLNK, "TR", jt_.height(progressbarPanelLNK));
 	}
 	else if (alignPanelMode == 3) {
 		menuPos = jt_.getOffsetXY(tabBarDIV);

@@ -11,20 +11,14 @@
 <script src="jt_/jt2_.js" type="text/javascript"></script>
 <script src="incl/wingo2.js" type="text/javascript"></script>
 
-<link rel="Stylesheet" type="text/css" href="wingo_bg2.css">
+<link rel="Stylesheet" type="text/css" href="wingo_site.css">
 
 <style type="text/css">
 BODY {background:#e8e8e8;}
 
 @media screen and (max-width: 640px) {
-	.leftCol {
-		float: none;
-		width:100%;
-	}
 	.rightCol {
-		float: none;
-		width:100%;
-		margin-right:none;
+		margin-top:20px;
 	}
 }
 
@@ -64,10 +58,6 @@ BODY {background:#e8e8e8;}
 	background-size: 100% 100%;
 	padding:4px 0 4px 2px;
 }
-#fbPrivacy {
-	position: absolute;
-	width:14em;
-}
 </style>
 <![endif]-->
 
@@ -75,6 +65,13 @@ BODY {background:#e8e8e8;}
 <script type="text/javascript">
 document.createElement('footer');
 </script>
+
+<style type="text/css">
+.leftCol,
+.rightCol {
+	overflow: visible;
+}
+</style>
 <![endif]-->
 
 <!--[if lte IE 6]>
@@ -85,8 +82,11 @@ document.createElement('footer');
 .wingoBay {
 	display:none;
 }
-.wrapMaxW {
-	width:1200px;
+
+#fbPrivacy {
+	position: relative;
+	width:14.5em;
+	float: right;
 }
 </style>
 <![endif]-->

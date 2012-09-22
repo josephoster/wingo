@@ -13,7 +13,7 @@
 <script src="jt_/jt2_.js" type="text/javascript"></script>
 <script src="incl/wingo2.js" type="text/javascript"></script>
 
-<link rel="Stylesheet" type="text/css" href="wingo_bg2.css">
+<link rel="Stylesheet" type="text/css" href="wingo_site.css">
 <style type="text/css">
 BODY.wingo {
 	background-color: #FFFFFF;
@@ -42,11 +42,27 @@ DIV.tLine {
 	margin:3px 25px;
 }
 
+A.iLink,
+A.iLinkSm {
+	background: url(images/icon_link_lo.gif) no-repeat left 2px;
+	padding-left:25px;
+	font-size:1.5em;
+}
+A.iLink:hover,
+A.iLinkSm:hover {
+	background-image: url(images/icon_link_hi.gif);
+}
+A.iLinkSm {
+	font-size:1.4em;
+}
+
 DIV.iconLinks P {
+	font-size:0.8em;
 	text-indent:-25px;
-	font-size:0.85em;
 	padding:2px 0 2px 25px;
 	margin:0;
+/*
+*/
 }
 </style>
 
@@ -69,6 +85,13 @@ DIV.iconLinks P {
 <script type="text/javascript">
 document.createElement('footer');
 </script>
+
+<style type="text/css">
+.leftCol,
+.rightCol {
+	overflow: visible;
+}
+</style>
 <![endif]-->
 
 <!--[if lte IE 6]>
@@ -78,13 +101,6 @@ document.createElement('footer');
 }
 .wingoBay {
 	display:none;
-}
-.wrapMaxW {
-	width:1200px;
-}
-#fbPrivacy {
-	position: absolute;
-	width:14em;
 }
 </style>
 <![endif]-->
@@ -427,7 +443,6 @@ document.createElement('footer');
 		</table>
 
 		<p>&nbsp;</p>
-		<a href="opinion/facebook_privacy.html" id="fbPrivacy">Facebook Privacy Warning</a>
 	</footer>
 
 </div>

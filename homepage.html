@@ -12,15 +12,20 @@
 <script src="jt_/jt2_.js" type="text/javascript"></script>
 <script src="incl/wingo2.js" type="text/javascript"></script>
 
-<link rel="Stylesheet" type="text/css" href="wingo_bg2.css">
+<link rel="Stylesheet" type="text/css" href="wingo_site.css">
 <link rel="Stylesheet" type="text/css" href="incl/services.css">
 
 <style type="text/css">
 BODY {background:#e8e8e8;}
 
-.wrapMaxW {
-	max-width:1200px;
-	padding-top:10px;
+.pageWrap {
+	margin: 0 10px;
+}
+@media screen and (min-width: 1142px) { /* 1024 + 98 + 20 */
+	.pageWrap {
+		max-width:1024px;
+		margin:auto;
+	}
 }
 
 DIV.hLinePad {
@@ -91,6 +96,13 @@ DIV.hLinePad {
 <script type="text/javascript">
 document.createElement('footer');
 </script>
+
+<style type="text/css">
+.pageWrap {
+	max-width:1024px;
+	margin:auto;
+}
+</style>
 <![endif]-->
 
 <!--[if lte IE 6]>
@@ -101,12 +113,20 @@ document.createElement('footer');
 .wingoBay {
 	display:none;
 }
-.wrapMaxW {
-	width:1200px;
+
+.pageWrap {
+	width:1024px;
+	margin:0 10px;
 }
+
+#qWrap {
+	width:620px;
+}
+
 #fbPrivacy {
-	position: absolute;
-	width:14em;
+	position: relative;
+	width:14.5em;
+	float: right;
 }
 </style>
 <![endif]-->
@@ -143,11 +163,7 @@ document.createElement('footer');
 
 	<h2 class="webDev"><a href="services.html" target="_self" class="wingoLC">web developer</a></h2>
 
-</div>
-
-<div class="wrapMaxW">
-
-	<div style="float:right; margin: 0 10px 0 0;">
+	<div style="float:right;">
 
 		<div style="float:right; margin-left:10px;">
 			<a href="resume_sailing.html" target="_self"><img src="images/joseph_sailing2.jpg" alt="" width="300" height="120"></a><br>
@@ -356,6 +372,104 @@ document.createElement('footer');
 <script type="text/javascript">
 function proaWin() {
 	var popWin = window.open("proa/v2/animate.html","animateProa_win","height=240,width=600,resizable=yes,scrollbars=yes");
+}
+
+var jt_AltVu = {
+	okFade: true, // set 'false' at any time to disable, 'true' and 'start()' to resume
+	init: function(wrapID) {
+		jt_AltVu.qWrapDIV = document.getElementById(wrapID);
+		jt_AltVu.btnDIV = document.getElementById(wrapID + '_btns');
+		for (var i=0; i<jt_AltVu.qWrapDIV.childNodes.length; i++)
+			if ((jt_AltVu.qWrapDIV.childNodes[i].nodeName == "DIV") && (jt_AltVu.qWrapDIV.childNodes[i].className == "qVu")) {
+				jt_AltVu.list.push(jt_AltVu.qWrapDIV.childNodes[i]);
+			}
+
+		//if (BrowserDetect.browser != 'Explorer') {
+		jt_AltVu.animC = new jt_.AnimCalc(true, function() {
+			var opacity = jt_AltVu.animC.getVal('opacity');
+			jt_.setOpacity(jt_AltVu.inDIV, opacity);
+			jt_.setOpacity(jt_AltVu.outDIV, 100 - opacity);
+			}, {'numSteps':15, 'elapsed':750});
+		jt_AltVu.animC.setRange('opacity', 0, 100);
+		//}
+		jt_.addListener(jt_AltVu.qWrapDIV, "mouseover", function() {
+			clearTimeout(jt_AltVu.timer);
+			jt_AltVu.qWrapDIV.style.background = "#f8f8ff";
+			jt_.showNoneElm(jt_AltVu.btnDIV, true);
+			jt_AltVu.mOver = true;
+			});
+		jt_.addListener(jt_AltVu.qWrapDIV, "mouseout", function() {
+			jt_AltVu.qWrapDIV.style.background = "none";
+			jt_.showNoneElm(jt_AltVu.btnDIV);
+			jt_AltVu.mOver = false;
+			jt_AltVu.setDIVs();
+			jt_AltVu.start();
+			});
+
+		jt_AltVu.outDIV = jt_AltVu.list[jt_AltVu.list.length-1];
+		jt_AltVu.inDIV = jt_AltVu.list[0];
+		jt_.showNoneElm(jt_AltVu.inDIV, true);
+		jt_AltVu.animC.start(function() {
+			jt_AltVu.setDIVs();
+			jt_AltVu.start();
+		});
+	},
+	start: function() {
+		if (jt_AltVu.okFade) jt_AltVu.timer = setTimeout(jt_AltVu.fade, 3000);
+	},
+	/*** PRIVATE BELOW ***/
+	fade: function() {
+		clearTimeout(jt_AltVu.timer);
+		jt_.showNoneElm(jt_AltVu.inDIV, true);
+		if (jt_.FixIE6) {
+			jt_.showNoneElm(jt_AltVu.outDIV);
+			jt_AltVu.next();
+			jt_AltVu.start();
+		}
+		else {
+			jt_AltVu.animC.start(function() {
+				jt_.showNoneElm(jt_AltVu.outDIV);
+				jt_AltVu.next();
+				if (!jt_AltVu.mOver) jt_AltVu.start();
+			});
+		}
+	},
+	setHeight: function() {
+		jt_AltVu.qWrapDIV.style.height = jt_.valPx(jt_.height(jt_AltVu.list[jt_AltVu.idx]));
+	},
+	next: function() {
+		jt_AltVu.idx = jt_AltVu.idxNext();
+		jt_AltVu.setDIVs();
+	},
+	setDIVs: function() {
+		jt_AltVu.outDIV = jt_AltVu.list[jt_AltVu.idx];
+		jt_AltVu.inDIV = jt_AltVu.list[jt_AltVu.idxNext()];
+		jt_AltVu.setHeight();
+	},
+	btn_next: function() {
+		jt_AltVu.outDIV = jt_AltVu.list[jt_AltVu.idx];
+		jt_AltVu.idx = jt_AltVu.idxNext();
+		jt_AltVu.showDIV();
+	},
+	btn_prev: function() {
+		jt_AltVu.outDIV = jt_AltVu.list[jt_AltVu.idx];
+		jt_AltVu.idx = (jt_AltVu.idx == 0) ? jt_AltVu.list.length-1 : jt_AltVu.idx-1;
+		jt_AltVu.showDIV();
+	},
+	showDIV: function() {
+		for (var i=0; i<jt_AltVu.list.length; i++) {
+			jt_.showNoneElm(jt_AltVu.list[i], i==jt_AltVu.idx);
+		}
+		jt_AltVu.inDIV = jt_AltVu.list[jt_AltVu.idx];
+		jt_.setOpacity(jt_AltVu.inDIV, 100);
+		jt_AltVu.setHeight();
+		clearTimeout(jt_AltVu.timer);
+	},
+	timer: null,
+	mOver: false,
+	list: [],
+	idx:0,
+	idxNext: function() {return (jt_AltVu.idx + 1) % jt_AltVu.list.length;}
 }
 
 contentLoaded(window,
