@@ -39,6 +39,7 @@ DIV.hLinePad {
 	float:left;
 	margin: 0 0px 0px 20px;
 	font-size: 2em;
+	text-shadow: 1px 1px 1px #d3d3d3;
 	font-weight: normal;
 }
 
@@ -134,7 +135,7 @@ document.createElement('footer');
 </head>
 <body class="wingo">
 
-<div id="wingoMenu" class="noClick">
+<div id="wingoMenu">
 	<img src="images/wingobay.png" alt="" width="64" height="288" class="wingoBay">
 
 	<a href="services.html" title="Services" target="_self"><span>Services</span></a>
@@ -158,8 +159,8 @@ document.createElement('footer');
 			<li><a href="proa/about/index.html"><span>proa project</span></a></li>
 			<li class="current"><a href="homepage.html" target="_self"><span>home</span></a></li>
 		</ul>
+		<div class='hLinePad'></div>
 	</div>
-	<div class='hLinePad'></div>
 
 	<h2 class="webDev"><a href="services.html" target="_self" class="wingoLC">web developer</a></h2>
 
@@ -210,10 +211,10 @@ document.createElement('footer');
 		<table cellspacing="0" cellpadding="0" style="width: 100%;">
 		<tr>
 			<td style="width:1%;"><a href="weather/index.html" target="_self"><img src="images/weather4.gif" alt="Weather Links" width="44" height="57" class="ifWide"></a></td>
-			<td class="fs3"><b><a href="weather/index.html" target="_self" class="cleanBlue">Weather!</a></b></td>
+			<td class="fs3"><a href="weather/index.html" target="_self" class="cleanBlue">Weather!</a></td>
 
-			<td class="fs3" style="width:98%; text-align: center;"><b><a href="links.html" target="_self" class="cleanBlue">links</a></b></td>
-			<td class="fs3" style="text-align: right;"><b><a href="sailing/index.html" target="_self" class="cleanBlue">Sailing!</a></b></td>
+			<td class="fs3" style="width:98%; text-align: center;"><a href="links.html" target="_self" class="cleanBlue">links</a></td>
+			<td class="fs3" style="text-align: right;"><a href="sailing/index.html" target="_self" class="cleanBlue">Sailing!</a></td>
 			<td style="width:1%;"><a href="sailing/index.html" target="_self"><img src="images/sailboat.gif" alt="Sailing Links" width="37" height="57" class="ifWide"></a></td>
 		</tr>
 		</table>
@@ -472,13 +473,11 @@ var jt_AltVu = {
 	idxNext: function() {return (jt_AltVu.idx + 1) % jt_AltVu.list.length;}
 }
 
-contentLoaded(window,
-	function (e) {
-		menuWingo.init('Home');
-		jt_AltVu.init("qWrap");
-		jt_demoMB.init();
-	}
-);
+//contentLoaded(window, function (e) {
+	menuWingo.init();
+	jt_AltVu.init("qWrap");
+	jt_demoMB.init();
+//});
 </script>
 
 <a href="opinion/facebook_privacy.html" id="fbPrivacy">Facebook Privacy Warning</a>

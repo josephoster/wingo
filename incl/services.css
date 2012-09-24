@@ -1,3 +1,101 @@
+BODY {background:#e8e8e8;}
+@media screen and (max-width: 1024px) {
+	BODY.wingo {
+		background-image:none;
+		margin-left:0;
+	}
+	BODY.wingo #wingoMenu {
+		display:none;
+	}
+}
+
+.pageWrap {
+	margin: 0 10px;
+}
+@media screen and (min-width: 1142px) { /* 1024 + 98 + 20 */
+	.pageWrap {
+		max-width:1024px;
+		margin:auto;
+	}
+}
+
+.leftCol {
+	width:26%;
+	text-align: right;
+}
+.rightCol {
+	width:72%;
+}
+
+UL.listOf {
+	clear:left;
+	margin:0;
+	padding:0 0 0 25px;
+	font-size:0.8em;
+}
+
+.mainContent {
+	width:77%;
+	float:left;
+}
+
+.my_name {
+	float:right;
+	text-align: right;
+}
+.my_photo {
+	float:right;
+	margin-left:20px;
+}
+
+@media screen and (max-width: 900px) {
+	.leftCol {
+		width:100%;
+		float: none;
+	}
+	.rightCol {
+		width:100%;
+		float: none;
+	}
+	UL.listOf {
+		clear: both;
+	}
+}
+
+@media screen and (max-width: 640px) {
+	.mainContent {
+		width:100%;
+	}
+	.webSkills {
+		clear:both;
+		float:none;
+		width:auto;
+		margin:10px 15%;
+	}
+}
+@media screen and (max-width: 480px) {
+	.webSkills {
+		margin:10px 10%;
+	}
+}
+
+#portfolioBox {
+	float:left;
+	font-size: 1.5em;
+	margin:20px 10px;
+	padding:13px 15px;
+	background:#FFFFFF;
+	text-align: center;
+	border-radius: 10px;
+	box-shadow: 3px 3px 3px #959595, 2px 2px 3px #959595 inset;
+}
+
+A.imgLnk:hover {
+	text-decoration: none;
+	background-color: #b0e0e6;
+}
+
+
 /********** BEGIN: TA Menu styles **********/
 DIV.taMenu {
 	position:relative;

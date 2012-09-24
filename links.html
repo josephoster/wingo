@@ -94,7 +94,7 @@ document.createElement('footer');
 </head>
 <body class="wingo">
 
-<div id="wingoMenu" class="noClick">
+<div id="wingoMenu">
 	<img src="images/wingobay.png" width="64" height="288" class="wingoBay">
 
 	<a href="services.html" title="Services" target="_self"><span>Services</span></a>
@@ -369,9 +369,9 @@ document.createElement('footer');
 		<table cellspacing="0" cellpadding="0" style="width:100%; margin-top: 5px;">
 		<tr>
 			<td style="width:1%;"><a href="weather/index.html" target="_self" title="Weather Links"><img src="images/weather4.gif" width="44" height="57" class="ifWide"></a></td>
-			<td class="fs3"><b><a href="weather/index.html" target="_self" class=cleanBlue>Weather!</a></b></td>
+			<td class="fs3"><a href="weather/index.html" target="_self" class=cleanBlue>Weather!</a></td>
 			<td style="text-align:center;" style="width:98%;" class="fs2"><a href="opinion/index.html" target="_self" class="wingoLC">Opinions</a></td>
-			<td class="fs3" style="text-align:right;"><b><a href="sailing/index.html" target="_self" class="cleanBlue">Sailing!</a></b></td>
+			<td class="fs3" style="text-align:right;"><a href="sailing/index.html" target="_self" class="cleanBlue">Sailing!</a></td>
 			<td style="width:1%;"><a href="sailing/index.html" target="_self" title="Sailing Links"><img src="images/sailboat.gif" width="37" height="57" class="ifWide"></a></td>
 		</tr>
 		</table>
@@ -384,13 +384,11 @@ document.createElement('footer');
 <script type="text/javascript">
 topLink();
 
-contentLoaded(window,
-	function (e) {
-		menuWingo.init('Links');
-		jt_demoMB.init();
-		//document.getElementById("pageNavBot").appendChild(document.getElementById("pageNavTop").cloneNode(true));
-	}
-);
+//contentLoaded(window, function (e) {
+	menuWingo.init();
+	jt_demoMB.init();
+	//document.getElementById("pageNavBot").appendChild(document.getElementById("pageNavTop").cloneNode(true));
+//});
 </script>
 
 <!--[if lte IE 8]>

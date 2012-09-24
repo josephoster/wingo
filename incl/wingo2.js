@@ -4,14 +4,47 @@
 
 var menuWingo = {
 
-	init: function(lnkName) {
-		var links = document.getElementById('wingoMenu').getElementsByTagName('a');
-		for (var i=0; i<links.length; i++) {
-			if (links[i].title == lnkName) {
-				links[i].className = 'picked';
-				break;
+	init: function(callBack) {
+
+			function padBody() {
+				document.body.style.paddingTop = (jt_.currStyle(menuWingo.wingoMobileDIV).visibility == 'visible') ? jt_.valPx(jt_.height(menuWingo.wingoMobileDIV) + 10) : 0;
 			}
-		}
+
+			function chkMobile() {
+				var bodyC = jt_.cssClass.asObj(document.body);
+				if (jt_.winW() > 800) {
+					if (bodyC.moBar) {
+						jt_.cssClass.rem(document.body, 'moBar');
+					}
+					jt_.showNoneElm(menuWingo.menuDIV, bodyC.wingo && (jt_.currStyle(document.body).backgroundImage != 'none') );
+				}
+				else if (!bodyC.moBar) {
+					jt_.cssClass.add(document.body, 'moBar');
+					jt_.showNoneElm(menuWingo.menuDIV);
+				}
+				padBody();
+			}
+
+		menuWingo.wingoMobileDIV = document.createElement('div');
+		menuWingo.wingoMobileDIV.setAttribute('id', 'wingoMobile');
+		menuWingo.wingoMobileDIV.className = 'noClick';
+		//menuWingo.wingoMobileDIV.innerHTML = '<button id="btnMenuOn"><img src="images/icons/menu.png" alt="" width="21" height="16">menu</button><span>wingo.com</span>';
+		menuWingo.wingoMobileDIV.innerHTML = '<a href="" id="btnMenuOn" onclick="return false;"><img src="images/icons/menu_white_shadow.png" alt="" width="24" height="20">menu</a><span>wingo.com</span>';
+		document.body.appendChild(menuWingo.wingoMobileDIV);
+
+		menuWingo.menuDIV = document.getElementById('wingoMenu');
+		jt_.addListener(document.getElementById('btnMenuOn'), "click", function() {
+			var isVisible = (jt_.currStyle(menuWingo.menuDIV).display == 'block');
+			menuWingo.menuDIV.style.display = isVisible ? 'none' : 'block';
+			if (!isVisible) {
+				window.scrollTo(0,0);
+			}
+			padBody();
+			if (callBack) callBack();
+			return false;
+		});
+		chkMobile();
+		jt_.addListener(window, "resize", chkMobile);
 	}
 
 };
