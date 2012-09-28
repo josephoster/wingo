@@ -7,7 +7,7 @@ var menuWingo = {
 	init: function(callBack) {
 
 			function padBody() {
-				document.body.style.paddingTop = (jt_.currStyle(menuWingo.wingoMobileDIV).visibility == 'visible') ? jt_.valPx(jt_.height(menuWingo.wingoMobileDIV) + 10) : 0;
+				document.body.style.paddingTop = (jt_.currStyle(menuWingo.wingoMobileDIV).visibility == 'visible') ? jt_.valPx(jt_.height(menuWingo.wingoMobileDIV)) : 0;
 			}
 
 			function chkMobile() {
@@ -28,8 +28,7 @@ var menuWingo = {
 		menuWingo.wingoMobileDIV = document.createElement('div');
 		menuWingo.wingoMobileDIV.setAttribute('id', 'wingoMobile');
 		menuWingo.wingoMobileDIV.className = 'noClick';
-		//menuWingo.wingoMobileDIV.innerHTML = '<button id="btnMenuOn"><img src="images/icons/menu.png" alt="" width="21" height="16">menu</button><span>wingo.com</span>';
-		menuWingo.wingoMobileDIV.innerHTML = '<a href="" id="btnMenuOn" onclick="return false;"><img src="images/icons/menu_white_shadow2.png" alt="" width="23" height="19">menu</a><span>wingo.com</span>';
+		menuWingo.wingoMobileDIV.innerHTML = '<a href="" id="btnMenuOn" onclick="return false;"><em></em>menu</a><span>wingo.com</span>';
 		document.body.appendChild(menuWingo.wingoMobileDIV);
 
 		menuWingo.menuDIV = document.getElementById('wingoMenu');

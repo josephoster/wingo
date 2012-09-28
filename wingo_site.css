@@ -39,7 +39,7 @@ BODY.wingo #wingoMenu {
 	font-family: Lucida Sans Unicode, Lucida Grande, sans-serif;
 	font-size:1.4em;
 	line-height: 1.1em;
-	text-shadow: 2px 2px 3px #021124;
+	text-shadow: 2px 2px 2px #021124;
 	margin-top: 5px;
 }
 #wingoMenu a span {
@@ -233,28 +233,22 @@ footer td,
 	background-image: url(images/water_bg.jpg);
 	box-shadow: 0 2px 2px #808080;
 }
-
-
-#wingoMobile button {
-	float: right;
-	font-family: inherit;
-	font-size: inherit;
-	padding:0 18px;
-	margin:0 1px 0 0;
-}
-#wingoMobile button img {
-	float:right;
-	margin:6px 0 0 10px;
-}
-
 #wingoMobile a {
-	float: right;
 	text-decoration: none;
+	color: #ffffff;
+}
+#wingoMobile span {
+	float:left;
+	font-family: inherit;
+	margin:8px 0 0 10px;
+	line-height:10px;
+}
+
+a#btnMenuOn {
+	float: right;
 	font-family: Lucida Sans Unicode, Lucida Grande, sans-serif;
 	font-size: inherit;
 	line-height:26px;
-	color: #ffffff;
-	text-shadow: 2px 2px 3px #021124;
 	padding:1px 18px;
 	background-color: #668066;
 	background-image: url(images/bg_nav_wingo_ie.gif);
@@ -264,22 +258,18 @@ footer td,
 	border-right: 3px solid #cc0033;
 	margin-right: 10px;
 }
-#wingoMobile a img {
+#btnMenuOn em {
 	float:right;
+	width: 23px;
+	height: 19px;
+	background-image:url(images/icons/menu_white_shadow2.png);
 	margin:6px 0 0 10px;
-}
-
-#wingoMobile span {
-	float:left;
-	font-family: inherit;
-	margin:8px 0 0 10px;
-	line-height:10px;
 }
 
 BODY.moBar #wingoMobile {
 	visibility:visible;
 }
-BODY.moBar {
+BODY.wingo .moBar {
 	background-image:none;
 	margin-left:0;
 }
@@ -290,10 +280,12 @@ BODY.moBar DIV.navWingo {
 BODY.moBar #wingoMenu {
 	position: relative;
 	top:0;
+	padding:0 10px 0 10px;
+	margin: 0 0 10px 0;
+/*
 	background: #dcdcdc;
-	padding:2px 10px 7px 10px;
-	margin: -13px 0 10px 0;
 	box-shadow: 0 2px 2px #008080;
+*/
 }
 BODY.moBar #wingoMenu a {
 	text-align: center;
@@ -304,6 +296,10 @@ BODY.moBar #wingoMenu span,
 BODY.moBar #wingoMenu a.picked span,
 BODY.moBar #wingoMenu a:hover span {
 	padding:0;
+}
+BODY.moBar H1.wingoHeading,
+BODY.moBar H1.wingoHeading2 {
+	margin-top:10px;
 }
 
 @media screen and (max-width: 800px) {
@@ -446,6 +442,11 @@ DIV.hLinePad {
 	float:left;
 	margin:0 27px 4px -22px;
 	vertical-align: top;
+}
+
+.myName {
+	text-shadow: 1px 1px 1px #d3d3d3;
+	font-size: 1.8em;
 }
 
 .myBox {
