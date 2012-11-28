@@ -148,6 +148,8 @@ footer,
 #footer {
 	clear: both;
 }
+footer a.fs2,
+footer a.fs3,
 footer td,
 #footer td {
 	text-shadow: 1px 1px 2px #999999;

@@ -34,6 +34,18 @@ p {
 </head>
 <body>
 
+<div id="wingoMenu">
+	<img src="../images/wingobay.png" width="64" height="288" class="wingoBay">
+
+	<a href="../services.html" title="Services" target="_self"><span>Services</span></a>
+	<a href="../resume.html" title="Resume" target="_self" class="picked"><span>Resume</span></a>
+	<a href="../portfolio.html" title="Portfolio" target="_self"><span>Portfolio</span></a>
+	<a href="../weather/index.html" title="Weather" target="_self"><span>Weather</span></a>
+	<a href="../sailing/index.html" title="Sailing" target="_self"><span>Sailing</span></a>
+	<a href="../links.html" title="Links" target="_self"><span>Links</span></a>
+	<a href="../home.html" title="Home" target="_self"><span>Home</span></a>
+</div>
+
 <div class="pageWrap">
 
 	<div id="pageNavTop">
@@ -63,7 +75,10 @@ p {
 		<span class="fs-1">
 			<b><a href="http://www.wingo.com" target="_top">www.wingo.com</a></b> -
 			<b><script type="text/javascript">emLink("Email contact", "[wingo] Sailing Resume contact")</script></b><br>
-		Kauai, HI</span>
+			Kauai, HI<br>
+			current boat:
+			<b><i><a href="malihini/index.html" title="Malihini - 35' Shuttleworth catamaran, Hanalei, Kauai, Hawaii">Malihini</a></i></b>
+		</span>
 	</div>
 	<div class='hLinePad'></div>
 
@@ -115,38 +130,34 @@ p {
 
 	<p><a href="haha98/photos.html"><img src="joseph-cabo2.jpg" alt="" width="120" height="216" border="0" class="imgR"></a> Sailed aboard 63' catamaran <a href="http://www.profligate.com/" target="_blank"><b><i>Profligate</i></b></a> from San Francisco to Puerto Vallarta with stops in Ventura, San Diego, Turtle Bay, Bahia Santa Maria and Cabo San Lucas (<a href="haha98/index.html"><b>the 1998 Baja Ha-Ha</b></a>) - <a href="haha98/photos.html"><b>Photos</b></a>.</p>
 
-	<div style="text-align: center; width: 400px; margin: 20px auto;">
-		<div class="fs2" style="font-style: italic;">current boat</div>
+	<div class="fs2" style="text-align: center; max-width: 640px; margin: 20px auto; font-style: italic;">
 		<a href="malihini/index.html" title="Malihini - 35' Shuttleworth catamaran, Hanalei, Kauai, Hawaii">
-			<img src="malihini/Malihini-m.jpg" alt="" width="400" height="300"><br>
-			<b><i>Malihini</i></b> - 35' Shuttleworth catamaran<br>
-			Summer, 2012 - Hanalei, Kauai, Hawaii<br>
-		</a>
+			<img src="../malihini/pics/hanalei_20121008-s.jpg" alt="" style="width:100%;">
+		</a><br>
+		current boat:
+		<a href="malihini/index.html" title="Malihini - 35' Shuttleworth catamaran, Hanalei, Kauai, Hawaii">Malihini</a><br>
+		35' Shuttleworth catamaran<br>
+		Summer, 2012, Hanalei, Kauai, Hawaii
 	</div>
 
-	<br clear="all">
-	<div class='hLinePad'></div>
+	<footer id="footer">
+		<script type="text/javascript">document.writeln(document.getElementById("pageNavTop").innerHTML);</script>
+		<div class='hLine'></div>
 
-	<script type="text/javascript">document.writeln(document.getElementById("pageNavTop").innerHTML);</script>
-	<div class='hLine'></div>
-
-	<table border="0" cellspacing="0" cellpadding="0" style="margin-top:5px;">
-	<tr>
-		<td width="50%"><font size="+2"><a href="home.html">Home</a></font></td>
-		<td nowrap>
-	<script type="text/javascript">
-	topLink();
-
-	jt_.addListener(window, 'load', function () {jt_demoMB.init();});
-	</script>
-		</td>
-		<td width="50%" align=right><font size="+2"><a href="sailing/index.html">Sailing Links</a></font></td>
-	</tr>
-	</table>
+		<a href="sailing/index.html" class="fs2" style="float: right;">Sailing Links</a>
+		<a href="home.html" class="fs2">Home</a>
+	</footer>
 
 	<p style="float:right; margin: 20px 0; padding:0;"><a href="services.html" title="wingo.com Web Site Design" target="_top"><img src="images/wsb.gif" alt="wingo.com Web Site Design" width="111" height="40"></a></p>
 
 </div>
+
+<script type="text/javascript">
+topLink();
+
+menuWingo.init();
+jt_demoMB.init();
+</script>
 
 </body>
 </html>
