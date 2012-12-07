@@ -1,0 +1,54 @@
+BODY {
+	background:#FFFFFF;
+	margin:0;
+	padding:0;
+}
+
+P, H3, LI, DIV, SPAN, .myTable TD {font-family : sans-serif;}
+
+DIV.hLinePad {
+	border-bottom: 1px solid #dcdcdc;
+	margin: 8px 0px;
+}
+
+.markerTxt {
+	font-size: 0.9em;
+	font-family : sans-serif;
+}
+
+#map {
+	height:500px;
+	width:100%;
+}
+
+#footer H3 {
+	margin: 10px 0 0 30px;
+}
+#footer P {
+	margin: 10px 0 0 30px;
+}
+
+BUTTON, .myTable TD, .myTable INPUT {font-size: 0.8em;}
+
+#panelMarkers, #panelRoutes, #panelPolygons, #panelBookmarks, #panelAddressLU {
+	display:none;
+	position:absolute;
+	top:0px;
+	left:0px;
+	width:330px;
+	padding: 3px 10px 10px 10px;
+	background: #f5f5dc;
+	border: 1px solid #556b2f;
+	z-index: 11000;
+	font-size:smaller;
+	font-family: Arial, Helvetica, sans-serif;
+}
+
+#panelPolygons {width:280px;}
+
+.polyInput {width:60px;}
+
+#markerDesc {
+	margin-top:4px;
+	width:300px;
+}

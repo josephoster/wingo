@@ -1,0 +1,24 @@
+BUTTON, .myTable TD, .myTable INPUT {font-size: 0.8em;}
+
+#panelMarkers, #panelRoutes, #panelPolygons, #panelBookmarks, #panelAddressLU {
+	display:none;
+	position:absolute;
+	top:0px;
+	left:0px;
+	width:330px;
+	padding: 3px 10px 10px 10px;
+	background: #f5f5dc;
+	border: 1px solid #556b2f;
+	z-index: 11000;
+	font-size:smaller;
+	font-family: Arial, Helvetica, sans-serif;
+}
+
+#panelPolygons {width:280px;}
+
+.polyInput {width:60px;}
+
+#markerDesc {
+	margin-top:4px;
+	width:300px;
+}
