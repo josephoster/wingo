@@ -1,0 +1,86 @@
+SELECT { /* override bootstrap */
+	width:auto;
+}
+
+#wingo_ctrls {
+	position:absolute;
+	top:0px;
+	left:0px;
+	width:100%;
+	background-color: black;
+	z-index: 1050;
+}
+#wingo_ctrls select,
+#wingo_ctrls input {
+	margin: 0;
+	background-color: #f5f5f5;
+}
+#wingo_ctrls .aCtrl,
+#wingo_ctrls .btn-group {
+	float: left;
+}
+#wingo_ctrls .aCtrl {
+	color:white;
+	padding: 0 3px;
+}
+#wingo_ctrls .btn-group button {
+	color:white;
+}
+#wingo_ctrls .wingo_logo {
+	float: right;
+	color:white;
+	font-size:20px;
+	line-height:30px;
+	margin:0 10px 0 0;
+	/* text-shadow: 1px 1px 1px #9acd32; */
+}
+
+#lat,
+#long {
+	width:75px;
+}
+
+#btnGoTo {
+	float: right;
+	margin: 20px 0 0 5px;
+}
+
+#mapFrame {
+	position:absolute;
+	top:30px;
+	left:0px;
+	width:100%;
+	border:none;
+	overflow:hidden;
+	z-index: 1;
+}
+
+#myCrosshair {
+	position: absolute;
+	display: none;
+	z-index: 2;
+}
+
+.panelWingoMap {
+	position:absolute;
+	top:38px;
+	left:8px;
+	padding: 3px 10px 10px 10px;
+	background: #f5f5dc;
+	border: 1px solid #556b2f;
+	z-index: 1051;
+	display:none;
+}
+
+.polyInput {width:60px;}
+
+DIV.hLinePad {
+	border-bottom: 1px solid #dcdcdc;
+	margin: 8px 0px;
+}
+
+#panelLatLon .latLonZ {
+	text-align:right;
+	width:140px;
+	margin-top:10px;
+}
