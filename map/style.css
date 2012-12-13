@@ -72,10 +72,10 @@ body {
 }
 .panelWingoMap .xPanel {
 	float: right;
-	margin-bottom: 10px;
+	margin: 0 0 10px 10px;
 }
 .panelWingoMap .xPanel i {
-	margin-left: 10px;
+	margin-left: 5px;
 }
 .panelWingoMap .hLinePad {
 	border-bottom: 1px solid #dcdcdc;
