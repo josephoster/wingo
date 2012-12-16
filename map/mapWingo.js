@@ -1,7 +1,7 @@
 /**
  * map/mapWingo.js - Google Maps API Demo
  *
- * @version 12 Dec 2012
+ * @version 15 Dec 2012
  * @author	Joseph Oster, wingo.com
  */
 
@@ -51,17 +51,48 @@ var mapWingo = {
 		return false;
 	},
 
-	plotLongLat: function(lng, lat, zoomLevel, mapType) {
-		mapWingo.wingoMapFrame.plotLongLat(lng, lat, zoomLevel, mapType);
+	plotLonLat: function(lng, lat, zoomLevel, mapType) {
+		mapWingo.wingoMapFrame.plotLonLat(lng, lat, zoomLevel, mapType);
 	},
 
 	latLngUpdate: function(lng, lat) {
-		mapWingo.fldLng.value = lng.toFixed(5);
-		mapWingo.fldLat.value = lat.toFixed(5);
+		mapWingo.fldLat.value = lat.toFixed(6);
+		mapWingo.fldLon.value = lng.toFixed(6);
+		$(mapWingo.latVu).text(mapWingo.fldLat.value);
+		$(mapWingo.lonVu).text(mapWingo.fldLon.value);
+		jt_.cssClass.rem(mapWingo.latLonVu, 'hideElm');
 	},
 
 	zoom_changed: function(zVal) {
 		jt_.fo.setSelectVal(mapWingo.zoomPD, zVal);
+	},
+
+	showlatLon: function(showIt) {
+		if (showIt) {
+			$(mapWingo.latLonVu).show();
+		}
+		else {
+			$(mapWingo.latLonVu).hide();
+		}
+		mapWingo.resizeWin(); // can re-size header
+	},
+
+	myLoc: function() {
+		if (navigator.geolocation) {
+			navigator.geolocation.getCurrentPosition(
+
+				function(position) { // success
+					mapWingo.plotLonLat(position.coords.longitude, position.coords.latitude);
+				},
+
+				function(msg) { // error
+					alert(msg);
+					console.log(arguments);
+				}
+
+			);
+		}
+		else alert("Not supported");
 	},
 
 	init: function(wingoMapFrame) {
@@ -72,9 +103,13 @@ var mapWingo = {
 		mapWingo.crosshairDIV = document.getElementById("myCrosshair");
 		mapWingo.errMSG = document.getElementById("err");
 		mapWingo.fldAddr = document.getElementById("address");
-		mapWingo.fldLng = document.getElementById("long");
+		mapWingo.fldLon = document.getElementById("long");
 		mapWingo.fldLat = document.getElementById("lat");
 		mapWingo.zoomPD = document.getElementById("zoomLevel");
+
+		mapWingo.latLonVu = document.getElementById("latLonVu");
+		mapWingo.latVu = document.getElementById("latVu");
+		mapWingo.lonVu = document.getElementById("lonVu");
 
 		jt_.addListener(document.getElementById("btn_Menu"), 'click', mapWingo.showView);
 
@@ -84,12 +119,16 @@ var mapWingo = {
 
 		jt_.addListener(document.getElementById("btnGoTo"), 'click', function() {
 			mapWingo.fldAddr.value = "";
-			mapWingo.wingoMapFrame.panTo(mapWingo.fldLat.value, mapWingo.fldLng.value);
+			mapWingo.wingoMapFrame.panTo(mapWingo.fldLat.value, mapWingo.fldLon.value);
 		});
-
+	
 		mapWingo.resizeWin(true, true);
 		wingoMapFrame.initMap(37.443330303736026, -122.16418147087097, 10); // Center the map on Palo Alto
 		jt_.addListener(window, 'resize', mapWingo.resizeWin);
+
+		$("#latLonShow").click(function () {
+			mapWingo.showlatLon(this.checked);
+		});
 
 		mapWingo.polyPD = document.getElementById("polyShape");
 		mapWingo.markerDescFld = document.getElementById("markerDesc");
@@ -100,6 +139,9 @@ var mapWingo = {
 		}
 
 		$(".xPanel").click(mapWingo.showView);
+
+		wmPolys.load();
+		wmMarkers.load();
 	}
 };
 
@@ -109,128 +151,182 @@ var wmMarkers = {
 	markList: [],
 	markerEditIdx: -1,
 
-	centerMarker: function(idx) {
+	showList: function() {
+		var listDIV = document.getElementById("markerList");
+		$(listDIV).empty();
+		for (var i=0; i<wmMarkers.markList.length; i++) {
+			var st = '<li>' + (i+1) + ') <a href="javascript:wmMarkers.centerOn(' + i + ')" class="btn btn-mini btn-info">center</a> ';
+			st += '<a href="javascript:wmMarkers.edit(' + i + ')" class="btn btn-mini btn-primary">Edit/Move</a> ';
+			st += '<a href="javascript:wmMarkers.remove(' + i + ')" class="btn btn-mini btn-danger">Remove</a></li>';
+			$(st).appendTo(listDIV);
+		}
+	},
+
+	centerOn: function(idx) {
 		mapWingo.wingoMapFrame.map.panTo(wmMarkers.markList[idx].position);
 	},
 
-	editMarker: function(idx) {
-		mapWingo.wingoMapFrame.infowindow.close();
-		wmMarkers.centerMarker(idx);
-		mapWingo.markerDescFld.value = wmMarkers.markList[idx]._appInfoHTML;
-		wmMarkers.setMarkerButton(idx);
-		mapWingo.markerDescFld.focus();
-	},
-
-	removeMarker: function(idx) {
-		mapWingo.wingoMapFrame.infowindow.close();
-		wmMarkers.markList[idx].setMap();
-		wmMarkers.markList.splice(idx, 1);
-		wmMarkers.setMarkerButton(-1);
-		wmMarkers.showMarkers();
-	},
-
-	showMarkers: function() {
-		var st = "";
-		for (var i=0; i<wmMarkers.markList.length; i++) {
-			st += (i+1) + ') <a href="javascript:wmMarkers.centerMarker(' + i + ')">center</a> - ';
-			st += '<a href="javascript:wmMarkers.editMarker(' + i + ')">edit/move</a> - ';
-			st += '<a href="javascript:wmMarkers.removeMarker(' + i + ')">remove</a><br>';
-		}
-		document.getElementById("markerList").innerHTML = st;
-	},
-
-	clearMarkerTxt: function() {
-		mapWingo.markerDescFld.value = "";
-	},
-
-	setMarkerButton: function(editIdx) {
+	setButtons: function(editIdx) {
 		wmMarkers.markerEditIdx = editIdx;
 		document.getElementById('markerButton').innerHTML = (editIdx == -1) ? "Create Marker" : "Save Changes";
 		jt_.showNone("markerCancelButton", editIdx != -1, "inline");
 	},
 
-	addMarker: function(marker) {
-		wmMarkers.markList.push(marker);
-		wmMarkers.showMarkers();
+	edit: function(idx) {
+		mapWingo.wingoMapFrame.infowindow.close();
+		wmMarkers.centerOn(idx);
+		wmMarkers.setButtons(idx);
+		mapWingo.markerDescFld.value = wmMarkers.markList[idx]._appInfoHTML;
+		mapWingo.markerDescFld.focus();
 	},
 
-	createMarkerBtn: function() {
+	remove: function(idx) {
+		mapWingo.wingoMapFrame.infowindow.close();
+		wmMarkers.markList[idx].setMap();
+		wmMarkers.markList.splice(idx, 1);
+		wmMarkers.setButtons(-1);
+		wmMarkers.showList();
+		wmMarkers.save();
+	},
+
+	clearDescrip: function() {
+		mapWingo.markerDescFld.value = "";
+	},
+
+	add: function(marker) {
+		wmMarkers.markList.push(marker);
+		wmMarkers.showList();
+	},
+
+	createSave: function() {
 		if (wmMarkers.markerEditIdx == -1) { // create new
-			wmMarkers.addMarker(mapWingo.wingoMapFrame.createNewMarker(mapWingo.markerDescFld.value));
+			wmMarkers.add(mapWingo.wingoMapFrame.createNewMarker(mapWingo.markerDescFld.value));
 		}
-		else { // replace
+		else { // save/replace
 			wmMarkers.markList[wmMarkers.markerEditIdx].setMap();
 			wmMarkers.markList[wmMarkers.markerEditIdx] = mapWingo.wingoMapFrame.createNewMarker(mapWingo.markerDescFld.value);
-			wmMarkers.setMarkerButton(-1);
+			wmMarkers.setButtons(-1);
+		}
+		wmMarkers.save();
+	},
+
+	ls_KEY: 'WingoMap.wmMarkers',
+
+	save: function() {
+		var listObj = [];
+		for (var i=0; i<wmMarkers.markList.length; i++) {
+			listObj.push(wmMarkers.markList[i]._wpParams);
+		}
+		localStorage[wmMarkers.ls_KEY] = JSON.stringify(listObj);
+	},
+
+	load: function() {
+		var listObj = JSON.parse(localStorage[wmMarkers.ls_KEY]);
+		if (listObj && (listObj.length > 0)) {
+			for (var i=0; i<listObj.length; i++) {
+				var params = listObj[i];
+				var marker = mapWingo.wingoMapFrame.createNewMarker(params.txt, params.lat, params.lon);
+				marker._wpParams = params;
+				wmMarkers.markList.push(marker);
+			}
+			wmMarkers.showList();
 		}
 	}
 
 };
 
 
-var wmPloys = {
+var wmPolys = {
 
 	polyList: [],
 	polyEditIdx: -1,
 
-	centerPoly: function(idx) {
-		mapWingo.wingoMapFrame.map.panTo(wmPloys.polyList[idx].myCP);
-	},
-
-	editPoly: function(idx) {
-		wmPloys.centerPoly(idx);
-		jt_.fo.setSelectVal(mapWingo.polyPD, wmPloys.polyList[idx].getPath().getLength()-1);
-		var PR = document.getElementById("polyRadius");
-		PR.value = wmPloys.polyList[idx].myRadius;
-		document.getElementById("polyColor").value = wmPloys.polyList[idx].strokeColor.substring(1);
-		document.getElementById("polyWidth").value = wmPloys.polyList[idx].strokeWeight;
-		document.getElementById("polyTransparency").value = wmPloys.polyList[idx].strokeOpacity;
-		wmPloys.setPolyButton(idx);
-	},
-
-	removePoly: function(idx) {
-		wmPloys.polyList[idx].setMap();
-		wmPloys.polyList.splice(idx, 1);
-		wmPloys.setPolyButton(-1);
-		wmPloys.showPolys();
-	},
-
-	showPolys: function() {
-		var st = "";
-		for (var i=0; i<wmPloys.polyList.length; i++) {
-			st += (i+1) + ') <a href="javascript:wmPloys.centerPoly(' + i + ')">center</a> - <a href="javascript:wmPloys.editPoly(' + i + ')">edit/move</a> - <a href="javascript:wmPloys.removePoly(' + i + ')">remove</a><br />';
+	showList: function() {
+		var listDIV = document.getElementById("polyList");
+		$(listDIV).empty();
+		for (var i=0; i<wmPolys.polyList.length; i++) {
+			var st = '<li>' + (i+1) + ') <a href="javascript:wmPolys.centerOn(' + i + ')" class="btn btn-mini btn-info">center</a> <a href="javascript:wmPolys.edit(' + i + ')" class="btn btn-mini btn-primary">Edit/Move</a> <a href="javascript:wmPolys.remove(' + i + ')" class="btn btn-mini btn-danger">Remove</a></li>';
+			$(st).appendTo(listDIV);
 		}
-		document.getElementById("polyList").innerHTML = st;
 	},
 
-	createPolygon: function() {
-		var numSides = jt_.fo.selected(document.getElementById("polyShape"));
-		var radius = parseInt(document.getElementById("polyRadius").value);
-		var color = document.getElementById("polyColor").value;
-		var lineWidth = parseInt(document.getElementById("polyWidth").value);
-		var trans = parseFloat(document.getElementById("polyTransparency").value);
-		var centerPoint = mapWingo.wingoMapFrame.map.getCenter();
-		var poly = mapWingo.wingoMapFrame.drawPolygon(centerPoint.lat(), centerPoint.lng(), numSides, radius, color, lineWidth, trans);
-		poly.myCP = centerPoint;
-		poly.myRadius = radius;
-		return poly;
+	centerOn: function(idx) {
+		mapWingo.wingoMapFrame.panTo(wmPolys.polyList[idx]._wpParams.lat, wmPolys.polyList[idx]._wpParams.lon);
 	},
 
-	setPolyButton: function(editIdx) {
-		wmPloys.polyEditIdx = editIdx;
+	setButtons: function(editIdx) {
+		wmPolys.polyEditIdx = editIdx;
 		document.getElementById('polyButton').innerHTML = (editIdx == -1) ? "Create " + mapWingo.polyPD.options[mapWingo.polyPD.selectedIndex].text : "Save Changes";
 		jt_.showNone("polyCancelButton", editIdx != -1, "inline");
 	},
 
-	createPolyBtn: function() {
-		if (wmPloys.polyEditIdx == -1) { // create new
-			wmPloys.polyList.push(wmPloys.createPolygon());
-			wmPloys.showPolys();
+	edit: function(idx) {
+		wmPolys.centerOn(idx);
+		wmPolys.setButtons(idx);
+		jt_.fo.setSelectVal(mapWingo.polyPD, wmPolys.polyList[idx]._wpParams.numSides);
+		document.getElementById("polyRadius").value = wmPolys.polyList[idx]._wpParams.radius;
+		document.getElementById("polyColor").value = wmPolys.polyList[idx]._wpParams.color;
+		document.getElementById("polyWidth").value = wmPolys.polyList[idx]._wpParams.lineWidth;
+		document.getElementById("polyTransparency").value = wmPolys.polyList[idx]._wpParams.trans;
+	},
+
+	remove: function(idx) {
+		wmPolys.polyList[idx].setMap();
+		wmPolys.polyList.splice(idx, 1);
+		wmPolys.setButtons(-1);
+		wmPolys.showList();
+		wmPolys.save();
+	},
+
+	createPolygon: function() {
+		var centerPoint = mapWingo.wingoMapFrame.map.getCenter();
+		var params = {
+			numSides: parseInt(jt_.fo.selected(document.getElementById("polyShape"))),
+			radius: parseInt(document.getElementById("polyRadius").value),
+			color: document.getElementById("polyColor").value,
+			lineWidth: parseInt(document.getElementById("polyWidth").value),
+			trans: parseFloat(document.getElementById("polyTransparency").value),
+			lat: centerPoint.lat(),
+			lon: centerPoint.lng()
+		};
+		var poly = mapWingo.wingoMapFrame.drawPolygon(params.lat, params.lon, params.numSides, params.radius, params.color, params.lineWidth, params.trans);
+		poly._wpParams = params;
+		return poly;
+	},
+
+	createSave: function() {
+		if (wmPolys.polyEditIdx == -1) { // create new
+			wmPolys.polyList.push(wmPolys.createPolygon());
+			wmPolys.showList();
 		}
 		else { // replace
-			wmPloys.polyList[wmPloys.polyEditIdx].setMap();
-			wmPloys.polyList[wmPloys.polyEditIdx] = wmPloys.createPolygon();
-			wmPloys.setPolyButton(-1);
+			wmPolys.polyList[wmPolys.polyEditIdx].setMap();
+			wmPolys.polyList[wmPolys.polyEditIdx] = wmPolys.createPolygon();
+			wmPolys.setButtons(-1);
+		}
+		wmPolys.save();
+	},
+
+	ls_KEY: 'WingoMap.polys',
+
+	save: function() {
+		var listObj = [];
+		for (var i=0; i<wmPolys.polyList.length; i++) {
+			listObj.push(wmPolys.polyList[i]._wpParams);
+		}
+		localStorage[wmPolys.ls_KEY] = JSON.stringify(listObj);
+	},
+
+	load: function() {
+		var listObj = JSON.parse(localStorage[wmPolys.ls_KEY]);
+		if (listObj && (listObj.length > 0)) {
+			for (var i=0; i<listObj.length; i++) {
+				var params = listObj[i];
+				var poly = mapWingo.wingoMapFrame.drawPolygon(params.lat, params.lon, params.numSides, params.radius, params.color, params.lineWidth, params.trans);
+				poly._wpParams = params;
+				wmPolys.polyList.push(poly);
+			}
+			wmPolys.showList();
 		}
 	}
 

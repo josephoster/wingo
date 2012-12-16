@@ -7,6 +7,13 @@ body {
 	-webkit-text-size-adjust: none;
 }
 
+.btn-group > .dropdown-menu { /* override bootstrap */
+	font-size: 16px;
+}
+.btn-group > .dropdown-menu li {
+	line-height: 22px;
+}
+
 #wingo_ctrls {
 	background-color: black;
 }
@@ -24,6 +31,27 @@ body {
 }
 #wingo_ctrls .btn-group button {
 	color: white;
+}
+#wingo_ctrls .hideElm {
+	display: none;
+}
+
+#latLonVu {
+	float: left;
+	margin: 5px 0 0 10px;
+	color: white;
+}
+#latLonVu span {
+	color: black;
+	background-color: #dcdcdc;
+	border-radius: 5px;
+	padding:2px 5px;
+	text-shadow: 1px 1px 1px #585858;
+}
+@media screen and (max-width: 430px) {
+	#latLonVu {
+		display: none;
+	}
 }
 
 #lat,
@@ -87,6 +115,9 @@ body {
 .panelWingoMap .polyInput {
 	margin-bottom: 4px;
 }
+.panelWingoMap textarea {
+	margin-bottom: 0;
+}
 
 #panelLatLon .latLonZ {
 	text-align:right;
@@ -99,3 +130,20 @@ body {
 	font-style: italic;
 	font-size: 0.9em;
 }
+
+.panelWingoMap ul.listWingoMap {
+	width: 206px;
+	max-height:200px;
+	overflow: auto;
+	margin:0;
+}
+.panelWingoMap ul.listWingoMap li {
+	margin-bottom: 3px;
+	text-align: right;
+}
+@media screen and (max-height: 460px) {
+	.panelWingoMap ul.listWingoMap {
+		max-height:75px;
+	}
+}
+

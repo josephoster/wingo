@@ -59,21 +59,21 @@ var WingoMap = {
 		parent.mapWingo.fldAddr.value = parent.mapWingo.fldAddr.value.trim();
 		if (parent.mapWingo.fldAddr.value) {
 			parent.mapWingo.fldLat.value = "";
-			parent.mapWingo.fldLng.value = "";
+			parent.mapWingo.fldLon.value = "";
 
 			WingoMap.geocoder.geocode({ 'address': parent.mapWingo.fldAddr.value}, function(results, status) {
 				if (status == google.maps.GeocoderStatus.OK) {
 					parent.mapWingo.errMSG.innerHTML = "";
 					WingoMap.map.setCenter(results[0].geometry.location);
 					parent.mapWingo.fldLat.value = results[0].geometry.location.lat().toFixed(5);
-					parent.mapWingo.fldLng.value = results[0].geometry.location.lng().toFixed(5);
+					parent.mapWingo.fldLon.value = results[0].geometry.location.lng().toFixed(5);
 					var txt = parent.mapWingo.fldAddr.value = results[0].formatted_address;
 					if (txt) {
 						var streetCity = txt.split(',', 2);
 						txt = streetCity[0].trim() + "\n" + streetCity[1].trim() + "\n";
 					}
-					txt += "lat: " + parent.mapWingo.fldLat.value + "\nlng: " + parent.mapWingo.fldLng.value + "\n";
-					parent.wmMarkers.addMarker(WingoMap.createNewMarker(txt, results[0].geometry.location));
+					txt += "lat: " + parent.mapWingo.fldLat.value + "\nlng: " + parent.mapWingo.fldLon.value + "\n";
+					parent.wmMarkers.add(WingoMap.createNewMarker(txt, results[0].geometry.location.lat(), results[0].geometry.location.lng()));
 					WingoMap.map.setZoom(15);
 				} else {
 					parent.mapWingo.errMSG.innerHTML = "Problem: " + status;
@@ -83,10 +83,10 @@ var WingoMap = {
 		}
 	},
 
-	plotLongLat: function(lng, lat, zoomLevel) {
-		WingoMap.map.setMapTypeId(google.maps.MapTypeId.SATELLITE);
-		WingoMap.map.setZoom(zoomLevel);
-		WingoMap.map.panTo(new google.maps.LatLng(lat, lng));
+	plotLonLat: function(lng, lat, zoomLevel, mapType) {
+		WingoMap.map.setMapTypeId(mapType ? mapType : google.maps.MapTypeId.SATELLITE);
+		WingoMap.map.setZoom(zoomLevel ? zoomLevel : 15);
+		WingoMap.panTo(lat, lng);
 	},
 
 	drawPolygon: function(lat, lng, PGsides, PGradius, PGcolor, PGwidth, PGtrans) {
@@ -117,15 +117,20 @@ var WingoMap = {
 		return poly;
 	},
 
-	createNewMarker: function(infoTxt, atPos) {
-		atPos = atPos ? atPos : WingoMap.map.getCenter();
+	createNewMarker: function(infoTxt, lat, lon) {
+		var atPos = (arguments.length>1) ? new google.maps.LatLng(lat, lon) : WingoMap.map.getCenter();
 		var marker = new google.maps.Marker({position: atPos, map: WingoMap.map, draggable: true});
+		marker._wpParams = {
+			txt: infoTxt,
+			lat: atPos.lat(),
+			lon: atPos.lng()
+		};
 		marker._appInfoHTML = jt_.htmlEncode(infoTxt).replace(/\n/gi,"<br>");
 		google.maps.event.addListener(marker, 'click', function() {
 			WingoMap.infowindow.setContent("<span class='markerTxt'>" + marker._appInfoHTML + "</span>");
 			WingoMap.infowindow.open(WingoMap.map, marker);
 		});
-		parent.wmMarkers.clearMarkerTxt();
+		parent.wmMarkers.clearDescrip();
 		return marker;
 	},
 
