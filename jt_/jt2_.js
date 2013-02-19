@@ -89,8 +89,6 @@ var jt_ = {
 
 	fixE: function(ev) {
 		return ev ? ev : window.event;
-		//var e = ev ? ev : window.event;
-		//return e;
 	},
 
 	cancelEvent: function(ev) {
@@ -1348,7 +1346,7 @@ jt_.TraceObj = {
 					jt_.TraceObj.stack.push(aObj);
 				}
 				else st += aTxt;
-				var p = aTxt;
+				var p = "" + aTxt;
 				st += ":" + ((p.toLowerCase().indexOf("html") == -1) ? aObj : "HTML");
 				addSep = true;
 			}
@@ -1367,7 +1365,11 @@ jt_.TraceObj = {
 				for (var prop in obj) {
 					if (prop.charAt(0) == '$') continue;
 					if ((typeof obj[prop] == 'function') && !jt_.TraceObj.okf) continue;
-					aLnk(obj[prop], prop);
+					try {
+						aLnk(obj[prop], prop);
+					} catch(e) {
+						st += ": ERR1=" + e.message;
+					}
 				}
 				if (obj.attributes) {
 					stLbl('attributes');
@@ -1375,7 +1377,7 @@ jt_.TraceObj = {
 						if (obj.attributes[x].nodeValue) aLnk(obj.attributes[x].nodeValue, obj.attributes[x].nodeName);
 				}
 			}
-			catch(e) {st += "ERROR: " + e.message;}
+			catch(e) {st += ": ERR2=" + e.message;}
 		}
 		return st;
 	},
@@ -1461,9 +1463,10 @@ jt_.TraceObj = {
 			jt_.TraceObj.spTab = "";
 			for (var i=0; i<7; i++) jt_.TraceObj.spTab += "&nbsp;";
 		}
-		var targ = ev.srcElement ? ev.srcElement : ev.target;
+		var e = jt_.fixE(ev);
+		var targ = e.target ? e.target : e.srcElement;
 		targ.parentNode.parentNode.parentNode.appendChild(jt_.TraceObj.cnDIV);
-		jt_.TraceObj.cnDIV.style.zIndex = jt_.Trace.tDIV.zIndex+1;
+		jt_.TraceObj.cnDIV.style.zIndex = jt_.Trace.tDIV.style.zIndex+1;
 		var st = ['<b>[', jt_.Trace.aTag('jt_.TraceObj.cnOff()', 'childNodes'), ']</b><br>'];
 		addCNs(jt_.TraceObj.tObj, 0);
 		jt_.TraceObj.cnDIV.innerHTML = st.join('');
