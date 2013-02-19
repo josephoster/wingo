@@ -38,31 +38,50 @@ body {
 
 #latLonVu {
 	float: left;
-	margin: 5px 0 0 10px;
+	margin: 0 0 0 5px;
 	color: white;
 }
 #latLonVu span {
 	color: black;
-	background-color: #dcdcdc;
+	background-color: #f5f5f5;
 	border-radius: 5px;
 	padding:2px 5px;
 	text-shadow: 1px 1px 1px #585858;
 }
-@media screen and (max-width: 430px) {
+#latLonVu select {
+	color: black;
+	background-color: #f5f5f5;
+	text-shadow: 1px 1px 1px #585858;
+	margin:0;
+}
+#latLonVu .ctrl {
+	float:left;
+	white-space: nowrap;
+	margin: 0 0 0 5px;
+}
+#latLonVu .gap {
+	margin-top:4px;
+}
+@media screen and (max-width: 520px) {
 	#latLonVu {
-		display: none;
+		float:right;
+		text-align: right;
+		position: absolute;
+		top:60px;
+		right:4px;
+		z-index: 2;
+		background-color: black;
+		margin: 0;
+		padding:2px 2px 2px 5px;
+		border-radius: 7px;
 	}
-}
-
-#lat,
-#long {
-	width:75px;
-}
-
-#btnGoTo {
-	clear: both;
-	float: right;
-	margin: 20px 0 0 5px;
+	#latLonVu .ctrl {
+		float:none;
+		margin-top:0;
+	}
+	#latLonVu .gap {
+		margin: 0 0 2px 5px;
+	}
 }
 
 #mapFrame {
@@ -87,42 +106,63 @@ body {
 	position:absolute;
 	top:35px;
 	left:5px;
-	padding: 3px 10px 10px 10px;
+	width: 330px;
+	border-radius: 10px;
+	padding: 3px 0;
 	background: #f5f5dc;
 	border: 1px solid #556b2f;
 	z-index: 3;
 	display:none;
-	opacity: 0.8;
+	opacity: 0.9;
+}
+.panelWingoMap h3 {
+	margin: 0 10px;
+	padding:0;
+	font-size: 1.35em;
+	font-weight: normal;
+	line-height:normal;
 }
 .panelWingoMap p,
 .panelWingoMap table {
 	clear: both;
+	padding: 0 10px;
 }
 .panelWingoMap .xPanel {
 	float: right;
-	margin: 0 0 10px 10px;
+	margin: 0 10px 10px 10px;
 }
 .panelWingoMap .xPanel i {
 	margin-left: 5px;
 }
-.panelWingoMap .hLinePad {
-	border-bottom: 1px solid #dcdcdc;
-	margin: 8px 0px;
+.panelWingoMap .nav {
+	margin-bottom: 10px;
 }
-.panelWingoMap .polyInput {width:60px;}
+.panelWingoMap .polyInput {width:70px;}
 .panelWingoMap,
 .panelWingoMap select,
 .panelWingoMap .polyInput {
 	margin-bottom: 4px;
 }
 .panelWingoMap textarea {
+	width: 95%;
+	height:100px;
 	margin-bottom: 0;
+}
+@media screen and (max-width: 640px) {
+	.panelWingoMap {
+		width: 230px;
+	}
+	.panelWingoMap textarea {
+		width: 94%;
+		height:80px;
+	}
 }
 
 #panelLatLon .latLonZ {
+	float: right;
 	text-align:right;
 	width:140px;
-	margin-top:10px;
+	margin:10px 20px 0 0;
 }
 
 .panelWingoMap .posMap {
@@ -132,14 +172,19 @@ body {
 }
 
 .panelWingoMap ul.listWingoMap {
-	width: 206px;
 	max-height:200px;
 	overflow: auto;
-	margin:0;
+	margin:0 7px 4px 7px;
+	padding: 4px 4px 0 4px;
+	list-style-type: none;
+	box-shadow: 0 3px 3px #959595, 0 2px 3px #959595 inset;
+	border-radius: 6px;
+}
+.panelWingoMap .btn {
+	margin-bottom: 3px;
 }
 .panelWingoMap ul.listWingoMap li {
-	margin-bottom: 3px;
-	text-align: right;
+	margin: 2px 0;
 }
 @media screen and (max-height: 460px) {
 	.panelWingoMap ul.listWingoMap {
@@ -147,3 +192,18 @@ body {
 	}
 }
 
+.panelWingoMap ul.listWingoMap .btn.disabled,
+.panelWingoMap ul.listWingoMap .btn[disabled] {
+	display: none;
+}
+
+#lat,
+#long {
+	width:75px;
+}
+
+#btnGoTo {
+	clear: both;
+	float: right;
+	margin: 20px 20px 0 5px;
+}

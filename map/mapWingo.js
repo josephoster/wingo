@@ -1,13 +1,13 @@
 /**
  * map/mapWingo.js - Google Maps API Demo
  *
- * @version 15 Dec 2012
+ * @version 16 Dec 2012
  * @author	Joseph Oster, wingo.com
  */
 
 var mapWingo = {
 
-	viewNames: [ "AddressLU", "Markers", "Routes", "Polygons", "Bookmarks", "LatLon" ],
+	viewNames: [ "AddressLU", "Markers", "Routes", "Polygons", "LatLon" ],
 	appPanels: {},
 
 	resizeWin: function(event, isInit) {
@@ -18,6 +18,7 @@ var mapWingo = {
 			jt_.showNoneElm(mapWingo.crosshairDIV);
 			jt_.showNoneElm(mapWingo.mapFrame_elm);
 
+			//jt_.Trace.msg("scrnW=" + scrnW + "][scrnH=" + scrnH);
 			mapWingo.winCurrW = scrnW;
 			mapWingo.winCurrH = scrnH;
 			mapWingo._ctrlH_ = ctrlH;
@@ -52,7 +53,7 @@ var mapWingo = {
 	},
 
 	plotLonLat: function(lng, lat, zoomLevel, mapType) {
-		mapWingo.wingoMapFrame.plotLonLat(lng, lat, zoomLevel, mapType);
+		mapWingo.mapFrame.plotLonLat(lng, lat, zoomLevel, mapType);
 	},
 
 	latLngUpdate: function(lng, lat) {
@@ -61,6 +62,7 @@ var mapWingo = {
 		$(mapWingo.latVu).text(mapWingo.fldLat.value);
 		$(mapWingo.lonVu).text(mapWingo.fldLon.value);
 		jt_.cssClass.rem(mapWingo.latLonVu, 'hideElm');
+		//jt_.Trace.msg(mapWingo.mapFrame.map.getMapTypeId());
 	},
 
 	zoom_changed: function(zVal) {
@@ -78,11 +80,12 @@ var mapWingo = {
 	},
 
 	myLoc: function() {
+
 		if (navigator.geolocation) {
 			navigator.geolocation.getCurrentPosition(
 
 				function(position) { // success
-					mapWingo.plotLonLat(position.coords.longitude, position.coords.latitude);
+					mapWingo.plotLonLat(position.coords.longitude, position.coords.latitude, 16);
 				},
 
 				function(msg) { // error
@@ -95,8 +98,25 @@ var mapWingo = {
 		else alert("Not supported");
 	},
 
+	save: function(key, obj) {
+		if (localStorage) {
+			localStorage[key] = JSON.stringify(obj);
+		}
+	},
+
+	load: function(key) {
+		var obj = false;
+		if (localStorage) {
+			var savedTxt = localStorage[key];
+			if (savedTxt) {
+				obj = JSON.parse(savedTxt);
+			}
+		}
+		return obj;
+	},
+
 	init: function(wingoMapFrame) {
-		mapWingo.wingoMapFrame = wingoMapFrame; // 'WingoMap' passed from iFrame to parent
+		mapWingo.mapFrame = wingoMapFrame; // 'WingoMap' passed from iFrame to parent
 
 		mapWingo.mapFrame_elm = document.getElementById("mapFrame");
 		mapWingo.wingo_ctrls_elm = document.getElementById("wingo_ctrls");
@@ -114,12 +134,12 @@ var mapWingo = {
 		jt_.addListener(document.getElementById("btn_Menu"), 'click', mapWingo.showView);
 
 		jt_.addListener(mapWingo.zoomPD, 'change', function() {
-			mapWingo.wingoMapFrame.map.setZoom(parseInt(jt_.fo.selected(mapWingo.zoomPD)));
+			mapWingo.mapFrame.map.setZoom(parseInt(jt_.fo.selected(mapWingo.zoomPD)));
 		});
 
 		jt_.addListener(document.getElementById("btnGoTo"), 'click', function() {
 			mapWingo.fldAddr.value = "";
-			mapWingo.wingoMapFrame.panTo(mapWingo.fldLat.value, mapWingo.fldLon.value);
+			mapWingo.mapFrame.panTo(mapWingo.fldLat.value, mapWingo.fldLon.value);
 		});
 	
 		mapWingo.resizeWin(true, true);
@@ -142,6 +162,7 @@ var mapWingo = {
 
 		wmPolys.load();
 		wmMarkers.load();
+		$('#panelMarkers a[href="#markerListPane"]').tab('show');
 	}
 };
 
@@ -149,44 +170,89 @@ var mapWingo = {
 var wmMarkers = {
 
 	markList: [],
+
+	predefined: [
+		{
+			txt: "volcano south of Cabo",
+			lat: 19.308551284387825,
+			lon: -110.80681800842285,
+			_Zoom: 15
+		},
+		{
+			txt: "nice little harbor in Gibraltar",
+			lat: 36.00924734317246,
+			lon: -5.603821277618408,
+			_Zoom: 16
+		},
+		{
+			txt: "Concepcion, Chile",
+			lat: -36.795470938729835,
+			lon: -73.06646347045898,
+			_Zoom: 12
+		}
+	],
+
 	markerEditIdx: -1,
 
 	showList: function() {
 		var listDIV = document.getElementById("markerList");
 		$(listDIV).empty();
+		wmMarkers.rowList = [];
 		for (var i=0; i<wmMarkers.markList.length; i++) {
-			var st = '<li>' + (i+1) + ') <a href="javascript:wmMarkers.centerOn(' + i + ')" class="btn btn-mini btn-info">center</a> ';
-			st += '<a href="javascript:wmMarkers.edit(' + i + ')" class="btn btn-mini btn-primary">Edit/Move</a> ';
-			st += '<a href="javascript:wmMarkers.remove(' + i + ')" class="btn btn-mini btn-danger">Remove</a></li>';
-			$(st).appendTo(listDIV);
+			var st = '<li><a href="javascript:wmMarkers.centerOn(' + i + ')" class="btn btn-mini btn-info">' + wmMarkers.markList[i]._wpParams.txt + '</a>';
+			var cssDisable = wmMarkers.markList[i]._wpParams._wmRO ? ' disabled' : '';
+			st += ' <a href="javascript:wmMarkers.edit(' + i + ')" class="btn btn-mini btn-primary' + cssDisable + '">Edit/Move</a> ';
+			st += ' <a href="javascript:wmMarkers.remove(' + i + ')" class="btn btn-mini btn-danger' + cssDisable + '">Remove</a></li>';
+			var liObj = $(st).appendTo(listDIV).get(0);
+			wmMarkers.rowList.push(liObj);
 		}
+		//jt_.TraceObj.show(wmMarkers.rowList);
 	},
 
 	centerOn: function(idx) {
-		mapWingo.wingoMapFrame.map.panTo(wmMarkers.markList[idx].position);
+		var p = wmMarkers.markList[idx]._wpParams;
+		mapWingo.mapFrame.plotLonLat(p.lon, p.lat, p._Zoom, p._mapType);
 	},
 
 	setButtons: function(editIdx) {
 		wmMarkers.markerEditIdx = editIdx;
 		document.getElementById('markerButton').innerHTML = (editIdx == -1) ? "Create Marker" : "Save Changes";
 		jt_.showNone("markerCancelButton", editIdx != -1, "inline");
+		if (editIdx == -1) {
+		 wmMarkers.clearDescrip();
+		}
 	},
 
 	edit: function(idx) {
-		mapWingo.wingoMapFrame.infowindow.close();
-		wmMarkers.centerOn(idx);
-		wmMarkers.setButtons(idx);
-		mapWingo.markerDescFld.value = wmMarkers.markList[idx]._appInfoHTML;
-		mapWingo.markerDescFld.focus();
+		if (!wmMarkers.markList[idx]._wpParams._wmRO) {
+			$('#panelMarkers a[href="#panelMarkers_newEdit"]').tab('show');
+			mapWingo.mapFrame.popInfo(wmMarkers.markList[idx]);
+			wmMarkers.centerOn(idx);
+			setTimeout(function() { // again after delay because 'infowindow' size moves marker away from center!
+				wmMarkers.centerOn(idx);
+			}, 750);
+			wmMarkers.setButtons(idx);
+			mapWingo.markerDescFld.value = wmMarkers.markList[idx]._wpParams.txt;
+			mapWingo.markerDescFld.focus();
+		}
 	},
 
 	remove: function(idx) {
-		mapWingo.wingoMapFrame.infowindow.close();
-		wmMarkers.markList[idx].setMap();
-		wmMarkers.markList.splice(idx, 1);
-		wmMarkers.setButtons(-1);
-		wmMarkers.showList();
-		wmMarkers.save();
+		if (!wmMarkers.markList[idx]._wpParams._wmRO) {
+			var _idx  = idx;
+			wmMarkers.centerOn(_idx);
+			$( ".btn-primary", $('#WingoMapConfirm') ).unbind().on('click', function() {
+				jt_.Trace.msg('removeAction' + _idx);
+				$('#WingoMapConfirm').modal('hide');
+				mapWingo.mapFrame.infowindow.close();
+				wmMarkers.markList[_idx].setMap();
+				wmMarkers.markList.splice(_idx, 1);
+				wmMarkers.setButtons(-1);
+				wmMarkers.showList();
+				wmMarkers.save();
+			});
+			$('#WingoMapConfirm').modal('show');
+		}
 	},
 
 	clearDescrip: function() {
@@ -195,42 +261,56 @@ var wmMarkers = {
 
 	add: function(marker) {
 		wmMarkers.markList.push(marker);
-		wmMarkers.showList();
 	},
 
 	createSave: function() {
 		if (wmMarkers.markerEditIdx == -1) { // create new
-			wmMarkers.add(mapWingo.wingoMapFrame.createNewMarker(mapWingo.markerDescFld.value));
+			wmMarkers.add(mapWingo.mapFrame.createNewMarker(mapWingo.markerDescFld.value));
 		}
 		else { // save/replace
 			wmMarkers.markList[wmMarkers.markerEditIdx].setMap();
-			wmMarkers.markList[wmMarkers.markerEditIdx] = mapWingo.wingoMapFrame.createNewMarker(mapWingo.markerDescFld.value);
+			wmMarkers.markList[wmMarkers.markerEditIdx] = mapWingo.mapFrame.createNewMarker(mapWingo.markerDescFld.value);
 			wmMarkers.setButtons(-1);
 		}
+		wmMarkers.showList();
 		wmMarkers.save();
+		wmMarkers.clearDescrip();
 	},
 
 	ls_KEY: 'WingoMap.wmMarkers',
 
 	save: function() {
-		var listObj = [];
+		var listArry = [];
 		for (var i=0; i<wmMarkers.markList.length; i++) {
-			listObj.push(wmMarkers.markList[i]._wpParams);
+			if (wmMarkers.markList[i]._wpParams._wmRO) {}
+			else {
+				listArry.push(wmMarkers.markList[i]._wpParams);
+			}
 		}
-		localStorage[wmMarkers.ls_KEY] = JSON.stringify(listObj);
+		mapWingo.save(wmMarkers.ls_KEY, listArry);
 	},
 
 	load: function() {
-		var listObj = JSON.parse(localStorage[wmMarkers.ls_KEY]);
-		if (listObj && (listObj.length > 0)) {
-			for (var i=0; i<listObj.length; i++) {
-				var params = listObj[i];
-				var marker = mapWingo.wingoMapFrame.createNewMarker(params.txt, params.lat, params.lon);
-				marker._wpParams = params;
-				wmMarkers.markList.push(marker);
-			}
-			wmMarkers.showList();
+
+		function newMarker(params) {
+			var marker = mapWingo.mapFrame.createNewMarker(params.txt, params.lat, params.lon, params._Zoom, params._mapType);
+			marker._wpParams = params;
+			wmMarkers.markList.push(marker);
 		}
+
+		var listArry = mapWingo.load(wmMarkers.ls_KEY);
+		if (listArry && (listArry.length > 0)) {
+			for (var i=0; i<listArry.length; i++) {
+				newMarker(listArry[i]);
+			}
+		}
+
+		for (var i=0; i<wmMarkers.predefined.length; i++) {
+			wmMarkers.predefined[i]._wmRO = true;
+			newMarker(wmMarkers.predefined[i]);
+		}
+
+		wmMarkers.showList();
 	}
 
 };
@@ -251,7 +331,7 @@ var wmPolys = {
 	},
 
 	centerOn: function(idx) {
-		mapWingo.wingoMapFrame.panTo(wmPolys.polyList[idx]._wpParams.lat, wmPolys.polyList[idx]._wpParams.lon);
+		mapWingo.mapFrame.panTo(wmPolys.polyList[idx]._wpParams.lat, wmPolys.polyList[idx]._wpParams.lon);
 	},
 
 	setButtons: function(editIdx) {
@@ -279,17 +359,17 @@ var wmPolys = {
 	},
 
 	createPolygon: function() {
-		var centerPoint = mapWingo.wingoMapFrame.map.getCenter();
+		var centerPoint = mapWingo.mapFrame.map.getCenter();
 		var params = {
-			numSides: parseInt(jt_.fo.selected(document.getElementById("polyShape"))),
-			radius: parseInt(document.getElementById("polyRadius").value),
+			numSides: jt_.zInt(jt_.fo.selected(document.getElementById("polyShape"))),
+			radius: jt_.zFloat(document.getElementById("polyRadius").value),
 			color: document.getElementById("polyColor").value,
-			lineWidth: parseInt(document.getElementById("polyWidth").value),
-			trans: parseFloat(document.getElementById("polyTransparency").value),
+			lineWidth: jt_.zInt(document.getElementById("polyWidth").value),
+			trans: jt_.zFloat(document.getElementById("polyTransparency").value),
 			lat: centerPoint.lat(),
 			lon: centerPoint.lng()
 		};
-		var poly = mapWingo.wingoMapFrame.drawPolygon(params.lat, params.lon, params.numSides, params.radius, params.color, params.lineWidth, params.trans);
+		var poly = mapWingo.mapFrame.drawPolygon(params.lat, params.lon, params.numSides, params.radius, params.color, params.lineWidth, params.trans);
 		poly._wpParams = params;
 		return poly;
 	},
@@ -310,19 +390,19 @@ var wmPolys = {
 	ls_KEY: 'WingoMap.polys',
 
 	save: function() {
-		var listObj = [];
+		var listArry = [];
 		for (var i=0; i<wmPolys.polyList.length; i++) {
-			listObj.push(wmPolys.polyList[i]._wpParams);
+			listArry.push(wmPolys.polyList[i]._wpParams);
 		}
-		localStorage[wmPolys.ls_KEY] = JSON.stringify(listObj);
+		mapWingo.save(wmPolys.ls_KEY, listArry);
 	},
 
 	load: function() {
-		var listObj = JSON.parse(localStorage[wmPolys.ls_KEY]);
-		if (listObj && (listObj.length > 0)) {
-			for (var i=0; i<listObj.length; i++) {
-				var params = listObj[i];
-				var poly = mapWingo.wingoMapFrame.drawPolygon(params.lat, params.lon, params.numSides, params.radius, params.color, params.lineWidth, params.trans);
+		var listArry = mapWingo.load(wmPolys.ls_KEY);
+		if (listArry && (listArry.length > 0)) {
+			for (var i=0; i<listArry.length; i++) {
+				var params = listArry[i];
+				var poly = mapWingo.mapFrame.drawPolygon(params.lat, params.lon, params.numSides, params.radius, params.color, params.lineWidth, params.trans);
 				poly._wpParams = params;
 				wmPolys.polyList.push(poly);
 			}

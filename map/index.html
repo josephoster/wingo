@@ -22,34 +22,68 @@
 			<span class="caret"></span>
 		</button>
 		<ul class="dropdown-menu">
-			<li><a href="" onClick="mapWingo.showView('LatLon');return false;">Latitude/Longitude</a></li>
-			<li><a href="" onClick="mapWingo.showView('Polygons');return false;">Polygons</a></li>
 			<li><a href="" onClick="mapWingo.showView('Markers');return false;">Markers</a></li>
-			<li><a href="" onClick="mapWingo.showView('Bookmarks');return false;">Bookmarks</a></li>
+			<li><a href="" onClick="mapWingo.showView('Polygons');return false;">Polygons</a></li>
 			<li><a href="" onClick="mapWingo.showView('AddressLU');return false;">Address</a></li>
-			<li><a href="" onClick="mapWingo.showView('Routes');return false;">Routes</a></li>
 			<li><a href="" onClick="mapWingo.myLoc();return false;">my Location</a></li>
+			<li><a href="" onClick="mapWingo.showView('LatLon');return false;">Latitude/Longitude</a></li>
+			<li><a href="" onClick="mapWingo.showView('Routes');return false;">Routes</a></li>
 		</ul>
 	</div>
 
 	<div id="latLonVu" class="hideElm">
-		lat:
-		<span id="latVu"></span>
 
-		lon:
-		<span id="lonVu"></span>
+		<div class="ctrl gap">
+			lat:
+			<span id="latVu"></span>
+		</div>
+
+		<div class="ctrl gap">
+			lon:
+			<span id="lonVu"></span>
+		</div>
+
+		<div class="ctrl">
+			zoom:
+			<select id="zoomLevel">
+				<option>0</option>
+				<option>1</option>
+				<option>2</option>
+				<option>3</option>
+				<option>4</option>
+				<option>5</option>
+				<option>6</option>
+				<option>7</option>
+				<option>8</option>
+				<option>9</option>
+				<option>10</option>
+				<option>11</option>
+				<option>12</option>
+				<option>13</option>
+				<option>14</option>
+				<option>15</option>
+				<option>16</option>
+				<option>17</option>
+				<option>18</option>
+				<option>19</option>
+				<option>20</option>
+				<option>21</option>
+			</select>
+		</div>
+
 	</div>
 
 	<div class="clearfix"></div>
 </div>
 
+
 <div class="panelWingoMap" id="panelLatLon">
 	<a href="" class="xPanel">close<i class="icon-remove"></i></a>
-	<b>Latitude/Longitude</b>
+	<h3>Latitude/Longitude</h3>
+
+	<p><label><input type="checkbox" id="latLonShow" checked> show at top</label></p>
 
 	<button id="btnGoTo" class="btn btn-primary">go</button>
-
-	<label><input type="checkbox" id="latLonShow" checked> show at top</label>
 
 	<div class="latLonZ">
 		lat:
@@ -57,32 +91,6 @@
 
 		lon:
 		<input type="text" name="long" id="long"><br>
-
-		zoom:
-		<select id="zoomLevel">
-			<option>0</option>
-			<option>1</option>
-			<option>2</option>
-			<option>3</option>
-			<option>4</option>
-			<option>5</option>
-			<option>6</option>
-			<option>7</option>
-			<option>8</option>
-			<option>9</option>
-			<option>10</option>
-			<option>11</option>
-			<option>12</option>
-			<option>13</option>
-			<option>14</option>
-			<option>15</option>
-			<option>16</option>
-			<option>17</option>
-			<option>18</option>
-			<option>19</option>
-			<option>20</option>
-			<option>21</option>
-		</select>
 	</div>
 
 </div>
@@ -90,7 +98,7 @@
 
 <div class="panelWingoMap" id="panelPolygons">
 	<a href="" class="xPanel">close<i class="icon-remove"></i></a>
-	<b>Polygons:</b>
+	<h3>Polygons:</h3>
 
 <table border="0" cellspacing="0" cellpadding="0" align="center">
 <tr>
@@ -133,81 +141,77 @@
 		<button id="polyCancelButton" onClick="wmPolys.setButtons(-1)" style="display:none;">Cancel</button>
 	</p>
 
-	<div class="hLinePad"></div>
-
 	<ul id="polyList" class="listWingoMap"></ul>
 </div>
 
 
 <div class="panelWingoMap" id="panelMarkers">
 	<a href="" class="xPanel">close<i class="icon-remove"></i></a>
-	<b>Markers:</b>
+	<h3>Markers:</h3>
 
-	<p>Description: <a href="javascript:wmMarkers.clearDescrip()">clear</a><br />
-		<textarea name="markerDesc" id="markerDesc" rows="3" wrap="virtual"></textarea>
-	</p>
-
-	<p class="posMap">Position map to place at crosshair</p>
-	<p style="text-align:center">
-		<button class="btn btn-primary" id="markerButton" onClick="wmMarkers.createSave()">Create Marker</button>
-		<button id="markerCancelButton" onClick="wmMarkers.setButtons(-1)" style="display:none;">Cancel</button>
-	</p>
-
-	<div class="hLinePad"></div>
-
-	<ul id="markerList" class="listWingoMap"></ul>
-</div>
-
-
-<div class="panelWingoMap" id="panelBookmarks">
-	<a href="" class="xPanel">close<i class="icon-remove"></i></a>
-	<b>Bookmarks:</b>
-
-	<p>Description: <a href="javascript:wmBookmarks.clearDescrip()">clear</a><br />
-		<textarea name="bookmarkDesc" id="bookmarkDesc" rows="2" wrap="virtual"></textarea>
-	</p>
-
-	<p class="posMap">Position map to place at crosshair</p>
-	<p style="text-align:center">
-		<button class="btn btn-primary" id="bookmarkButton" onClick="wmBookmarks.createBookmarkBtn()">Create Bookmark</button>
-		<button id="bookmarkCancelButton" onClick="wmBookmarks.setBookmarkButton(-1)" style="display:none;">Cancel</button>
-	</p>
-
-	<div class="hLinePad"></div>
-
-	<ul id="bookmarkList" class="listWingoMap" style="text-align:right;">
-		<li><a href="javascript:mapWingo.plotLonLat(-110.80681800842285, 19.308551284387825, 15)">volcano south of Cabo</a></li>
-		<li><a href="javascript:mapWingo.plotLonLat(-5.603821277618408, 36.00924734317246, 16)">nice little harbor in Gibraltar</a></li>
-		<li><a href="javascript:mapWingo.plotLonLat(-73.06646347045898, -36.795470938729835, 12)">Concepcion, Chile</a></li>
+	<ul class="nav nav-tabs">
+		<li><a href="#markerListPane" data-toggle="tab">List</a></li>
+		<li><a href="#panelMarkers_newEdit" data-toggle="tab">New / Edit</a></li>
 	</ul>
 
-	<img src="../images/working.gif" width="67" height="67" alt="" />
-	in progress...
+	<div class="tab-content">
+		<div class="tab-pane" id="panelMarkers_newEdit">
+			<p>Description: <a href="javascript:wmMarkers.clearDescrip()">clear</a><br />
+				<textarea name="markerDesc" id="markerDesc" rows="3" wrap="virtual"></textarea>
+			</p>
+
+			<p class="posMap">Position map to place at crosshair</p>
+			<p style="text-align:center">
+				<button class="btn btn-primary" id="markerButton" onClick="wmMarkers.createSave()">Create Marker</button>
+				<button id="markerCancelButton" onClick="wmMarkers.setButtons(-1)" style="display:none;">Cancel</button>
+			</p>
+		</div>
+
+		<div class="tab-pane" id="markerListPane">
+			<ul class="listWingoMap" id="markerList"></ul>
+		</div>
+	</div>
+
 </div>
 
 
 <div class="panelWingoMap" id="panelAddressLU">
 	<a href="" class="xPanel">close<i class="icon-remove"></i></a>
-	<b>Address</b>
+	<h3>Address</h3>
 
 	<p>Enter U.S. street address: <span id="err" style="color:red"></span><br />
 		<input type="text" name="address" id="address">
 	</p>
 
-	<p style="text-align:center"><button class="btn btn-primary" id="useAddr" onClick="mapWingo.wingoMapFrame.plotAddr()">Map Address</button></p>
+	<p style="text-align:center"><button class="btn btn-primary" id="useAddr" onClick="mapWingo.mapFrame.plotAddr()">Map Address</button></p>
 </div>
 
 
 <div class="panelWingoMap" id="panelRoutes">
 	<a href="" class="xPanel">close<i class="icon-remove"></i></a>
-	<b>Routes:</b>
+	<h3>Routes:</h3>
 
 	<p><img src="../images/working.gif" width="67" height="67" alt="" />
 	in progress...</p>
 
-	<div class="hLinePad"></div>
-
 	<div id="routeList" class="listWingoMap"></div>
+</div>
+
+
+<div class="modal hide fade" id="WingoMapConfirm">
+	<div class="modal-header">
+		<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+		<h3>Confirm: remove marker</h3>
+	</div>
+	<div class="modal-body">
+
+		<p><b>REMOVE</b> this marker - Are you sure?</p>
+
+	</div>
+	<div class="modal-footer">
+		<button class="btn" data-dismiss="modal" aria-hidden="true">Cancel</button>
+		<button class="btn btn-primary">Remove</button>
+	</div>
 </div>
 
 

@@ -46,8 +46,11 @@ var WingoMap = {
 		}
 	},
 
-	panTo: function(lat, lng) {
+	panTo: function(lat, lng, zoom) {
 		WingoMap.map.panTo(new google.maps.LatLng(lat, lng));
+		if (zoom) {
+			WingoMap.map.setZoom(zoom);
+		}
 	},
 
 	latLngUpdate: function() {
@@ -74,6 +77,7 @@ var WingoMap = {
 					}
 					txt += "lat: " + parent.mapWingo.fldLat.value + "\nlng: " + parent.mapWingo.fldLon.value + "\n";
 					parent.wmMarkers.add(WingoMap.createNewMarker(txt, results[0].geometry.location.lat(), results[0].geometry.location.lng()));
+					parent.wmMarkers.showList();
 					WingoMap.map.setZoom(15);
 				} else {
 					parent.mapWingo.errMSG.innerHTML = "Problem: " + status;
@@ -85,8 +89,7 @@ var WingoMap = {
 
 	plotLonLat: function(lng, lat, zoomLevel, mapType) {
 		WingoMap.map.setMapTypeId(mapType ? mapType : google.maps.MapTypeId.SATELLITE);
-		WingoMap.map.setZoom(zoomLevel ? zoomLevel : 15);
-		WingoMap.panTo(lat, lng);
+		WingoMap.panTo(lat, lng, zoomLevel ? zoomLevel : 15);
 	},
 
 	drawPolygon: function(lat, lng, PGsides, PGradius, PGcolor, PGwidth, PGtrans) {
@@ -117,20 +120,25 @@ var WingoMap = {
 		return poly;
 	},
 
-	createNewMarker: function(infoTxt, lat, lon) {
+	popInfo: function(marker) {
+		WingoMap.infowindow.setContent(
+			"<span class='markerTxt'>" + jt_.htmlEncode(marker._wpParams.txt).replace(/\n/gi,"<br>") + "</span>");
+		WingoMap.infowindow.open(WingoMap.map, marker);
+	},
+
+	createNewMarker: function(infoTxt, lat, lon, zoom, mapType) {
 		var atPos = (arguments.length>1) ? new google.maps.LatLng(lat, lon) : WingoMap.map.getCenter();
 		var marker = new google.maps.Marker({position: atPos, map: WingoMap.map, draggable: true});
 		marker._wpParams = {
 			txt: infoTxt,
 			lat: atPos.lat(),
-			lon: atPos.lng()
+			lon: atPos.lng(),
+			_Zoom: (zoom ? zoom : WingoMap.map.getZoom()),
+			_mapType: (mapType ? mapType : WingoMap.map.getMapTypeId())
 		};
-		marker._appInfoHTML = jt_.htmlEncode(infoTxt).replace(/\n/gi,"<br>");
 		google.maps.event.addListener(marker, 'click', function() {
-			WingoMap.infowindow.setContent("<span class='markerTxt'>" + marker._appInfoHTML + "</span>");
-			WingoMap.infowindow.open(WingoMap.map, marker);
+			WingoMap.popInfo(this);
 		});
-		parent.wmMarkers.clearDescrip();
 		return marker;
 	},
 
