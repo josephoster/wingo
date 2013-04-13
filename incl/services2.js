@@ -1,3 +1,7 @@
+/**
+ * @author	Joseph Oster, wingo.com, Copyright(c) 2005-2013 - All Rights Reserved.
+ */
+
 var tutorBox;
 var tutorBoxHandle;
 var tutorBoxCA;
@@ -579,7 +583,11 @@ var jt_bgGame = {
 			jt_.addListener((BrowserDetect.browser == 'Explorer') ? document.body : window, "mousemove", jt_bgGame.setSpeed);
 			jt_.addListener(window, "unload", jt_bgGame.stop);
 			jt_bgGame.lnk.style.background = "#ffffcc";
-			jt_bgGame.timer = setInterval(jt_bgGame.step, 40);
+			jt_bgGame.timer = setInterval(function() {
+				jt_bgGame.x += jt_bgGame.sX;
+				jt_bgGame.y += jt_bgGame.sY;
+				jt_bgGame.moveBG();
+			}, 40);
 		}
 		else jt_bgGame.stop();
 	},
@@ -592,7 +600,7 @@ var jt_bgGame = {
 		jt_.remListener((BrowserDetect.browser == 'Explorer') ? document.body : window, "mousemove", jt_bgGame.setSpeed);
 		jt_.remListener(window, "unload", jt_bgGame.stop);
 		jt_.cssClass.rpl(document.body, 'wingoGame', 'wingo');
-		document.body.style.backgroundPosition = '-5px top';
+		//document.body.style.backgroundPosition = '-5px top';
 	},
 	useTwo:true,
 	oneTwo: function() {
@@ -605,18 +613,13 @@ var jt_bgGame = {
 		jt_bgGame.sX = Math.round((e.clientX - jt_bgGame.XC) / jt_bgGame.XC * 50);
 		jt_bgGame.sY = Math.round((e.clientY - jt_bgGame.YC) / jt_bgGame.YC * 50);
 	},
-	moveBG: function(reset) {
+	moveBG: function() {
 		document.body.style.backgroundPosition = (jt_bgGame.x) + 'px ' + jt_bgGame.y + 'px';
 	},
 	reset: function() {
 		jt_bgGame.x = 0;
-		jt_bgGame.y = jt_.winH() - 969;
+		jt_bgGame.y = 0;
 		jt_bgGame.moveBG(true);
-	},
-	step: function() {
-		jt_bgGame.x += jt_bgGame.sX;
-		jt_bgGame.y += jt_bgGame.sY;
-		jt_bgGame.moveBG();
 	},
 	timer: null
 }

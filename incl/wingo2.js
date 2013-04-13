@@ -1,8 +1,58 @@
 /**
- * @author	Joseph Oster, wingo.com, Copyright(c) 2005-2012 - All Rights Reserved.
+ * @author	Joseph Oster, wingo.com, Copyright(c) 2005-2013 - All Rights Reserved.
  */
 
 var menuWingo = {
+
+	bg_set: function(xPos) {
+		menuWingo.menuDIV.style.backgroundPosition = xPos + 'px 0px';
+	},
+
+	bg_start: function() {
+
+			function start() {
+				menuWingo.bg_stop();
+				menuWingo.bg_timer = setInterval(function() {
+					menuWingo.menuData.x += menuWingo.menuData.inc;
+					menuWingo.bg_set(menuWingo.menuData.x);
+					if ((menuWingo.menuData.x >= 0) || (menuWingo.menuData.x <= menuWingo.wMenu - menuWingo.bg_img.width)) {
+						menuWingo.menuData.inc = menuWingo.menuData.inc * -1; // reverse
+					}
+				}, 200);
+			}
+
+		if (menuWingo.bg_img) {
+			start();
+		}
+		else {
+			menuWingo.menuData = new jt_.Cookie(document, "menuData", 0, "/");
+			menuWingo.menuData.load();
+			if (menuWingo.menuData.inc) {
+				menuWingo.menuData.x = parseInt(menuWingo.menuData.x);
+				menuWingo.menuData.inc = parseInt(menuWingo.menuData.inc);
+			}
+			else {
+				menuWingo.menuData.x = 0;
+				menuWingo.menuData.inc = -1;
+			}
+			jt_.addListener(window, "unload", function() {
+				menuWingo.menuData.store();
+			});
+
+			menuWingo.wMenu = jt_.width(menuWingo.menuDIV);
+
+			menuWingo.bg_img = new Image();
+			jt_.addListener(menuWingo.bg_img, "load", function() {
+				jt_.cssClass.add(menuWingo.menuDIV, 'bg_lg');
+				start();
+			});
+			menuWingo.bg_img.src = 'images/princeville_bg2.jpg';
+		}
+	},
+
+	bg_stop: function() {
+		clearInterval(menuWingo.bg_timer);
+	},
 
 	init: function(callBack) {
 
@@ -16,7 +66,13 @@ var menuWingo = {
 					if (bodyC.moBar) {
 						jt_.cssClass.rem(document.body, 'moBar');
 					}
-					jt_.showNoneElm(menuWingo.menuDIV, bodyC.wingo && (jt_.currStyle(document.body).backgroundImage != 'none') );
+					jt_.showNoneElm(menuWingo.menuDIV, bodyC.wingo);
+					if (bodyC.wingo) {
+						menuWingo.bg_start();
+					}
+					else {
+						menuWingo.bg_stop();
+					}
 				}
 				else if (!bodyC.moBar) {
 					jt_.cssClass.add(document.body, 'moBar');

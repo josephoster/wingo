@@ -9,12 +9,12 @@ BODY.moBar {
 	color: #000000;
 }
 BODY.wingo {
-	background:#e8e8e8 url(images/bg_left_nav.jpg) repeat-y -2px top;
+	background:#e8e8e8; /* url(images/bg_left_nav.jpg) repeat-y -2px top; */
 	margin-left:98px;
 }
 
 BODY.wingoGame {
-	background:#173A89 url(images/Peacekeeper-h.jpg) repeat left top;
+	background:#173A89 url(images/princeville_bg2.jpg) repeat left top;
 }
 
 img {
@@ -24,12 +24,25 @@ img {
 
 #wingoMenu {
 	position:fixed;
-	top:24px;
+	top:0;
 	left:0;
+	padding-top:24px;
+	height: 100%;
+	background-image: url(images/bg_left_nav2.jpg);
+	box-shadow: 4px 0  4px #777777;
 	display:none;
+}
+#wingoMenu.bg_lg {
+	background-image: url(images/princeville_bg2.jpg);
 }
 BODY.wingo #wingoMenu {
 	display:block;
+}
+BODY.wingoGame #wingoMenu {
+	display:block;
+	background-image: none;
+	box-shadow: inherit;
+	background-size: auto;
 }
 
 #wingoMenu a {
@@ -213,10 +226,7 @@ footer td,
 }
 
 .wingoBay {
-	position:absolute;
-	top:-4px;
-	left:20px;
-	z-index:-1;
+	margin:20px 0 0 20px;
 }
 
 #wingoMobile {
@@ -284,10 +294,8 @@ BODY.moBar #wingoMenu {
 	top:0;
 	padding:0 10px 0 10px;
 	margin: 0 0 10px 0;
-/*
-	background: #dcdcdc;
-	box-shadow: 0 2px 2px #008080;
-*/
+	background: transparent;
+	box-shadow: none;
 }
 BODY.moBar #wingoMenu a {
 	text-align: center;
@@ -389,11 +397,11 @@ DIV.dashBox {
 }
 
 A:link {
-	color: #3300FF;
+	color: #0000cc;
 	text-decoration: none;
 }
 A:visited {
-	color: #330099;
+	color: #0068cc;
 	text-decoration: none;
 }
 A:active {color: #FF0000; text-decoration: none;}
