@@ -1,5 +1,5 @@
 /**
- * jt2_.js - "JavaScript Toolkit", V.2 (re-factored Nov 1 2009 from 'jt_.js'; was 'jt_utils.js')
+ * jt2_.js - "JavaScript Toolkit", V.2 (re-factored Nov 1 2009 from 'jt_.js')
  *
  * Copyright (c) 2005-2012 by Joseph Oster, wingo.com
  * http://www.wingo.com/jt_/jt_.js
@@ -569,7 +569,6 @@ jt_.BodyZ = { /***** manages z-Index visibility */
 			elm._jt_BodyZZ = jt_.BodyZ.nid++;
 			jt_.addListener(elm, "mousedown", function() {
 				jt_.BodyZ.toTop(elm);
-				if (jt_.BodyZ.trace && (elm != jt_.Trace.tDIV)) {jt_.TraceObj.show(elm);}
 			});
 			jt_.BodyZ.que.appendChild(elm);
 			jt_.BodyZ.set(elm);
@@ -1096,7 +1095,7 @@ jt_.boxOverlap = function(objectA, objectB, mode, xOffsetA, yOffsetA, xOffsetB, 
 	if (xOffsetB) xyB.x -= xOffsetB;
 	if (yOffsetB) xyB.y -= yOffsetB;
 /*
-jt_Trace.msg("xyA.x=" + xyA.x + " - xyA.y=" + xyA.y + " - xyB.x=" + xyB.x + " - xyB.y=" + xyB.y + "<br>" +
+jt_.Trace.msg("xyA.x=" + xyA.x + " - xyA.y=" + xyA.y + " - xyB.x=" + xyB.x + " - xyB.y=" + xyB.y + "<br>" +
 			"xOffsetA=" + xOffsetA + " - yOffsetA=" + yOffsetA + " - xOffsetB=" + xOffsetB + " - yOffsetB=" + yOffsetB);
 */
 	var objAxTL = xyA.x; // AX1 - xTopLeft
@@ -1109,7 +1108,7 @@ jt_Trace.msg("xyA.x=" + xyA.x + " - xyA.y=" + xyA.y + " - xyB.x=" + xyB.x + " - 
 	var objBxBR = xyB.x + objectB.offsetWidth; // BX2
 	var objByBR = xyB.y + objectB.offsetHeight; // BY2
 /*
-jt_Trace.msg("objAxTL=" + objAxTL + " - objAyTL=" + objAyTL + " - objAxBR=" + objAxBR + " - objAyBR=" + objAyBR + "\n" +
+jt_.Trace.msg("objAxTL=" + objAxTL + " - objAyTL=" + objAyTL + " - objAxBR=" + objAxBR + " - objAyBR=" + objAyBR + "\n" +
 			"objBxTL=" + objBxTL + " - objByTL=" + objByTL + " - objBxBR=" + objBxBR + " - objByBR=" + objByBR);
 
 reject the following conditions:
