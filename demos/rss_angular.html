@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html ng-app>
+<html ng-app="RSS_Demo">
 <head>
 	<title>RSS Demo using AngularJS</title>
 
@@ -16,7 +16,7 @@ body {
 	}
 }
 
-.well img {
+.well .rssThumb img {
 	width: 132px;
 	margin: 0 16px 4px 0;
 }
@@ -36,25 +36,46 @@ body {
 	text-align:center;
 	display:none;
 }
+
+#aboutInfo .dropdown-menu {
+	padding:10px;
+	left:-100%;
+}
+#aboutInfo p.pull-right {
+	text-align: right;
+	margin-bottom: 0
+}
 </style>
 
 </head>
 <body ng-controller="AppCtrl" ng-init="init()">
 
-<a href="http://www.wingo.com/services.html" target="_blank" style="float:right;" title="wingo.com Web Site Design"><img src="../images/wsb.gif" width="111" height="40" alt="wingo.com Web Site Design" border="0" /></a>
+<div id="aboutInfo" class="pull-right">
+	<div class="dropdown">
+		<a id="dropInfo" role="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown">About this page</a>
+		<div class="dropdown-menu small" aria-labelledby="dropInfo">
+
+			<p>Media RSS demo using <a href="http://angularjs.org/" target="_blank">AngularJS</a>, <a href="https://developers.google.com/feed/" target="_blank">Google Feeds API</a>, <a href="http://jquery.com/" target="_blank">jQuery</a> and <a href="http://twitter.github.io/bootstrap/" target="_blank">Twitter bootstrap</a>.</p>
+
+			<p class="pull-right" style=""><em>by <a href="http://www.wingo.com/services.html" title="wingo.com">Joseph Oster</a>, April 2013</em><br>
+			<a href="http://www.wingo.com/services.html" title="wingo.com Web Site Design"><img src="../images/wsb.gif" width="111" height="40" alt="wingo.com Web Site Design" /></a></p>
+
+		</div>
+	</div>
+</div>
 
 <h1 ng-cloak><a href="{{feed_result.link}}" target="_blank">{{feed_result.title}}</a></h1>
 
 <p ng-cloak>{{feed_result.description}}</p>
 
-<div class="well well-small" ng-repeat="entry in feed_result.entries" ng-cloak>
-	<a ng-click="playVideo($index)" href="#" class="pull-left" onclick="return false;" title="play video" data-toggle="tooltip"><img ng-repeat="thumbnail in entry.mediaGroups[0].contents[0].thumbnails" src="{{thumbnail.url}}"></a>
+<div class="well well-small" ng-repeat="entry in feed_result.entries" init-tooltips ng-cloak>
+	<a ng-click="playVideo(entry)" href="#" class="pull-left rssThumb" onclick="return false;" title="play video" data-toggle="tooltip"><img ng-repeat="thumbnail in entry.mediaGroups[0].contents[0].thumbnails" src="{{thumbnail.url}}"></a>
 
 	<h4><a href="{{entry.link}}" target="_blank" title="view at TED.com" data-toggle="tooltip">{{entry.title}}</a></h4>
 
-	<button ng-click="playVideo($index)" class="btn btn-primary pull-left" style="margin: 0 10px 10px 0">Play</button>
+	<button ng-click="playVideo(entry)" class="btn btn-primary pull-left" style="margin: 0 10px 10px 0">Play</button>
 
-	<p>{{descrip(entry, $last)}}</p>
+	<p>{{entry.contentSnippet}}</p>
 
 	<p class="muted">
 		Posted: {{entry.publishedDate}} -
@@ -77,11 +98,10 @@ body {
 		<video id="vPlayer" src="{{currEntry.mediaGroups[0].contents[0].url}}" controls autoplay></video>
 
 		<p><span class="lead">{{currEntry.title}}</span><br>
-			{{currEntry.contentSnippet}}
-			<a href="{{currEntry.link}}" target="_blank" class="text-info" ng-click="stopVideo()">view at TED.com</a>
+			<span ng-bind-html="currEntry.content"></span>
 		</p>
 
-		<p class="muted">Posted: {{currEntry.publishedDate}}</p>
+		<p class="muted">Posted: {{currEntry.publishedDate}} - <a href="{{currEntry.link}}" target="_blank" class="text-info" ng-click="stopVideo()">view at TED.com</a></p>
 	</div>
 </div>
 
@@ -91,27 +111,31 @@ body {
 <script src="../bootstrap/js/bootstrap.js" type="text/javascript"></script>
 <script src="https://www.google.com/jsapi"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.6/angular.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.6/angular-sanitize.min.js"></script>
 
 <script type="text/javascript">
 google.load("feeds", "1");
 
+angular.module('RSS_Demo', ['ngSanitize'])
+
+	.directive('initTooltips', function() {
+		return function(scope, element, attrs) {
+			if (scope.$last) { // init tooltips when all are rendered
+				$('a[data-toggle="tooltip"]').tooltip();
+			}
+		};
+	});
+
 function AppCtrl($scope, $q) {
 
-	$scope.playVideo = function($index) {
+	$scope.playVideo = function(entry) {
 		$scope.afterPlay = true; // show errors only after "Play" video
-		$scope.currEntry = $scope.feed_result.entries[$index];
+		$scope.currEntry = entry;
 		$scope.videoModal.modal();
 	}
 
 	$scope.stopVideo = function() {
 		$scope.vPlayer.pause();
-	}
-
-	$scope.descrip = function(entry, last) {
-		if (last) { // side-effect!  init tooltips after all are rendered
-			$('a[data-toggle="tooltip"]').tooltip();
-		}
-		return entry.content.split('<img src=')[0]; // strip <img tag
 	}
 
 	$scope.init = function() {
