@@ -45,6 +45,34 @@ body {
 	text-align: right;
 	margin-bottom: 0
 }
+
+#topNav {
+	float: right;
+}
+#topNav .btn {
+	margin-right: 10px;
+}
+
+#veil {
+	position: absolute;
+	top: 0;
+	left: 0;
+	height:100%;
+	width:100%;
+	cursor: not-allowed;
+	background-color: #000000;
+	filter: alpha(opacity=50);
+	opacity: 0.5;
+}
+#feedLoading {
+	position: absolute;
+	top:200px;
+	width:100%;
+	text-align: center;
+	font-size: 4em;
+	color:white;
+	text-shadow: 2px 2px 2px #021124;
+}
 </style>
 
 </head>
@@ -64,16 +92,24 @@ body {
 	</div>
 </div>
 
+<div id="topNav">
+	<a ng-click="loadFeed('http://feeds.feedburner.com/TEDTalks_video')" class="btn">Feed 1</a>
+	<a ng-click="loadFeed('http://feeds.nationalgeographic.com/ng/photography/photo-of-the-day/')" class="btn">Feed 2</a>
+	<a ng-click="loadFeed('http://sfbay.craigslist.org/eng/index.rss')" class="btn">Feed 3</a>
+	<a ng-click="loadFeed('http://www.wingo.com/index.rss')" class="btn">bad feed</a>
+</div>
+
+
 <h1 ng-cloak><a href="{{feed_result.link}}" target="_blank">{{feed_result.title}}</a></h1>
 
 <p ng-cloak>{{feed_result.description}}</p>
 
-<div class="well well-small" ng-repeat="entry in feed_result.entries" init-tooltips ng-cloak>
-	<a ng-click="playVideo(entry)" href="#" class="pull-left rssThumb" onclick="return false;" title="play video" data-toggle="tooltip"><img ng-repeat="thumbnail in entry.mediaGroups[0].contents[0].thumbnails" src="{{thumbnail.url}}"></a>
+<div class="well well-small" ng-repeat="entry in feed_result.entries" list-done ng-cloak>
+	<a ng-click="viewDetail(entry)" href="#" class="pull-left rssThumb" onclick="return false;" title="view" data-toggle="tooltip"><img ng-repeat="thumbnail in mediaOne(entry).thumbnails" src="{{thumbnail.url}}"></a>
 
-	<h4><a href="{{entry.link}}" target="_blank" title="view at TED.com" data-toggle="tooltip">{{entry.title}}</a></h4>
+	<h4><a href="{{entry.link}}" target="_blank" title="view at {{feed_result.viewAt}}" data-toggle="tooltip">{{entry.title}}</a></h4>
 
-	<button ng-click="playVideo(entry)" class="btn btn-primary pull-left" style="margin: 0 10px 10px 0">Play</button>
+	<button ng-click="viewDetail(entry)" class="btn btn-primary pull-left" style="margin: 0 10px 10px 0">View</button>
 
 	<p>{{entry.contentSnippet}}</p>
 
@@ -86,7 +122,7 @@ body {
 <div class="modal hide fade" id="videoModal">
 	<div class="modal-header">
 		<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-		<h3>RSS Video demo</h3>
+		<h3>RSS Detail View</h3>
 	</div>
 	<div class="modal-body">
 
@@ -95,16 +131,19 @@ body {
 			<strong>FAIL!</strong> The HTML5 &lt;video&gt; tag does not support .mp4 videos in Chrome and Firefox. Use Internet Explorer or Safari to watch these videos.
 		</div>
 
-		<video id="vPlayer" src="{{currEntry.mediaGroups[0].contents[0].url}}" controls autoplay></video>
+		<video id="vPlayer" src="{{mediaOne(currEntry).url}}" controls autoplay ng-show="hasVideo(currEntry)"></video>
 
 		<p><span class="lead">{{currEntry.title}}</span><br>
 			<span ng-bind-html="currEntry.content"></span>
 		</p>
 
-		<p class="muted">Posted: {{currEntry.publishedDate}} - <a href="{{currEntry.link}}" target="_blank" class="text-info" ng-click="stopVideo()">view at TED.com</a></p>
+		<p class="muted">Posted: {{currEntry.publishedDate}} - <a href="{{currEntry.link}}" target="_blank" class="text-info" ng-click="stopVideo()">view at {{feed_result.viewAt}}</a></p>
 	</div>
 </div>
 
+
+<div id="veil" ng-show="isLoading"></div>
+<div id="feedLoading" ng-show="isLoading">Loading...</div>
 
 
 <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
@@ -118,19 +157,60 @@ google.load("feeds", "1");
 
 angular.module('RSS_Demo', ['ngSanitize'])
 
-	.directive('initTooltips', function() {
+	.directive('listDone', function() {
 		return function(scope, element, attrs) {
-			if (scope.$last) { // init tooltips when all are rendered
-				$('a[data-toggle="tooltip"]').tooltip();
+			if (scope.$last) { // all are rendered
+				scope.layoutDone();
 			}
 		};
+	})
+
+	.service('rssFeed', function($q, $rootScope) {
+		this.get = function(url) {
+			var d = $q.defer();
+			var feed = new google.feeds.Feed(url);
+			feed.setNumEntries(1000);
+			feed.load(function(result) {
+				$rootScope.$apply(d.resolve(result));
+			});
+			return d.promise;
+		}
 	});
 
-function AppCtrl($scope, $q) {
+function AppCtrl($scope, rssFeed) {
 
-	$scope.playVideo = function(entry) {
-		$scope.afterPlay = true; // show errors only after "Play" video
-		$scope.currEntry = entry;
+	$scope.setLoading = function(loading) {
+		$scope.isLoading = loading;
+	}
+
+	$scope.loadFeed = function(url) {
+		$scope.setLoading(true);
+		rssFeed.get(url).then(function(result) {
+			console.log(result);
+			if (result.error) {
+				alert("ERROR " + result.error.code + ": " + result.error.message + "\nurl: " + url);
+				$scope.setLoading(false);
+			}
+			else {
+				var urlParser = document.createElement('a');
+				urlParser.href = result.feed.link;
+				result.feed.viewAt = urlParser.hostname;
+				$scope.feed_result = result.feed;
+			}
+		});
+	}
+
+	$scope.layoutDone = function() {
+		$scope.setLoading(false); // hide "Loading..."
+		setTimeout(function() { // slight delay, init tooltips
+			$('a[data-toggle="tooltip"]').tooltip();
+		}, 500);
+	}
+
+	$scope.viewDetail = function(entry) {
+		$scope.vidTagAlert.hide();
+		$scope.videoPlay = $scope.hasVideo(entry); // show errors only after "Play" video
+		$scope.currEntry = entry; // sets new url in <video> tag!
 		$scope.videoModal.modal();
 	}
 
@@ -138,33 +218,40 @@ function AppCtrl($scope, $q) {
 		$scope.vPlayer.pause();
 	}
 
+	$scope.mediaOne = function(entry) { // return first media object for 'entry'
+		return (entry && entry.mediaGroups) ? entry.mediaGroups[0].contents[0] : {url:''};
+	}
+
+	$scope.hasVideo = function(entry) {
+		return $scope.mediaOne(entry).type == "video/mp4";
+	}
+
 	$scope.init = function() {
+
 		$scope.videoModal = $('#videoModal');
-		$scope.videoModal.on('hidden', function () {
+		$scope.videoModal.on('hidden', function() {
 			$scope.stopVideo()
 		});
 
 		$scope.vPlayer = $('#vPlayer')[0];
-		$($scope.vPlayer).on('error', function () {
-			if ($scope.afterPlay) {
-				$("#vidTagAlert").show();
+		$($scope.vPlayer).on('error', function() {
+			if ($scope.videoPlay) {
+				$scope.vidTagAlert.show();
 			}
 		});
-		$('#btnTagAlert').on('click', function () {
-			$("#vidTagAlert").hide();
+
+		$scope.vidTagAlert = $('#vidTagAlert');
+		$('#btnTagAlert').on('click', function() {
+			$scope.vidTagAlert.hide();
 		});
 
-		$scope.$watch('currEntry', function () {
-			$scope.vPlayer.load();
+		$scope.$watch('currEntry', function() {
+			if ($scope.hasVideo($scope.currEntry)) {
+				$scope.vPlayer.load();
+			}
 		});
 
-		var feed = new google.feeds.Feed("http://feeds.feedburner.com/TEDTalks_video");
-		feed.setNumEntries(1000);
-		feed.load(function(result) {
-			$scope.$apply(function() {
-				$scope.feed_result = result.feed;
-			});
-		});
+		$scope.loadFeed('http://feeds.feedburner.com/TEDTalks_video');
 	}
 
 }
