@@ -1,41 +1,41 @@
-<!DOCTYPE html>
-<html ng-app>
-<head>
-	<title>Location Object Properties</title>
-</head>
-<body ng-controller="AppCtrl" ng-init="init()">
+	<!DOCTYPE html>
+	<html>
+	<head>
+		<title>Parse URL using AngularJS</title>
+	</head>
+	<body ng-app ng-controller="AppCtrl" ng-init="init()">
 
-<h3>Properties of the JavaScript Location Object</h3>
+	<h3>Parse URL using AngularJS</h3>
 
-url: <input type="text" ng-model="url" value="" style="width:780px;">
+	url: <input type="text" ng-model="url" value="" style="width:780px;">
 
-<ul>
-	<li>location.href = {{parser.href}}</li>
-	<li>location.protocol = {{parser.protocol}}</li>
-	<li>location.host = {{parser.host}}</li>
-	<li>location.hostname = {{parser.hostname}}</li>
-	<li>location.port = {{parser.port}}</li>
-	<li>location.pathname = {{parser.pathname}}</li>
-	<li>location.hash = {{parser.hash}}</li>
-	<li>location.search = {{parser.search}}</li>
-</ul>
+	<ul>
+		<li>href = {{urlParser.href}}</li>
+		<li>protocol = {{urlParser.protocol}}</li>
+		<li>host = {{urlParser.host}}</li>
+		<li>hostname = {{urlParser.hostname}}</li>
+		<li>port = {{urlParser.port}}</li>
+		<li>pathname = {{urlParser.pathname}}</li>
+		<li>hash = {{urlParser.hash}}</li>
+		<li>search = {{urlParser.search}}</li>
+	</ul>
 
-<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.6/angular.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.6/angular.min.js"></script>
 
-<script>
-function AppCtrl($scope) {
+	<script>
+	function AppCtrl($scope) {
 
-	$scope.$watch('url', function() {
-		$scope.parser.href = $scope.url;
-	});
+		$scope.$watch('url', function() {
+			$scope.urlParser.href = $scope.url;
+		});
 
-	$scope.init = function() {
-		$scope.parser = document.createElement('a');
-		$scope.url = window.location;
+		$scope.init = function() {
+			$scope.urlParser = document.createElement('a');
+			$scope.url = window.location;
+		}
+
 	}
+	</script>
 
-}
-</script>
-
-</body>
-</html>
+	</body>
+	</html>
