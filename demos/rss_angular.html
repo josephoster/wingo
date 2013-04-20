@@ -1,26 +1,68 @@
 <!DOCTYPE html>
-<html ng-app="RSS_Demo">
+<html>
 <head>
 	<title>Media RSS using AngularJS - Example / Demo</title>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+	<meta charset="utf-8" />
 
 <link rel="stylesheet" href="../bootstrap/css/bootstrap.css" type="text/css">
 <link rel="stylesheet" href="../bootstrap/css/bootstrap-responsive.css" type="text/css">
 <link rel="stylesheet" href="../foundation_icons_general/stylesheets/general_foundicons.css" type="text/css">
 
 <style>
-body {padding: 0 30px;}
+body {padding: 0;}
+
+h1, h3, p, .well, .alert, .changeList {
+	margin-right: 30px;
+	margin-left: 30px;
+}
 @media screen and (max-width: 640px) {
-	body {padding: 0 10px;}
+	h1, h3, p, .well, .alert, .changeList {
+		margin-right: 10px;
+		margin-left: 10px;
+	}
 }
 
-a {cursor: pointer;}
+.dropdown-menu p, .well p {
+		margin-right: 0;
+		margin-left: 0;
+}
+
+#topNav {
+	position: fixed;
+	top:0;
+	left: 0;
+	padding: 1px 0;
+	background:#000000;
+	width: 100%;
+	z-index: 10;
+}
+
+#aboutInfo {
+	margin-right: 10px;
+}
+#aboutInfo .dropdown-menu {
+	padding:10px;
+	left:-300%;
+}
+#aboutInfo p.pull-right {
+	text-align: right;
+	margin-bottom: 0
+}
+
+.btnPadR {margin-right: 10px;}
+
+.label {margin-right: 5px;}
+
+.btn-group + .btn-group {margin-left: 0;}
+
+h3.lead {margin-bottom: 10px;}
 
 .well .rssThumb img {
 	width: 132px;
 	margin: 0 16px 4px 0;
 }
-
-.modal-body {max-height: 600px;}
 
 #vPlayer {
 	display: block;
@@ -33,21 +75,6 @@ a {cursor: pointer;}
 	text-align:center;
 	display:none;
 }
-
-#aboutInfo .dropdown-menu {
-	padding:10px;
-	left:-100%;
-}
-#aboutInfo p.pull-right {
-	text-align: right;
-	margin-bottom: 0
-}
-
-.btnPadR {margin-right: 10px;}
-
-.label {margin-right: 5px;}
-
-.btn-group + .btn-group {margin-left: 0;}
 
 #veil {
 	position: absolute;
@@ -69,114 +96,121 @@ a {cursor: pointer;}
 	color:white;
 	text-shadow: 2px 2px 2px #021124;
 }
+
+#inputFeed {width: 75%;}
 </style>
 
 </head>
-<body ng-controller="AppCtrl" ng-init="initApp()">
+<body ng-app="RSS_Demo" ng-controller="AppCtrl">
 
-<div id="aboutInfo" class="pull-right">
-	<div class="dropdown">
-		<a id="dropInfo" role="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown">About this page</a>
-		<div class="dropdown-menu small" aria-labelledby="dropInfo">
+<div id="topNav">
+	<div id="aboutInfo" class="pull-right">
+		<div class="dropdown">
+			<a id="dropInfo" role="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown">About</a>
+			<div class="dropdown-menu small" aria-labelledby="dropInfo">
+				<p>Media RSS demo using <a href="http://angularjs.org/" target="_blank">AngularJS</a>, <a href="https://developers.google.com/feed/" target="_blank">Google Feeds API</a>, <a href="http://jquery.com/" target="_blank">jQuery</a> and <a href="http://twitter.github.io/bootstrap/" target="_blank">Twitter bootstrap</a>.</p>
 
-			<p>Media RSS demo using <a href="http://angularjs.org/" target="_blank">AngularJS</a>, <a href="https://developers.google.com/feed/" target="_blank">Google Feeds API</a>, <a href="http://jquery.com/" target="_blank">jQuery</a> and <a href="http://twitter.github.io/bootstrap/" target="_blank">Twitter bootstrap</a>.</p>
-
-			<p class="pull-right" style=""><em>by <a href="http://www.wingo.com/services.html" title="wingo.com">Joseph Oster</a>, April 2013</em><br>
-			<a href="http://www.wingo.com/services.html" title="wingo.com Web Site Design"><img src="../images/wsb.gif" width="111" height="40" alt="wingo.com Web Site Design" /></a></p>
-
+				<p class="pull-right" style=""><em>by <a href="http://www.wingo.com/services.html" title="wingo.com">Joseph Oster</a>, April 2013</em><br>
+				<a href="http://www.wingo.com/services.html" title="wingo.com Web Site Design"><img src="http://www.wingo.com/images/wsb.gif" width="111" height="40" alt="wingo.com Web Site Design" /></a></p>
+			</div>
 		</div>
 	</div>
+
+	<a href="#/choose_feed" class="btn btn-primary pull-right btnPadR" ng-show="ifPathNot('/choose_feed')"><i class="foundicon-edit"></i> change feed</a>
+	<a href="#/" class="btn btn-primary pull-right btnPadR" ng-show="ifPathNot('/')"><i class="foundicon-left-arrow"></i> list</a>
 </div>
 
-<div ng-view></div>
 
-
-<script type="text/ng-template" id="feed_view.html">
-<a href="#/choose_feed" class="btn pull-right btnPadR">choose feed</a>
-
-<h1 ng-cloak><a href="{{feed_result.link}}" target="_blank" ng-bind-html="feed_result.title"></a></h1>
-
-<p ng-cloak>{{feed_result.description}}</p>
-
-<div class="well well-small" ng-repeat="entry in feed_result.entries" list-done ng-cloak>
-	<a ng-click="viewDetail(entry)" class="pull-left rssThumb" title="view detail" data-toggle="tooltip"><img ng-repeat="thumbnail in mediaOne(entry).thumbnails" src="{{thumbnail.url}}"></a>
-
-	<a href="{{entry.link}}" target="_blank" title="view at {{feed_result.viewAt}}" data-toggle="tooltip"data-placement="left" class="btn btn-primary pull-right" style="margin: 0 0 5px 10px">View at...</a>
-
-	<h4><a ng-click="viewDetail(entry)" title="view detail" data-toggle="tooltip">{{entry.title}}</a></h4>
-
-	<p ng-bind-html="entry.contentSnippet"></p>
-
-	<p class="muted">
-		Posted: {{entry.publishedDate}} -
-		<span class="label label-info" ng-repeat="category in entry.categories">{{category}}</span>
-	</p>
-</div>
-
-<div class="modal hide fade" id="videoModal" ng-init="initModal()">
-	<div class="modal-header">
-		<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-		<h3 class="lead">{{currEntry.title}}</h3>
-	</div>
-	<div class="modal-body">
-
-		<div id="vidTagAlert" class="alert alert-error">
-			<button type="button" class="close" id="btnTagAlert">&times;</button>
-			<strong>FAIL!</strong> The HTML5 &lt;video&gt; tag does not support .mp4 videos in Chrome and Firefox. Use Internet Explorer or Safari to watch these videos.
-		</div>
-
-		<video id="vPlayer" src="{{mediaOne(currEntry).url}}" controls autoplay ng-show="hasVideo(currEntry)"></video>
-
-		<p ng-bind-html="currEntry.content"></p>
-
-		<p class="muted">Posted: {{currEntry.publishedDate}} - <a href="{{currEntry.link}}" target="_blank" class="text-info" ng-click="endVideo()">view at {{feed_result.viewAt}}</a></p>
-	</div>
-</div>
-</script>
-
-<script type="text/ng-template" id="choose_feed.html">
-<a href="#/" class="btn pull-right btnPadR">list view</a>
-
-<h1>Choose RSS Feed</h1>
-
-<div class="pull-left">
-
-	<div class="input-prepend">
-		<a ng-click="addFeed()" class="btn btn-primary add-on"><i class="foundicon-plus"></i> Add feed</a>
-		<input type="text" class="span2" ng-model="newFeedUrl" placeholder="new feed url" style="width:80%;">
-	</div>
-
-	<div class="btn-group btn-block" ng-repeat="feed in feedList">
-		<a ng-click="chooseFeed($index)" class="btn btn-inverse">{{feed | strip_http}}</a>
-		<a ng-click="removeFeed($index)" class="btn btn-danger"><i class="foundicon-remove"></i></a>
-	</div>
-
-</div>
-</script>
-
+<div ng-view style="margin-top: 40px;"></div>
 
 <div id="veil" ng-show="isLoading"></div>
 <div id="feedLoading" ng-show="isLoading">Loading...</div>
 
 
+<script type="text/ng-template" id="list_view.html">
+<div ng-controller="ListCtrl">
+	<h1 ng-cloak><a href="{{feed_result.link}}" target="_blank" ng-bind-html="feed_result.title"></a></h1>
+
+	<p ng-cloak>{{feed_result.description}}</p>
+
+	<div class="well well-small" ng-repeat="entry in feed_result.entries" list-done="layoutDone()" ng-cloak>
+		<a href="" ng-click="viewDetail(entry)" class="pull-left rssThumb" title="view detail" data-toggle="tooltip"><img ng-repeat="thumbnail in mediaOne(entry).thumbnails" ng-src="{{thumbnail.url}}"></a>
+
+		<a href="{{entry.link}}" target="_blank" title="view at {{feed_result.viewAt}}" data-toggle="tooltip" data-placement="left" class="btn btn-primary pull-right" style="margin: 0 0 5px 10px">View at...</a>
+
+		<h4><a href="" ng-click="viewDetail(entry)" title="view detail" data-toggle="tooltip">{{entry.title}}</a></h4>
+
+		<p ng-bind-html="entry.contentSnippet"></p>
+
+		<p class="muted">
+			Posted: {{entry.publishedDate}} -
+			<span class="label label-info" ng-repeat="category in entry.categories">{{category}}</span>
+		</p>
+	</div>
+</div>
+</script>
+
+
+<script type="text/ng-template" id="detail_view.html">
+<div ng-controller="DetailCtrl">
+	<h3 class="lead">{{currEntry.title}}</h3>
+
+	<div id="vidTagAlert" class="alert alert-error">
+		<button type="button" class="close" id="btnTagAlert">&times;</button>
+		<strong>FAIL!</strong> The HTML5 &lt;video&gt; tag does not support .mp4 videos in Chrome and Firefox. Use Internet Explorer or Safari to watch these videos.
+	</div>
+
+	<video id="vPlayer" src="{{mediaOne(currEntry).url}}" controls autoplay ng-show="hasVideo(currEntry)"></video>
+
+	<div class="well well-small">
+		<p ng-bind-html="currEntry.content"></p>
+
+		<p class="muted">Posted: {{currEntry.publishedDate}} - <a href="{{currEntry.link}}" target="_blank" class="text-info" ng-click="videoStop()">view at {{feed_result.viewAt}}</a></p>
+	</div>
+</div>
+</script>
+
+
+<script type="text/ng-template" id="choose_feed.html">
+<div ng-controller="FeedCtrl">
+	<h1>Choose RSS Feed</h1>
+
+	<div class="changeList">
+		<div class="input-prepend">
+			<a ng-click="addFeed()" class="btn btn-primary add-on"><i class="foundicon-plus"></i> Add feed</a>
+			<input type="text" id="inputFeed" ng-model="newFeedUrl" placeholder="new feed url" on-enter="addFeed()">
+		</div>
+
+		<div class="btn-group btn-block" ng-repeat="feed in feedList" list-done="layoutDone()">
+			<a ng-click="chooseFeed($index)" class="btn">{{feed | strip_http}}</a>
+			<a ng-click="removeFeed($index)" class="btn btn-danger" title="Remove feed" data-toggle="tooltip"><i class="foundicon-remove"></i></a>
+		</div>
+	</div>
+</div>
+</script>
+
+
 <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
 <script src="../bootstrap/js/bootstrap.js" type="text/javascript"></script>
-<script src="https://www.google.com/jsapi"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.6/angular.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.6/angular-sanitize.min.js"></script>
+<script src="https://www.google.com/jsapi"></script>
 
 <script type="text/javascript">
-console.log("start page");
+'use strict';
 google.load("feeds", "1");
 
 angular.module('RSS_Demo', ['ngSanitize'])
 
-	.config(function($locationProvider, $routeProvider) {
-		//$locationProvider.html5Mode(true);
+	.config(function($routeProvider) {
 		$routeProvider
 			.when('/', {
-					templateUrl: "feed_view.html"
+					templateUrl: "list_view.html"
 				})
+			.when('/detail', {
+					templateUrl: "detail_view.html",
+					controller: "FeedCtrl"
+				})		
 			.when('/choose_feed', {
 					templateUrl: "choose_feed.html",
 					controller: "FeedCtrl"
@@ -186,16 +220,27 @@ angular.module('RSS_Demo', ['ngSanitize'])
 	.directive('listDone', function() {
 		return function(scope, element, attrs) {
 			if (scope.$last) { // all are rendered
-				scope.layoutDone();
+				scope.$eval(attrs.listDone);
 			}
-		};
+		}
+	})
+
+	.directive('onEnter', function() {
+		return function(scope, element, attrs) {
+			console.log(element);
+			element.on('keydown', function(event) {
+				if (event.which === 13) {
+					scope.$apply(attrs.onEnter);
+				}
+			})
+		}
 	})
 
 	.service('rssFeed', function($q, $rootScope) {
 		this.get = function(url) {
 			var d = $q.defer();
 			var feed = new google.feeds.Feed(url);
-			feed.setNumEntries(1000);
+			feed.setNumEntries(10);
 			feed.load(function(result) {
 				$rootScope.$apply(d.resolve(result));
 			});
@@ -210,25 +255,60 @@ angular.module('RSS_Demo', ['ngSanitize'])
 		}
 	})
 
-	.controller('AppCtrl', function($scope, $location, rssFeed) {
+	.controller('AppCtrl', function($scope, $location, $timeout, rssFeed) {
+		$scope.feedList = [
+			'http://feeds.feedburner.com/TEDTalks_video',
+			'http://feeds.nationalgeographic.com/ng/photography/photo-of-the-day/',
+			'http://sfbay.craigslist.org/eng/index.rss',
+			'http://www.slate.com/blogs/trending.fulltext.all.10.rss',
+			'http://feeds.current.com/homepage/en_US.rss',
+			'http://feeds.current.com/items/popular.rss',
+			'http://www.nytimes.com/services/xml/rss/nyt/HomePage.xml'
+		];
+
+		$scope.scrollPos = {}; // scroll position of each view
+
+		$(window).on('scroll', function() {
+			if ($scope.okSaveScroll) { // false between $routeChangeStart and $routeChangeSuccess
+				$scope.scrollPos[$location.path()] = $(window).scrollTop();
+				//console.log($scope.scrollPos);
+			}
+		});
+
+		$scope.scrollClear = function(path) {
+			$scope.scrollPos[path] = 0;
+		}
+
+		$scope.$on('$routeChangeStart', function() {
+			$scope.okSaveScroll = false;
+		});
+
+		$scope.$on('$routeChangeSuccess', function() {
+			$timeout(function() { // wait for DOM, then restore scroll position
+				$(window).scrollTop($scope.scrollPos[$location.path()] ? $scope.scrollPos[$location.path()] : 0);
+				$scope.okSaveScroll = true;
+			}, 100);
+		});
 
 		$scope.setLoading = function(loading) {
 			$scope.isLoading = loading;
 		}
 
-		$scope.loadFeed = function(url) {
+		$scope.loadFeed = function(url, addFeed) {
 			$scope.setLoading(true);
 			rssFeed.get(url).then(function(result) {
-				console.log(result);
+				//console.log(result);
 				if (result.error) {
 					alert("ERROR " + result.error.code + ": " + result.error.message + "\nurl: " + url);
 					$scope.setLoading(false);
 				}
 				else {
+					if (addFeed) addFeed();
 					var urlParser = document.createElement('a');
 					urlParser.href = result.feed.link;
 					result.feed.viewAt = urlParser.hostname;
 					$scope.feed_result = result.feed;
+					$scope.scrollClear('/');
 					$location.path('/');
 					if ($scope.feed_result.entries == 0) {
 						$scope.setLoading(false);
@@ -237,82 +317,71 @@ angular.module('RSS_Demo', ['ngSanitize'])
 			});
 		}
 
-		$scope.layoutDone = function() {
-			$scope.setLoading(false); // hide "Loading..."
-			setTimeout(function() { // slight delay, init tooltips
-				$('a[data-toggle="tooltip"]').tooltip();
-			}, 500);
-		}
-
-		$scope.viewDetail = function(entry) {
-			$scope.vidTagAlert.hide();
-			$scope.videoPlay = $scope.hasVideo(entry); // show errors only after "Play" video
-			$scope.currEntry = entry; // sets new url in <video> tag!
-			$scope.videoModal.modal();
-		}
-
-		$scope.endVideo = function() {
-			$scope.vPlayer.pause();
-			$scope.currEntry = {};
-		}
-
 		$scope.mediaOne = function(entry) { // return first media object for 'entry'
 			return (entry && entry.mediaGroups) ? entry.mediaGroups[0].contents[0] : {url:''};
 		}
 
 		$scope.hasVideo = function(entry) {
-			return $scope.mediaOne(entry).type == "video/mp4";
+			var media = $scope.mediaOne(entry);
+			return media.type ? (media.type == "video/mp4") : (media.url ? (media.url.indexOf(".mp4") != -1) : false);
 		}
 
-		$scope.initModal = function() {
-			console.log('initModal');
-
-			$scope.videoModal = $('#videoModal');
-			$scope.videoModal.on('hidden', function() {
-				$scope.endVideo()
-			});
-
-			$scope.vPlayer = $('#vPlayer')[0];
-			$($scope.vPlayer).on('error', function() {
-				if ($scope.videoPlay) {
-					$scope.vidTagAlert.show();
-				}
-			});
-
-			$scope.vidTagAlert = $('#vidTagAlert');
-			$('#btnTagAlert').on('click', function() {
-				$scope.vidTagAlert.hide();
-			});
-
-			$scope.$watch('currEntry', function() {
-				if ($scope.hasVideo($scope.currEntry)) {
-					$scope.vPlayer.load();
-				}
-			});
+		$scope.ifPathNot = function(path) {
+			return $location.path() != path;
 		}
 
-		$scope.initApp = function() {
-			console.log('initApp');
-			$scope.feedList = [
-				'http://feeds.feedburner.com/TEDTalks_video',
-				'http://feeds.nationalgeographic.com/ng/photography/photo-of-the-day/',
-				'http://sfbay.craigslist.org/eng/index.rss',
-				'http://feeds.current.com/homepage/en_US.rss',
-				'http://feeds.current.com/items/popular.rss',
-				'http://www.nytimes.com/services/xml/rss/nyt/HomePage.xml',
-				'http://www.wingo.com/index.rss'
-			];
-
-			$scope.loadFeed($scope.feedList[0]);
+		$scope.setCurrEntry = function(entry) {
+			$scope.currEntry = entry;
 		}
 
+		$scope.loadFeed($scope.feedList[0]);
 	})
 
-	.controller('FeedCtrl', function($scope) {
+	.controller('ListCtrl', function($scope, $location, $timeout) {
+		$scope.layoutDone = function() {
+			$scope.setLoading(false);
+			$timeout(function() { // wait for DOM
+				$('a[data-toggle="tooltip"]').tooltip();
+			}, 100);
+		}
 
+		$scope.viewDetail = function(entry) {
+			$scope.setCurrEntry(entry);
+			$location.path('/detail');
+		}
+	})
+
+	.controller('DetailCtrl', function($scope, $location) {
+		$scope.scrollClear($location.path());
+
+		$scope.vPlayer = $('#vPlayer')[0];
+		$scope.videoPlay = $scope.hasVideo($scope.currEntry); // show errors only after "Play" video
+		$($scope.vPlayer).on('error', function() {
+			if ($scope.videoPlay) {
+				$scope.vidTagAlert.show();
+			}
+		});
+
+		$scope.vidTagAlert = $('#vidTagAlert');
+		$('#btnTagAlert').on('click', function() {
+			$scope.vidTagAlert.hide();
+		});
+
+		$scope.videoStop = function() {
+			$scope.vPlayer.pause();
+		}
+	})
+
+	.controller('FeedCtrl', function($scope, $timeout) {
 		$scope.addFeed = function() {
-			$scope.feedList.unshift($scope.newFeedUrl);
-			$scope.loadFeed($scope.feedList[0]);
+			var http = "http://";
+			var url = $scope.newFeedUrl;
+			if (url.indexOf(http) == -1) {
+				url = http + url; // add http if missing
+			}
+			$scope.loadFeed(url, function() {
+				$scope.feedList.unshift(url); // add to list of feeds
+			});
 		}
 
 		$scope.removeFeed = function(idx) {
@@ -320,11 +389,16 @@ angular.module('RSS_Demo', ['ngSanitize'])
 		}
 
 		$scope.chooseFeed = function(idx) {
-			$scope.feedList.splice(0, 0, $scope.feedList.splice(idx, 1)[0]);
+			$scope.feedList.splice(0, 0, $scope.feedList.splice(idx, 1)[0]); // move to top
 			$scope.loadFeed($scope.feedList[0]);
 		}
 
-	});
+		$scope.layoutDone = function() {
+			$timeout(function() { // wait for DOM
+				$('a[data-toggle="tooltip"]').tooltip();
+			}, 100);
+		}
+	})
 </script>
 
 </body>
