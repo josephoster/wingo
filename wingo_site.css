@@ -222,7 +222,9 @@ footer td,
 .webSkills ul {
 	margin: 0 0 10px 0;
 	padding:0 10px 0 25px;
-	font-size:0.9em;
+}
+.webSkills li {
+	line-height:1.33em;
 }
 
 .wingoBay {
