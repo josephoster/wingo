@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>no cache url example</title>
+<style>
+body {padding:30px;}
+</style>
+</head>
+<body ng-app="Angular_Demo" ng-controller="AppCtrl">
+
+<h2>no cache url example</h2>
+
+<div class="input-prepend">
+	<a ng-click="randomUrl()" class="btn btn-primary add-on"><i class="foundicon-plus"></i> random</a>
+	<input type="text" ng-model="myUrl" on-enter="randomUrl()" placeholder="url" style="width: 75%;">
+</div>
+
+<p>url: {{ncUrl}}</p>
+
+<link rel="stylesheet" href="http://www.wingo.com/bootstrap/css/bootstrap.css" type="text/css">
+<script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.6/angular.min.js"></script>
+
+<script type="text/javascript">
+'use strict';
+
+function noCacheUrl(url) {
+	var urlParser = document.createElement('a');
+	urlParser.href = url;
+	var q = "nc" + Math.random() + "=1";
+	q = urlParser.search ? urlParser.search + "&" + q : "?" + q;
+	return urlParser.protocol + "//" + urlParser.host + urlParser.pathname + urlParser.hash + q;
+}
+
+angular.module('Angular_Demo', [])
+
+	.directive('onEnter', function() {
+		return function(scope, element, attrs) {
+			element.on('keydown', function(event) {
+				if (event.which === 13) {
+					scope.$apply(attrs.onEnter);
+				}
+			})
+		}
+	})
+
+	.controller('AppCtrl', function($scope) {
+		$scope.randomUrl = function() {
+			$scope.ncUrl = noCacheUrl($scope.myUrl);
+		}
+	})
+</script>
+
+</body>
+</html>
