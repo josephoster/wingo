@@ -204,17 +204,9 @@ angular.module('RSS_Demo', ['ngSanitize'])
 
 	.config(function($routeProvider) {
 		$routeProvider
-			.when('/', {
-					templateUrl: "list_view.html"
-				})
-			.when('/detail', {
-					templateUrl: "detail_view.html",
-					controller: "FeedCtrl"
-				})		
-			.when('/choose_feed', {
-					templateUrl: "choose_feed.html",
-					controller: "FeedCtrl"
-				})		
+			.when('/', { templateUrl: "list_view.html"} )
+			.when('/detail', { templateUrl: "detail_view.html"} )
+			.when('/choose_feed', { templateUrl: "choose_feed.html"} )		
 	})
 
 	.directive('listDone', function() {
@@ -227,7 +219,6 @@ angular.module('RSS_Demo', ['ngSanitize'])
 
 	.directive('onEnter', function() {
 		return function(scope, element, attrs) {
-			console.log(element);
 			element.on('keydown', function(event) {
 				if (event.which === 13) {
 					scope.$apply(attrs.onEnter);
