@@ -18,7 +18,7 @@ var menuWingo = {
 					if ((menuWingo.menuData.x >= 0) || (menuWingo.menuData.x <= menuWingo.wMenu - menuWingo.bg_img.width)) {
 						menuWingo.menuData.inc = menuWingo.menuData.inc * -1; // reverse
 					}
-				}, 200);
+				}, 1000);
 			}
 
 		if (menuWingo.bg_img) {

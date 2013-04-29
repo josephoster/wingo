@@ -12,7 +12,7 @@ var winSizeY = 460;
 function getWindowSize() {
 	winSizeX = jt_.winW();
 	winSizeY = jt_.winH();
-	}
+}
 
 function checkDragBounds() {
 	if (tutorBox) {
@@ -666,7 +666,10 @@ var msgSlow = " - in IFRAME... <i>(so may drag slowly)</i>";
 
 var myPersonal = {
 	show: function(url) {
-		if (myPersonal.box) {
+		if (jt_.winW() < 800) {
+			location.href = url;
+		}
+		else if (myPersonal.box) {
 			myPersonal.set(url);
 		}
 		else {
@@ -689,7 +692,10 @@ var myPersonal = {
 
 var sliderDemo = {
 	show: function() {
-		if (sliderDemo.box) sliderDemo.box.show();
+		if (jt_.winW() < 800) {
+			location.href = url;
+		}
+		else if (sliderDemo.box) sliderDemo.box.show();
 		else {
 			sliderDemo.box = boxIFRAME("art/index.html", jt_.valPx(400));
 			sliderDemo.box.setTitle("Slider Demo" + msgSlow);
