@@ -9,99 +9,10 @@
 <link rel="stylesheet" href="../../../bootstrap/css/bootstrap.css" type="text/css">
 <link rel="stylesheet" href="../../../bootstrap/css/bootstrap-responsive.css" type="text/css">
 <link rel="stylesheet" href="../../../foundation_icons_general/stylesheets/general_foundicons.css" type="text/css">
-
-<style>
-body {padding: 0;}
-
-h1, h3, p, .well, .alert, .changeList {
-	margin-right: 30px;
-	margin-left: 30px;
-}
-@media screen and (max-width: 640px) {
-	h1, h3, p, .well, .alert, .changeList {
-		margin-right: 10px;
-		margin-left: 10px;
-	}
-}
-
-.dropdown-menu p, .well p {
-		margin-right: 0;
-		margin-left: 0;
-}
-
-#topNav {
-	position: fixed;
-	top:0;
-	left: 0;
-	padding: 1px 0;
-	background:#000000;
-	width: 100%;
-	z-index: 10;
-}
-
-#aboutInfo {
-	margin-right: 10px;
-}
-#aboutInfo .dropdown-menu {
-	padding:10px;
-	left:-300%;
-}
-#aboutInfo p.pull-right {
-	text-align: right;
-	margin-bottom: 0
-}
-
-.btnPadR {margin-right: 10px;}
-
-.label {margin-right: 5px;}
-
-.btn-group + .btn-group {margin-left: 0;}
-
-h3.lead {margin-bottom: 10px;}
-
-.well .rssThumb img {
-	width: 132px;
-	margin: 0 16px 4px 0;
-}
-
-#vPlayer {
-	display: block;
-	margin:0 auto 10px auto;
-	width: 512px;
-	height: 288px;
-}
-
-#vidTagAlert {
-	text-align:center;
-	display:none;
-}
-
-#veil {
-	position: absolute;
-	top: 0;
-	left: 0;
-	height:100%;
-	width:100%;
-	cursor: not-allowed;
-	filter: alpha(opacity=60);
-	opacity: 0.6;
-	background: #000000 url(../AngularShieldLogo.png) no-repeat center;
-}
-#feedLoading {
-	position: absolute;
-	top:200px;
-	width:100%;
-	text-align: center;
-	font-size: 4em;
-	color:white;
-	text-shadow: 2px 2px 2px #021124;
-}
-
-#inputFeed {width: 75%;}
-</style>
+<link rel="stylesheet" href="style.css" type="text/css">
 
 </head>
-<body ng-app="RSS_Demo" ng-controller="AppCtrl">
+<body ng-app="RSS_Demo" ng-controller="AppCtrl" jt-view-scroll>
 
 <div id="topNav">
 	<div id="aboutInfo" class="pull-right">
@@ -128,63 +39,57 @@ h3.lead {margin-bottom: 10px;}
 
 
 <script type="text/ng-template" id="list_view.html">
-<div ng-controller="ListCtrl" jt-view-scroll>
-	<h1 ng-cloak><a href="{{feed_result.link}}" target="_blank" ng-bind-html="feed_result.title"></a></h1>
+<h1 ng-cloak><a href="{{feed_result.link}}" target="_blank" ng-bind-html="feed_result.title"></a></h1>
 
-	<p ng-cloak>{{feed_result.description}}</p>
+<p ng-cloak>{{feed_result.description}}</p>
 
-	<div class="well well-small" ng-repeat="entry in feed_result.entries" repeat-done="layoutDone()" ng-cloak>
-		<a href="" ng-click="viewDetail(entry)" class="pull-left rssThumb" title="view detail" data-toggle="tooltip"><img ng-repeat="thumbnail in mediaOne(entry).thumbnails" ng-src="{{thumbnail.url}}"></a>
+<div class="well well-small" ng-repeat="entry in feed_result.entries" jt-repeat-done="layoutDone()" ng-class="beenViewed(entry)" ng-cloak>
+	<a href="" ng-click="viewDetail(entry)" class="pull-left rssThumb" title="view detail" data-toggle="tooltip"><img ng-repeat="thumbnail in mediaOne(entry).thumbnails" ng-src="{{thumbnail.url}}"></a>
 
-		<a href="{{entry.link}}" target="_blank" title="view at {{feed_result.viewAt}}" data-toggle="tooltip" data-placement="left" class="btn btn-primary pull-right" style="margin: 0 0 5px 10px">View at...</a>
+	<a href="{{entry.link}}" target="_blank" title="view at {{feed_result.viewAt}}" data-toggle="tooltip" data-placement="left" class="btn btn-primary pull-right" style="margin: 0 0 5px 10px">View at...</a>
 
-		<h4><a href="" ng-click="viewDetail(entry)" title="view detail" data-toggle="tooltip">{{entry.title}}</a></h4>
+	<h4><a href="" ng-click="viewDetail(entry)" title="view detail" data-toggle="tooltip">{{entry.title}}</a></h4>
 
-		<p ng-bind-html="entry.contentSnippet"></p>
+	<p ng-bind-html="entry.contentSnippet"></p>
 
-		<p class="muted">
-			Posted: {{entry.publishedDate}} -
-			<span class="label label-info" ng-repeat="category in entry.categories">{{category}}</span>
-		</p>
-	</div>
+	<p class="muted">
+		Posted: {{entry.publishedDate}} -
+		<span class="label label-info" ng-repeat="category in entry.categories">{{category}}</span>
+	</p>
 </div>
 </script>
 
 
 <script type="text/ng-template" id="detail_view.html">
-<div ng-controller="DetailCtrl">
-	<h3 class="lead">{{currEntry.title}}</h3>
+<h3 class="lead">{{currEntry.title}}</h3>
 
-	<div id="vidTagAlert" class="alert alert-error">
-		<button type="button" class="close" id="btnTagAlert">&times;</button>
-		<strong>FAIL!</strong> The HTML5 &lt;video&gt; tag does not support .mp4 videos in Chrome and Firefox. Use Internet Explorer or Safari to watch these videos.
-	</div>
+<div id="vidTagAlert" class="alert alert-error">
+	<button type="button" class="close" id="btnTagAlert">&times;</button>
+	<strong>FAIL!</strong> The HTML5 &lt;video&gt; tag does not support .mp4 videos in Chrome and Firefox. Use Internet Explorer or Safari to watch these videos.
+</div>
 
-	<video id="vPlayer" src="{{mediaOne(currEntry).url}}" controls autoplay ng-show="hasVideo(currEntry)"></video>
+<video id="vPlayer" src="{{mediaOne(currEntry).url}}" controls autoplay ng-show="hasVideo(currEntry)"></video>
 
-	<div class="well well-small">
-		<p ng-bind-html="currEntry.content"></p>
+<div class="well well-small">
+	<p ng-bind-html="currEntry.content"></p>
 
-		<p class="muted">Posted: {{currEntry.publishedDate}} - <a href="{{currEntry.link}}" target="_blank" class="text-info" ng-click="videoStop()">view at {{feed_result.viewAt}}</a></p>
-	</div>
+	<p class="muted">Posted: {{currEntry.publishedDate}} - <a href="{{currEntry.link}}" target="_blank" class="text-info" ng-click="videoStop()">view at {{feed_result.viewAt}}</a></p>
 </div>
 </script>
 
 
 <script type="text/ng-template" id="choose_feed.html">
-<div ng-controller="FeedCtrl">
-	<h1>Choose RSS Feed</h1>
+<h1>Choose RSS Feed</h1>
 
-	<div class="changeList">
-		<div class="input-prepend">
-			<a ng-click="addFeed()" class="btn btn-primary add-on"><i class="foundicon-plus"></i> Add feed</a>
-			<input type="text" id="inputFeed" ng-model="newFeedUrl" placeholder="new feed url" on-enter="addFeed()">
-		</div>
+<div class="changeList">
+	<div class="input-prepend">
+		<a ng-click="addFeed()" class="btn btn-primary add-on"><i class="foundicon-plus"></i> Add feed</a>
+		<input type="text" id="inputFeed" ng-model="newFeedUrl" placeholder="new feed url" jt-on-enter="addFeed()">
+	</div>
 
-		<div class="btn-group btn-block" ng-repeat="feed in feedList" repeat-done="layoutDone()">
-			<a ng-click="chooseFeed($index)" class="btn">{{feed | strip_http}}</a>
-			<a ng-click="removeFeed($index)" class="btn btn-danger" title="Remove feed" data-toggle="tooltip"><i class="foundicon-remove"></i></a>
-		</div>
+	<div class="btn-group btn-block" ng-repeat="feed in prefs.feedList" jt-repeat-done="layoutDone()">
+		<a ng-click="chooseFeed($index)" class="btn">{{feed | jt_strip_http}}</a>
+		<a ng-click="removeFeed($index)" class="btn btn-danger" title="Remove feed" data-toggle="tooltip"><i class="foundicon-remove"></i></a>
 	</div>
 </div>
 </script>

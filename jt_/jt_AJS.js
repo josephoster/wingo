@@ -6,33 +6,85 @@
 
 angular.module('jt_AJS', [])
 
-	.directive('repeatDone', function() {
+	.directive('jtRepeatDone', function() {
 		return function(scope, element, attrs) {
+			console.log(attrs);
 			if (scope.$last) { // all are rendered
-				scope.$eval(attrs.repeatDone);
+				scope.$eval(attrs.jtRepeatDone);
 			}
 		}
 	})
 
-	.directive('onEnter', function() {
+	.directive('jtOnEnter', function() {
 		return function(scope, element, attrs) {
 			element.on('keydown', function(event) {
 				if (event.which === 13) {
-					scope.$eval(attrs.onEnter);
+					scope.$eval(attrs.jtOnEnter);
 				}
 			})
 		}
 	})
 
-	.directive('jtViewScroll', function() {
+	.directive('jtViewScroll', function($timeout, $location) {
 		return {
-			scope: true,
-			controller:function() {
+			link:function(scope, element, attrs, ctrl) {
+				scope.jt_AJS = scope.jt_AJS || {};
+				scope.jt_AJS.scrollPos = {}; // scroll position of each view
+
+				$(window).on('scroll', function() {
+					if (scope.jt_AJS.okSaveScroll) { // false between $routeChangeStart and $routeChangeSuccess
+						scope.jt_AJS.scrollPos[$location.path()] = $(window).scrollTop();
+						console.log(scope.jt_AJS.scrollPos);
+					}
+				});
+
+				scope.jt_AJS.scrollClear = function(path) {
+					scope.jt_AJS.scrollPos[path] = 0;
+				}
+
+				scope.$on('$routeChangeStart', function() {
+					scope.jt_AJS.okSaveScroll = false;
+				});
+
+				scope.$on('$routeChangeSuccess', function() {
+					$timeout(function() { // wait for DOM, then restore scroll position
+						$(window).scrollTop(scope.jt_AJS.scrollPos[$location.path()] ? scope.jt_AJS.scrollPos[$location.path()] : 0);
+						scope.jt_AJS.okSaveScroll = true;
+					}, 0);
+				});
+
 			}
 		}
 	})
 
-	.filter('strip_http', function() {
+	.service('jt_AJS_LocalStorage', function($q) {
+
+		this.get = function(key) {
+			var d = $q.defer();
+			if (localStorage) {
+				var json = localStorage[key];
+				if (json) {
+					d.resolve(angular.fromJson(json));
+				}
+				else d.reject();
+			}
+			else d.reject();
+			return d.promise;
+		}
+
+		this.set = function(key, obj) {
+			var d = $q.defer();
+			if (localStorage) {
+				localStorage[key] = angular.toJson(obj);
+				d.resolve();
+			}
+			else d.reject();
+			return d.promise;
+		}
+
+	})
+
+	.filter('jt_strip_http', function() {
 		return function(url) {
 			var http = "http://";
 			return (url.indexOf(http) == 0) ? url.substr(http.length) : url;
