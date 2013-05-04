@@ -5,6 +5,7 @@ angular.module('RSS_Demo', ['ngSanitize', 'jt_AJS'])
 			.when('/', { templateUrl: "list_view.html", controller: 'ListCtrl' } )
 			.when('/detail', { templateUrl: "detail_view.html", controller: 'DetailCtrl' } )
 			.when('/choose_feed', { templateUrl: "choose_feed.html", controller: 'FeedCtrl' } )
+			.when('/options', { templateUrl: "options.html", controller: 'OptionsCtrl' } )
 			.otherwise({redirectTo: '/'})
 	})
 
@@ -39,12 +40,10 @@ angular.module('RSS_Demo', ['ngSanitize', 'jt_AJS'])
 
 		jt_AJS_LocalStorage.get($scope.prefsKey).then(
 			function(prefs) {
-				console.log("local storage", prefs);
 				$scope.prefs = prefs;
 				$scope.loadFeed($scope.prefs.feedList[0]);
 			},
 			function() {
-				console.log("local storage empty", $scope.defaultPrefs);
 				$scope.prefs = $scope.defaultPrefs;
 				$scope.loadFeed($scope.prefs.feedList[0]);
 			}
@@ -86,6 +85,10 @@ angular.module('RSS_Demo', ['ngSanitize', 'jt_AJS'])
 			return media.type ? (media.type == "video/mp4") : (media.url ? (media.url.indexOf(".mp4") != -1) : false);
 		}
 
+		$scope.ifPath = function(path) {
+			return $location.path() == path;
+		}
+
 		$scope.ifPathNot = function(path) {
 			return $location.path() != path;
 		}
@@ -102,7 +105,6 @@ angular.module('RSS_Demo', ['ngSanitize', 'jt_AJS'])
 
 	.controller('ListCtrl', function($scope, $location, $timeout) {
 		$scope.layoutDone = function() {
-			console.log('layoutDone');
 			$scope.setLoading(false);
 			$timeout(function() { $('a[data-toggle="tooltip"]').tooltip(); }, 0); // wait for DOM
 		}
@@ -162,4 +164,16 @@ angular.module('RSS_Demo', ['ngSanitize', 'jt_AJS'])
 		$scope.layoutDone = function() {
 			$timeout(function() { $('a[data-toggle="tooltip"]').tooltip(); }, 0); // wait for DOM
 		}
+	})
+
+	.controller('OptionsCtrl', function($scope, jt_AJS_LocalStorage) {
+
+		$scope.opSelected = function(val) {
+			return val == $scope.prefs.maxItems;
+		}
+
+		$scope.savePrefs = function() {
+			jt_AJS_LocalStorage.set($scope.prefsKey, $scope.prefs);
+		}
+
 	})

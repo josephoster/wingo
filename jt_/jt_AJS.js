@@ -8,7 +8,6 @@ angular.module('jt_AJS', [])
 
 	.directive('jtRepeatDone', function() {
 		return function(scope, element, attrs) {
-			console.log(attrs);
 			if (scope.$last) { // all are rendered
 				scope.$eval(attrs.jtRepeatDone);
 			}
@@ -34,7 +33,7 @@ angular.module('jt_AJS', [])
 				$(window).on('scroll', function() {
 					if (scope.jt_AJS.okSaveScroll) { // false between $routeChangeStart and $routeChangeSuccess
 						scope.jt_AJS.scrollPos[$location.path()] = $(window).scrollTop();
-						console.log(scope.jt_AJS.scrollPos);
+						//console.log(scope.jt_AJS.scrollPos);
 					}
 				});
 

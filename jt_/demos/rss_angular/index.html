@@ -27,6 +27,7 @@
 		</div>
 	</div>
 
+	<a href="#/options" class="btn btn-primary pull-right btnPadR" ng-show="ifPath('/choose_feed')"><i class="foundicon-settings"></i> options</a>
 	<a href="#/choose_feed" class="btn btn-primary pull-right btnPadR" ng-show="ifPathNot('/choose_feed')"><i class="foundicon-edit"></i> change feed</a>
 	<a href="#/" class="btn btn-primary pull-right btnPadR" ng-show="ifPathNot('/')"><i class="foundicon-left-arrow"></i> list</a>
 </div>
@@ -92,6 +93,23 @@
 		<a ng-click="removeFeed($index)" class="btn btn-danger" title="Remove feed" data-toggle="tooltip"><i class="foundicon-remove"></i></a>
 	</div>
 </div>
+</script>
+
+
+<script type="text/ng-template" id="options.html">
+<h1>RSS Options</h1>
+
+<p>Max. Entries per Feed:
+	<select id="options_maxItems" ng_model="prefs.maxItems" ng-change="savePrefs()">
+		<option ng-selected="opSelected('10')">10</option>
+		<option ng-selected="opSelected('40')">40</option>
+		<option ng-selected="opSelected('80')">80</option>
+		<option ng-selected="opSelected('120')">120</option>
+		<option ng-selected="opSelected('300')">300</option>
+		<option ng-selected="opSelected('600')">600</option>
+		<option ng-selected="opSelected('1000')">1000</option>
+	</select>
+</p>
 </script>
 
 
