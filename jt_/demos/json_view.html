@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>JSON formatter</title>
+	<title>JSON view/edit utility - formatting</title>
 
 <link rel="stylesheet" href="../../bootstrap/css/bootstrap.css" type="text/css">
 <link rel="stylesheet" href="../../bootstrap/css/bootstrap-responsive.css" type="text/css">
@@ -26,10 +26,72 @@
 #formatted {
 	white-space: pre-wrap;
 }
+
+#aboutInfo {
+	margin-right: 10px;
+}
+#aboutInfo .dropdown-menu {
+	padding:10px;
+	left:-300%;
+}
+#aboutInfo p.pull-right {
+	text-align: right;
+	margin-bottom: 0
+}
+
+.input-prepend {margin: 10px;}
+.input-prepend input {width:75%}
+.input-prepend span.loading {
+	font-size: 2em;
+	text-align: center;
+}
+
+#veil {
+	position: absolute;
+	top: 0;
+	left: 0;
+	height:100%;
+	width:100%;
+	cursor: not-allowed;
+	filter: alpha(opacity=60);
+	opacity: 0.6;
+	background: #000000 url(AngularShieldLogo.png) no-repeat center;
+}
+#feedLoading {
+	position: absolute;
+	top:200px;
+	width:100%;
+	text-align: center;
+	font-size: 4em;
+	color:white;
+	text-shadow: 2px 2px 2px #021124;
+}
 </style>
 
 </head>
-<body ng-app ng-controller="AppCtrl">
+<body ng-app="JSON_view_edit" ng-controller="AppCtrl">
+
+<div id="veil" ng-show="pData.isLoading"></div>
+<div id="feedLoading" ng-show="pData.isLoading">Loading...</div>
+
+<div id="aboutInfo" class="pull-right">
+	<div class="dropdown">
+		<a id="dropInfo" role="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown">About</a>
+		<div class="dropdown-menu small" aria-labelledby="dropInfo">
+			<p><b>JSON view/edit utility</b> using <a href="http://angularjs.org/" target="_blank">AngularJS</a>, <a href="http://ace.ajax.org/#nav=about" target="_blank">ACE code editor</a>, <a href="http://jquery.com/" target="_blank">jQuery</a> and <a href="http://twitter.github.io/bootstrap/" target="_blank">Twitter bootstrap</a>.</p>
+
+			<p class="pull-right"><em>by <a href="http://www.wingo.com/services.html" title="wingo.com">Joseph Oster</a>, May 2013</em><br>
+			<a href="http://www.wingo.com/services.html" title="wingo.com Web Site Design"><img src="http://www.wingo.com/images/wsb.gif" width="111" height="40" alt="wingo.com Web Site Design" /></a></p>
+		</div>
+	</div>
+</div>
+
+
+
+<div class="input-prepend">
+	<a ng-click="json_get()" class="btn btn-primary add-on"><i class="foundicon-plus"></i> JSON url</a>
+	<input type="text" ng-model="jsonFeedUrl" placeholder="json url" jt-on-enter="json_get()">
+</div>
 
 <ul class="nav nav-tabs" id="myTab">
 	<li class="active"><a href="#raw" data-toggle="tab" ng-click="raw_json()">raw JSON</a></li>
@@ -51,36 +113,64 @@
 <script src="../../bootstrap/js/bootstrap.js" type="text/javascript"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.6/angular.min.js"></script>
 <script src="http://rawgithub.com/ajaxorg/ace-builds/master/src-noconflict/ace.js" type="text/javascript" charset="utf-8"></script>
+<script src="../jt_AJS.js"></script>
 
 <script>
-var editor = ace.edit("editor");
-editor.setTheme("ace/theme/monokai");
-editor.getSession().setMode("ace/mode/json");
+angular.module('JSON_view_edit', ['jt_AJS'])
 
-function AppCtrl($scope) {
+	.controller('AppCtrl', function($scope, $http, $timeout) {
 
-	$scope.pData = {'raw_json': ''};
+		$scope.pData = {'raw_json': '', 'isLoading': false};
 
-	editor.getSession().on('change', function(e) {
-		$scope.pData.raw_json = editor.getValue();
-	});
+		$scope.setLoading = function(loading) {
+			console.log('setLoading=' + loading, $scope);
+			$timeout(function() { $scope.pData.isLoading = loading; }, 0); // wait for DOM
+		}
 
-	$scope.edit_json = function() {
-		var txt = JSON.stringify(JSON.parse($scope.pData.raw_json), null, 3);
-		editor.setValue(txt, -1);
-		return txt;
-	}
+		var editor = ace.edit("editor");
+		editor.setTheme("ace/theme/monokai");
+		editor.getSession().setMode("ace/mode/json");
+		editor.getSession().on('change', function(e) {
+			$scope.pData.raw_json = editor.getValue();
+		});
 
-	$scope.fmt_json = function() {
-		$('#formatted').text( $scope.edit_json() );
-		$('#myTab a[href="#formatted"]').tab('show');
-	}
+		$scope.edit_json = function() {
+			var txt = JSON.stringify(JSON.parse($scope.pData.raw_json), null, 3);
+			editor.setValue(txt, -1);
+			return txt;
+		}
 
-	$scope.raw_json = function() {
-		$scope.pData.raw_json = JSON.stringify(JSON.parse(editor.getValue()));
-	}
+		$scope.fmt_json = function() {
+			$('#formatted').text( $scope.edit_json() );
+			$('#myTab a[href="#formatted"]').tab('show');
+		}
 
-}
+		$scope.raw_json = function() {
+			$scope.pData.raw_json = JSON.stringify(JSON.parse($scope.pData.raw_json));
+		}
+
+		$scope.json_get = function() {
+			$scope.setLoading(true);
+			console.log('json_get...', $scope);
+			$scope.pData.raw_json = "Loading...";
+			$('#myTab a[href="#raw"]').tab('show');
+			$http({method: 'GET', url: 'json_relay.php?url=' + $scope.jsonFeedUrl}).
+				success(function(data, status, headers, config) {
+					console.log(data);
+					$scope.pData.raw_json = JSON.stringify(data);
+					$scope.edit_json();
+					$('#myTab a[href="#editor"]').tab('show');
+					$scope.setLoading(false);
+				}).
+				error(function(data, status, headers, config) {
+					$scope.setLoading(false);
+					console.log(data, status, headers, config);
+					$scope.pData.raw_json = status;
+				});
+
+		}
+
+	})
 </script>
 
 </body>
