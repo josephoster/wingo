@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>JSON formatter</title>
+
+<link rel="stylesheet" href="../../bootstrap/css/bootstrap.css" type="text/css">
+<link rel="stylesheet" href="../../bootstrap/css/bootstrap-responsive.css" type="text/css">
+
+<style>
+.nav,
+.tab-content {
+	margin:10px;
+}
+
+#raw textarea {
+	width:90%;
+	height:500px;
+}
+
+#editor {
+	position: absolute;
+	width:90%;
+	height:500px;
+}
+
+#formatted {
+	white-space: pre-wrap;
+}
+</style>
+
+</head>
+<body ng-app ng-controller="AppCtrl">
+
+<ul class="nav nav-tabs" id="myTab">
+	<li class="active"><a href="#raw" data-toggle="tab" ng-click="raw_json()">raw JSON</a></li>
+	<li><a href="#formatted" data-toggle="tab" ng-click="fmt_json()">formatted</a></li>
+	<li><a href="#editor" data-toggle="tab" ng-click="edit_json()">editor</a></li>
+</ul>
+
+<div class="tab-content">
+	<div class="tab-pane active" id="raw">
+		<textarea ng-model="pData.raw_json" name="pData.raw_json" ng-change="fmt_json()" placeholder="raw json"></textarea>
+	</div>
+	<div class="tab-pane" id="formatted"></div>
+	<div class="tab-pane" id="editor"></div>
+</div>
+
+
+
+<script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+<script src="../../bootstrap/js/bootstrap.js" type="text/javascript"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.6/angular.min.js"></script>
+<script src="http://rawgithub.com/ajaxorg/ace-builds/master/src-noconflict/ace.js" type="text/javascript" charset="utf-8"></script>
+
+<script>
+var editor = ace.edit("editor");
+editor.setTheme("ace/theme/monokai");
+editor.getSession().setMode("ace/mode/json");
+
+function AppCtrl($scope) {
+
+	$scope.pData = {'raw_json': ''};
+
+	editor.getSession().on('change', function(e) {
+		$scope.pData.raw_json = editor.getValue();
+	});
+
+	$scope.edit_json = function() {
+		var txt = JSON.stringify(JSON.parse($scope.pData.raw_json), null, 3);
+		editor.setValue(txt, -1);
+		return txt;
+	}
+
+	$scope.fmt_json = function() {
+		$('#formatted').text( $scope.edit_json() );
+		$('#myTab a[href="#formatted"]').tab('show');
+	}
+
+	$scope.raw_json = function() {
+		$scope.pData.raw_json = JSON.stringify(JSON.parse(editor.getValue()));
+	}
+
+}
+</script>
+
+</body>
+</html>
