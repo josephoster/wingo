@@ -26,7 +26,7 @@ img {
 	position:fixed;
 	top:0;
 	left:0;
-	padding-top:24px;
+	padding-top:8px;
 	height: 100%;
 	background-image: url(images/bg_left_nav2.jpg);
 	box-shadow: 4px 0  4px #777777;
@@ -34,10 +34,14 @@ img {
 }
 #wingoMenu.bg_lg {
 	background-image: url(images/princeville_bg2.jpg);
+	background-position: 0px 0px;
+	-moz-transition: background-position 2s linear;
+	-webkit-transition: background-position 2s linear;
+	-ms-transition: background-position 2s linear;
+	-o-transition: background-position 2s linear;
+	transition: background-position 2s linear;
 }
-BODY.wingo #wingoMenu {
-	display:block;
-}
+BODY.wingo #wingoMenu {display:block;}
 BODY.wingoGame #wingoMenu {
 	display:block;
 	background-image: none;
@@ -76,9 +80,7 @@ BODY.moBar #wingoMenu a,
 	background-size: 100% 100%;
 }
 #wingoMenu a.picked span,
-#wingoMenu a:hover span {
-	padding:0 5px 0 2px;
-}
+#wingoMenu a:hover span {padding:0 5px 0 2px;}
 
 H1.wingoHeading,
 H1.wingoHeading2 {
@@ -97,9 +99,7 @@ H1.wingoHeading2 {
 	font-weight: normal;
 }
 
-DIV.navWingo {
-	margin-top: 2px;
-}
+DIV.navWingo {margin-top: 2px;}
 
 DIV.navWingo UL {
 	margin: 0px;
@@ -158,15 +158,11 @@ DIV.navWingo .current A:hover SPAN {
 }
 
 footer,
-#footer {
-	clear: both;
-}
+#footer {clear: both;}
 footer a.fs2,
 footer a.fs3,
 footer td,
-#footer td {
-	text-shadow: 1px 1px 2px #999999;
-}
+#footer td {text-shadow: 1px 1px 2px #999999;}
 
 .leftCol {
 	width:69%;
@@ -223,13 +219,9 @@ footer td,
 	margin: 0 0 10px 0;
 	padding:0 10px 0 25px;
 }
-.webSkills li {
-	line-height:1.33em;
-}
+.webSkills li {line-height:1.33em;}
 
-.wingoBay {
-	margin:20px 0 0 20px;
-}
+.wingoBay {margin:20px 0 0 20px;}
 
 #wingoMobile {
 	visibility:hidden;
@@ -280,17 +272,13 @@ a#btnMenuOn {
 	margin:6px 0 0 10px;
 }
 
-BODY.moBar #wingoMobile {
-	visibility:visible;
-}
+BODY.moBar #wingoMobile {visibility:visible;}
 BODY.wingo .moBar {
 	background-image:none;
 	margin-left:0;
 }
 BODY.moBar .wingoBay,
-BODY.moBar DIV.navWingo {
-	display:none;
-}
+BODY.moBar DIV.navWingo {display:none;}
 BODY.moBar #wingoMenu {
 	position: relative;
 	top:0;
@@ -306,48 +294,32 @@ BODY.moBar #wingoMenu a {
 }
 BODY.moBar #wingoMenu span,
 BODY.moBar #wingoMenu a.picked span,
-BODY.moBar #wingoMenu a:hover span {
-	padding:0;
-}
+BODY.moBar #wingoMenu a:hover span {padding:0;}
 BODY.moBar H1.wingoHeading,
-BODY.moBar H1.wingoHeading2 {
-	margin-top:10px;
-}
+BODY.moBar H1.wingoHeading2 {margin-top:10px;}
 
 @media screen and (max-width: 800px) {
 	BODY.wingo {
 		background-image:none;
 		margin-left:0;
 	}
-	BODY.wingo #wingoMenu {
-		display:none;
-	}
-	.pageWrap {
-		margin: 0 10px;
-	}
+	BODY.wingo #wingoMenu {display:none;}
+	.pageWrap {margin: 0 10px;}
 }
 @media screen and (max-width: 520px) {
-	footer img.ifWide {
-		display:none;
-	}
+	footer img.ifWide {display:none;}
 }
 @media screen and (max-width: 440px) {
-	footer td {
-		font-size:1.5em !important;
-	}
+	footer td {font-size:1.5em !important;}
 }
 
 @media print {
-	BODY {
-		padding:0 !important;
-	}
+	BODY {padding:0 !important;}
 	BODY.wingo {
 		background-image:none;
 		margin-left:0;
 	}
-	#wingoMobile {
-		visibility:hidden !important;
-	}
+	#wingoMobile {visibility:hidden !important;}
 	.pageWrap {
 		max-width:auto;
 		margin:0;
@@ -356,26 +328,16 @@ BODY.moBar H1.wingoHeading2 {
 	#wingoMenu,
 	.ieUpgrade,
 	.navWingo,
-	.myBox {
-		display:none !important;
-	}
+	.myBox {display:none !important;}
 }
 
 INPUT, TEXT, TEXTAREA, SELECT {color: #2b2b2b;}
 
 .sm {font-size: 0.75em;}
-.fs-1 {
-	font-size: 0.8em;
-}
-.fs1 {
-	font-size: 1.1em;
-}
-.fs2 {
-	font-size: 1.5em;
-}
-.fs3 {
-	font-size: 2.0em;
-}
+.fs-1 {font-size: 0.8em;}
+.fs1 {font-size: 1.1em;}
+.fs2 {font-size: 1.5em;}
+.fs3 {font-size: 2.0em;}
 
 DIV.dashBox {
 	clear: both;
@@ -417,9 +379,7 @@ A.wingoLC:hover {
 	background-color: #f5f5f5;
 }
 
-.clearFloat {
-	clear:both;
-}
+.clearFloat {clear:both;}
 
 /* horizontal lines */
 DIV.hLine {

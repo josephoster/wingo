@@ -11,14 +11,18 @@ var menuWingo = {
 	bg_start: function() {
 
 			function start() {
-				menuWingo.bg_stop();
-				menuWingo.bg_timer = setInterval(function() {
+
+				function oneIncr() {
 					menuWingo.menuData.x += menuWingo.menuData.inc;
 					menuWingo.bg_set(menuWingo.menuData.x);
-					if ((menuWingo.menuData.x >= 0) || (menuWingo.menuData.x <= menuWingo.wMenu - menuWingo.bg_img.width)) {
+					if ((menuWingo.menuData.x >= 0) || (menuWingo.menuData.x + menuWingo.bg_img.width + menuWingo.menuData.inc < menuWingo.wMenu)) {
 						menuWingo.menuData.inc = menuWingo.menuData.inc * -1; // reverse
 					}
-				}, 1000);
+				}
+
+				oneIncr();
+				menuWingo.bg_stop();
+				menuWingo.bg_timer = setInterval(oneIncr, 2000); // must match CSS transition interval for '#wingoMenu.bg_lg'
 			}
 
 		if (menuWingo.bg_img) {
@@ -30,10 +34,11 @@ var menuWingo = {
 			if (menuWingo.menuData.inc) {
 				menuWingo.menuData.x = parseInt(menuWingo.menuData.x);
 				menuWingo.menuData.inc = parseInt(menuWingo.menuData.inc);
+				menuWingo.bg_set(menuWingo.menuData.x);
 			}
 			else {
 				menuWingo.menuData.x = 0;
-				menuWingo.menuData.inc = -1;
+				menuWingo.menuData.inc = -35; // even multiple of 'menuWingo.bg_img.width - menuWingo.wMenu' to see all
 			}
 			jt_.addListener(window, "unload", function() {
 				menuWingo.menuData.store();
